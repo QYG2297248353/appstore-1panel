@@ -5,9 +5,6 @@ if [ -f .env ]; then
   # 导入 .env 文件中的变量
   source .env
 
-  # 替换 docker-compose.yml 中的网络变量
-  sed -i "s/\${DOCKER_NET}/$CLUSTER_NETWORK/" docker-compose.yml
-
   # 创建目录
   mkdir -p "$ES_ROOT_PATH"
 
@@ -30,7 +27,7 @@ if [ -f .env ]; then
   cp elasticsearch.yml "$ES_ROOT_PATH/es01/config/elasticsearch.yml"
 
   # 生成 kibana.yml 文件
-  kibana_config="server.host: \"0.0.0.0\"\nserver.shutdownTimeout: \"5s\"\nelasticsearch.hosts: [ \"http://localhost:$PANEL_APP_PORT_HTTPS\" ]\nmonitoring.ui.container.elasticsearch.enabled: true"
+  kibana_config="server.host: \"0.0.0.0\"\nserver.shutdownTimeout: \"5s\"\nelasticsearch.hosts: [ \"https://es01:9200\" ]\nmonitoring.ui.container.elasticsearch.enabled: true"
   echo -e "$kibana_config" > kibana.yml
   cp kibana.yml "$ES_ROOT_PATH/kibana/config/kibana.yml"
 
@@ -39,15 +36,6 @@ if [ -f .env ]; then
 
   # 设置权限
   chmod -R 777 "$ES_ROOT_PATH"
-
-  # 创建网络
-  docker network create "$CLUSTER_NETWORK"
-  # 检查创建是否成功
-  if [ $? -eq 0 ]; then
-      echo "Network $CLUSTER_NETWORK created successfully."
-  else
-      echo "Failed to create network $CLUSTER_NETWORK."
-  fi
 
   echo "Directories and permissions set successfully."
 
