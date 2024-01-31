@@ -55,26 +55,33 @@ KPI，并使用单一 UI 来管理您的部署。
 
 ## 版本介绍
 
-### 8.12-cluster
+### 集群模式
 
-默认集群模式，包含三个节点，一个主节点，两个数据节点，一个协调节点，一个Kibana节点
+> 8.12.0-cluster
+
++ Elasticsearch 8.12.0 x3
++ Kibana 8.12.0
+
+> 8.12.0-node
+
+新增节点，需要填写集群信息
+
++ Elasticsearch 8.12.0
+
+### 单机模式
+
+> 8.12.0-single
 
 + Elasticsearch 8.12.0
 + Kibana 8.12.0
-+ 集群模式
 
-### 8.12-node
-
-单独节点模式，包含一个节点，需要填写集群信息
+> 8.12.0-elasticsearch
 
 + Elasticsearch 8.12.0
-+ 集群节点
 
-### 8.12-single
+> 8.12.0-kibana
 
-+ Elasticsearch 8.12.0
 + Kibana 8.12.0
-+ 单机模式
 
 ## 安装事项
 
@@ -88,8 +95,7 @@ vm.max_map_count 内核设置必须至少设置为 262144 才能用于生产。
 > ```shell
 > grep vm.max_map_count /etc/sysctl.conf
 > ```
-
-显示值大于或等于 262144。即可，如果显示的值小于 262144，请执行以下步骤：
+> 显示值大于或等于 262144。即可，如果显示的值小于 262144，请执行以下步骤：
 
 临时设置 vm.max_map_count
 
@@ -101,16 +107,45 @@ sudo sysctl -w vm.max_map_count=262144
 
 ```shell
 sudo vi /etc/sysctl.conf
-```
-
-文件末尾添加
-
-```shell
+# 文件末尾添加
 vm.max_map_count=262144
-```
-
-生效
-
-```shell
+# 生效
 sudo sysctl -p
 ```
+
+### 增加 nofile 和 nproc 的 ulimit 值 最小值 65535
+
+> Linux
+>
+> root 用户 与 普通用户 请注意区别很大
+>
+> To view the current value for the ulimit setting, run:
+> ```shell
+> ulimit -n
+> ```
+> 显示值大于或等于 65535。即可，如果显示的值小于 65535，请执行以下步骤：
+
+临时设置 ulimit
+
+```shell
+ulimit -n 65535
+```
+
+永久设置 ulimit
+
+**涉及服务器重启**
+
+```shell
+sudo vi /etc/security/limits.conf
+# 文件末尾添加
+root            soft    nofile  unlimited
+root            hard    nofile  unlimited
+*               soft    nofile  65535
+*               hard    nofile  65535
+# 生效 重启(重启服务器后生效！！！)
+sudo reboot
+```
+
+## 日志配置
+
+当前采用 `JSON File logging driver` 记录日志
