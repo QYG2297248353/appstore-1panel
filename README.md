@@ -1,8 +1,8 @@
 # 1Panel 应用商店
 
-当前仓库由 `新疆萌森软件开发工作室` 维护，我们致力于为 1Panel 用户提供更多的应用程序。
+当前仓库由 [`新疆萌森软件开发工作室`](https://lifebus.top/) 维护，我们致力于为 1Panel 用户提供更多的应用程序。
 
-## 上线应用
+## 维护应用
 
 - [x] [Nacos](https://nacos.io/)
 - [x] [Sentinel-Dashboard](https://sentinelguard.io/)
