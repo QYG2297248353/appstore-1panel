@@ -14,10 +14,23 @@
 
 ## 脚本安装
 
+> 方案一：使用 `curl` 安装，不会提示脚本下载异常
+
 ```shell
-git clone -b localApps https://github.com/QYG2297248353/appstore-1panel /opt/1panel/resource/apps/local/appstore-localApps
+#!/bin/bash
 
-cp -rf /opt/1panel/resource/apps/local/appstore-localApps/apps/* /opt/1panel/resource/apps/local/
+# 定义脚本URL
+script_url="https://github.com/QYG2297248353/appstore-1panel/releases/download/install/install.sh"
 
-rm -rf /opt/1panel/resource/apps/local/appstore-localApps
+# 执行脚本
+echo "Downloading and executing script from $script_url..."
+bash <(curl -sL "$script_url")
+
+# 输出执行结果
+echo "Script execution completed."
+
 ```
+
+> 方案二：复制 `install.sh` 脚本内容
+
+[install.sh](install.sh)
