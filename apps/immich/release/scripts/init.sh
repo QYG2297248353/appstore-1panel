@@ -27,12 +27,12 @@ if [ -f .env ]; then
   sed -i "s/\${DOCKER_NET}/$MICROSERVICES_NETWORK/" docker-compose.yml
 
   # 创建网络
-  docker network create "$CLUSTER_NETWORK"
+  docker network create "$MICROSERVICES_NETWORK"
   # 检查创建是否成功
   if [ $? -eq 0 ]; then
-      echo "Network $CLUSTER_NETWORK created successfully."
+      echo "Network $MICROSERVICES_NETWORK created successfully."
   else
-      echo "Failed to create network $CLUSTER_NETWORK."
+      echo "Failed to create network $MICROSERVICES_NETWORK."
   fi
 
   echo "Directories and permissions set successfully."

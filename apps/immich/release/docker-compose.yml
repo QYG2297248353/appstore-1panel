@@ -13,7 +13,7 @@ services:
     container_name: immich_server
     image: ghcr.io/immich-app/immich-server:release
     networks:
-      - ${CLUSTER_NETWORK}
+      - ${MICROSERVICES_NETWORK}
       - 1panel-network
     command: [ "start.sh", "immich" ]
     volumes:
@@ -42,7 +42,7 @@ services:
     container_name: immich_microservices
     image: ghcr.io/immich-app/immich-server:release
     networks:
-      - ${CLUSTER_NETWORK}
+      - ${MICROSERVICES_NETWORK}
     command: [ "start.sh", "microservices" ]
     volumes:
       - ${IMMICH_ROOT_PATH}/library:/usr/src/app/upload
@@ -68,7 +68,7 @@ services:
     container_name: immich_machine_learning
     image: ghcr.io/immich-app/immich-machine-learning:release
     networks:
-      - ${CLUSTER_NETWORK}
+      - ${MICROSERVICES_NETWORK}
     volumes:
       - ${IMMICH_ROOT_PATH}/cache:/cache
     env_file:

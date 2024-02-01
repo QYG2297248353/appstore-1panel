@@ -3,13 +3,13 @@ additionalProperties:
     - child:
         default: ""
         envKey: PANEL_PGSQL_DB_HOST
-        required: true
+        required: false
         type: service
       default: postgresql
       envKey: PANEL_PGSQL_DB_TYPE
       labelEn: Database Service
       labelZh: 数据库服务
-      required: true
+      required: false
       type: apps
       values:
         - label: PostgreSQL
@@ -31,7 +31,7 @@ additionalProperties:
     - default: "immich-net"
       edit: true
       envKey: MICROSERVICES_NETWORK
-      labelEn: MICROSERVICES_NETWORK
+      labelEn: microservices network
       labelZh: 微服务网络
       required: true
       type: text

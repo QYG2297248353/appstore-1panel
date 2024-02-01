@@ -4,13 +4,13 @@ additionalProperties:
         default: ""
         envKey: PANEL_PGSQL_DB_HOST
         key: postgresql
-        required: true
+        required: false
         type: service
       default: postgresql
       envKey: PANEL_PGSQL_DB_TYPE
       labelEn: Database Service
       labelZh: 数据库服务
-      required: true
+      required: false
       type: apps
       values:
         - label: PostgreSQL
