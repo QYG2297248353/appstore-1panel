@@ -85,3 +85,15 @@ additionalProperties:
           value: "true"
         - label: False
           value: "false"
+    - default: "false"
+      edit: true
+      envKey: MS_TEMPLATE_ENABLED
+      labelEn: Use template installation (can be used if installation fails multiple times)
+      labelZh: 使用模板安装（多次安装失败可使用此方法）
+      required: true
+      type: select
+      values:
+        - label: True
+          value: "true"
+        - label: False
+          value: "false"

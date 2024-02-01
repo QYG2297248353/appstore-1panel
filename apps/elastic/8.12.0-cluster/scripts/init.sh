@@ -5,14 +5,22 @@ if [ -f .env ]; then
   # 导入 .env 文件中的变量
   source .env
 
-  # 模板文件 MS_TEMPLATE_ENABLED 为 true 时 使用正确的模板文件
-  MS_TEMPLATE_ENABLED=$(grep -E '^MS_TEMPLATE_ENABLED=' .env | cut -d= -f2)
-
-  # 检查MS_TEMPLATE_ENABLED是否为真
+  # 检查模板是否启用
   if [ "$MS_TEMPLATE_ENABLED" = "true" ]; then
-      # 复制docker-compose-template.yml为docker-compose.yml，覆盖已存在的文件
-      cp -f docker-compose-template.yml docker-compose.yml
-      echo "docker-compose.yml updated successfully."
+      # 检查模板文件是否存在
+      if [ -e "docker-compose-template.yml" ]; then
+          # 读取模板文件的内容
+          template_content=$(<docker-compose-template.yml)
+          # 清空目标文件
+          > docker-compose.yml
+          # 将模板内容写入目标文件
+          echo "$template_content" > docker-compose.yml
+
+          echo "docker-compose.yml updated successfully."
+      else
+          echo "Error: docker-compose-template.yml not found."
+          exit 1
+      fi
   fi
 
   # 替换 docker-compose.yml 中的网络变量
