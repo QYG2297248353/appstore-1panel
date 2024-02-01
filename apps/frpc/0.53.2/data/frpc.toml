@@ -1,8 +1,0 @@
-serverAddr = "0.0.0.0"
-serverPort = 7000
-
-webServer.addr = "0.0.0.0"
-webServer.port = 40001
-webServer.user = "admin"
-webServer.password = "password123456"
-webServer.pprofEnable = false
