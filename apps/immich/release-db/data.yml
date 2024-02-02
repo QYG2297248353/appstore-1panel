@@ -9,7 +9,7 @@ additionalProperties:
       envKey: PANEL_REDIS_DB_TYPE
       labelEn: Database Service
       labelZh: 数据缓存服务
-      required: true
+      required: false
       type: apps
       values:
         - label: Redis
@@ -18,7 +18,7 @@ additionalProperties:
       envKey: PANEL_PGSQL_DB_TYPE
       labelEn: Automatic installation of pg14 pgvecto.rs v0.1.11 services
       labelZh: 自动安装 pg14 pgvecto.rs v0.1.11 服务
-      required: true
+      required: false
       type: select
       values:
         - label: PostgreSQL

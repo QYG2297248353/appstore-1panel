@@ -23,7 +23,7 @@ additionalProperties:
       envKey: PANEL_REDIS_DB_TYPE
       labelEn: Database Service
       labelZh: 数据库服务
-      required: true
+      required: false
       type: apps
       values:
         - label: Redis
