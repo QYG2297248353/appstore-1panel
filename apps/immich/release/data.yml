@@ -111,7 +111,7 @@ additionalProperties:
       type: password
     - default: "immich"
       edit: true
-      envKey: DB_DATABASE
+      envKey: DB_DATABASE_NAME
       labelEn: Database Name
       labelZh: 数据库名称
       required: true
