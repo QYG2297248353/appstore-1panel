@@ -13,7 +13,7 @@ services:
     networks:
       - 1panel-network
     ports:
-      - ${PANEL_APP_PORT_HTTP}:5432
+      - "${PANEL_APP_PORT_HTTP}:5432"
     env_file:
       - .env
     environment:

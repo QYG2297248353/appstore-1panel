@@ -8,7 +8,7 @@ services:
     volumes:
       - ${QINGLONG_ROOT_PATH}/data:/ql/data
     ports:
-      - ${PANEL_APP_PORT_HTTP}:5700
+      - "${PANEL_APP_PORT_HTTP}:5700"
     environment:
       QlBaseUrl: ${QINGLONG_BASE_URL}
     restart: always

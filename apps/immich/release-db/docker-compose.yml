@@ -15,7 +15,7 @@ services:
     networks:
       - ${MICROSERVICES_NETWORK}
     ports:
-      - ${DB_PORT}:5432
+      - "${DB_PORT}:5432"
     env_file:
       - .env
     environment:
@@ -83,7 +83,7 @@ services:
     env_file:
       - .env
     ports:
-      - ${PANEL_APP_PORT_HTTP}:3001
+      - "${PANEL_APP_PORT_HTTP}:3001"
     restart: always
     environment:
       NODE_ENV: ${NODE_ENV}

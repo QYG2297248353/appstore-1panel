@@ -62,7 +62,7 @@ services:
     env_file:
       - .env
     ports:
-      - ${PANEL_APP_PORT_HTTP}:3001
+      - "${PANEL_APP_PORT_HTTP}:3001"
     restart: always
     environment:
       NODE_ENV: ${NODE_ENV}

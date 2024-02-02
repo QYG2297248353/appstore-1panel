@@ -77,8 +77,8 @@ services:
       - ${ES_ROOT_PATH}/es01/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - ${ES_ROOT_PATH}/es01/plugins:/usr/share/elasticsearch/plugins
     ports:
-      - ${PANEL_APP_PORT_HTTPS}:9200
-      - ${ES_COMMUNICATION_PORT}:9300
+      - "${PANEL_APP_PORT_HTTPS}:9200"
+      - "${ES_COMMUNICATION_PORT}:9300"
     networks:
       - 1panel-network
     environment:
@@ -133,7 +133,7 @@ services:
       - ${ES_ROOT_PATH}/kibana/data:/usr/share/kibana/data
       - ${ES_ROOT_PATH}/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
     ports:
-      - ${PANEL_APP_PORT_HTTP}:5601
+      - "${PANEL_APP_PORT_HTTP}:5601"
     networks:
       - 1panel-network
     environment:

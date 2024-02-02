@@ -16,8 +16,8 @@ services:
       - ${ES_ROOT_PATH}/${ES_NODE_NAME}/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - ${ES_ROOT_PATH}/${ES_NODE_NAME}/plugins:/usr/share/elasticsearch/plugins
     ports:
-      - ${PANEL_APP_PORT_HTTPS}:9200
-      - ${ES_COMMUNICATION_PORT}:9300
+      - "${PANEL_APP_PORT_HTTPS}:9200"
+      - "${ES_COMMUNICATION_PORT}:9300"
     networks:
       - ${CLUSTER_NETWORK}
     command: >

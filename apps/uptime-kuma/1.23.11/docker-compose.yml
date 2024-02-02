@@ -15,6 +15,6 @@ services:
       - ${UPTIME_KUMA_ROOT_PATH}/data:/app/data
       - ${UPTIME_KUMA_DOCKER_SOCKET}:/var/run/docker.sock
     ports:
-      - ${PANEL_APP_PORT_HTTP}:3001
+      - "${PANEL_APP_PORT_HTTP}:3001"
     labels:
       createdBy: "Apps"
