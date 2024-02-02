@@ -1,0 +1,20 @@
+version: '3'
+networks:
+  1panel-network:
+    external: true
+services:
+  redis:
+    image: redis:7.2.4
+    restart: always
+    container_name: ${CONTAINER_NAME}
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:6379
+    command: redis-server  /etc/redis/redis.conf --requirepass ${PANEL_REDIS_ROOT_PASSWORD}
+    volumes:
+      - ${REDIS_ROOT_PATH}/data:/data
+      - ${REDIS_ROOT_PATH}/conf/redis.conf:/etc/redis/redis.conf
+      - ${REDIS_ROOT_PATH}/logs:/logs
+    labels:
+      createdBy: "Apps"
