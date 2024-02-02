@@ -32,7 +32,7 @@ services:
     networks:
       - ${MICROSERVICES_NETWORK}
     volumes:
-      - ${IMMICH_ROOT_PATH}/cache:/cache
+      - ${IMMICH_ROOT_PATH}/data/cache:/cache
     env_file:
       - .env
     restart: always
@@ -48,7 +48,7 @@ services:
       - ${MICROSERVICES_NETWORK}
     command: [ "start.sh", "microservices" ]
     volumes:
-      - ${IMMICH_ROOT_PATH}/library:/usr/src/app/upload
+      - ${IMMICH_ROOT_PATH}/data/library:/usr/src/app/upload
       - /etc/localtime:/etc/localtime:ro
     env_file:
       - .env
@@ -78,7 +78,7 @@ services:
       - 1panel-network
     command: [ "start.sh", "immich" ]
     volumes:
-      - ${IMMICH_ROOT_PATH}/library:/usr/src/app/upload
+      - ${IMMICH_ROOT_PATH}/data/library:/usr/src/app/upload
       - /etc/localtime:/etc/localtime:ro
     env_file:
       - .env
