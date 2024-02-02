@@ -13,6 +13,7 @@
 - [x] [Immich](https://immich.app/)
 - [x] [PostgreSQL](https://www.postgresql.org/)
 - [x] [SpeedTest](https://www.speedtest.net/)
+- [x] [Uptime-Kuma](https://github.com/louislam/uptime-kuma)
 
 ## 脚本安装
 
