@@ -17,7 +17,7 @@ additionalProperties:
     - child:
         default: ""
         envKey: PANEL_REDIS_DB_HOST
-        required: true
+        required: false
         type: service
       default: redis
       envKey: PANEL_REDIS_DB_TYPE
