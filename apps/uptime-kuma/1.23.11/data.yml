@@ -1,5 +1,17 @@
 additionalProperties:
   formFields:
+    - default: "1.23.11-alpine"
+      edit: true
+      envKey: RELEASE_VERSION
+      labelEn: Release Version
+      labelZh: 发布版本
+      required: true
+      type: select
+      values:
+        - label: "1.23.11-alpine"
+          value: "1.23.11-alpine"
+        - label: "1.23.11"
+          value: "1.23.11"
     - default: 3001
       edit: true
       envKey: PANEL_APP_PORT_HTTP
