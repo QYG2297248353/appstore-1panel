@@ -14,7 +14,10 @@ if [ -f .env ]; then
 
   cp redis.conf "$REDIS_ROOT_PATH/conf/redis.conf"
 
-  echo "Directories set successfully."
+  # 设置目录权限
+  chmod -R 777 "$REDIS_ROOT_PATH"
+
+  echo "Directories and permissions set successfully."
 
 else
   echo "Error: .env file not found."
