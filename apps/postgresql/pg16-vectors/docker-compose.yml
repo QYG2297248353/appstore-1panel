@@ -23,3 +23,5 @@ services:
     volumes:
       - ${POSTGRES_DATA}:/var/lib/postgresql/data
     restart: always
+    labels:
+      createdBy: "Apps"
