@@ -4,14 +4,20 @@
 
 ## 维护应用
 
-- [x] [Nacos](https://nacos.io/)
-- [x] [Sentinel-Dashboard](https://sentinelguard.io/)
+- [x] [Bark](https://bark.day.app/)
 - [x] [Elastic](https://www.elastic.co/)
     - [x] [Elasticsearch](https://www.elastic.co/elasticsearch/)
     - [x] [Kibana](https://www.elastic.co/kibana/)
     - [ ] [Logstash](https://www.elastic.co/logstash/)
 - [x] [Immich](https://immich.app/)
+- [x] [MySQL](https://www.mysql.com/)
+    - [x] [MariaDB](https://mariadb.org/)
+    - [ ] [Percona](https://www.percona.com/)
+- [x] [Nacos](https://nacos.io/)
 - [x] [PostgreSQL](https://www.postgresql.org/)
+- [x] [QingLong](https://github.com/whyour/qinglong)
+- [x] [Redis](https://redis.io/)
+- [x] [Sentinel-Dashboard](https://sentinelguard.io/)
 - [x] [SpeedTest](https://www.speedtest.net/)
 - [x] [Uptime-Kuma](https://github.com/louislam/uptime-kuma)
 
