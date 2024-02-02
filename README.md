@@ -10,7 +10,9 @@
     - [x] [Elasticsearch](https://www.elastic.co/elasticsearch/)
     - [x] [Kibana](https://www.elastic.co/kibana/)
     - [ ] [Logstash](https://www.elastic.co/logstash/)
-- [ ] [Immich](https://immich.app/)
+- [x] [Immich](https://immich.app/)
+- [x] [PostgreSQL](https://www.postgresql.org/)
+- [x] [SpeedTest](https://www.speedtest.net/)
 
 ## 脚本安装
 
