@@ -19,6 +19,6 @@ additionalProperties:
       edit: true
       envKey: QINGLONG_BASE_URL
       labelEn: Base URL
-      labelZh: 访问路径
+      labelZh: 安全访问路径 例如 /qinglong/
       required: true
       type: text
