@@ -16,18 +16,6 @@ additionalProperties:
       required: true
       rule: paramPort
       type: number
-    - default: "true"
-      edit: true
-      envKey: AUTH_ENABLED
-      labelEn: Dashboard Auth Enabled
-      labelZh: 控制台 鉴权开关
-      required: true
-      type: select
-      values:
-        - label: "true"
-          value: "true"
-        - label: "false"
-          value: "false"
     - default: "sentinel"
       edit: true
       envKey: SENTINEL_DASHBOARD_AUTH_USERNAME
