@@ -1,21 +1,5 @@
 additionalProperties:
   formFields:
-    - child:
-        default: ""
-        envKey: PANEL_DB_HOST
-        required: true
-        type: service
-      default: mysql
-      envKey: PANEL_DB_TYPE
-      labelEn: Database Service
-      labelZh: 数据库服务
-      required: true
-      type: apps
-      values:
-        - label: MySQL
-          value: mysql
-        - label: MariaDB
-          value: mariadb
     - default: "serverIdentity"
       edit: true
       envKey: NACOS_AUTH_IDENTITY_KEY
@@ -77,7 +61,9 @@ additionalProperties:
       values:
         - label: MySQL
           value: mysql
-    - default: ""
+        - label: MariaDB
+          value: mariadb
+    - default: "localhost"
       edit: true
       envKey: MYSQL_SERVICE_HOST
       labelEn: Database host IP
@@ -98,14 +84,14 @@ additionalProperties:
       labelZh: 数据库端口
       rule: paramPort
       type: number
-    - default: "nacos"
+    - default: "nacos_username"
       edit: true
       envKey: MYSQL_SERVICE_USER
       labelEn: Database Connection Users
       labelZh: 数据库连接用户
       required: true
       type: text
-    - default: "nacos"
+    - default: "nacos_password"
       edit: true
       envKey: MYSQL_SERVICE_PASSWORD
       labelEn: Database connection password
