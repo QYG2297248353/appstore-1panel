@@ -6,13 +6,13 @@ if [ -f .env ]; then
   source .env
 
   # 使用 docker network rm 命令删除网络
-  docker network rm $CLUSTER_NETWORK
+  docker network rm $MICROSERVICES_NETWORK
 
   # 检查删除是否成功
   if [ $? -eq 0 ]; then
-      echo "Network $CLUSTER_NETWORK deleted successfully."
+      echo "Network $MICROSERVICES_NETWORK deleted successfully."
   else
-      echo "Failed to delete network $CLUSTER_NETWORK."
+      echo "Failed to delete network $MICROSERVICES_NETWORK."
   fi
 
 else
