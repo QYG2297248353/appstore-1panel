@@ -14,14 +14,14 @@ services:
     networks:
       - 1panel-network
     ports:
-      - ${PANEL_APP_PORT_HTTP}:3306
+      - "${PANEL_APP_PORT_HTTP}:3306"
     volumes:
-      - ${MYSQL_ROOT_PATH}/data:/var/lib/mysql
-      - ${MYSQL_ROOT_PATH}/conf/my.cnf:/etc/my.cnf
-      - ${MYSQL_ROOT_PATH}/log:/var/log/mysql
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
+      - "${MYSQL_ROOT_PATH}/data:/var/lib/mysql"
+      - "${MYSQL_ROOT_PATH}/conf/my.cnf:/etc/my.cnf"
+      - "${MYSQL_ROOT_PATH}/log:/var/log/mysql"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
     labels:
       createdBy: "Apps"
     command:
-      - --default-authentication-plugin=mysql_native_password
+      - "--default-authentication-plugin=mysql_native_password"
