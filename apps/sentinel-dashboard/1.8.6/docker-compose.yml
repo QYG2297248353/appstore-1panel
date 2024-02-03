@@ -7,6 +7,10 @@ services:
     ports:
       - "${PANEL_APP_PORT_HTTP}:8858"
       - "${COMMUNICATION_PORT}:8719"
+    environment:
+      auth_enabled: ${AUTH_ENABLED}
+      sentinel_dashboard_auth_username: ${SENTINEL_DASHBOARD_AUTH_USERNAME}
+      sentinel_dashboard_auth_password: ${SENTINEL_DASHBOARD_AUTH_PASSWORD}
 networks:
   1panel-network:
     external: true
