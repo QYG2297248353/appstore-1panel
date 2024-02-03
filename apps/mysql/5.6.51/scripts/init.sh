@@ -6,13 +6,13 @@ if [ -f .env ]; then
   source .env
 
   # 创建目录
-  mkdir -p "$MARIADB_ROOT_PATH"
+  mkdir -p "$MYSQL_ROOT_PATH"
 
-  mkdir -p "$MARIADB_ROOT_PATH/data"
-  mkdir -p "$MARIADB_ROOT_PATH/conf"
-  mkdir -p "$MARIADB_ROOT_PATH/log"
+  mkdir -p "$MYSQL_ROOT_PATH/data"
+  mkdir -p "$MYSQL_ROOT_PATH/conf"
+  mkdir -p "$MYSQL_ROOT_PATH/log"
 
-  cp my.cnf "$REDIS_ROOT_PATH/conf/my.cnf"
+  cp my.cnf "$MYSQL_ROOT_PATH/conf/my.cnf"
 
   echo "Directories set successfully."
 

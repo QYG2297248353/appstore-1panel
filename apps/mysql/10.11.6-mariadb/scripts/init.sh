@@ -11,7 +11,7 @@ if [ -f .env ]; then
   mkdir -p "$MARIADB_ROOT_PATH/data"
   mkdir -p "$MARIADB_ROOT_PATH/conf"
 
-  cp my.cnf "$REDIS_ROOT_PATH/conf/my.cnf"
+  cp my.cnf "$MARIADB_ROOT_PATH/conf/"
 
   echo "Directories set successfully."
 
