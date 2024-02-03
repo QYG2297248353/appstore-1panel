@@ -1,4 +1,9 @@
 version: "3"
+
+networks:
+  1panel-network:
+    external: true
+
 services:
   "sentinel-dashboard":
     image: bladex/sentinel-dashboard:1.8.6
@@ -6,6 +11,8 @@ services:
     restart: always
     networks:
       - 1panel-network
+    labels:
+      createdBy: "Apps"
     ports:
       - "${PANEL_APP_PORT_HTTP}:8858"
       - "${COMMUNICATION_PORT}:8719"
@@ -20,6 +27,3 @@ services:
       - "-Dsentinel.dashboard.auth.password=${SENTINEL_DASHBOARD_AUTH_PASSWORD}"
       - "-jar"
       - "app.jar"
-networks:
-  1panel-network:
-    external: true
