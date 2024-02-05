@@ -123,8 +123,8 @@ additionalProperties:
     - default: "localhost"
       edit: true
       envKey: LD_DB_HOST
-      labelEn: Redis Host
-      labelZh: Redis 主机
+      labelEn: Database Host
+      labelZh: 数据库主机
       required: true
       type: text
     - default: 5432
