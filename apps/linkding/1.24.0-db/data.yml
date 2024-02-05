@@ -73,7 +73,7 @@ additionalProperties:
       labelZh: 超时配置 (秒)
       required: true
       type: number
-    - default:
+    - default: ""
       edit: true
       envKey: LD_CONTEXT_PATH
       labelEn: Context path
