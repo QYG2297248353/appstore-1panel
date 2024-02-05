@@ -46,7 +46,7 @@ additionalProperties:
       edit: true
       envKey: LD_DISABLE_BACKGROUND_TASKS
       labelEn: Disable background tasks
-      labelZh: 超级用户邮箱禁用后台任务
+      labelZh: 禁用后台任务
       required: true
       type: select
       values:
@@ -78,7 +78,7 @@ additionalProperties:
       envKey: LD_CONTEXT_PATH
       labelEn: Context path
       labelZh: 上下文路径
-      required: flase
+      required: false
       type: text
     - default: "false"
       edit: true
