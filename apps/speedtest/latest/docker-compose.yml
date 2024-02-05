@@ -6,7 +6,7 @@ networks:
 
 services:
   speedtest:
-    container_name: speedtest
+    container_name: ${CONTAINER_NAME}
     image: ghcr.io/librespeed/speedtest:latest
     networks:
       - 1panel-network
