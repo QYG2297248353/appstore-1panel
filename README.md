@@ -10,6 +10,7 @@
     - [x] [Kibana](https://www.elastic.co/kibana/)
     - [ ] [Logstash](https://www.elastic.co/logstash/)
 - [x] [Immich](https://immich.app/)
+- [x] [Jellyfin](https://jellyfin.org/)
 - [x] [Minio](https://min.io/)
 - [x] [MySQL](https://www.mysql.com/)
     - [x] [MariaDB](https://mariadb.org/)

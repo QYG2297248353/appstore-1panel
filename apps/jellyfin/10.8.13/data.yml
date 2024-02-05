@@ -1,0 +1,17 @@
+additionalProperties:
+  formFields:
+    - default: 8096
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: WebUI Port
+      labelZh: 网页端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: "/home/jellyfin"
+      edit: true
+      envKey: JELLYFIN_ROOT_PATH
+      labelEn: Data persistence root path
+      labelZh: 数据持久化 根路径
+      required: true
+      type: text
