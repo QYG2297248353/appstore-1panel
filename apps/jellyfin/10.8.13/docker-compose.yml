@@ -10,8 +10,6 @@ services:
     image: jellyfin/jellyfin:10.8.13
     restart: always
     network_mode: ${NETWORK_MODE}
-    networks:
-      - 1panel-network
     ports:
       - "${PANEL_APP_PORT_HTTP}:8096"
     volumes:
