@@ -9,6 +9,7 @@ services:
     container_name: ${CONTAINER_NAME}
     image: jellyfin/jellyfin:10.8.13
     restart: always
+    network_mode: ${NETWORK_MODE}
     networks:
       - 1panel-network
     ports:
@@ -19,3 +20,5 @@ services:
       - "${JELLYFIN_ROOT_PATH}/media:/media"
     labels:
       createdBy: "Apps"
+    devices:
+      - "${JELLYFIN_DRIVE_PATH}:/dev/dri"

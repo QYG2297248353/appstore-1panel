@@ -15,3 +15,26 @@ additionalProperties:
       labelZh: 数据持久化 根路径
       required: true
       type: text
+    - default: "/dev/dri"
+      edit: true
+      envKey: JELLYFIN_DRIVE_PATH
+      labelEn: Drive path
+      labelZh: 驱动存放路径
+      required: true
+      type: text
+    - default: "host"
+      edit: true
+      envKey: NETWORK_MODE
+      labelEn: Drive path
+      labelZh: 网络模式
+      required: true
+      type: select
+      values:
+        - label: "Host"
+          value: "host"
+        - label: "Bridge"
+          value: "bridge"
+        - label: "None"
+          value: "none"
+        - label: "1panel-network"
+          value: "1panel-network"
