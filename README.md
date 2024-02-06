@@ -20,6 +20,7 @@
 - [x] [QingLong](https://github.com/whyour/qinglong)
 - [x] [Redis](https://redis.io/)
 - [x] [Sentinel-Dashboard](https://sentinelguard.io/)
+- [x] [SftpGo](https://sftpgo.com/)
 - [x] [SpeedTest](https://www.speedtest.net/)
 - [x] [Uptime-Kuma](https://github.com/louislam/uptime-kuma)
 
