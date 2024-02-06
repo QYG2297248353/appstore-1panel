@@ -18,7 +18,7 @@ if [ -f .env ]; then
   mkdir -p "$SFTPGO_ROOT_PATH/home"
 
   # 修改目录权限
-  chown -R 1000:1000 "$ES_ROOT_PATH"
+  chown -R 1000:1000 "$SFTPGO_ROOT_PATH"
 
 else
   echo "Error: .env file not found."
