@@ -4,7 +4,7 @@ networks:
   1panel-network:
     external: true
 
-name: postgresql-vectors-16
+name: postgresql-16
 
 services:
   pg16-alpine:
