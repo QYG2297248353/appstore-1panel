@@ -5,7 +5,7 @@ networks:
     external: true
 
 services:
-  pg15-vectors:
+  postgresql:
     container_name: postgresql-vectors-15-${CONTAINER_NAME}
     image: tensorchord/pgvecto-rs:${RELEASE_VERSION}
     networks:
