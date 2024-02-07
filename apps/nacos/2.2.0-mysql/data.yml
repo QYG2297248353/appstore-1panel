@@ -70,13 +70,6 @@ additionalProperties:
       labelZh: 数据库主机IP
       required: true
       type: text
-    - default: "nacos"
-      edit: true
-      envKey: MYSQL_SERVICE_DB_NAME
-      labelEn: Database Name
-      labelZh: 数据库名称
-      required: true
-      type: text
     - default: 3306
       edit: true
       envKey: MYSQL_SERVICE_PORT
@@ -98,6 +91,13 @@ additionalProperties:
       labelZh: 数据库连接密码
       required: true
       type: password
+    - default: "nacos"
+      edit: true
+      envKey: MYSQL_SERVICE_DB_NAME
+      labelEn: Database Name
+      labelZh: 数据库名称
+      required: true
+      type: text
     - default: "characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true"
       edit: true
       envKey: MYSQL_SERVICE_DB_PARAM

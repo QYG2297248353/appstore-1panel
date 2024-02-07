@@ -9,7 +9,7 @@ services:
     networks:
       - 1panel-network
     environment:
-      - PREFER_HOST_MODE=hostname
+      - PREFER_HOST_MODE=ip
       - MODE=standalone
       - JVM_XMS=${JVM_XMS}
       - JVM_XMX=${JVM_XMX}
@@ -26,6 +26,7 @@ services:
       - MYSQL_SERVICE_USER=${MYSQL_SERVICE_USER}
       - MYSQL_SERVICE_PASSWORD=${MYSQL_SERVICE_PASSWORD}
       - MYSQL_SERVICE_DB_NAME=${MYSQL_SERVICE_DB_NAME}
+      - MYSQL_SERVICE_DB_PARAM=${MYSQL_SERVICE_DB_PARAM}
     volumes:
       - ${NACOS_DATA_ROOT_PATH}/logs:/home/nacos/logs
       - ${NACOS_DATA_ROOT_PATH}/data:/home/nacos/data

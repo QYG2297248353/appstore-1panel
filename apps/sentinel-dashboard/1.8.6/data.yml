@@ -30,3 +30,22 @@ additionalProperties:
       labelZh: 控制台 密码
       required: true
       type: text
+    - default: ""
+      edit: true
+      envKey: SENTINEL_DASHBOARD_CLIENT_IP
+      labelEn: Client ip
+      labelZh: 客户端 IP (多网卡模式下需要配置)
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: SENTINEL_DASHBOARD_FEIGN_ENABLED
+      labelEn: Feign enabled
+      labelZh: Feign 支持是否启用
+      required: false
+      type: select
+      values:
+        - label: "true"
+          value: "true"
+        - label: "false"
+          value: "false"
