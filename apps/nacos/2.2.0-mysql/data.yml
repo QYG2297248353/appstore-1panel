@@ -18,7 +18,7 @@ additionalProperties:
       edit: true
       envKey: NACOS_AUTH_TOKEN
       labelEn: Nacos auth token
-      labelZh: Nacos身份验证令牌
+      labelZh: Nacos身份验证令牌（32位及以上字符串的Base64编码）
       required: true
       type: text
     - default: 8848
