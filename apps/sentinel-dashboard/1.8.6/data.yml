@@ -30,13 +30,22 @@ additionalProperties:
       labelZh: 控制台 密码
       required: true
       type: text
-    - default: ""
+    - default: "host"
       edit: true
-      envKey: SENTINEL_DASHBOARD_CLIENT_IP
-      labelEn: Client ip
-      labelZh: 客户端 IP (多网卡模式下需要配置)
-      required: false
-      type: text
+      envKey: NETWORK_MODE
+      labelEn: Drive path
+      labelZh: 网络模式
+      required: true
+      type: select
+      values:
+        - label: "Host"
+          value: "host"
+        - label: "Bridge"
+          value: "bridge"
+        - label: "None"
+          value: "none"
+        - label: "1panel-network"
+          value: "1panel-network"
     - default: "false"
       edit: true
       envKey: SENTINEL_DASHBOARD_FEIGN_ENABLED
