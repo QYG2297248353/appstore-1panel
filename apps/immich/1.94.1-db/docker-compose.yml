@@ -25,6 +25,8 @@ services:
     volumes:
       - ${IMMICH_ROOT_PATH}/pg14/data:/var/lib/postgresql/data
     restart: always
+    labels:
+      createdBy: "Apps"
 
   immich-machine-learning:
     container_name: immich_machine_learning
@@ -38,6 +40,8 @@ services:
     restart: always
     environment:
       NODE_ENV: ${NODE_ENV}
+    labels:
+      createdBy: "Apps"
 
   immich-microservices:
     depends_on:
@@ -67,6 +71,8 @@ services:
       REDIS_DBINDEX: ${REDIS_DBINDEX}
       REDIS_USERNAME: ${REDIS_USERNAME}
       REDIS_PASSWORD: ${REDIS_PASSWORD}
+    labels:
+      createdBy: "Apps"
 
   immich-server:
     depends_on:
@@ -99,3 +105,5 @@ services:
       REDIS_DBINDEX: ${REDIS_DBINDEX}
       REDIS_USERNAME: ${REDIS_USERNAME}
       REDIS_PASSWORD: ${REDIS_PASSWORD}
+    labels:
+      createdBy: "Apps"
