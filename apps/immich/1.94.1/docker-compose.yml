@@ -6,11 +6,9 @@ networks:
   1panel-network:
     external: true
 
-name: immich
-
 services:
   immich-machine-learning:
-    container_name: immich_machine_learning
+    container_name: ${CONTAINER_NAME}_machine_learning
     image: ghcr.io/immich-app/immich-machine-learning:v1.94.1
     networks:
       - ${MICROSERVICES_NETWORK}
@@ -25,7 +23,7 @@ services:
       createdBy: "Apps"
 
   immich-microservices:
-    container_name: immich_microservices
+    container_name: ${CONTAINER_NAME}_microservices
     image: ghcr.io/immich-app/immich-server:v1.94.1
     networks:
       - ${MICROSERVICES_NETWORK}
@@ -54,7 +52,7 @@ services:
       createdBy: "Apps"
 
   immich-server:
-    container_name: immich_server
+    container_name: ${CONTAINER_NAME}_server
     image: ghcr.io/immich-app/immich-server:v1.94.1
     networks:
       - ${MICROSERVICES_NETWORK}

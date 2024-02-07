@@ -4,8 +4,6 @@ networks:
   1panel-network:
     external: true
 
-name: postgresql-vectors-15
-
 services:
   pg15-vectors:
     container_name: postgresql-vectors-15-${CONTAINER_NAME}

@@ -4,8 +4,6 @@ networks:
   1panel-network:
     external: true
 
-name: postgresql-16
-
 services:
   pg16-alpine:
     container_name: postgresql-vectors-16-${CONTAINER_NAME}
