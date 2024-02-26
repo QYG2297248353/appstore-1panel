@@ -2,6 +2,10 @@
 
 支持 Python3、JavaScript、Shell、Typescript 的定时任务管理平台。
 
+## API 文档
+
+[青龙 Apifox](https://qinglong.apifox.cn/)
+
 ## 主要功能：
 
 - **账号管理**：青龙允许用户管理多个账号，包括登录信息、Cookies等，以便执行各种任务。

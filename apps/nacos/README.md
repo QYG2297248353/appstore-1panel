@@ -80,6 +80,21 @@ mysql -uroot -p123456 -h127.0.0.1 -P3306 nacos < mysql-schema.sql
 
 ## 参数调优
 
+JVM_XMS: 这个参数设置 Java 虚拟机堆的初始内存大小。它指定了 JVM 在启动时分配的堆内存大小。例如，-Xms512m 表示 JVM 在启动时将分配
+512MB 的堆内存。
+
+JVM_XMX: 这个参数设置 Java 虚拟机堆的最大内存大小。它指定了 JVM 堆内存的上限。例如，-Xmx1024m 表示 JVM 的堆内存最多可以使用
+1024MB。
+
+JVM_XMN: 这个参数用于设置新生代的大小。新生代是 JVM 堆内存中的一部分，用于存放新创建的对象。设置 -Xmn
+参数可以控制新生代的初始大小。例如，-Xmn256m 表示将新生代的初始大小设置为 256MB。
+
+JVM_MS: 这个参数用于设置 JVM 的初始元空间大小。元空间是用于存储类元数据的区域，它在 Java 8 中取代了永久代。例如，-XX:
+MetaspaceSize=128m 表示将初始的元空间大小设置为 128MB。
+
+JVM_MMS: 这个参数用于设置 JVM 的最大元空间大小。它指定了元空间能够增长的最大限制。例如，-XX:MaxMetaspaceSize=256m
+表示将元空间的最大大小限制为 256MB。
+
 ```shell
 - JVM_XMS=64m   #-Xms default :2g
 - JVM_XMX=64m   #-Xmx default :2g

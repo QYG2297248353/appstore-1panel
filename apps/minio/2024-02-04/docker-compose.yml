@@ -10,7 +10,7 @@ services:
     container_name: ${CONTAINER_NAME}
     ports:
       - ${PANEL_APP_PORT_HTTP}:9000
-      - ${PANEL_APP_PORT_API}:9001
+      - ${PANEL_APP_PORT_HTTP_API}:9001
     restart: always
     command: server /data --console-address :9000 --address :9001
     environment:
