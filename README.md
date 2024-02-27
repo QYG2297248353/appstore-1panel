@@ -46,6 +46,26 @@ echo "Script execution completed."
 
 ```
 
++ Tip 如果你只看到两行命令,说明执行失败
+
+```sh
+Downloading and executing script from https://github.com/QYG2297248353/appstore-1panel/releases/download/install/install.sh...
+Script execution completed.
+```
+
++ 给脚本配置网络代理 （插入到定义脚本URL之前即可）
+
+```sh
+# 定义代理服务器地址和端口
+proxy_server="server address"
+proxy_port="server port"
+# 设置网络代理
+export http_proxy="http://$proxy_server:$proxy_port"
+export https_proxy="http://$proxy_server:$proxy_port"
+```
+
+当前使用 `http` 代理，如果你的代理服务器是 `socks5` 请修改 `http_proxy` 和 `https_proxy` 为 `socks5` 协议
+
 > 方案二：复制 `install.sh` 脚本内容
 
 [install.sh](install.sh)
