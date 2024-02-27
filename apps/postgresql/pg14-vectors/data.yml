@@ -1,6 +1,6 @@
 additionalProperties:
   formFields:
-    - default: "pg14-v0.1.13"
+    - default: "pg14-v0.2.0"
       edit: true
       envKey: RELEASE_VERSION
       labelEn: Release Version
@@ -12,6 +12,8 @@ additionalProperties:
           value: "pg14-v0.1.13"
         - label: "v0.1.11"
           value: "pg14-v0.1.11"
+        - label: "v0.2.0"
+          value: "pg14-v0.2.0"
     - default: "/home/postgres"
       edit: true
       envKey: POSTGRES_DATA

@@ -25,6 +25,7 @@ services:
       - ${SFTPGO_ROOT_PATH}/home:/var/lib/sftpgo
     labels:
       createdBy: "Apps"
+    restart: always
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8080/healthz" ]
 networks:
