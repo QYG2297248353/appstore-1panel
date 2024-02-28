@@ -1,20 +1,20 @@
-name: Bark
+name: GitLab
 tags:
   - 实用工具
-title: 通知推送工具
+title: 代码托管平台
 type: 实用工具
-description: 通知推送工具
+description: GitLab代码托管平台
 additionalProperties:
-  key: bark
-  name: Bark
+  key: gitlab
+  name: GitLab
   tags:
     - Tool
-  shortDescZh: 通知推送工具
-  shortDescEn: Notification push tool
+  shortDescZh: GitLab代码托管平台
+  shortDescEn: GitLab code hosting platform
   type: tool
   crossVersionUpdate: false
   limit: 0
   recommend: 0
-  website: https://bark.day.app/
-  github: https://github.com/finb/bark
-  document: https://bark.day.app/
+  website: https://gitlab.com/
+  github: https://gitlab.com/
+  document: https://docs.gitlab.com/
