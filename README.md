@@ -9,6 +9,7 @@
     - [x] [Elasticsearch](https://www.elastic.co/elasticsearch/)
     - [x] [Kibana](https://www.elastic.co/kibana/)
     - [ ] [Logstash](https://www.elastic.co/logstash/)
+- [x] [GitLab](https://about.gitlab.com/)
 - [x] [Immich](https://immich.app/)
 - [x] [Jellyfin](https://jellyfin.org/)
 - [x] [Minio](https://min.io/)
