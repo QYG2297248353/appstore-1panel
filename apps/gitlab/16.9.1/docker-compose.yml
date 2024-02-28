@@ -5,8 +5,7 @@ services:
     image: gitlab/gitlab-ee:${RELEASE_VERSION}
     container_name: gitlab
     restart: always
-    networks:
-      - 1panel-network
+    network_mode: '${NETWORK_MODE}'
     env_file:
       - .env
     hostname: '127.0.0.1'

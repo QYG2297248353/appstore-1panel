@@ -12,6 +12,20 @@ additionalProperties:
           value: "16.9.1-ee.0"
         - label: "社区版"
           value: "16.9.1-ce.0"
+    - default: "bridge"
+      edit: true
+      envKey: NETWORK_MODE
+      labelEn: Drive path
+      labelZh: 网络模式
+      required: true
+      type: select
+      values:
+        - label: "Host"
+          value: "host"
+        - label: "Bridge"
+          value: "bridge"
+        - label: "None"
+          value: "none"
     - default: "/home/gitlab"
       edit: true
       envKey: GITLAB_HOME
