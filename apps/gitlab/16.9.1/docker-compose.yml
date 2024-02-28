@@ -10,6 +10,7 @@ services:
       - .env
     hostname: 'gitlab.lan'
     environment:
+      GITLAB_ROOT_PASSWORD: '${GITLAB_ROOT_PASSWORD}'
       GITLAB_OMNIBUS_CONFIG: |
         external_url 'http://127.0.0.1:80'
         gitlab_rails['gitlab_shell_ssh_port'] = 22

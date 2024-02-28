@@ -31,3 +31,10 @@ additionalProperties:
       required: true
       rule: paramPort
       type: number
+    - default: ""
+      edit: true
+      envKey: GITLAB_ROOT_PASSWORD
+      labelEn: Root Password
+      labelZh: Root 密码
+      required: true
+      type: password
