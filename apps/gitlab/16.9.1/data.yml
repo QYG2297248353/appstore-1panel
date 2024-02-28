@@ -1,5 +1,17 @@
 additionalProperties:
   formFields:
+    - default: "16.9.1-ee.0"
+      edit: true
+      envKey: RELEASE_VERSION
+      labelEn: Release Version
+      labelZh: 发布版本
+      required: true
+      type: select
+      values:
+        - label: "企业版"
+          value: "16.9.1-ee.0"
+        - label: "社区版"
+          value: "16.9.1-ce.0"
     - default: "/home/gitlab"
       edit: true
       envKey: GITLAB_HOME
@@ -38,3 +50,10 @@ additionalProperties:
       labelZh: Root 密码
       required: true
       type: password
+    - default: ""
+      edit: true
+      envKey: GITLAB_HOST_NAME
+      labelEn: Host Name
+      labelZh: 主机域名 http(s)://domain.com
+      required: true
+      type: text

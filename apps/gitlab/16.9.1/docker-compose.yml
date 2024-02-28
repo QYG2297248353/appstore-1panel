@@ -2,20 +2,21 @@ version: '3.6'
 
 services:
   gitlab:
-    image: gitlab/gitlab-ee:16.9.1-ee.0
+    image: gitlab/gitlab-ee:${RELEASE_VERSION}
     container_name: gitlab
-    network_mode: bridge
     restart: always
+    networks:
+      - 1panel-network
     env_file:
       - .env
-    hostname: 'gitlab.lan'
+    hostname: '127.0.0.1'
     environment:
       GITLAB_ROOT_PASSWORD: '${GITLAB_ROOT_PASSWORD}'
       GITLAB_OMNIBUS_CONFIG: |
-        external_url 'http://127.0.0.1:80'
+        external_url '${GITLAB_HOST_NAME}'
         gitlab_rails['gitlab_shell_ssh_port'] = 22
-        gitlab_rails['smtp_enable'] = false
         gitlab_rails['time_zone'] = 'Asia/Shanghai'
+        gitlab_rails['smtp_enable'] = false
     ports:
       - '${PANEL_APP_PORT_HTTP}:80'
       - '${PANEL_APP_PORT_HTTPS}:443'
