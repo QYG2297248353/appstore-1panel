@@ -29,5 +29,6 @@ services:
       - 1panel-network
     volumes:
       - ${MINIO_ROOT_PATH}/data:/data
+      - ${MINIO_ROOT_PATH}/certs:/opts/certs
     labels:
       createdBy: "Apps"
