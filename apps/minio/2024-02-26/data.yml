@@ -41,20 +41,18 @@ additionalProperties:
       labelZh: 会话持续时间 (s/秒 m/分钟 h/小时 d/天)
       required: true
       type: text
-    - default: 9000
+    - default: "9000"
       envKey: PANEL_APP_PORT_HTTP
       labelEn: Port
       labelZh: 端口
       required: true
-      rule: paramPort
-      type: number
-    - default: 9001
+      type: text
+    - default: "9001"
       envKey: PANEL_APP_PORT_API
       labelEn: Port
       labelZh: API 端口
       required: true
-      rule: paramPort
-      type: number
+      type: text
     - default: "on"
       envKey: MINIO_BROWSER
       labelEn: Enable WebUI

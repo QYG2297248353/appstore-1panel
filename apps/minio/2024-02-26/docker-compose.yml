@@ -7,6 +7,7 @@ networks:
 services:
   minio:
     image: minio/minio:RELEASE.2024-02-26T09-33-48Z
+    container_name: ${CONTAINER_NAME}
     ports:
       - ${PANEL_APP_PORT_HTTP}:9000
       - ${PANEL_APP_PORT_HTTP_API}:9001
