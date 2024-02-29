@@ -20,6 +20,7 @@ additionalProperties:
       labelEn: Password for the 'elastic' user, Numbers and letters
       labelZh: elastic 用户的密码 数字与字母组合
       required: true
+      random: true
       type: password
     - default: ""
       edit: true
@@ -27,6 +28,7 @@ additionalProperties:
       labelEn: Password for the 'kibana_system' user, Numbers and letters
       labelZh: kibana_system 用户的密码 数字与字母组合
       required: true
+      random: true
       type: password
     - default: "/home/elastic/cluster"
       edit: true

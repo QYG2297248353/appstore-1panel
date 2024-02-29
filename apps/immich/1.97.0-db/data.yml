@@ -95,6 +95,7 @@ additionalProperties:
       envKey: DB_PASSWORD
       labelEn: Database Password
       labelZh: 数据库-超级用户密码
+      random: true
       required: true
       type: password
     - default: "immich"

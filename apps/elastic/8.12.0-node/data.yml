@@ -27,6 +27,7 @@ additionalProperties:
       labelEn: Password for the 'elastic' user, Numbers and letters
       labelZh: elastic 用户的密码 数字与字母组合
       required: true
+      random: true
       type: password
     - default: "es01,es02,es03"
       edit: true

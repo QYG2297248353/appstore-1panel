@@ -59,6 +59,7 @@ additionalProperties:
       labelEn: Database Password
       labelZh: 数据库 密码
       required: true
+      random: true
       type: password
     - default: "bark"
       edit: true

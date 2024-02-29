@@ -63,6 +63,7 @@ additionalProperties:
       labelEn: Root Password
       labelZh: Root 密码
       required: true
+      random: true
       type: password
     - default: ""
       edit: true
