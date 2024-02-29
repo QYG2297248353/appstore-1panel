@@ -1,14 +1,14 @@
 name: GitLab
 tags:
-  - 实用工具
+  - DevOps
 title: 代码托管平台
-type: 实用工具
+type: DevOps
 description: GitLab代码托管平台
 additionalProperties:
   key: gitlab
   name: GitLab
   tags:
-    - Tool
+    - DevOps
   shortDescZh: GitLab代码托管平台
   shortDescEn: GitLab code hosting platform
   type: tool
