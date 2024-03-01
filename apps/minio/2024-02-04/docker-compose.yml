@@ -16,19 +16,25 @@ services:
     environment:
       MINIO_ROOT_USER: ${PANEL_MINIO_ROOT_USER}
       MINIO_ROOT_PASSWORD: ${PANEL_MINIO_ROOT_PASSWORD}
-      MINIO_SERVER_URL: ${MINIO_SERVER_URL}
-      MINIO_BROWSER_REDIRECT_URL: ${MINIO_BROWSER_REDIRECT_URL}
       MINIO_BROWSER_SESSION_DURATION: ${MINIO_BROWSER_SESSION_DURATION}
       MINIO_BROWSER: ${MINIO_BROWSER}
       MINIO_BROWSER_LOGIN_ANIMATION: ${MINIO_BROWSER_LOGIN_ANIMATION}
+      MINIO_SERVER_URL: "http://127.0.0.1:9000"
+      MINIO_BROWSER_REDIRECT_URL: "http://127.0.0.1:9001"
     logging:
       options:
         max-size: "5M"
         max-file: "10"
       driver: json-file
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:9000/minio/health/live" ]
+      interval: 30s
+      timeout: 20s
+      retries: 3
     networks:
       - 1panel-network
     volumes:
       - ${MINIO_ROOT_PATH}/data:/data
+      - ${MINIO_ROOT_PATH}/certs:/root/.minio/certs
     labels:
       createdBy: "Apps"
