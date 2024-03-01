@@ -23,18 +23,6 @@ additionalProperties:
       required: true
       rule: paramComplexity
       type: password
-    - default: "http://127.0.0.1:9000"
-      envKey: MINIO_SERVER_URL
-      labelEn: Host address (proxy domain address)
-      labelZh: 服务地址 (API,控制台分享地址)
-      required: true
-      type: text
-    - default: "http://127.0.0.1:9001"
-      envKey: MINIO_BROWSER_REDIRECT_URL
-      labelEn: Host address (proxy domain address)
-      labelZh: 控制台重定向地址 (WebUI地址)
-      required: true
-      type: text
     - default: "12h"
       envKey: MINIO_BROWSER_SESSION_DURATION
       labelEn: Session duration
