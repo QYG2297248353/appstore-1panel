@@ -12,12 +12,24 @@ check_command "git"
 check_command "cp"
 check_command "rm"
 check_command "echo"
+check_command "which"
+check_command "xargs"
+check_command "grep"
+check_command "cut"
+
+BASE_DIR=$(which 1pctl|xargs grep '^BASE_DIR='| cut -d'=' -f2)
+echo "1panel install directory: $BASE_DIR"
+
+if [ -z "$BASE_DIR" ]; then
+    echo "Error: 1panel install directory not found."
+    exit 1
+fi
 
 echo "$(date): Step 1 - Cloning repository..."
-git clone -b released https://github.com/QYG2297248353/appstore-1panel /opt/1panel/resource/apps/local/appstore-localApps
+git clone -b released https://github.com/QYG2297248353/appstore-1panel $BASE_DIR"/1panel/resource/apps/local/appstore-localApps"
 
-apps_directory="/opt/1panel/resource/apps/local/appstore-localApps/apps"
-local_directory="/opt/1panel/resource/apps/local"
+apps_directory=$BASE_DIR"/1panel/resource/apps/local/appstore-localApps/apps"
+local_directory=$BASE_DIR"/1panel/resource/apps/local"
 
 echo "$(date): Step 2 - Checking for updated apps..."
 for app_directory in $apps_directory/*; do
@@ -43,6 +55,8 @@ for app_directory in $apps_directory/*; do
     fi
 done
 
-echo "$(date): Step 4 - Deleting directory /opt/1panel/resource/apps/local/appstore-localApps..."
-rm -rf "/opt/1panel/resource/apps/local/appstore-localApps"
-echo "$(date): Step 4 - Deleted directory /opt/1panel/resource/apps/local/appstore-localApps"
+echo "$(date): Step 4 - Clean installed Directory"
+rm -rf $BASE_DIR"/1panel/resource/apps/local/appstore-localApps"
+echo "$(date): Step 4 - Finish clean installed Directory"
+
+echo "$(date): Step Tip - Done!"
