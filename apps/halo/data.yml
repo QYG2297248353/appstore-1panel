@@ -12,7 +12,7 @@ additionalProperties:
   shortDescZh: 强大易用的开源建站工具
   shortDescEn: Powerful and easy-to-use open source website builder
   type: website
-  crossVersionUpdate: false
+  crossVersionUpdate: true
   limit: 0
   recommend: 0
   website: https://halo.run/

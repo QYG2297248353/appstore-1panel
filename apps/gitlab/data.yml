@@ -12,7 +12,7 @@ additionalProperties:
   shortDescZh: GitLab代码托管平台
   shortDescEn: GitLab code hosting platform
   type: tool
-  crossVersionUpdate: false
+  crossVersionUpdate: true
   limit: 0
   recommend: 0
   website: https://gitlab.com/

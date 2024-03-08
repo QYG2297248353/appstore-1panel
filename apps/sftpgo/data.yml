@@ -12,7 +12,7 @@ additionalProperties:
   shortDescZh: 功能齐全且高度可配置的 SFTP 服务器
   shortDescEn: Fully featured and highly configurable SFTP server
   type: tool
-  crossVersionUpdate: false
+  crossVersionUpdate: true
   limit: 0
   website: https://sftpgo.com/
   github: https://github.com/drakkan/sftpgo/

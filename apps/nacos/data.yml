@@ -12,8 +12,8 @@ additionalProperties:
   shortDescZh: 动态命名和配置服务
   shortDescEn: Dynamic Naming and Configuration Service
   type: runtime
-  crossVersionUpdate: false
-  limit: 1
+  crossVersionUpdate: true
+  limit: 0
   website: https://nacos.io/
   github: https://github.com/alibaba/nacos
   document: https://github.com/alibaba/nacos/blob/develop/README.md

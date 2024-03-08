@@ -12,7 +12,7 @@ additionalProperties:
   shortDescZh: Javascript 实现的非常轻量级的速度测试
   shortDescEn: Javascript implementation of very lightweight speed tests
   type: tool
-  crossVersionUpdate: false
+  crossVersionUpdate: true
   limit: 0
   website: https://librespeed.org/
   github: https://github.com/librespeed/speedtest

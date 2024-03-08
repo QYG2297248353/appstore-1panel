@@ -12,7 +12,7 @@ additionalProperties:
   shortDescZh: 开源关系型数据库
   shortDescEn: Open Source Relational Database
   type: runtime
-  crossVersionUpdate: false
+  crossVersionUpdate: true
   limit: 0
   recommend: 0
   website: https://www.postgresql.org/
