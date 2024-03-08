@@ -12,6 +12,7 @@
 - [x] [Gitea](https://gitea.io/)
     - [ ] [Gogs](https://gogs.io/)
 - [x] [GitLab](https://about.gitlab.com/) `不推荐`
+- [x] [Halo](https://halo.run/)
 - [x] [Immich](https://immich.app/)
 - [x] [Jellyfin](https://jellyfin.org/)
 - [x] [Minio](https://min.io/)

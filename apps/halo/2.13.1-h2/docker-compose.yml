@@ -1,0 +1,26 @@
+version: '3'
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  halo:
+    image: halohub/halo:2.13.1
+    container_name: ${CONTAINER_NAME}
+    restart: always
+    networks:
+      - 1panel-network
+    volumes:
+      - ./data:/root/.halo2
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8090
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8090/actuator/health/readiness" ]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+    command:
+      - --halo.external-url=${HALO_EXTERNAL_URL}
+    labels:
+      createdBy: "Apps"
