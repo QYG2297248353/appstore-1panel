@@ -93,7 +93,7 @@ additionalProperties:
       required: true
       type: select
       values:
-        - label: True
+        - label: "开启"
           value: "true"
-        - label: False
+        - label: "关闭"
           value: "false"

@@ -23,7 +23,7 @@ additionalProperties:
       required: true
       rule: paramExtUrl
       type: text
-    - default: false
+    - default: "false"
       edit: true
       envKey: HALO_CACHE_PAGE_DISABLED
       labelEn: Disable Page Cache
@@ -32,6 +32,6 @@ additionalProperties:
       type: select
       values:
         - label: "启用"
-          value: true
+          value: "true"
         - label: "禁用"
-          value: false
+          value: "false"
