@@ -22,5 +22,6 @@ services:
       retries: 5
     command:
       - --halo.external-url=${HALO_EXTERNAL_URL}
+      - --halo.cache.page.disabled=${HALO_CACHE_PAGE_DISABLED}
     labels:
       createdBy: "Apps"

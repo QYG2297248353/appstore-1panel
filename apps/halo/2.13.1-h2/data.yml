@@ -23,3 +23,15 @@ additionalProperties:
       required: true
       rule: paramExtUrl
       type: text
+    - default: false
+      edit: true
+      envKey: HALO_CACHE_PAGE_DISABLED
+      labelEn: Disable Page Cache
+      labelZh: 禁用页面缓存
+      required: true
+      type: select
+      values:
+        - label: "启用"
+          value: true
+        - label: "禁用"
+          value: false
