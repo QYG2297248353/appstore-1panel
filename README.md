@@ -74,6 +74,24 @@ export https_proxy="http://$proxy_server:$proxy_port"
 
 [install.sh](install.sh)
 
+## 常见问题
+
+### 升级失败
+
+请检查您的网络是否正常
+请检查您的磁盘空间是否充足
+
+#### 解决方案：
+
+卸载重装
+
+- 备份参数，记录软件安装参数
+- 卸载软件
+- 再次安装升级版本
+- 填写之前保留参数
+- 安装成功
+  历史数据问题：由于使用持久化目录，卸载软件不会删除数据，请不要误删持久化目录，默认为 `/home/data/{appname}`
+
 ## 联系我们
 
 - [📮Email](mailto:qyg2297248353@gmail.com)
