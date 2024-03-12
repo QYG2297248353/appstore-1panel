@@ -18,9 +18,9 @@ additionalProperties:
           value: mariadb
         - label: PostgreSQL
           value: postgresql
-    - default: "/home/bark"
+    - default: "/home/onedev"
       edit: true
-      envKey: BARK_ROOT_PATH
+      envKey: ONEDEV_ROOT_PATH
       labelEn: Root Path
       labelZh: 数据持久化 根路径
       required: true
