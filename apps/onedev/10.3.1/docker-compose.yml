@@ -19,6 +19,5 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     env_file:
       - .env
-    entrypoint: scripts/init.sh
     labels:
       createdBy: "Apps"

@@ -7,6 +7,13 @@ if [ -f .env ]; then
 
   echo "Setting up environment variables..."
 
+  for key in $(compgen -A variable | grep "^INITIAL_"); do
+    value=$(eval echo \$$key)
+    newKey=$(echo $key | tr '[:upper:]' '[:lower:]')
+    eval $newKey=\$value
+    unset $key
+  done
+
   if [ "$ENABLE_DATABASE" = "true" ]; then
     if [ -z "$DATABASE_TYPE" ] || [ -z "$DATABASE_HOST" ] || [ -z "$DATABASE_PORT" ] || [ -z "$DATABASE_USER" ] || [ -z "$DATABASE_PASSWORD" ] || [ -z "$DATABASE_NAME" ]; then
       echo "Error: Database environment variables not found."
