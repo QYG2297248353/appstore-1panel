@@ -18,14 +18,6 @@ additionalProperties:
           value: mariadb
         - label: PostgreSQL
           value: postgresql
-    - default: 3001
-      edit: true
-      envKey: PANEL_APP_PORT_HTTP
-      labelEn: Port
-      labelZh: 端口
-      required: true
-      rule: paramPort
-      type: number
     - default: "/home/bark"
       edit: true
       envKey: BARK_ROOT_PATH
@@ -33,6 +25,22 @@ additionalProperties:
       labelZh: 数据持久化 根路径
       required: true
       type: text
+    - default: 6610
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: External Port
+      labelZh: 端口外部访问端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: 6611
+      edit: true
+      envKey: PANEL_APP_PORT_SSH
+      labelEn: SSH Port
+      labelZh: SSH外部访问端口
+      required: true
+      rule: paramPort
+      type: number
     - default: "root"
       edit: true
       envKey: INITIAL_USER
