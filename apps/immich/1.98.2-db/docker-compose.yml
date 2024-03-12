@@ -28,7 +28,7 @@ services:
       createdBy: "Apps"
 
   immich-machine-learning:
-    image: ghcr.io/immich-app/immich-machine-learning:v1.98.1
+    image: ghcr.io/immich-app/immich-machine-learning:v1.98.2
     networks:
       - ${MICROSERVICES_NETWORK}
     volumes:
@@ -44,7 +44,7 @@ services:
   immich-microservices:
     depends_on:
       - pg14-vectors-immich
-    image: ghcr.io/immich-app/immich-server:v1.98.1
+    image: ghcr.io/immich-app/immich-server:v1.98.2
     networks:
       - ${MICROSERVICES_NETWORK}
     command: [ "start.sh", "microservices" ]
@@ -74,7 +74,7 @@ services:
   immich-server:
     depends_on:
       - pg14-vectors-immich
-    image: ghcr.io/immich-app/immich-server:v1.98.1
+    image: ghcr.io/immich-app/immich-server:v1.98.2
     networks:
       - ${MICROSERVICES_NETWORK}
       - 1panel-network

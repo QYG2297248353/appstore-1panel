@@ -8,7 +8,7 @@ networks:
 
 services:
   immich-machine-learning:
-    image: ghcr.io/immich-app/immich-machine-learning:v1.98.1
+    image: ghcr.io/immich-app/immich-machine-learning:v1.98.2
     networks:
       - ${MICROSERVICES_NETWORK}
     volumes:
@@ -22,7 +22,7 @@ services:
       createdBy: "Apps"
 
   immich-microservices:
-    image: ghcr.io/immich-app/immich-server:v1.98.1
+    image: ghcr.io/immich-app/immich-server:v1.98.2
     networks:
       - ${MICROSERVICES_NETWORK}
     command: [ "start.sh", "microservices" ]
@@ -50,7 +50,7 @@ services:
       createdBy: "Apps"
 
   immich-server:
-    image: ghcr.io/immich-app/immich-server:v1.98.1
+    image: ghcr.io/immich-app/immich-server:v1.98.2
     networks:
       - ${MICROSERVICES_NETWORK}
       - 1panel-network
