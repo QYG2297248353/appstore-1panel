@@ -19,5 +19,11 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     env_file:
       - .env
+    environment:
+      - initial_user=${INITIAL_USER}
+      - initial_password=${INITIAL_PASSWORD}
+      - initial_email=${INITIAL_EMAIL}
+      - initial_server_url=${INITIAL_SERVER_URL}
+      - initial_ssh_root_url=${INITIAL_SSH_ROOT_URL}
     labels:
       createdBy: "Apps"
