@@ -63,11 +63,11 @@ additionalProperties:
       labelZh: 管理员帐户的电子邮件地址
       required: true
       type: text
-    - default: "http://127.0.0.1:6610"
+    - default: "http://127.0.0.1"
       edit: true
       envKey: INITIAL_SERVER_URL
       labelEn: Server URL
-      labelZh: 该服务器的根URL http(s)://
+      labelZh: 外部访问地址 http(s)://
       required: true
       rule: paramExtUrl
       type: text
@@ -75,7 +75,7 @@ additionalProperties:
       edit: true
       envKey: INITIAL_SSH_ROOT_URL
       labelEn: SSH Server URL
-      labelZh: 该服务器的SSH根URL (ssh://127.0.0.1:6611)
+      labelZh: SSH外部访问地址 (ssh://127.0.0.1:6611)
       required: false
       rule: paramExtUrl
       type: text
