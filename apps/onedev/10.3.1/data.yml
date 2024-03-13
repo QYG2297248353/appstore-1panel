@@ -1,23 +1,5 @@
 additionalProperties:
   formFields:
-    - child:
-        default: ""
-        envKey: PANEL_DB_HOST
-        required: false
-        type: service
-      default: mysql
-      envKey: PANEL_DB_TYPE
-      labelEn: Database Service
-      labelZh: 数据库服务
-      required: false
-      type: apps
-      values:
-        - label: MySQL
-          value: mysql
-        - label: MariaDB
-          value: mariadb
-        - label: PostgreSQL
-          value: postgresql
     - default: "/home/onedev"
       edit: true
       envKey: ONEDEV_ROOT_PATH
@@ -63,7 +45,7 @@ additionalProperties:
       labelZh: 管理员帐户的电子邮件地址
       required: true
       type: text
-    - default: "http://127.0.0.1"
+    - default: "http://127.0.0.1:6610"
       edit: true
       envKey: INITIAL_SERVER_URL
       labelEn: Server URL
@@ -71,7 +53,7 @@ additionalProperties:
       required: true
       rule: paramExtUrl
       type: text
-    - default: ""
+    - default: "ssh://127.0.0.1:6611"
       edit: true
       envKey: INITIAL_SSH_ROOT_URL
       labelEn: SSH Server URL
