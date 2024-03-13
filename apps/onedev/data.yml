@@ -1,16 +1,16 @@
 name: OneDev
 tags:
   - DevOps
-title: 代码托管平台
+title: DevOps平台
 type: DevOps
-description: 代码托管平台
+description: 单一 DevOps 平台
 additionalProperties:
   key: onedev
   name: OneDev
   tags:
     - DevOps
-  shortDescZh: 代码托管平台
-  shortDescEn: Code hosting platform
+  shortDescZh: 单一 DevOps 平台
+  shortDescEn: Single DevOps Platform
   type: tool
   crossVersionUpdate: true
   limit: 0

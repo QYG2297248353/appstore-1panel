@@ -20,6 +20,7 @@
     - [x] [MariaDB](https://mariadb.org/)
     - [ ] [Percona](https://www.percona.com/)
 - [x] [Nacos](https://nacos.io/)
+- [x] [OneDev](https://onedev.io/)
 - [x] [PostgreSQL](https://www.postgresql.org/)
 - [x] [QingLong](https://github.com/whyour/qinglong)
 - [x] [Redis](https://redis.io/)
