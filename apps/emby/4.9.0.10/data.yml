@@ -8,7 +8,7 @@ additionalProperties:
       required: true
       type: select
       values:
-        - label: "AMD64"
+        - label: "AMD_X64"
           value: "embyserver:4.9.0.10"
         - label: "ARM64_V8"
           value: "embyserver_arm64v8:4.9.0.10"
