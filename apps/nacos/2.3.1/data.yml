@@ -87,7 +87,7 @@ additionalProperties:
       envKey: SPRING_DATASOURCE_PLATFORM
       labelEn: Database type
       labelZh: 数据库驱动类型
-      required: true
+      required: false
       type: select
       values:
         - label: MySQL
@@ -128,7 +128,7 @@ additionalProperties:
       envKey: MYSQL_SERVICE_DB_NAME
       labelEn: Database Name
       labelZh: 数据库名称
-      required: true
+      required: false
       type: text
     - default: "characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true"
       edit: true
@@ -167,7 +167,7 @@ additionalProperties:
       envKey: NACOS_AUTH_TOKEN
       labelEn: Nacos auth token
       labelZh: Nacos身份验证令牌（至少32位字符的Base64编码）
-      required: true
+      required: false
       type: text
     - default: "1g"
       edit: true
