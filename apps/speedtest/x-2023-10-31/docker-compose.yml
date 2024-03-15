@@ -1,0 +1,25 @@
+version: '3.7'
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  speedtest:
+    image: badapple9/speedtest-x:2023-10-31
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    environment:
+      - WEBPORT=80
+      - TIME_ZONE=${SPEEDTEST_TIME_ZONE:-Asia/Shanghai}
+      - MAX_LOG_COUNT=${SPEEDTEST_MAX_LOG_COUNT:-100}
+      - IP_SERVICE=${SPEEDTEST_IP_SERVICE:-ip.sb}
+      - SAME_IP_MULTI_LOGS=${SPEEDTEST_SAME_IP_MULTI_LOGS:-false}
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:80
+    volumes:
+      - ${SPEED_TEST_X_ROOT_PATH}/speedlogs:/speedlogs

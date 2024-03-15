@@ -1,0 +1,55 @@
+additionalProperties:
+  formFields:
+    - default: "/home/speedtest-x"
+      edit: true
+      envKey: SPEED_TEST_X_ROOT_PATH
+      labelEn: Data persistence root path
+      labelZh: 数据持久化 根路径
+      required: true
+      type: text
+    - default: 9001
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: Server port
+      labelZh: 服务端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: "Asia/Shanghai"
+      edit: true
+      envKey: SPEEDTEST_TIME_ZONE
+      labelEn: Time zone
+      labelZh: 时区
+      required: true
+      type: text
+    - default: 100
+      edit: true
+      envKey: SPEEDTEST_MAX_LOG_COUNT
+      labelEn: Maximum log count
+      labelZh: 最大记录数
+      required: true
+      type: number
+    - default: "ip.sb"
+      edit: true
+      envKey: SPEEDTEST_IP_SERVICE
+      labelEn: IP resolution service
+      labelZh: IP解析服务
+      required: true
+      type: select
+      values:
+        - label: ip.sb
+          value: "ip.sb"
+        - label: ipinfo.io
+          value: "ipinfo.io"
+    - default: "false"
+      edit: true
+      envKey: SPEEDTEST_SAME_IP_MULTI_LOGS
+      labelEn: Allow multiple logs with the same IP
+      labelZh: 允许相同IP多次记录
+      required: true
+      type: select
+      values:
+        - label: 允许
+          value: "true"
+        - label: 不允许
+          value: "false"
