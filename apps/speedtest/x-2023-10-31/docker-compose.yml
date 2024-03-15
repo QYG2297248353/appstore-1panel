@@ -23,5 +23,5 @@ services:
       - ${PANEL_APP_PORT_HTTP}:80
     volumes:
       - ./scripts/entrypoint.sh:/update_entrypoint.sh
-      - ${SPEED_TEST_X_ROOT_PATH}/speedlogs:/var/www/html/backend/speedlogs
+      - ${SPEED_TEST_X_ROOT_PATH}/speedlogs:/var/www/html/backend/speedlogs/
     entrypoint: /update_entrypoint.sh

@@ -10,8 +10,8 @@ set -x
 cp /speedtest/*.js /var/www/html/
 cp /speedtest/*.html /var/www/html/
 
-cp -r /speedtest/backend/ /var/www/html/backend
-cp -r /speedtest/chartjs/ /var/www/html/chartjs
+cp -r /speedtest/backend/. /var/www/html/backend/
+cp -r /speedtest/chartjs/. /var/www/html/chartjs/
 
 ln -snf /var/www/html/backend/speedlogs /speedlogs
 
@@ -21,7 +21,7 @@ mkdir -p /var/www/html/backend/speedlogs/data
 touch /var/www/html/backend/speedlogs/_cnt.sdb
 # End
 
-chown -R www-data /var/www/html/*
+chown -R www-data:www-data /var/www/html/*
 
 # Allow selection of Apache port for network_mode: host
 if [ "$WEBPORT" != "80" ]; then
