@@ -25,12 +25,14 @@
 - [x] [Nacos](https://nacos.io/)
 - [x] [OneDev](https://onedev.io/)
 - [x] [PostgreSQL](https://www.postgresql.org/)
-- [x] [QingLong](https://github.com/whyour/qinglong)
+- [x] [QingLong](https://github.com/whyour/qinglong/)
 - [x] [Redis](https://redis.io/)
 - [x] [Sentinel-Dashboard](https://sentinelguard.io/)
 - [x] [SftpGo](https://sftpgo.com/)
 - [x] [SpeedTest](https://www.speedtest.net/)
-- [x] [Uptime-Kuma](https://github.com/louislam/uptime-kuma)
+    - [x] [SpeedTest-X](https://github.com/BadApple9/speedtest-x/)
+- [x] [SpeedTest-Tracker](https://docs.speedtest-tracker.dev/)
+- [x] [Uptime-Kuma](https://github.com/louislam/uptime-kuma/)
 
 ## 脚本安装
 
