@@ -12,8 +12,6 @@ if [ -f .env ]; then
       echo "Error: Database environment variables not found."
       exit 1
     fi
-    # 写入到 .env
-    # 判断 DATABASE_TYPE 写入对应值
     if [ "$DATABASE_TYPE" = "MySQL" ]; then
       echo "hibernate_dialect=org.hibernate.dialect.MySQL5InnoDBDialect" >> .env
       echo "hibernate_connection_driver_class=com.mysql.cj.jdbc.Driver" >> .env

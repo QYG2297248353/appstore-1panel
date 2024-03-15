@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 networks:
   1panel-network:
@@ -6,17 +6,17 @@ networks:
 
 services:
   linkding:
-    container_name: ${CONTAINER_NAME}
     image: sissbruecker/linkding:${RELEASE_VERSION}
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
     restart: always
     networks:
       - 1panel-network
-    labels:
-      createdBy: "Apps"
     ports:
-      - "${PANEL_APP_PORT_HTTP}:9090"
+      - ${PANEL_APP_PORT_HTTP}:9090
     volumes:
-      - "${LINKDING_ROOT_PATH}:/etc/linkding/data"
+      - ${LINKDING_ROOT_PATH}:/etc/linkding/data
     env_file:
       - .env
     ulimits:

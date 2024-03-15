@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 networks:
   1panel-network:
@@ -8,12 +8,14 @@ services:
   onedev:
     image: 1dev/server:10.3.2
     container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
     restart: always
     networks:
       - 1panel-network
     ports:
-      - "${PANEL_APP_PORT_HTTP}:6610"
-      - "${PANEL_APP_PORT_SSH}:6611"
+      - ${PANEL_APP_PORT_HTTP}:6610
+      - ${PANEL_APP_PORT_SSH}:6611
     volumes:
       - ${ONEDEV_ROOT_PATH}/data:/opt/onedev
       - /var/run/docker.sock:/var/run/docker.sock
@@ -25,5 +27,3 @@ services:
       - initial_email=${INITIAL_EMAIL}
       - initial_server_url=${INITIAL_SERVER_URL}
       - initial_ssh_root_url=${INITIAL_SSH_ROOT_URL}
-    labels:
-      createdBy: "Apps"

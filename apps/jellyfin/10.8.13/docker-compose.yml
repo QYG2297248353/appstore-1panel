@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 networks:
   1panel-network:
@@ -6,17 +6,17 @@ networks:
 
 services:
   jellyfin:
-    container_name: ${CONTAINER_NAME}
     image: jellyfin/jellyfin:10.8.13
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
     restart: always
     network_mode: ${NETWORK_MODE}
     ports:
-      - "${PANEL_APP_PORT_HTTP}:8096"
+      - ${PANEL_APP_PORT_HTTP}:8096
     volumes:
-      - "${JELLYFIN_ROOT_PATH}/config:/config"
-      - "${JELLYFIN_ROOT_PATH}/cache:/cache"
-      - "${JELLYFIN_ROOT_PATH}/media:/media"
-    labels:
-      createdBy: "Apps"
+      - ${JELLYFIN_ROOT_PATH}/config:/config
+      - ${JELLYFIN_ROOT_PATH}/cache:/cache
+      - ${JELLYFIN_ROOT_PATH}/media:/media
     devices:
-      - "${JELLYFIN_DRIVE_PATH}:/dev/dri"
+      - ${JELLYFIN_DRIVE_PATH}:/dev/dri

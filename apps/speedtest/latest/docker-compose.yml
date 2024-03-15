@@ -6,17 +6,17 @@ networks:
 
 services:
   speedtest:
-    container_name: ${CONTAINER_NAME}
     image: ghcr.io/librespeed/speedtest:latest
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
     networks:
       - 1panel-network
     environment:
       MODE: standalone
       TITLE: ${SPEED_TEST_WEB_TITLE}
     ports:
-      - "${PANEL_APP_PORT_HTTP}:80"
+      - ${PANEL_APP_PORT_HTTP}:80
     volumes:
       - ${SPEED_TEST_ROOT_PATH}/database:/database
-    restart: always
-    labels:
-      createdBy: "Apps"

@@ -8,15 +8,15 @@ additionalProperties:
       required: true
       type: select
       values:
-        - label: "v2.5.6-alpine"
+        - label: 2.5.6-alpine
           value: "v2.5.6-alpine"
-        - label: "v2.5.6"
+        - label: 2.5.6
           value: "v2.5.6"
-        - label: "v2.5.6-plugins"
+        - label: 2.5.6-plugins
           value: "v2.5.6-plugins"
-        - label: "v2.5.6-slim"
+        - label: 2.5.6-slim
           value: "v2.5.6-slim"
-        - label: "v2.5.6-alpine-slim"
+        - label: 2.5.6-alpine-slim
           value: "v2.5.6-alpine-slim"
     - default: 8080
       edit: true
@@ -66,11 +66,11 @@ additionalProperties:
       required: true
       rule: paramCommon
       type: text
-    - default: "<your external ip here>"
+    - default: ""
       edit: true
       envKey: FTP_EXTERNAL_IP
-      labelEn: FTP External Ip (must change item)
-      labelZh: FTP 外部地址 (必改项)
+      labelEn: FTP Server IP
+      labelZh: FTP 服务器IP
       required: true
       rule: paramCommon
       type: text

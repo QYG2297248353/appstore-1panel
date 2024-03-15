@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 networks:
   1panel-network:
@@ -8,11 +8,13 @@ services:
   mysql:
     image: mysql:5.6.51
     container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: ${PANEL_DB_ROOT_PASSWORD}
     networks:
       - 1panel-network
+    environment:
+      MYSQL_ROOT_PASSWORD: ${PANEL_DB_ROOT_PASSWORD}
     ports:
       - ${PANEL_APP_PORT_HTTP}:3306
     volumes:
@@ -24,5 +26,3 @@ services:
       --collation-server=utf8mb4_general_ci
       --explicit_defaults_for_timestamp=true
       --lower_case_table_names=1
-    labels:
-      createdBy: "Apps"

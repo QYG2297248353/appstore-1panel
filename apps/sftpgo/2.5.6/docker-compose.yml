@@ -1,16 +1,24 @@
-version: '3'
+version: "3"
+
+networks:
+  1panel-network:
+    external: true
+
 services:
   sftpgo:
-    image: drakkan/sftpgo:v2.5.6-alpine
+    image: drakkan/sftpgo:${RELEASE_VERSION}
     container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
     networks:
       - 1panel-network
     ports:
-      - "${PANEL_APP_PORT_HTTP}:8080"
-      - "${PANEL_APP_PORT_SFTP}:2022"
-      - "${PANEL_APP_PORT_FTP}:2121"
-      - "${PANEL_APP_PORT_WEBDAV}:10080"
-      - "${PASSIVE_PORT_RANGE_START}-${PASSIVE_PORT_RANGE_END}:${PASSIVE_PORT_RANGE_START}-${PASSIVE_PORT_RANGE_END}"
+      - ${PANEL_APP_PORT_HTTP}:8080
+      - ${PANEL_APP_PORT_SFTP}:2022
+      - ${PANEL_APP_PORT_FTP}:2121
+      - ${PANEL_APP_PORT_WEBDAV}:10080
+      - ${PASSIVE_PORT_RANGE_START}-${PASSIVE_PORT_RANGE_END}:${PASSIVE_PORT_RANGE_START}-${PASSIVE_PORT_RANGE_END}
     environment:
       SFTPGO_FTPD__BINDINGS__0__FORCE_PASSIVE_IP: ${FTP_EXTERNAL_IP}
       SFTPGO_FTPD__BINDINGS__0__PORT: 2121
@@ -23,11 +31,5 @@ services:
       - ${SFTPGO_ROOT_PATH}/data:/srv/sftpgo/data
       - ${SFTPGO_ROOT_PATH}/backups:/srv/sftpgo/backups
       - ${SFTPGO_ROOT_PATH}/home:/var/lib/sftpgo
-    labels:
-      createdBy: "Apps"
-    restart: always
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8080/healthz" ]
-networks:
-  1panel-network:
-    external: true

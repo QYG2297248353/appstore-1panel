@@ -1,0 +1,42 @@
+version: "3"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  nacos:
+    image: nacos/nacos-server:${RELEASE_VERSION}
+    container_name: ${CONTAINER_NAME}
+    restart: always
+    labels:
+      createdBy: "Apps"
+    networks:
+      - 1panel-network
+    environment:
+      - MODE=${NACOS_START_MODE}
+      - PREFER_HOST_MODE=${NACOS_PREFER_HOST_MODE}
+      - NACOS_SERVER_PORT=8848
+      - NACOS_SERVER_IP=${NACOS_SERVER_IP}
+      - JVM_XMS=${JVM_XMS:-1g}
+      - JVM_XMX=${JVM_XMX:-1g}
+      - JVM_XMN=${JVM_XMN:-512m}
+      - JVM_MS=${JVM_MS:-128m}
+      - JVM_MMS=${JVM_MMS:-320m}
+      - SPRING_DATASOURCE_PLATFORM=${SPRING_DATASOURCE_PLATFORM:-}
+      - MYSQL_SERVICE_HOST=${MYSQL_SERVICE_HOST:-127.0.0.1}
+      - MYSQL_SERVICE_PORT=${MYSQL_SERVICE_PORT:-3306}
+      - MYSQL_SERVICE_USER=${MYSQL_SERVICE_USER}
+      - MYSQL_SERVICE_PASSWORD=${MYSQL_SERVICE_PASSWORD}
+      - MYSQL_SERVICE_DB_NAME=${MYSQL_SERVICE_DB_NAME}
+      - MYSQL_SERVICE_DB_PARAM=${MYSQL_SERVICE_DB_PARAM}
+      - NACOS_AUTH_ENABLE=${NACOS_AUTH_ENABLE:-FALSE}
+      - NACOS_AUTH_IDENTITY_KEY=${NACOS_AUTH_IDENTITY_KEY}
+      - NACOS_AUTH_IDENTITY_VALUE=${NACOS_AUTH_IDENTITY_VALUE}
+      - NACOS_AUTH_TOKEN=${NACOS_AUTH_TOKEN}
+    volumes:
+      - ${NACOS_ROOT_PATH}/logs:/home/nacos/logs
+      - ${NACOS_ROOT_PATH}/data:/home/nacos/data
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8848
+      - ${NACOS_COMMUNICATION_PORT}:9848

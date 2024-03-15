@@ -6,12 +6,15 @@ networks:
 
 services:
   postgresql:
-    container_name: postgresql-vectors-16-${CONTAINER_NAME}
     image: tensorchord/pgvecto-rs:${RELEASE_VERSION}
+    container_name: ${CONTAINER_NAME}-vectors-16
+    labels:
+      createdBy: "Apps"
+    restart: always
     networks:
       - 1panel-network
     ports:
-      - "${PANEL_APP_PORT_HTTP}:5432"
+      - ${PANEL_APP_PORT_HTTP}:5432
     env_file:
       - .env
     environment:
@@ -20,6 +23,3 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - ${POSTGRES_DATA}:/var/lib/postgresql/data
-    restart: always
-    labels:
-      createdBy: "Apps"

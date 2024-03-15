@@ -1,9 +1,18 @@
 version: "2"
+
+networks:
+  1panel-network:
+    external: true
+
 services:
   nacos:
     image: nacos/nacos-server:${RELEASE_VERSION}
-    container_name: ${CONTAINER_NAME}-standalone
+    container_name: ${CONTAINER_NAME}
     restart: always
+    labels:
+      createdBy: "Apps"
+    networks:
+      - 1panel-network
     environment:
       - PREFER_HOST_MODE=hostname
       - MODE=standalone
@@ -20,8 +29,5 @@ services:
       - ${NACOS_DATA_ROOT_PATH}/logs:/home/nacos/logs
       - ${NACOS_DATA_ROOT_PATH}/data:/home/nacos/data
     ports:
-      - "${PANEL_APP_PORT_HTTP}:8848"
-      - "${NACOS_COMMUNICATION_PORT}:9848"
-networks:
-  1panel-network:
-    external: true
+      - ${PANEL_APP_PORT_HTTP}:8848
+      - ${NACOS_COMMUNICATION_PORT}:9848

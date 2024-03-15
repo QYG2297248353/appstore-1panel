@@ -6,8 +6,11 @@ networks:
 
 services:
   postgresql:
-    container_name: postgresql-vectors-14-${CONTAINER_NAME}
     image: tensorchord/pgvecto-rs:${RELEASE_VERSION}
+    container_name: ${CONTAINER_NAME}-vectors-14
+    labels:
+      createdBy: "Apps"
+    restart: always
     networks:
       - 1panel-network
     ports:
@@ -20,6 +23,3 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - ${POSTGRES_DATA}:/var/lib/postgresql/data
-    restart: always
-    labels:
-      createdBy: "Apps"

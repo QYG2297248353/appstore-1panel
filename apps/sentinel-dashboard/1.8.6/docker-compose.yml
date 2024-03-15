@@ -8,13 +8,13 @@ services:
   "sentinel-dashboard":
     image: bladex/sentinel-dashboard:1.8.6
     container_name: ${CONTAINER_NAME}
-    restart: always
-    network_mode: ${NETWORK_MODE}
     labels:
       createdBy: "Apps"
+    restart: always
+    network_mode: ${NETWORK_MODE}
     ports:
-      - "${PANEL_APP_PORT_HTTP}:8858"
-      - "${COMMUNICATION_PORT}:8719"
+      - ${PANEL_APP_PORT_HTTP}:8858
+      - ${COMMUNICATION_PORT}:8719
     entrypoint:
       - "java"
       - "-Djava.security.egd=file:/dev/./urandom"

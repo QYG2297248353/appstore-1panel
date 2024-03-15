@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 networks:
   1panel-network:
@@ -8,6 +8,8 @@ services:
   halo:
     image: halohub/halo:2.13.1
     container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
     restart: always
     networks:
       - 1panel-network
@@ -27,5 +29,3 @@ services:
       - --spring.sql.init.platform=${PANEL_DB_TYPE}
       - --halo.external-url=${HALO_EXTERNAL_URL}
       - --halo.cache.page.disabled=${HALO_CACHE_PAGE_DISABLED}
-    labels:
-      createdBy: "Apps"

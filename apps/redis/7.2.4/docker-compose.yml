@@ -1,12 +1,16 @@
-version: '3'
+version: "3"
+
 networks:
   1panel-network:
     external: true
+
 services:
   redis:
     image: redis:7.2.4
-    restart: always
     container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
     networks:
       - 1panel-network
     ports:
@@ -16,5 +20,3 @@ services:
       - ${REDIS_ROOT_PATH}/data:/data
       - ${REDIS_ROOT_PATH}/conf/redis.conf:/etc/redis/redis.conf
       - ${REDIS_ROOT_PATH}/logs:/logs
-    labels:
-      createdBy: "Apps"

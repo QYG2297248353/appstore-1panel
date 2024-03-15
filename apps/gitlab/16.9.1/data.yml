@@ -26,6 +26,8 @@ additionalProperties:
           value: "bridge"
         - label: "None"
           value: "none"
+        - label: "1panel-network"
+          value: "1panel-network"
     - default: "/home/gitlab"
       edit: true
       envKey: GITLAB_HOME

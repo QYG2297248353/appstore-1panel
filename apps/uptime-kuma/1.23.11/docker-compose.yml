@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 networks:
   1panel-network:
@@ -8,6 +8,8 @@ services:
   uptime-kuma:
     image: louislam/uptime-kuma:${RELEASE_VERSION}
     container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
     restart: always
     networks:
       - 1panel-network
@@ -15,6 +17,4 @@ services:
       - ${UPTIME_KUMA_ROOT_PATH}/data:/app/data
       - ${UPTIME_KUMA_DOCKER_SOCKET}:/var/run/docker.sock
     ports:
-      - "${PANEL_APP_PORT_HTTP}:3001"
-    labels:
-      createdBy: "Apps"
+      - ${PANEL_APP_PORT_HTTP}:3001
