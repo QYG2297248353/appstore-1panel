@@ -14,6 +14,6 @@ additionalProperties:
   type: tool
   crossVersionUpdate: true
   limit: 0
-  website: https://librespeed.org/
-  github: https://github.com/librespeed/speedtest
-  document: https://github.com/librespeed/speedtest/blob/master/README.md
+  website: https://docs.speedtest-tracker.dev/
+  github: https://github.com/alexjustesen/speedtest-tracker
+  document: https://docs.speedtest-tracker.dev/

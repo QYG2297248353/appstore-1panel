@@ -1,6 +1,6 @@
 additionalProperties:
   formFields:
-    - default: "1.23.11"
+    - default: "lscr.io/linuxserver/speedtest-tracker:0.18.3"
       edit: true
       envKey: SPEED_TEST_IMAGE
       labelEn: Image source
