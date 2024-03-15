@@ -78,6 +78,6 @@ additionalProperties:
       edit: true
       envKey: GIDLIST
       labelEn: Group ID List
-      labelZh: 组ID列表 (查看应说明填写)
+      labelZh: 组ID列表 (查看应用安装说明填写)
       required: true
       type: text
