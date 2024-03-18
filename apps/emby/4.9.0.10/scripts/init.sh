@@ -9,6 +9,7 @@ if [[ -f ./.env ]]; then
     else
       NETWORK_MODE=$CUSTOM_NETWORK_MODE
     fi
+    sed -i "s/NETWORK_MODE=.*/NETWORK_MODE=$NETWORK_MODE/g" .env
   fi
 
   mkdir -p "$EMBY_ROOT_PATH"
