@@ -1,4 +1,4 @@
-version: "2.3"
+version: "3"
 
 networks:
   1panel-network:
@@ -6,13 +6,12 @@ networks:
 
 services:
   emby:
-    image: emby/${OS_VERSION}
+    image: ${OS_VERSION}
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
     restart: always
     network_mode: ${NETWORK_MODE}
-    runtime: nvidia
     environment:
       - UID=${UID}
       - GID=${GID}

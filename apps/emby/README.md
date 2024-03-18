@@ -61,20 +61,6 @@ getent group video | cut -d: -f3
 getent group render | cut -d: -f3
 ```
 
-#### 英伟达显卡 支持
-
-在 `docker-compose.yml` 配置文件中存在这样的配置：
-
-```shell
-services:
-  emby:
-    ...
-    runtime: nvidia
-    ...
-```
-
-实现了对英伟达显卡的支持，如果您的设备不支持英伟达显卡，可忽略不计。
-
 #### 媒体文件夹
 
 默认情况下，媒体文件夹为 `/home/emby/mnt`, 如果持久化目录不是 `/home/emby`, 请适当调整挂载命令。
