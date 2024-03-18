@@ -8,6 +8,8 @@ if [[ -f ./.env ]]; then
   mkdir -p "$EMBY_ROOT_PATH/data"
   mkdir -p "$EMBY_ROOT_PATH/mnt"
 
+  chmod -R $UID:$GID "$EMBY_ROOT_PATH"
+
   echo "Check Finish."
 
 else
