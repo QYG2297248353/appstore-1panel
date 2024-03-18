@@ -12,6 +12,8 @@ services:
       createdBy: "Apps"
     restart: always
     network_mode: ${NETWORK_MODE}
+    networks:
+      ip:
     ports:
       - ${PANEL_APP_PORT_HTTP}:8096
     volumes:

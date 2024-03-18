@@ -1,5 +1,30 @@
 additionalProperties:
   formFields:
+    - default: "host"
+      edit: true
+      envKey: NETWORK_MODE
+      labelEn: Drive path
+      labelZh: 网络模式
+      required: true
+      type: select
+      values:
+        - label: 主机模式
+          value: "host"
+        - label: 桥接模式
+          value: "bridge"
+        - label: 无网络
+          value: "none"
+        - label: 1panel-network
+          value: "1panel-network"
+        - label: 自定义网络
+          value: "custom"
+    - default: ""
+      edit: true
+      envKey: CUSTOM_NETWORK_MODE
+      labelEn: Custom network
+      labelZh: 自定义网络 (请先创建网络)
+      required: false
+      type: text
     - default: 8096
       edit: true
       envKey: PANEL_APP_PORT_HTTP
@@ -22,19 +47,3 @@ additionalProperties:
       labelZh: 驱动存放路径
       required: true
       type: text
-    - default: "host"
-      edit: true
-      envKey: NETWORK_MODE
-      labelEn: Drive path
-      labelZh: 网络模式
-      required: true
-      type: select
-      values:
-        - label: "Host"
-          value: "host"
-        - label: "Bridge"
-          value: "bridge"
-        - label: "None"
-          value: "none"
-        - label: "1panel-network"
-          value: "1panel-network"
