@@ -18,6 +18,7 @@
 - [x] [Halo](https://halo.run/)
 - [x] [Immich](https://immich.app/)
 - [x] [Jellyfin](https://jellyfin.org/)
+- [x] [LinkDing](https://github.com/sissbruecker/linkding)
 - [x] [Minio](https://min.io/)
 - [x] [MySQL](https://www.mysql.com/)
     - [x] [MariaDB](https://mariadb.org/)
