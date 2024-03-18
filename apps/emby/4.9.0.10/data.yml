@@ -1,6 +1,6 @@
 additionalProperties:
   formFields:
-    - default: "emby/embyserver:4.9.0.10"
+    - default: "embyserver:4.9.0.10"
       edit: true
       envKey: OS_VERSION
       labelEn: os version
@@ -9,11 +9,11 @@ additionalProperties:
       type: select
       values:
         - label: AMD_X64
-          value: "emby/embyserver:4.9.0.10"
+          value: "embyserver:4.9.0.10"
         - label: ARM64_V8
-          value: "emby/embyserver_arm64v8:4.9.0.10"
+          value: "embyserver_arm64v8:4.9.0.10"
         - label: ARM32_V7
-          value: "emby/embyserver_arm32v7:4.9.0.10"
+          value: "embyserver_arm32v7:4.9.0.10"
     - default: "host"
       edit: true
       envKey: NETWORK_MODE
@@ -60,21 +60,21 @@ additionalProperties:
       labelZh: 驱动存放路径
       required: true
       type: text
-    - default: 1000,0
+    - default: 1000
       edit: true
       envKey: UID
       labelEn: User ID
       labelZh: 用户ID
       required: true
       type: number
-    - default: 1000,0
+    - default: 1000
       edit: true
       envKey: GID
       labelEn: Group ID
       labelZh: 组ID
       required: true
       type: number
-    - default: "1000,0,39,998"
+    - default: "1000,39,998"
       edit: true
       envKey: GIDLIST
       labelEn: Group ID List
