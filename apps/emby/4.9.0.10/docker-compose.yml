@@ -27,5 +27,3 @@ services:
       - 7359:7359/udp
     devices:
       - ${EMBY_DRIVE_PATH}:/dev/dri
-    healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8096/health" ]
