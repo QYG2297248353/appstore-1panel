@@ -30,15 +30,6 @@ additionalProperties:
           value: "none"
         - label: 1panel-network
           value: "1panel-network"
-        - label: 自定义网络
-          value: "custom"
-    - default: ""
-      edit: true
-      envKey: CUSTOM_NETWORK_MODE
-      labelEn: Custom network
-      labelZh: 自定义网络 (请先创建网络)
-      required: false
-      type: text
     - default: 8096
       edit: true
       envKey: PANEL_APP_PORT_HTTP

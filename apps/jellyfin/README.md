@@ -24,7 +24,7 @@
 
 Host模式修改映射端口，不会生效，因为端口是直接映射到宿主机的端口。
 
-> Tip 如果您需要同时安装 Jellyfin 与 Emby 服务，可以使用 Bridge 网络模式。 避免端口冲突。并同时启用 DLNA 与 WOL 服务。
+> Tip 如果您需要同时安装 Jellyfin 与 Emby 服务，可以选择其一使用 Host 模式，另一个使用 Bridge 模式。
 
 ### 驱动器支持 `DRIVE_PATH`
 
