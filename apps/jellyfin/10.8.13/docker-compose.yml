@@ -13,9 +13,11 @@ services:
     restart: always
     network_mode: ${NETWORK_MODE}
     ports:
-      - ${PANEL_APP_PORT_HTTP}:8096
+      - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
+      - ${PANEL_APP_PORT_HTTPS}:${PANEL_APP_PORT_HTTPS}
     volumes:
       - ${JELLYFIN_ROOT_PATH}/config:/config
+      - ${JELLYFIN_ROOT_PATH}/config/config/network.xml:/config/config/network.xml
       - ${JELLYFIN_ROOT_PATH}/cache:/cache
       - ${JELLYFIN_ROOT_PATH}/media:/media
     devices:

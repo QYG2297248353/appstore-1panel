@@ -16,6 +16,13 @@ additionalProperties:
           value: "none"
         - label: 1panel-network
           value: "1panel-network"
+    - default: "/home/jellyfin"
+      edit: true
+      envKey: JELLYFIN_ROOT_PATH
+      labelEn: Data persistence root path
+      labelZh: 数据持久化 根路径
+      required: true
+      type: text
     - default: 8096
       edit: true
       envKey: PANEL_APP_PORT_HTTP
@@ -24,13 +31,14 @@ additionalProperties:
       required: true
       rule: paramPort
       type: number
-    - default: "/home/jellyfin"
+    - default: 8920
       edit: true
-      envKey: JELLYFIN_ROOT_PATH
-      labelEn: Data persistence root path
-      labelZh: 数据持久化 根路径
+      envKey: PANEL_APP_PORT_HTTPS
+      labelEn: WebUI SSL Port
+      labelZh: 网页SSL端口
       required: true
-      type: text
+      rule: paramPort
+      type: number
     - default: "/dev/dri"
       edit: true
       envKey: JELLYFIN_DRIVE_PATH
@@ -38,3 +46,15 @@ additionalProperties:
       labelZh: 驱动存放路径
       required: true
       type: text
+    - default: "false"
+      edit: true
+      envKey: JELLYFIN_IPV6_ENABLE
+      labelEn: Enable IPv6
+      labelZh: 启用IPv6
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"
