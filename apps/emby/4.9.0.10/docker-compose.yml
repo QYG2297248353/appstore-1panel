@@ -18,6 +18,7 @@ services:
       - GIDLIST=${GIDLIST}
     volumes:
       - ${EMBY_ROOT_PATH}/config:/config
+      - ${EMBY_ROOT_PATH}/config/config/system.xml:/config/config/system.xml
       - ${EMBY_ROOT_PATH}/mnt:/mnt
     ports:
       - ${PANEL_APP_PORT_HTTP}:8096
