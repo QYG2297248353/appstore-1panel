@@ -12,8 +12,6 @@ services:
       createdBy: "Apps"
     restart: always
     network_mode: ${NETWORK_MODE}
-    networks:
-      ip:
     ports:
       - ${PANEL_APP_PORT_HTTP}:8096
     volumes:
@@ -22,3 +20,5 @@ services:
       - ${JELLYFIN_ROOT_PATH}/media:/media
     devices:
       - ${JELLYFIN_DRIVE_PATH}:/dev/dri
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8096/health" ]
