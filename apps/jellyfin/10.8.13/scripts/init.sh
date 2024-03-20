@@ -20,6 +20,7 @@ if [[ -f ./.env ]]; then
     sed -i "s/<HttpServerPortNumber>[0-9]\{1,5\}<\/HttpServerPortNumber>/<HttpServerPortNumber>$PANEL_APP_PORT_HTTP<\/HttpServerPortNumber>/g" "$JELLYFIN_ROOT_PATH/config/config/network.xml"
     sed -i "s/<PublicHttpsPort>[0-9]\{1,5\}<\/PublicHttpsPort>/<PublicHttpsPort>$PANEL_APP_PORT_HTTPS<\/PublicHttpsPort>/g" "$JELLYFIN_ROOT_PATH/config/config/network.xml"
     sed -i "s/<HttpsPortNumber>[0-9]\{1,5\}<\/HttpsPortNumber>/<HttpsPortNumber>$PANEL_APP_PORT_HTTPS<\/HttpsPortNumber>/g" "$JELLYFIN_ROOT_PATH/config/config/network.xml"
+    sed -i "s/<EnableIPV6>[a-z]\{4,5\}<\/EnableIPV6>/<EnableIPV6>$JELLYFIN_IPV6_ENABLE<\/EnableIPV6>/g" "$JELLYFIN_ROOT_PATH/config/config/network.xml"
   fi
 
   echo "Check Finish."
