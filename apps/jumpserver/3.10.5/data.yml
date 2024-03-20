@@ -92,11 +92,10 @@ additionalProperties:
     - default: ""
       edit: true
       envKey: REDIS_HOST
-      key: redis
       labelEn: Redis Service
       labelZh: 缓存服务服务
       required: true
-      type: service
+      type: text
     - default: 6379
       edit: true
       envKey: REDIS_PORT
