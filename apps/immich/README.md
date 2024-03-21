@@ -33,7 +33,7 @@ pgvecto.rs是用Rust编写的，因此与类似产品相比，它具有更好的
 
 ### 数据库 PostgreSQL
 
-数据库为 `pgvecto-rs` 变种，无法使用官方 postgresql 数据库作为数据源，因此推荐使用 `db` 版本。
+数据库为 `pgvecto-rs` 变种，无法使用官方 postgresql 数据库作为数据源，因此推荐使用 `-db` 版本。
 由于 1.95.1 版本开始，Immich 采用了新的数据库结构，所以需要升级数据库。
 
 数据库镜像地址：
@@ -45,10 +45,14 @@ Docker Hub [pgvecto-rs](https://hub.docker.com/r/tensorchord/pgvecto-rs)
 + `1.95.1` 数据库版本
   tensorchord/pgvecto-rs:pg14-v0.2.0
 
++ `1.99.0` 数据库版本 (切换镜像源)
+  registry.hub.docker.com/tensorchord/pgvecto-rs:pg14-v0.2.0
+
 ## 常见问题
 
 + 安装缓慢
   由于Immich官方镜像为 `ghcr.io` 仓库，国内访问速度较慢，建议使用代理或者自行构建镜像。
+
 + 升级失败
     + 数据库问题
       当遇到跨版本升级，`db` 版本会自动升级数据库，但是 `version` 版本需要手动升级数据库。
@@ -59,3 +63,5 @@ Docker Hub [pgvecto-rs](https://hub.docker.com/r/tensorchord/pgvecto-rs)
     + 网络不存在
       由于Immich是编排模式，因此除了官方网络 `1panel-network` 之外，单独配备了其他网络，创建时应用时会提示填写网络名称。
       如果网络不存在，可在 容器 >> 网络 中创建网络删除创建的的网络即可。重新安装时会自动创建网络
+    + 强制解决方案
+      将 `应用` 卸载, 卸载前记录安装参数, 重新安装即可。 持久化目录(默认路径 `/home/{app_name}`)请勿删除，以免数据丢失。
