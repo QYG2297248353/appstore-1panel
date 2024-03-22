@@ -6,7 +6,7 @@ networks:
 
 services:
   minio:
-    image: minio/minio:RELEASE.2024-02-04T22-36-13Z
+    image: ${MINIO_IMAGE}
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"

@@ -1,5 +1,17 @@
 additionalProperties:
   formFields:
+    - default: "minio/minio:RELEASE.2024-03-15T01-07-19Z"
+      edit: true
+      envKey: MINIO_IMAGE
+      labelEn: Image source
+      labelZh: 镜像源
+      required: true
+      type: select
+      values:
+        - label: Quay Registry
+          value: "quay.io/minio/minio:RELEASE.2024-03-15T01-07-19Z"
+        - label: Docker Hub
+          value: "minio/minio:RELEASE.2024-03-15T01-07-19Z"
     - default: "/home/minio"
       edit: true
       envKey: MINIO_ROOT_PATH
