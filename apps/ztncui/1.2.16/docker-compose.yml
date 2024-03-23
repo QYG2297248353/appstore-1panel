@@ -28,5 +28,3 @@ services:
     volumes:
       - ./ui/ztncui:/opt/key-networks/ztncui/etc
       - ./server/zerotier-one:/var/lib/zerotier-one
-    command:
-      - ${NETWORK_ID}
