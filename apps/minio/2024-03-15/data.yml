@@ -31,18 +31,18 @@ additionalProperties:
       labelZh: 超级用户密码
       required: false
       type: password
-    - default: "9001"
+    - default: 9001
       envKey: PANEL_APP_PORT_HTTP
       labelEn: Port
       labelZh: 端口
       required: true
-      type: text
-    - default: "9000"
+      type: number
+    - default: 9000
       envKey: PANEL_APP_PORT_API
       labelEn: Port
       labelZh: API 端口
       required: true
-      type: text
+      type: number
     - default: "on"
       envKey: MINIO_BROWSER
       labelEn: Enable WebUI
@@ -61,9 +61,9 @@ additionalProperties:
       required: true
       type: select
       values:
-        - label: "开启"
+        - label: 开启
           value: "on"
-        - label: "关闭"
+        - label: 关闭
           value: "off"
     - default: "12h"
       envKey: MINIO_BROWSER_SESSION_DURATION
