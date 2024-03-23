@@ -25,6 +25,6 @@ services:
       - ZEROTIER_IDENTITY_PUBLIC=${ZEROTIER_IDENTITY_PUBLIC:-}
       - ZEROTIER_IDENTITY_SECRET=${ZEROTIER_IDENTITY_SECRET:-}
     volumes:
-      - /var/lib/zerotier-one:/var/lib/zerotier-one
+      - ${ZEROTIER_ROOT_PATH}/zerotier-one:/var/lib/zerotier-one
     command:
       - ${NETWORK_ID}

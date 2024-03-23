@@ -1,13 +1,5 @@
 additionalProperties:
   formFields:
-    - default: 9993
-      edit: true
-      envKey: PANEL_APP_PORT_HTTP
-      labelEn: Port
-      labelZh: 端口
-      required: true
-      rule: paramPort
-      type: number
     - default: "host"
       edit: true
       envKey: NETWORK_MODE
@@ -24,6 +16,21 @@ additionalProperties:
           value: "none"
         - label: 1panel-network
           value: "1panel-network"
+    - default: "/home/zerotier"
+      edit: true
+      envKey: ZEROTIER_ROOT_PATH
+      labelEn: Root Path
+      labelZh: 数据持久化 根路径
+      required: true
+      type: text
+    - default: 9993
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: Port
+      labelZh: 端口
+      required: true
+      rule: paramPort
+      type: number
     - default: ""
       edit: true
       envKey: NETWORK_ID
