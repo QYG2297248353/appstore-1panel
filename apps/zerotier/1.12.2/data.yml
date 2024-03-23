@@ -35,20 +35,20 @@ additionalProperties:
       edit: true
       envKey: ZEROTIER_API_SECRET
       labelEn: API Secret
-      labelZh: API 密钥
+      labelZh: API 密钥 (authtoken.secret)
       required: false
       type: text
     - default: ""
       edit: true
       envKey: ZEROTIER_IDENTITY_PUBLIC
-      labelEn: Public Identity
-      labelZh: 公共身份
+      labelEn: Identity Public
+      labelZh: 身份公钥 (identity.public)
       required: false
       type: text
     - default: ""
       edit: true
       envKey: ZEROTIER_IDENTITY_SECRET
-      labelEn: Secret Identity
-      labelZh: 秘密身份
+      labelEn: Identity Secret
+      labelZh: 身份密钥 (identity.secret)
       required: false
       type: text

@@ -26,5 +26,6 @@ services:
       - ZEROTIER_IDENTITY_SECRET=${ZEROTIER_IDENTITY_SECRET:-}
     volumes:
       - /var/lib/zerotier-one:/var/lib/zerotier-one
+      - ./zerotier-one/planet:/var/lib/zerotier-one/planet
     command:
       - ${NETWORK_ID}
