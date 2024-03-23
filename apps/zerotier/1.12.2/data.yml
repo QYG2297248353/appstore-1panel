@@ -29,7 +29,7 @@ additionalProperties:
       envKey: NETWORK_ID
       labelEn: Network ID
       labelZh: 网络 ID
-      required: true
+      required: false
       type: text
     - default: ""
       edit: true
