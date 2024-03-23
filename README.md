@@ -34,6 +34,8 @@
     - [x] [SpeedTest-X](https://github.com/BadApple9/speedtest-x/)
 - [x] [SpeedTest-Tracker](https://docs.speedtest-tracker.dev/)
 - [x] [Uptime-Kuma](https://github.com/louislam/uptime-kuma/)
+- [x] [ZeroTier](https://www.zerotier.com/) `客户端`
+    - [x] [Ztncui](https://www.zerotier.com/) `服务端`
 
 ## 脚本安装
 
