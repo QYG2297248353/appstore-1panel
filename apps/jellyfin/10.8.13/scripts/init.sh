@@ -6,6 +6,7 @@ if [[ -f ./.env ]]; then
   mkdir -p "$JELLYFIN_ROOT_PATH"
   mkdir -p "$JELLYFIN_ROOT_PATH/config"
   mkdir -p "$JELLYFIN_ROOT_PATH/config/config"
+  mkdir -p "$JELLYFIN_ROOT_PATH/config/font"
   mkdir -p "$JELLYFIN_ROOT_PATH/cache"
   mkdir -p "$JELLYFIN_ROOT_PATH/media"
 
@@ -22,6 +23,8 @@ if [[ -f ./.env ]]; then
     sed -i "s/<HttpsPortNumber>[0-9]\{1,5\}<\/HttpsPortNumber>/<HttpsPortNumber>$PANEL_APP_PORT_HTTPS<\/HttpsPortNumber>/g" "$JELLYFIN_ROOT_PATH/config/config/network.xml"
     sed -i "s/<EnableIPV6>[a-z]\{4,5\}<\/EnableIPV6>/<EnableIPV6>$JELLYFIN_IPV6_ENABLE<\/EnableIPV6>/g" "$JELLYFIN_ROOT_PATH/config/config/network.xml"
   fi
+
+  cp -f ./font/* "$JELLYFIN_ROOT_PATH/config/font/"
 
   echo "Check Finish."
 

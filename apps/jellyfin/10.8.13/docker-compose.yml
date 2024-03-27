@@ -24,3 +24,5 @@ services:
       - ${JELLYFIN_DRIVE_PATH}:/dev/dri
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8096/health" ]
+    command: >
+      sh -c "apt update && apt install -y fonts-noto-cjk-extra"
