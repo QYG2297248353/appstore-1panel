@@ -7,6 +7,7 @@ if [[ -f ./.env ]]; then
   mkdir -p "$JELLYFIN_ROOT_PATH/config"
   mkdir -p "$JELLYFIN_ROOT_PATH/config/config"
   mkdir -p "$JELLYFIN_ROOT_PATH/config/font"
+  mkdir -p "$JELLYFIN_ROOT_PATH/config/dejavu"
   mkdir -p "$JELLYFIN_ROOT_PATH/cache"
   mkdir -p "$JELLYFIN_ROOT_PATH/media"
 
