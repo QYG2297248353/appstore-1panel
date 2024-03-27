@@ -24,6 +24,7 @@ if [[ -f ./.env ]]; then
     sed -i "s/<EnableIPV6>[a-z]\{4,5\}<\/EnableIPV6>/<EnableIPV6>$JELLYFIN_IPV6_ENABLE<\/EnableIPV6>/g" "$JELLYFIN_ROOT_PATH/config/config/network.xml"
   fi
 
+  cp -f ./dejavu "$JELLYFIN_ROOT_PATH/config/dejavu"
   cp -f ./font/* "$JELLYFIN_ROOT_PATH/config/font/"
 
   echo "Check Finish."

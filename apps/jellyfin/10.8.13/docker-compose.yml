@@ -20,9 +20,12 @@ services:
       - ${JELLYFIN_ROOT_PATH}/config/config/network.xml:/config/config/network.xml
       - ${JELLYFIN_ROOT_PATH}/cache:/cache
       - ${JELLYFIN_ROOT_PATH}/media:/media
+      - ${JELLYFIN_ROOT_PATH}/config/font:/config/font
+      - ${JELLYFIN_ROOT_PATH}/config/dejavu:/usr/share/fonts/truetype/dejavu
     devices:
       - ${JELLYFIN_DRIVE_PATH}:/dev/dri
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8096/health" ]
-    command: >
-      sh -c "apt update && apt install -y fonts-noto-cjk-extra"
+      interval: 1m
+      timeout: 10s
+      retries: 3
