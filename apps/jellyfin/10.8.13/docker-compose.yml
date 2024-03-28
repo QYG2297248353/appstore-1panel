@@ -15,6 +15,8 @@ services:
     ports:
       - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
       - ${PANEL_APP_PORT_HTTPS}:${PANEL_APP_PORT_HTTPS}
+      - 1900:1900/udp
+      - 7359:7359/udp
     volumes:
       - ${JELLYFIN_ROOT_PATH}/config:/config
       - ${JELLYFIN_ROOT_PATH}/config/config/network.xml:/config/config/network.xml
@@ -29,3 +31,6 @@ services:
       interval: 1m
       timeout: 10s
       retries: 3
+    environment:
+      - HTTP_PROXY=${JELLYFIN_HTTP_PROXY:-}
+      - HTTPS_PROXY=${JELLYFIN_HTTPS_PROXY:-}
