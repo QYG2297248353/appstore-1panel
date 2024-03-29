@@ -23,13 +23,6 @@ additionalProperties:
       values:
         - label: PostgreSQL
           value: postgresql
-    - default: "immich-net"
-      edit: true
-      envKey: IMMICH_NETWORK
-      labelEn: microservices network
-      labelZh: 服务网络 (编排应用独立网络)
-      required: true
-      type: text
     - default: "/home/immich-app"
       edit: true
       envKey: IMMICH_ROOT_PATH
