@@ -7,6 +7,7 @@
 ## 维护应用
 
 - [x] [Bark](https://bark.day.app/)
+- [x] [Cookie-Cloud](https://github.com/easychen/CookieCloud)
 - [x] [Elastic](https://www.elastic.co/)
     - [x] [Elasticsearch](https://www.elastic.co/elasticsearch/)
     - [x] [Kibana](https://www.elastic.co/kibana/)
@@ -23,6 +24,7 @@
 - [x] [MySQL](https://www.mysql.com/)
     - [x] [MariaDB](https://mariadb.org/)
     - [ ] [Percona](https://www.percona.com/)
+- [x] [MoviePilot]()
 - [x] [Nacos](https://nacos.io/)
 - [x] [OneDev](https://onedev.io/)
 - [x] [PostgreSQL](https://www.postgresql.org/)

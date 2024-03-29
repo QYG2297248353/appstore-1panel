@@ -1,0 +1,20 @@
+name: CookieCloud
+tags:
+  - 实用工具
+title: Cookie 同步
+type: 实用工具
+description: 自架服务器同步Cookie的小工具
+additionalProperties:
+  key: cookie-cloud
+  name: CookieCloud
+  tags:
+    - Tool
+  shortDescZh: 自架服务器同步Cookie的小工具
+  shortDescEn: A small tool to synchronize cookies on self-built servers
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  recommend: 0
+  website: https://github.com/easychen/CookieCloud
+  github: https://github.com/easychen/CookieCloud
+  document: https://github.com/easychen/CookieCloud
