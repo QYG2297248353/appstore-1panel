@@ -3,7 +3,7 @@ version: "3.8"
 networks:
   1panel-network:
     external: true
-  ${IMMICH_NETWORK}:
+  immich-net:
     driver: bridge
     ipam:
       driver: default
@@ -21,7 +21,7 @@ services:
       createdBy: "Apps"
     restart: always
     networks:
-      - ${IMMICH_NETWORK}
+      - immich-net
     volumes:
       - ${IMMICH_ROOT_PATH}/data/cache:/cache
     environment:
@@ -36,7 +36,7 @@ services:
       createdBy: "Apps"
     restart: always
     networks:
-      - ${IMMICH_NETWORK}
+      - immich-net
     command: [ "start.sh", "microservices" ]
     volumes:
       - ${IMMICH_ROOT_PATH}/data/library:/usr/src/app/upload
@@ -66,7 +66,7 @@ services:
     restart: always
     networks:
       - 1panel-network
-      - ${IMMICH_NETWORK}
+      - immich-net
     command: [ "start.sh", "immich" ]
     volumes:
       - ${IMMICH_ROOT_PATH}/data/library:/usr/src/app/upload

@@ -5,6 +5,7 @@ if [ -f .env ]; then
 
   if grep -q "IMMICH_NETWORK" ./.env; then
     echo "IMMICH_NETWORK found."
+    sed -i 's/IMMICH_NETWORK=.*/IMMICH_NETWORK="immich-net"/' ./.env
   else
     echo 'IMMICH_NETWORK="immich-net"' >>./.env
   fi

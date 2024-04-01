@@ -39,14 +39,18 @@ pgvecto.rs是用Rust编写的，因此与类似产品相比，它具有更好的
 数据库镜像地址：
 Docker Hub [pgvecto-rs](https://hub.docker.com/r/tensorchord/pgvecto-rs)
 
-+ `1.94.1` 数据库版本
-  tensorchord/pgvecto-rs:pg14-v0.1.11
++ `1.100.0` 网络模式
+  自此版本起，编排网络模式将固定化，避免安装异常。
+  请确认安装时容器不存在桥接网络`immich-net`,且不存在网段：`172.33.22.0/24`
+
++ `1.99.0` 数据库版本 (切换镜像源)
+  registry.hub.docker.com/tensorchord/pgvecto-rs:pg14-v0.2.0
 
 + `1.95.1` 数据库版本
   tensorchord/pgvecto-rs:pg14-v0.2.0
 
-+ `1.99.0` 数据库版本 (切换镜像源)
-  registry.hub.docker.com/tensorchord/pgvecto-rs:pg14-v0.2.0
++ `1.94.1` 数据库版本
+  tensorchord/pgvecto-rs:pg14-v0.1.11
 
 ## 常见问题
 
