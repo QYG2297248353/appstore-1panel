@@ -1,0 +1,20 @@
+name: Transmission
+tags:
+  - 实用工具
+title: BitTorrent客户端
+type: 实用工具
+description: BitTorrent客户端
+additionalProperties:
+  key: transmission
+  name: Transmission
+  tags:
+    - Tool
+  shortDescZh: BitTorrent客户端
+  shortDescEn: BitTorrent client
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  recommend: 0
+  website: https://transmissionbt.com/
+  github: https://github.com/transmission/transmission
+  document: https://github.com/transmission/transmission

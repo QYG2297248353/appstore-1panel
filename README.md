@@ -24,10 +24,11 @@
 - [x] [MySQL](https://www.mysql.com/)
     - [x] [MariaDB](https://mariadb.org/)
     - [ ] [Percona](https://www.percona.com/)
-- [x] [MoviePilot]()
+- [x] [MoviePilot](https://github.com/jxxghp/MoviePilot)
 - [x] [Nacos](https://nacos.io/)
 - [x] [OneDev](https://onedev.io/)
 - [x] [PostgreSQL](https://www.postgresql.org/)
+- [x] [qBittorrent](https://www.qbittorrent.org/)
 - [x] [QingLong](https://github.com/whyour/qinglong/)
 - [x] [Redis](https://redis.io/)
 - [x] [Sentinel-Dashboard](https://sentinelguard.io/)
@@ -35,6 +36,7 @@
 - [x] [SpeedTest](https://www.speedtest.net/)
     - [x] [SpeedTest-X](https://github.com/BadApple9/speedtest-x/)
 - [x] [SpeedTest-Tracker](https://docs.speedtest-tracker.dev/)
+- [x] [Transmission](https://transmissionbt.com/)
 - [x] [Uptime-Kuma](https://github.com/louislam/uptime-kuma/)
 - [x] [ZeroTier](https://www.zerotier.com/) `客户端`
     - [x] [Ztncui](https://www.zerotier.com/) `服务端`

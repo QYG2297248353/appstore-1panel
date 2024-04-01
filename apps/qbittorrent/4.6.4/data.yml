@@ -1,0 +1,81 @@
+additionalProperties:
+  formFields:
+    - default: "host"
+      edit: true
+      envKey: NETWORK_MODE
+      labelEn: Drive path
+      labelZh: 网络模式
+      required: true
+      type: select
+      values:
+        - label: 主机模式
+          value: "host"
+        - label: 桥接模式
+          value: "bridge"
+        - label: 无网络
+          value: "none"
+        - label: 1panel-network
+          value: "1panel-network"
+    - default: "linuxserver/qbittorrent:4.6.4"
+      edit: true
+      envKey: QBITTORRENT_IMAGE
+      labelEn: Image source
+      labelZh: 镜像源
+      required: true
+      type: select
+      values:
+        - label: Docker Hub
+          value: "linuxserver/qbittorrent:4.6.4"
+        - label: LinuxServer
+          value: "lscr.io/linuxserver/qbittorrent:4.6.4"
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: Port
+      labelZh: 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: 6881
+      edit: true
+      envKey: PANEL_APP_PORT_API
+      labelEn: Port
+      labelZh: 端口
+      required: false
+      rule: paramPort
+      type: number
+    - default: "/home/qBittorrent"
+      edit: true
+      envKey: QBITTORRENT_ROOT_PATH
+      labelEn: Root Path
+      labelZh: 数据持久化 根路径
+      required: true
+      type: text
+    - default: 1000
+      edit: true
+      envKey: PUID
+      labelEn: PUID user's uid
+      labelZh: PUID 用户的uid
+      required: false
+      type: number
+    - default: 1000
+      edit: true
+      envKey: PGID
+      labelEn: PGID user's gid
+      labelZh: PGID 用户的gid
+      required: false
+      type: number
+    - default: "022"
+      edit: true
+      envKey: UMASK
+      labelEn: UMASK permission mask
+      labelZh: UMASK 权限掩码
+      required: false
+      type: text
+    - default: "Asia/Shanghai"
+      edit: true
+      envKey: TZ
+      labelEn: Timezone
+      labelZh: 时区
+      required: false
+      type: text

@@ -1,0 +1,28 @@
+version: "3"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  qbittorrent:
+    image: ${QBITTORRENT_IMAGE}
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    network_mode: ${NETWORK_MODE}
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
+      - ${PANEL_APP_PORT_API:-6881}:${PANEL_APP_PORT_API:-6881}
+      - ${PANEL_APP_PORT_API:-6881}:${PANEL_APP_PORT_API:-6881}/udp
+    volumes:
+      - ${QBITTORRENT_ROOT_PATH}/config:/config
+      - ${QBITTORRENT_ROOT_PATH}/downloads:/downloads
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - UMASK=${UMASK:-022}
+      - TZ=${TZ:-Asia/Shanghai}
+      - WEBUI_PORT=${PANEL_APP_PORT_HTTP}
+      - TORRENTING_PORT=${PANEL_APP_PORT_API:-6881}
