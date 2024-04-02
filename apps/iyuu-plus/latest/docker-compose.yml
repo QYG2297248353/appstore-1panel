@@ -1,0 +1,20 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  iyuuplus:
+    image: iyuucn/iyuuplus:latest
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    network_mode: ${NETWORK_MODE}
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8787
+    volumes:
+      - ${IYUUCN_ROOT_PATH}/db:/IYUU/db
+      - ${IYUUCN_ROOT_PATH}/bt/qBittorrent:/qBittorrent
+      - ${IYUUCN_ROOT_PATH}/bt/transmission:/transmission

@@ -7,7 +7,7 @@
 ## 维护应用
 
 - [x] [Bark](https://bark.day.app/)
-- [x] [Cookie-Cloud](https://github.com/easychen/CookieCloud)
+- [x] [Cookie-Cloud](https://github.com/easychen/CookieCloud/)
 - [x] [Elastic](https://www.elastic.co/)
     - [x] [Elasticsearch](https://www.elastic.co/elasticsearch/)
     - [x] [Kibana](https://www.elastic.co/kibana/)
@@ -18,13 +18,14 @@
 - [x] [GitLab](https://about.gitlab.com/) `不推荐`
 - [x] [Halo](https://halo.run/)
 - [x] [Immich](https://immich.app/)
+- [x] [IYUUPlus](https://github.com/ledccn/IYUUPlus/)
 - [x] [Jellyfin](https://jellyfin.org/)
-- [x] [LinkDing](https://github.com/sissbruecker/linkding)
+- [x] [LinkDing](https://github.com/sissbruecker/linkding/)
 - [x] [Minio](https://min.io/)
 - [x] [MySQL](https://www.mysql.com/)
     - [x] [MariaDB](https://mariadb.org/)
     - [ ] [Percona](https://www.percona.com/)
-- [x] [MoviePilot](https://github.com/jxxghp/MoviePilot)
+- [x] [MoviePilot](https://github.com/jxxghp/MoviePilot/)
 - [x] [Nacos](https://nacos.io/)
 - [x] [OneDev](https://onedev.io/)
 - [x] [PostgreSQL](https://www.postgresql.org/)

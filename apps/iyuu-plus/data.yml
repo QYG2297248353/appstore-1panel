@@ -1,0 +1,20 @@
+name: IYUUAutoReseed
+tags:
+  - 实用工具
+title: 自动辅种工具
+type: 实用工具
+description: 自动辅种工具
+additionalProperties:
+  key: iyuu-auto-reseed
+  name: IYUUAutoReseed
+  tags:
+    - Tool
+  shortDescZh: 自动辅种工具
+  shortDescEn: Auto Reseed Tool
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  recommend: 0
+  website: https://www.iyuu.cn/
+  github: https://github.com/ledccn/IYUUAutoReseed
+  document: https://gitee.com/ledc/IYUUAutoReseed/tree/master/wiki
