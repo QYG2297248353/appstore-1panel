@@ -10,6 +10,26 @@ NAS媒体库自动化管理工具
 
 #### 认证站点 （安装前确保至少有一个认证站点）
 
+> 认证方式一：
+>
+> 认证站点：iyuu
+>
+> IYUU登录令牌：IYUUxxxxxx
+>
+> 不用填写 `认证用户ID` 与 `认证密钥`
+
+=========================================
+
+> 认证方式二：
+>
+> 认证站点：hdfans
+>
+> 认证用户ID：HDFANS_UID=xxxx
+>
+> 认证密钥：HDFANS_PASSKEY=xxxx
+>
+> 不用填写 `IYUU登录令牌`
+
 支持配置多个认证站点，使用,分隔，如：iyuu,hhclub，会依次执行认证操作，直到有一个站点认证成功。
 配置AUTH_SITE后，需要根据下表配置对应站点的认证参数。
 认证资源v1.2.4+支持：iyuu/hhclub/audiences/hddolby/zmpt/freefarm/hdfans/wintersakura/leaves/ptba

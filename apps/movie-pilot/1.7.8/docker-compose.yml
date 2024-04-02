@@ -30,7 +30,6 @@ services:
       - UMASK=${UMASK:-000}
       - PROXY_HOST=${PROXY_HOST:-}
       - MOVIEPILOT_AUTO_UPDATE=${MOVIEPILOT_AUTO_UPDATE:-false}
-      - AUTH_SITE=${AUTH_SITE:-}
       - SUPERUSER=${SUPERUSER:-admin}
       - API_TOKEN=${API_TOKEN:-moviepilot}
       - BIG_MEMORY_MODE=${BIG_MEMORY_MODE:-false}
@@ -55,6 +54,10 @@ services:
       - PLUGIN_MARKET=${PLUGIN_MARKET:-https://github.com/jxxghp/MoviePilot-Plugins}
       - all_proxy=${ALL_PROXY:-}
       - no_proxy=${NO_PROXY:-localhost,127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16}
+      - AUTH_SITE=${AUTH_SITE:-}
+      - IYUU_SIGN=${IYUU_SIGN:-}
+      - ${SITE_USERNAME:-}
+      - ${SITE_PASSKEY:-}
     logging:
       driver: json-file
       options:

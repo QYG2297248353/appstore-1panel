@@ -1,42 +1,5 @@
 additionalProperties:
   formFields:
-    - child:
-        default: ""
-        envKey: IYUU_SIGN
-        required: false
-        type: text
-      default: iyuu
-      envKey: IYUU_SIGN_TEXT
-      labelEn: Site Authentication
-      labelZh: 站点认证
-      required: false
-      type: select
-      values:
-        - label: IYUU (认证)
-          value: "iyuu"
-    - child:
-        default: ""
-        envKey: HDFANS_UID
-        labelEn: User ID
-        labelZh: 用户ID
-        required: false
-        type: text
-    - child:
-        default: ""
-        envKey: HDFANS_PASSKEY
-        labelEn: User PassKey
-        labelZh: 用户密钥
-        required: false
-        type: text
-      default: hdfans
-      envKey: HDFANS_TEXT
-      labelEn: Site Authentication
-      labelZh: 站点认证
-      required: false
-      type: select
-      values:
-        - label: HDFans (认证)
-          value: "hdfans"
     - default: 3000
       edit: true
       envKey: PANEL_APP_PORT_HTTP
@@ -111,13 +74,6 @@ additionalProperties:
           value: "dev"
         - label: 关闭
           value: "false"
-    - default: ""
-      edit: true
-      envKey: AUTH_SITE
-      labelEn: Auth Site
-      labelZh: 认证站点
-      required: false
-      type: text
     - default: "admin"
       edit: true
       envKey: SUPERUSER
@@ -339,5 +295,33 @@ additionalProperties:
       envKey: NO_PROXY
       labelEn: No Proxy
       labelZh: 禁用代理网段
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AUTH_SITE
+      labelEn: Auth Site
+      labelZh: 认证站点 (查看说明文档)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: IYUU_SIGN
+      labelEn: IYUU Sign
+      labelZh: IYUU登录令牌
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SITE_USERNAME
+      labelEn: username or uid
+      labelZh: 认证用户ID (格式：变量名=值)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SITE_PASSKEY
+      labelEn: passkay
+      labelZh: 认证密钥 (格式：变量名=值)
       required: false
       type: text
