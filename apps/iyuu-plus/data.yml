@@ -1,12 +1,12 @@
-name: IYUUAutoReseed
+name: IYUUPlus
 tags:
   - 实用工具
 title: 自动辅种工具
 type: 实用工具
 description: 自动辅种工具
 additionalProperties:
-  key: iyuu-auto-reseed
-  name: IYUUAutoReseed
+  key: iyuu-plus
+  name: IYUUPlus
   tags:
     - Tool
   shortDescZh: 自动辅种工具
