@@ -1,5 +1,42 @@
 additionalProperties:
   formFields:
+    - child:
+        default: ""
+        envKey: IYUU_SIGN
+        required: false
+        type: text
+      default: iyuu
+      envKey: IYUU_SIGN_TEXT
+      labelEn: Site Authentication
+      labelZh: 站点认证
+      required: false
+      type: select
+      values:
+        - label: IYUU (认证)
+          value: "iyuu"
+    - child:
+        default: ""
+        envKey: HDFANS_UID
+        labelEn: User ID
+        labelZh: 用户ID
+        required: false
+        type: text
+    - child:
+        default: ""
+        envKey: HDFANS_PASSKEY
+        labelEn: User PassKey
+        labelZh: 用户密钥
+        required: false
+        type: text
+      default: hdfans
+      envKey: HDFANS_TEXT
+      labelEn: Site Authentication
+      labelZh: 站点认证
+      required: false
+      type: select
+      values:
+        - label: HDFans (认证)
+          value: "hdfans"
     - default: 3000
       edit: true
       envKey: PANEL_APP_PORT_HTTP
@@ -288,5 +325,19 @@ additionalProperties:
       envKey: PLUGIN_MARKET
       labelEn: Plugin Market (Multiple addresses use , separated)
       labelZh: 插件市场 (多个地址使用,分隔)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: ALL_PROXY
+      labelEn: All Proxy
+      labelZh: 全局代理
+      required: false
+      type: text
+    - default: "localhost,127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+      edit: true
+      envKey: NO_PROXY
+      labelEn: No Proxy
+      labelZh: 禁用代理网段
       required: false
       type: text

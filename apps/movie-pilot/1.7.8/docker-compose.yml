@@ -22,6 +22,7 @@ services:
       - ${DOCKER_SOCKET:-/var/run/docker.sock}:/var/run/docker.sock
       - ${COOKIECLOUD_ROOT_PATH}/download:/download
     environment:
+      - TZ=Asia/Shanghai
       - NGINX_PORT=3000
       - PORT=3001
       - PUID=${PUID:-0}
@@ -52,3 +53,9 @@ services:
       - MOVIE_RENAME_FORMAT=${MOVIE_RENAME_FORMAT:-{{title}}{% if year %} ({{year}}){% endif %}/{{title}}{% if year %} ({{year}}){% endif %}{% if part %}-{{part}}{% endif %}{% if videoFormat %} - {{videoFormat}}{% endif %}{{fileExt}}}
       - TV_RENAME_FORMAT=$TV_RENAME_FORMAT:-{{title}}{% if year %} ({{year}}){% endif %}/Season {{season}}/{{title}} - {{season_episode}}{% if part %}-{{part}}{% endif %}{% if episode %} - 第 {{episode}} 集{% endif %}{{fileExt}}}
       - PLUGIN_MARKET=${PLUGIN_MARKET:-https://github.com/jxxghp/MoviePilot-Plugins}
+      - all_proxy=${ALL_PROXY:-}
+      - no_proxy=${NO_PROXY:-localhost,127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16}
+    logging:
+      driver: json-file
+      options:
+        max-size: 5m
