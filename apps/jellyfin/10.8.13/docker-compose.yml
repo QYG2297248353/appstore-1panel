@@ -24,6 +24,9 @@ services:
       - ${JELLYFIN_ROOT_PATH}/media:/media
       - ${JELLYFIN_ROOT_PATH}/config/font:/config/font
       - ${JELLYFIN_ROOT_PATH}/config/dejavu:/usr/share/fonts/truetype/dejavu
+      - ${CUSTOM_MOUNT_DIRECTORY_1:-}
+      - ${CUSTOM_MOUNT_DIRECTORY_2:-}
+      - ${CUSTOM_MOUNT_DIRECTORY_3:-}
     devices:
       - ${JELLYFIN_DRIVE_PATH}:/dev/dri
     healthcheck:

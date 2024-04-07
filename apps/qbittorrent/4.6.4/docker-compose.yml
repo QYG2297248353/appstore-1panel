@@ -19,6 +19,9 @@ services:
     volumes:
       - ${QBITTORRENT_ROOT_PATH}/config:/config
       - ${QBITTORRENT_ROOT_PATH}/downloads:/downloads
+      - ${CUSTOM_MOUNT_DIRECTORY_1:-}
+      - ${CUSTOM_MOUNT_DIRECTORY_2:-}
+      - ${CUSTOM_MOUNT_DIRECTORY_3:-}
     environment:
       - PUID=${PUID:-1000}
       - PGID=${PGID:-1000}

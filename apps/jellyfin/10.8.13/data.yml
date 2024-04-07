@@ -72,3 +72,24 @@ additionalProperties:
       labelZh: HTTPS 网络代理
       required: false
       type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_1
+      labelEn: Custom mount directory 1
+      labelZh: 自定义挂载目录 1 (主机目录:容器目录)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_2
+      labelEn: Custom mount directory 2
+      labelZh: 自定义挂载目录 2 (主机目录:容器目录)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_3
+      labelEn: Custom mount directory 3
+      labelZh: 自定义挂载目录 3 (主机目录:容器目录)
+      required: false
+      type: text

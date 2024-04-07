@@ -21,6 +21,9 @@ services:
       - ${COOKIECLOUD_ROOT_PATH}/moviepilot:/moviepilot
       - ${DOCKER_SOCKET:-/var/run/docker.sock}:/var/run/docker.sock
       - ${COOKIECLOUD_ROOT_PATH}/download:/download
+      - ${CUSTOM_MOUNT_DIRECTORY_1:-}
+      - ${CUSTOM_MOUNT_DIRECTORY_2:-}
+      - ${CUSTOM_MOUNT_DIRECTORY_3:-}
     environment:
       - TZ=Asia/Shanghai
       - NGINX_PORT=3000

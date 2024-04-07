@@ -20,6 +20,9 @@ services:
       - ${EMBY_ROOT_PATH}/config:/config
       - ${EMBY_ROOT_PATH}/config/config/system.xml:/config/config/system.xml
       - ${EMBY_ROOT_PATH}/mnt:/mnt
+      - ${CUSTOM_MOUNT_DIRECTORY_1:-}
+      - ${CUSTOM_MOUNT_DIRECTORY_2:-}
+      - ${CUSTOM_MOUNT_DIRECTORY_3:-}
     ports:
       - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
       - ${PANEL_APP_PORT_HTTPS}:${PANEL_APP_PORT_HTTPS}
