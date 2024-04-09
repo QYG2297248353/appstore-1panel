@@ -53,20 +53,6 @@ additionalProperties:
       labelZh: PGID 用户的gid
       required: false
       type: number
-    - default: 998
-      edit: true
-      envKey: RENDER_GROUP_ID
-      labelEn: host's render group ID
-      labelZh: 宿主机render组ID
-      required: false
-      type: number
-    - default: 39
-      edit: true
-      envKey: VIDEO_GROUP_ID
-      labelEn: host's video group ID
-      labelZh: 宿主机video组ID
-      required: false
-      type: number
     - default: "/dev/dri"
       edit: true
       envKey: JELLYFIN_DRIVE_PATH

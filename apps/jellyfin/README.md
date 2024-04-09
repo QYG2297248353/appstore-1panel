@@ -37,15 +37,8 @@ Host模式修改映射端口，不会生效，因为端口是直接映射到宿�
 
 ### 驱动器支持 `DRIVE_PATH`
 
-    - Linux 系统中默认驱动存放路径为 `/dev/dri` 。请指定驱动路径而不是驱动文件，例如 `/dev/dri`。
-    - 配置采用直通方式，容器内的 Jellyfin 服务器可以直接访问宿主机的硬件设备，以获得更好的性能。
-
-### 查询主机系统上 render and video 组的 ID
-
-```bash
-getent group render | cut -d: -f3
-getent group video | cut -d: -f3
-```
+  - Linux 系统中默认驱动存放路径为 `/dev/dri` 。请指定驱动路径而不是驱动文件，例如 `/dev/dri`。
+  - 配置采用直通方式，容器内的 Jellyfin 服务器可以直接访问宿主机的硬件设备，以获得更好的性能。
 
 ## 中文字幕支持 (启用备用字体)
 
