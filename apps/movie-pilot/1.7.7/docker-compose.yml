@@ -49,6 +49,6 @@ services:
       - OCR_HOST=${OCR_HOST:-}
       - DOWNLOAD_SUBTITLE=${DOWNLOAD_SUBTITLE:-true}
       - SEARCH_MULTIPLE_NAME=${SEARCH_MULTIPLE_NAME:-false}
-      - MOVIE_RENAME_FORMAT=${MOVIE_RENAME_FORMAT:-{{title}}{% if year %} ({{year}}){% endif %}/{{title}}{% if year %} ({{year}}){% endif %}{% if part %}-{{part}}{% endif %}{% if videoFormat %} - {{videoFormat}}{% endif %}{{fileExt}}}
-      - TV_RENAME_FORMAT=${TV_RENAME_FORMAT:-{{title}}{% if year %} ({{year}}){% endif %}/Season {{season}}/{{title}} - {{season_episode}}{% if part %}-{{part}}{% endif %}{% if episode %} - 第 {{episode}} 集{% endif %}{{fileExt}}}
+      - MOVIE_RENAME_FORMAT=${MOVIE_RENAME_FORMAT}
+      - TV_RENAME_FORMAT=${TV_RENAME_FORMAT}
       - PLUGIN_MARKET=${PLUGIN_MARKET:-https://github.com/jxxghp/MoviePilot-Plugins}
