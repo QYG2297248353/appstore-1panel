@@ -1,4 +1,4 @@
-version: "3"
+version: "3.5"
 
 networks:
   1panel-network:
@@ -12,6 +12,10 @@ services:
       createdBy: "Apps"
     restart: always
     network_mode: ${NETWORK_MODE}
+    user: ${PUID:-1000}:${PGID:-1000}
+    group_add:
+      - ${RENDER_GROUP_ID:-998}
+      - ${VIDEO_GROUP_ID:-39}
     ports:
       - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
       - ${PANEL_APP_PORT_HTTPS}:${PANEL_APP_PORT_HTTPS}
@@ -28,12 +32,14 @@ services:
       - ${CUSTOM_MOUNT_DIRECTORY_2:-./default_mount_2}:${CUSTOM_MOUNT_DIRECTORY_2:-/default_mount_2}
       - ${CUSTOM_MOUNT_DIRECTORY_3:-./default_mount_3}:${CUSTOM_MOUNT_DIRECTORY_3:-/default_mount_3}
     devices:
-      - ${JELLYFIN_DRIVE_PATH}:/dev/dri
+      - ${JELLYFIN_DRIVE_PATH:-/dev/dri}:/dev/dri
+      - ${JELLYFIN_OPENCL_DRIVE_PATH:-/dev/kfd}:/dev/kfd
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8096/health" ]
       interval: 1m
       timeout: 10s
       retries: 3
     environment:
+      - ROC_ENABLE_PRE_VEGA=1
       - HTTP_PROXY=${JELLYFIN_HTTP_PROXY:-}
       - HTTPS_PROXY=${JELLYFIN_HTTPS_PROXY:-}
