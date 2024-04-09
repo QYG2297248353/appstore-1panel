@@ -53,7 +53,7 @@ services:
       - DOWNLOAD_SUBTITLE=${DOWNLOAD_SUBTITLE:-true}
       - SEARCH_MULTIPLE_NAME=${SEARCH_MULTIPLE_NAME:-false}
       - MOVIE_RENAME_FORMAT=${MOVIE_RENAME_FORMAT:-{{title}}{% if year %} ({{year}}){% endif %}/{{title}}{% if year %} ({{year}}){% endif %}{% if part %}-{{part}}{% endif %}{% if videoFormat %} - {{videoFormat}}{% endif %}{{fileExt}}}
-      - TV_RENAME_FORMAT=$TV_RENAME_FORMAT:-{{title}}{% if year %} ({{year}}){% endif %}/Season {{season}}/{{title}} - {{season_episode}}{% if part %}-{{part}}{% endif %}{% if episode %} - 第 {{episode}} 集{% endif %}{{fileExt}}}
+      - TV_RENAME_FORMAT=${TV_RENAME_FORMAT:-{{title}}{% if year %} ({{year}}){% endif %}/Season {{season}}/{{title}} - {{season_episode}}{% if part %}-{{part}}{% endif %}{% if episode %} - 第 {{episode}} 集{% endif %}{{fileExt}}}
       - PLUGIN_MARKET=${PLUGIN_MARKET:-https://github.com/jxxghp/MoviePilot-Plugins}
       - all_proxy=${ALL_PROXY:-}
       - no_proxy=${NO_PROXY:-localhost,127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16}

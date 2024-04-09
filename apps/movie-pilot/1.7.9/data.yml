@@ -269,7 +269,7 @@ additionalProperties:
       labelZh: 电影重命名格式
       required: false
       type: text
-    - default: "{{title}}{% if year %} ({{year}}){% endif %}/{{title}}{% if year %} ({{year}}){% endif %}{% if part %}-{{part}}{% endif %}{% if videoFormat %} - {{videoFormat}}{% endif %}{{fileExt}}"
+    - default: "{{title}}{% if year %} ({{year}}){% endif %}/Season {{season}}/{{title}} - {{season_episode}}{% if part %}-{{part}}{% endif %}{% if episode %} - 第 {{episode}} 集{% endif %}{{fileExt}}"
       edit: true
       envKey: TV_RENAME_FORMAT
       labelEn: TV Show Rename Format
