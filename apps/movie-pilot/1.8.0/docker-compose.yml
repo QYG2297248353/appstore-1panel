@@ -30,7 +30,7 @@ services:
       - PORT=3001
       - PUID=${PUID:-0}
       - PGID=${PGID:-0}
-      - UMASK=${UMASK:-000}
+      - UMASK=${UMASK:-022}
       - PROXY_HOST=${PROXY_HOST:-}
       - MOVIEPILOT_AUTO_UPDATE=${MOVIEPILOT_AUTO_UPDATE:-false}
       - SUPERUSER=${SUPERUSER:-admin}
@@ -61,6 +61,8 @@ services:
       - IYUU_SIGN=${IYUU_SIGN:-}
       - ${SITE_USERNAME:-}
       - ${SITE_PASSKEY:-}
+      - ${SITE_USERNAME_BACKUP:-}
+      - ${SITE_PASSKEY_BACKUP:-}
     logging:
       driver: json-file
       options:
