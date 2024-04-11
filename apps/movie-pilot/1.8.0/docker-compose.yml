@@ -59,10 +59,10 @@ services:
       - no_proxy=${NO_PROXY:-localhost,127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16}
       - AUTH_SITE=${AUTH_SITE:-}
       - IYUU_SIGN=${IYUU_SIGN:-}
-      - ${SITE_USERNAME:-}
-      - ${SITE_PASSKEY:-}
-      - ${SITE_USERNAME_BACKUP:-}
-      - ${SITE_PASSKEY_BACKUP:-}
+      - ${SITE_USERNAME:-UID1}
+      - ${SITE_PASSKEY:-PASSKEY1}
+      - ${SITE_USERNAME_BACKUP:-UID2}
+      - ${SITE_PASSKEY_BACKUP:-PASSKEY2}
     logging:
       driver: json-file
       options:
