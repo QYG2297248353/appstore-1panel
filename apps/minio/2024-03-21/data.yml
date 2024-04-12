@@ -75,11 +75,11 @@ additionalProperties:
       envKey: MINIO_BROWSER_REDIRECT_URL
       labelEn: WebUI redirect URL
       labelZh: WebUI 重定向 URL
-      required: true
+      required: false
       type: text
     - default: "http://127.0.0.1:9000"
       envKey: MINIO_SERVER_URL
       labelEn: Server URL
       labelZh: 服务器 URL
-      required: true
+      required: false
       type: text
