@@ -28,8 +28,6 @@ services:
       - MINIO_DOMAIN=${MINIO_DOMAIN}
       - MINIO_SERVER_URL=${MINIO_SERVER_URL}
       - MINIO_BROWSER_REDIRECT_URL=${MINIO_BROWSER_REDIRECT_URL}
-    extra_hosts:
-      - ${MINIO_DOMAIN}:127.0.0.1"
     logging:
       options:
         max-size: "5M"
