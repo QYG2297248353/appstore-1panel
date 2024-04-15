@@ -16,8 +16,10 @@ services:
     ports:
       - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP:-9001}
       - ${PANEL_APP_PORT_API}:${PANEL_APP_PORT_API:-9000}
-    command: server /data --console-address :${PANEL_APP_PORT_HTTP:-9001} --address :${PANEL_APP_PORT_API:-9000} --json
+    command: server
     environment:
+      - MINIO_OPTS=--console-address :${PANEL_APP_PORT_HTTP:-9001} --address :${PANEL_APP_PORT_API:-9000} --json
+      - MINIO_VOLUMES=${MINIO_VOLUMES:-/data}
       - MINIO_API_ROOT_ACCESS=on
       - MINIO_ROOT_USER=${PANEL_MINIO_ROOT_USER}
       - MINIO_ROOT_PASSWORD=${PANEL_MINIO_ROOT_PASSWORD}
@@ -29,5 +31,5 @@ services:
       - MINIO_SERVER_URL=${MINIO_SERVER_URL}
       - MINIO_BROWSER_REDIRECT_URL=${MINIO_BROWSER_REDIRECT_URL}
     volumes:
-      - ${MINIO_ROOT_PATH}/data:/data
       - ${MINIO_ROOT_PATH}/certs:/root/.minio/certs
+      - ${MINIO_ROOT_PATH}/data:/data

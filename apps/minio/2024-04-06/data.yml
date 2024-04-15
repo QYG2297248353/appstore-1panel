@@ -99,3 +99,10 @@ additionalProperties:
       labelZh: 控制台重定向 URL
       required: false
       type: text
+    - default: "/data"
+      edit: true
+      envKey: MINIO_VOLUMES
+      labelEn: Data volume (inside container)
+      labelZh: 数据卷 (容器内部)
+      required: true
+      type: text
