@@ -96,14 +96,21 @@ additionalProperties:
       edit: true
       envKey: MINIO_SERVER_URL
       labelEn: API Server URL
-      labelZh: API 服务器 URL
+      labelZh: API 服务器 URL (协议+主机+端口)
+      required: false
+      type: text
+    - default: "localhost"
+      edit: true
+      envKey: MINIO_SERVER_HOST
+      labelEn: API Server HOST
+      labelZh: API 服务器 主机名 (主机域名)
       required: false
       type: text
     - default: "http://127.0.0.1:9001"
       edit: true
       envKey: MINIO_BROWSER_REDIRECT_URL
       labelEn: Console redirect URL
-      labelZh: 控制台重定向 URL
+      labelZh: 控制台重定向 URL (协议+主机+端口)
       required: false
       type: text
     - default: "/data"

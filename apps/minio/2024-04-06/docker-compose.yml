@@ -29,6 +29,8 @@ services:
       - MINIO_DOMAIN=${MINIO_DOMAIN}
       - MINIO_SERVER_URL=${MINIO_SERVER_URL}
       - MINIO_BROWSER_REDIRECT_URL=${MINIO_BROWSER_REDIRECT_URL}
+    extra_hosts:
+      - ${MINIO_SERVER_HOST}:127.0.0.1
     volumes:
       - ${MINIO_ROOT_PATH}/certs:/root/.minio/certs
       - ${MINIO_ROOT_PATH}/data:/data
