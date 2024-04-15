@@ -32,11 +32,6 @@ services:
     volumes:
       - ${MINIO_ROOT_PATH}/certs:/root/.minio/certs
       - ${MINIO_ROOT_PATH}/data:/data
-    healthcheck:
-      test: [ "CMD", "curl", "-I", "http://localhost:${{MINIO_API:-9000}/minio/health/live" ]
-      interval: 30s
-      timeout: 10s
-      retries: 5
     logging:
       driver: "json-file"
       options:
