@@ -23,7 +23,7 @@ additionalProperties:
       edit: true
       envKey: PANEL_MINIO_ROOT_USER
       labelEn: Root User
-      labelZh: 超级用户
+      labelZh: 超级用户名
       required: false
       type: text
     - default: "minioadmin"
@@ -36,14 +36,14 @@ additionalProperties:
     - default: 9001
       edit: true
       envKey: PANEL_APP_PORT_HTTP
-      labelEn: Port
+      labelEn: WebUI Port
       labelZh: 端口
       required: true
       type: number
     - default: 9000
       edit: true
       envKey: PANEL_APP_PORT_API
-      labelEn: Port
+      labelEn: API Port
       labelZh: API 端口
       required: true
       type: number

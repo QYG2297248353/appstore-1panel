@@ -14,9 +14,9 @@ services:
     networks:
       - 1panel-network
     ports:
-      - ${PANEL_APP_PORT_HTTP}:9001
-      - ${PANEL_APP_PORT_API}:9000
-    command: server /data --console-address :9001 --address :9000
+      - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP:-9001}
+      - ${PANEL_APP_PORT_API}:${PANEL_APP_PORT_API:-9000}
+    command: server /data --console-address :${PANEL_APP_PORT_HTTP:-9001} --address :${PANEL_APP_PORT_API:-9000} --json
     environment:
       - MINIO_API_ROOT_ACCESS=on
       - MINIO_ROOT_USER=${PANEL_MINIO_ROOT_USER}
@@ -28,16 +28,6 @@ services:
       - MINIO_DOMAIN=${MINIO_DOMAIN}
       - MINIO_SERVER_URL=${MINIO_SERVER_URL}
       - MINIO_BROWSER_REDIRECT_URL=${MINIO_BROWSER_REDIRECT_URL}
-    logging:
-      options:
-        max-size: "5M"
-        max-file: "10"
-      driver: json-file
-    healthcheck:
-      test: [ "CMD", "curl", "-f", "-I", "http://localhost:9000/minio/health/live" ]
-      interval: 30s
-      timeout: 20s
-      retries: 3
     volumes:
       - ${MINIO_ROOT_PATH}/data:/data
       - ${MINIO_ROOT_PATH}/certs:/root/.minio/certs
