@@ -47,6 +47,12 @@ services:
 
 ```
 
+#### HTTPS 支持
+
+将证书放于 `/home/minio/certs` 目录下即可
+
+`/home/minio` 为持久化数据目录
+
 ## 主要功能：
 
 ### 高度可扩展
