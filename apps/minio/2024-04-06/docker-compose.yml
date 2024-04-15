@@ -16,9 +16,8 @@ services:
     ports:
       - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP:-9001}
       - ${PANEL_APP_PORT_API}:${MINIO_API:-9000}
-    command: server
+    command: server --console-address :${PANEL_APP_PORT_HTTP:-9001} --address :${MINIO_API:-9000} --json
     environment:
-      - MINIO_OPTS=--console-address :${PANEL_APP_PORT_HTTP:-9001} --address :${MINIO_API:-9000} --json
       - MINIO_VOLUMES=${MINIO_VOLUMES:-/data}
       - MINIO_API_ROOT_ACCESS=on
       - MINIO_ROOT_USER=${PANEL_MINIO_ROOT_USER:-minioadmin}
@@ -33,3 +32,13 @@ services:
     volumes:
       - ${MINIO_ROOT_PATH}/certs:/root/.minio/certs
       - ${MINIO_ROOT_PATH}/data:/data
+    healthcheck:
+      test: [ "CMD", "curl", "-I", "http://localhost:${{MINIO_API:-9000}/minio/health/live" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
