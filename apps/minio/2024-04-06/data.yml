@@ -36,15 +36,22 @@ additionalProperties:
     - default: 9001
       edit: true
       envKey: PANEL_APP_PORT_HTTP
-      labelEn: WebUI Port
-      labelZh: 端口
+      labelEn: Web UI Port
+      labelZh: Web UI 端口
       required: true
       type: number
     - default: 9000
       edit: true
       envKey: PANEL_APP_PORT_API
-      labelEn: API Port
-      labelZh: API 端口
+      labelEn: API Port (external)
+      labelZh: API 端口 (对外)
+      required: true
+      type: number
+    - default: 9000
+      edit: true
+      envKey: MINIO_API
+      labelEn: API Port (internal)
+      labelZh: API 端口 (对内)
       required: true
       type: number
     - default: "on"
@@ -78,11 +85,11 @@ additionalProperties:
       labelZh: 会话持续时间 (s/秒 m/分钟 h/小时 d/天)
       required: true
       type: text
-    - default: "127.0.0.1"
+    - default: ""
       edit: true
       envKey: MINIO_DOMAIN
-      labelEn: API Server Domain
-      labelZh: API 服务器域名
+      labelEn: Host FQDN
+      labelZh: 主机 FQDN
       required: false
       type: text
     - default: "http://127.0.0.1:9000"
