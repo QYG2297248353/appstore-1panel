@@ -18,3 +18,5 @@ services:
     environment:
       - TOKEN=${DEEPLX_TOKEN}
       - AUTHKEY=${DEEPLX_AUTHKEY}
+      - HTTP_PROXY=${HTTP_PROXY:-}
+      - HTTPS_PROXY=${HTTPS_PROXY:-}
