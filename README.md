@@ -8,6 +8,7 @@
 
 - [x] [Bark](https://bark.day.app/)
 - [x] [Cookie-Cloud](https://github.com/easychen/CookieCloud/)
+- [x] [DeepLX](https://github.com/OwO-Network/DeepLX/)
 - [x] [Elastic](https://www.elastic.co/)
     - [x] [Elasticsearch](https://www.elastic.co/elasticsearch/)
     - [x] [Kibana](https://www.elastic.co/kibana/)
