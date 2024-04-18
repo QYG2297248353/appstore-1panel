@@ -92,6 +92,8 @@ export https_proxy="http://$proxy_server:$proxy_port"
 ### 中国特供版
 
 同步时间较长,请耐心等待。
+> 备用脚本URL
+> `https://f.lifebus.top/public/shell/1Panel/install_zh.sh`
 
 ```shell
 #!/bin/bash
