@@ -27,8 +27,12 @@
       "allowedVersions": "/^5.7.*/"
     },
     {
-      "matchFileNames": ["apps/mysql/8.*/*.yml"],
-      "allowedVersions": "/^8.*/"
+      "matchFileNames": ["apps/mysql/8.0.*/*.yml"],
+      "allowedVersions": "<8.1"
+    },
+    {
+      "matchFileNames": ["apps/mysql/8.2.*/*.yml"],
+      "allowedVersions": ">=8.2"
     },
     {
       "matchFileNames": ["apps/elasticsearch/7.*/*.yml"],
@@ -40,11 +44,37 @@
     },
     {
       "matchFileNames": ["apps/dataease/1.*/*.yml"],
-      "allowedVersions": "/^1.*/"
+      "allowedVersions": "<=1.20"
     },
     {
       "matchFileNames": ["apps/dataease/2.*/*.yml"],
-      "allowedVersions": "/^2.*/"
+      "allowedVersions": ">=2.0"
+    },
+    {
+      "matchFileNames": ["apps/tomcat/8.*/*.yml"],
+      "allowedVersions": "/^8.*/"
+    },
+    {
+      "matchFileNames": ["apps/tomcat/9.*/*.yml"],
+      "allowedVersions": "/^9.*/"
+    },
+    {
+      "matchFileNames": ["apps/tomcat/10.*/*.yml"],
+      "allowedVersions": "/^10.*/"
+    },
+    {
+      "matchFileNames": ["apps/mongodb/6.*/*.yml"],
+      "allowedVersions": "/^6.*/"
+    },
+    {
+      "matchFileNames": ["apps/mongodb/7.*/*.yml"],
+      "allowedVersions": "/^7.*/"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["ghcr.io/umami-software/umami"],
+      "versionCompatibility": "^(?<compatibility>.*)-(?<version>.*)$",
+      "versioning": "semver"
     }
   ],
   "prCreation": "immediate"
