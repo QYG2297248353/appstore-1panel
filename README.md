@@ -89,6 +89,25 @@ export https_proxy="http://$proxy_server:$proxy_port"
 
 [install.sh](install.sh)
 
+### 中国特供版
+
+同步时间较长,请耐心等待。
+
+```shell
+#!/bin/bash
+
+# 定义脚本URL
+script_url="https://gitee.com/qyg2297248353/appstore-1panel/releases/download/v1.0/install_zh.sh"
+
+# 执行脚本
+echo "Downloading and executing script from $script_url..."
+bash <(curl -sL "$script_url")
+
+# 输出执行结果
+echo "Script execution completed."
+
+```
+
 ## 常见问题
 
 ### 升级失败
