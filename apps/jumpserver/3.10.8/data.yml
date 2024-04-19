@@ -80,7 +80,7 @@ additionalProperties:
       random: true
       required: true
       rule: paramCommon
-      type: text
+      type: password
     - default: "jumpserver"
       envKey: DB_NAME
       labelEn: Database Name
@@ -88,7 +88,7 @@ additionalProperties:
       random: true
       required: true
       rule: paramComplexity
-      type: password
+      type: text
     - default: ""
       edit: true
       envKey: REDIS_HOST
