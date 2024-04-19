@@ -1,0 +1,20 @@
+name: SiYuan
+tags:
+  - 实用工具
+title: 隐私优先的个人知识管理系统
+type: 实用工具
+description: 隐私优先的个人知识管理系统
+additionalProperties:
+  key: siyuan
+  name: SiYuan
+  tags:
+    - Tool
+  shortDescZh: 隐私优先的个人知识管理系统
+  shortDescEn: A privacy-first personal knowledge management system
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  recommend: 0
+  website: https://b3log.org/siyuan/
+  github: https://github.com/siyuan-note/siyuan
+  document: https://github.com/siyuan-note/siyuan

@@ -35,6 +35,7 @@
 - [x] [Redis](https://redis.io/)
 - [x] [Sentinel-Dashboard](https://sentinelguard.io/)
 - [x] [SftpGo](https://sftpgo.com/)
+- [x] [SiYuan](https://github.com/siyuan-note/siyuan/)
 - [x] [SpeedTest](https://www.speedtest.net/)
     - [x] [SpeedTest-X](https://github.com/BadApple9/speedtest-x/)
 - [x] [SpeedTest-Tracker](https://docs.speedtest-tracker.dev/)
