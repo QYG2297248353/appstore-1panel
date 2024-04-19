@@ -29,20 +29,18 @@ services:
       REDIS_PASSWORD: ${PANEL_REDIS_ROOT_PASSWORD}
       MAGNUS_MYSQL_PORT: ${MAGNUS_MYSQL_PORT}
       MAGNUS_MARIADB_PORT: ${MAGNUS_MARIADB_PORT}
-      MAGNUS_POSTGRESQL_PORT: ${MAGNUS_POSTGRESQL_PORT}
       MAGNUS_REDIS_PORT: ${MAGNUS_REDIS_PORT}
       DOMAINS: ${DOMAINS:-}
     ports:
       - ${PANEL_APP_PORT_HTTP}:80
-      - ${RDP_PORT}:3389
       - ${SSH_PORT}:2222
       - ${MAGNUS_MYSQL_PORT}:33061
       - ${MAGNUS_MARIADB_PORT}:33062
-      - ${MAGNUS_POSTGRESQL_PORT}:54320
       - ${MAGNUS_REDIS_PORT}:63790
     volumes:
-      - ${JUMPSERVER_ROOT_PATH}/data/core/data:/opt/jumpserver/core/data
-      - ${JUMPSERVER_ROOT_PATH}/data/koko/data:/opt/jumpserver/koko/data
-      - ${JUMPSERVER_ROOT_PATH}/data/lion/data:/opt/jumpserver/lion/data
-      - ${JUMPSERVER_ROOT_PATH}/data/magnus/data:/opt/jumpserver/magnus/data
-      - ${JUMPSERVER_ROOT_PATH}/data/nginx/data:/var/log/nginx
+      - ${JUMPSERVER_ROOT_PATH}/data/core/data:/opt/jumpserver/data
+      - ${JUMPSERVER_ROOT_PATH}/data/koko/data:/opt/koko/data
+      - ${JUMPSERVER_ROOT_PATH}/data/lion/data:/opt/lion/data
+      - ${JUMPSERVER_ROOT_PATH}/data/chen/data:/opt/chen/data
+      - ${JUMPSERVER_ROOT_PATH}/data/kael/data:/opt/kael/data
+      - ${JUMPSERVER_ROOT_PATH}/data/log/nginx:/var/log/nginx

@@ -7,14 +7,14 @@ additionalProperties:
       labelZh: 数据持久化 根路径
       required: true
       type: text
-    - default: vYneAbsXUhe4BghEeedNL7nfWLwaTTmhnwQMvjYOIG25Ofzghk
+    - default: "vYneAbsXUhe4BghEeedNL7nfWLwaTTmhnwQMvjYOIG25Ofzghk"
       edit: true
       envKey: SECRET_KEY
       labelEn: Cryptographic signing
       labelZh: 加密签名
       required: true
       type: password
-    - default: K1ffDfLSIK8SV2PZj6VaxOiv8KuawlJK
+    - default: "K1ffDfLSIK8SV2PZj6VaxOiv8KuawlJK"
       edit: true
       envKey: BOOTSTRAP_TOKEN
       labelEn: Bootstrap token
@@ -65,7 +65,7 @@ additionalProperties:
           value: mysql
         - label: MariaDB
           value: mariadb
-    - default: jumpserver
+    - default: "jumpserver"
       envKey: PANEL_DB_NAME
       labelEn: Database
       labelZh: 数据库名
@@ -73,7 +73,7 @@ additionalProperties:
       required: true
       rule: paramCommon
       type: text
-    - default: jumpserver
+    - default: "jumpserver"
       envKey: PANEL_DB_USER
       labelEn: Database User
       labelZh: 数据库用户
@@ -93,14 +93,14 @@ additionalProperties:
       edit: true
       envKey: REDIS_HOST
       labelEn: Redis Service
-      labelZh: 缓存服务服务
+      labelZh: 缓存服务-主机地址
       required: true
       type: text
     - default: 6379
       edit: true
       envKey: REDIS_PORT
       labelEn: Redis Service Port
-      labelZh: 缓存服务服务端口
+      labelZh: 缓存服务-主机端口
       required: true
       rule: paramPort
       type: number
@@ -108,7 +108,7 @@ additionalProperties:
       edit: true
       envKey: PANEL_REDIS_ROOT_PASSWORD
       labelEn: Redis Service Password
-      labelZh: 缓存服务服务密码
+      labelZh: 缓存服务-密码
       required: true
       rule: paramCommon
       type: password
@@ -117,14 +117,6 @@ additionalProperties:
       envKey: PANEL_APP_PORT_HTTP
       labelEn: Web Port
       labelZh: Web 端口
-      required: true
-      rule: paramPort
-      type: number
-    - default: 3389
-      edit: true
-      envKey: RDP_PORT
-      labelEn: RDP port (Windows assets)
-      labelZh: RDP 端口 (Windows 资产)
       required: true
       rule: paramPort
       type: number
@@ -150,23 +142,18 @@ additionalProperties:
       labelZh: DB 客户端 (MariaDB 资产)
       rule: paramPort
       type: number
-    - default: 54320
-      edit: true
-      envKey: MAGNUS_POSTGRESQL_PORT
-      labelEn: DB Client (PostgreSQL assets)
-      labelZh: DB 客户端 (PostgreSQL 资产)
-      rule: paramPort
-      type: number
     - default: 63790
       edit: true
       envKey: MAGNUS_REDIS_PORT
       labelEn: DB Client (Redis assets)
       labelZh: DB 客户端 (Redis 资产)
       rule: paramPort
+      required: false
       type: number
     - default: ""
       edit: true
       envKey: DOMAINS
-      labelEn: DOMAINS
-      labelZh: DOMAINS
+      labelEn: Domain Bind List
+      labelZh: 域名绑定列表
+      required: false
       type: text
