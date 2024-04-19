@@ -14,7 +14,7 @@ services:
     networks:
       - 1panel-network
     command: [ '--workspace=/siyuan/workspace/', '--accessAuthCode=${AuthCode}' ]
-    user: ${UID:-0}:${GID:-0}
+    user: ${UID:-1000}:${GID:-1000}
     ports:
       - ${PANEL_APP_PORT_HTTP}:6806
     volumes:
