@@ -1,4 +1,4 @@
-name: SiYuan
+name: 思源笔记
 tags:
   - 实用工具
 title: 隐私优先的个人知识管理系统
@@ -6,7 +6,7 @@ type: 实用工具
 description: 隐私优先的个人知识管理系统
 additionalProperties:
   key: siyuan
-  name: SiYuan
+  name: 思源笔记
   tags:
     - Tool
   shortDescZh: 隐私优先的个人知识管理系统
