@@ -1,0 +1,36 @@
+additionalProperties:
+  formFields:
+    - default: "1.23.12"
+      edit: true
+      envKey: RELEASE_VERSION
+      labelEn: Release Version
+      labelZh: 发布版本
+      required: true
+      type: select
+      values:
+        - label: 1.23.12
+          value: "1.23.12"
+        - label: 1.23.12-alpine
+          value: "1.23.12-alpine"
+    - default: 3001
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: Port
+      labelZh: 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: "/home/uptime-kuma"
+      edit: true
+      envKey: UPTIME_KUMA_ROOT_PATH
+      labelEn: Root Path
+      labelZh: 数据持久化 根路径
+      required: true
+      type: text
+    - default: "/var/run/docker.sock"
+      edit: true
+      envKey: UPTIME_KUMA_DOCKER_SOCKET
+      labelEn: Docker Socket Path
+      labelZh: Docker宿主 容器监控
+      required: true
+      type: text
