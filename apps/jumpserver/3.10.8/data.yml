@@ -49,46 +49,46 @@ additionalProperties:
           value: "ERROR"
         - label: CRITICAL
           value: "CRITICAL"
-    - child:
-        default: ""
-        envKey: PANEL_DB_HOST
-        required: true
-        type: service
-      default: mysql
-      envKey: PANEL_DB_TYPE
-      labelEn: Database Service
-      labelZh: 数据库服务
-      required: true
-      type: apps
-      values:
-        - label: MySQL
-          value: mysql
-        - label: MariaDB
-          value: mariadb
-    - default: "jumpserver"
-      envKey: PANEL_DB_NAME
-      labelEn: Database
-      labelZh: 数据库名
+    - default: "127.0.0.1"
+      envKey: DB_HOST
+      labelEn: Database Host
+      labelZh: 数据库 主机名
       random: true
       required: true
       rule: paramCommon
       type: text
+    - default: 3306
+      envKey: DB_PORT
+      labelEn: Database Port
+      labelZh: 数据库 端口
+      random: true
+      required: true
+      rule: paramPort
+      type: number
     - default: "jumpserver"
-      envKey: PANEL_DB_USER
+      envKey: DB_USER
       labelEn: Database User
-      labelZh: 数据库用户
+      labelZh: 数据库 用户名
       random: true
       required: true
       rule: paramCommon
       type: text
-    - default: jumpserver
-      envKey: PANEL_DB_USER_PASSWORD
-      labelEn: Database User Password
-      labelZh: 数据库用户密码
+    - default: "jumpserver"
+      envKey: DB_PASSWORD
+      labelEn: Database Password
+      labelZh: 数据库 密码
+      random: true
+      required: true
+      rule: paramCommon
+      type: password
+    - default: "jumpserver"
+      envKey: DB_NAME
+      labelEn: Database Name
+      labelZh: 数据库 名称
       random: true
       required: true
       rule: paramComplexity
-      type: password
+      type: text
     - default: ""
       edit: true
       envKey: REDIS_HOST
@@ -106,7 +106,7 @@ additionalProperties:
       type: number
     - default: ""
       edit: true
-      envKey: PANEL_REDIS_ROOT_PASSWORD
+      envKey: REDIS_PASSWORD
       labelEn: Redis Service Password
       labelZh: 缓存服务-密码
       required: true
