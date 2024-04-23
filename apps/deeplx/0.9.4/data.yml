@@ -1,0 +1,38 @@
+additionalProperties:
+  formFields:
+    - default: 1188
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: Port
+      labelZh: 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: DEEPLX_TOKEN
+      labelEn: Token
+      labelZh: 令牌
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: DEEPLX_AUTHKEY
+      labelEn: Auth Key
+      labelZh: 授权密钥
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: HTTP_PROXY
+      labelEn: HTTP Proxy
+      labelZh: HTTP 网络代理
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: HTTPS_PROXY
+      labelEn: HTTPS Proxy
+      labelZh: HTTPS 网络代理
+      required: false
+      type: text
