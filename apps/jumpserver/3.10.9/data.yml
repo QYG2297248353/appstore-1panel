@@ -22,6 +22,7 @@ additionalProperties:
       required: true
       type: password
     - default: "false"
+      edit: true
       envKey: DEBUG
       labelEn: Debug mode
       labelZh: 调试模式
@@ -33,6 +34,7 @@ additionalProperties:
         - label: 关闭
           value: "false"
     - default: "ERROR"
+      edit: true
       envKey: LOG_LEVEL
       labelEn: Log level
       labelZh: 日志级别
@@ -50,6 +52,7 @@ additionalProperties:
         - label: CRITICAL
           value: "CRITICAL"
     - default: "127.0.0.1"
+      edit: true
       envKey: DB_HOST
       labelEn: Database Host
       labelZh: 数据库 主机名
@@ -58,6 +61,7 @@ additionalProperties:
       rule: paramCommon
       type: text
     - default: 3306
+      edit: true
       envKey: DB_PORT
       labelEn: Database Port
       labelZh: 数据库 端口
@@ -66,6 +70,7 @@ additionalProperties:
       rule: paramPort
       type: number
     - default: "jumpserver"
+      edit: true
       envKey: DB_USER
       labelEn: Database User
       labelZh: 数据库 用户名
@@ -74,6 +79,7 @@ additionalProperties:
       rule: paramCommon
       type: text
     - default: "jumpserver"
+      edit: true
       envKey: DB_PASSWORD
       labelEn: Database Password
       labelZh: 数据库 密码
@@ -82,6 +88,7 @@ additionalProperties:
       rule: paramCommon
       type: password
     - default: "jumpserver"
+      edit: true
       envKey: DB_NAME
       labelEn: Database Name
       labelZh: 数据库 名称
