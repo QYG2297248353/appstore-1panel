@@ -36,3 +36,10 @@ additionalProperties:
       labelZh: HTTPS 网络代理
       required: false
       type: text
+    - default: "Asia/Shanghai"
+      edit: true
+      envKey: TZ
+      labelEn: Timezone
+      labelZh: 时区
+      required: false
+      type: text
