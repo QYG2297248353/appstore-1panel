@@ -75,8 +75,8 @@ services:
 
 ## 运行要求
 
-PHP版本：`v8.3.0+`
-数据库：`MySQL`
++ PHP版本：`v8.3.0+`
++ 数据库：`MySQL 5.7+`
 
 必须开启的扩展
 
@@ -193,3 +193,20 @@ location /app/d9422b72cffad23098ad301eea0f8419
   proxy_set_header X-Real-IP $remote_addr;
 }
 ```
+
+## 站点认证
+
+未认证无法进行辅种
+
+| 认证站点      | 别名     | 官网 |
+|-----------|--------|----|
+| pthome    | 铂金家    | 自查 |
+| hdhome    | 家园     | 自查 |
+| ourbits   | 我堡     | 自查 |
+| chdbits   | 新岛/金钱岛 | 自查 |
+| hdfans    | 红豆饭    | 自查 |
+| audiences | 观众/奥迪  | 自查 |
+| piggo     | 猪猪网    | 自查 |
+| zhuque    | 朱雀     | 自查 |
+| zmpt      | 织梦     | 自查 |
+| agsvpt    | 末日种子库  | 自查 |
