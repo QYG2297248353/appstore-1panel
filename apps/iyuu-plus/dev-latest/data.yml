@@ -24,9 +24,17 @@ additionalProperties:
       required: true
       rule: paramPort
       type: number
-    - default: "/home/iyuuplus"
+    - default: 3131
       edit: true
-      envKey: IYUUCN_ROOT_PATH
+      envKey: PANEL_APP_PORT_API
+      labelEn: Port
+      labelZh: 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: "/home/iyuuplus-dev"
+      edit: true
+      envKey: IYUUCN_DEV_ROOT_PATH
       labelEn: Root Path
       labelZh: 数据持久化 根路径
       required: true
