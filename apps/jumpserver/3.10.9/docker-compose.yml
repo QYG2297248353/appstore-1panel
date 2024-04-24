@@ -45,3 +45,5 @@ services:
       - ${JUMPSERVER_ROOT_PATH}/data/chen/data:/opt/chen/data
       - ${JUMPSERVER_ROOT_PATH}/data/kael/data:/opt/kael/data
       - ${JUMPSERVER_ROOT_PATH}/data/log/nginx:/var/log/nginx
+      - ${JUMPSERVER_ROOT_PATH}/opt/download:/opt/download
+      - ${JUMPSERVER_ROOT_PATH}/opt/player:/opt/player

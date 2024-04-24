@@ -75,3 +75,13 @@ database jumpserver default charset 'utf8';
 #### 安装失败
 
 请前往 `容器` 找到已创建的容器，启动容器，根据日志排查问题。
+
+#### 发布机部署
+
+由于应用非常大,高达 4GB 建议您将应用提前下载到目录中
+下载地址：https://gitea.com/jumpserver/web-static/
+
+持久化目录 /home/jumpserver
+应用存储目录 opt/download
+
+完整路径：`/home/jumpserver/opt/download`
