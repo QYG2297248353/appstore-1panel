@@ -12,14 +12,14 @@ additionalProperties:
       edit: true
       envKey: DEEPLX_TOKEN
       labelEn: Token
-      labelZh: 令牌
+      labelZh: 鉴权令牌
       required: false
       type: text
     - default: ""
       edit: true
       envKey: DEEPLX_AUTHKEY
       labelEn: Auth Key
-      labelZh: 授权密钥
+      labelZh: DeepL API密钥
       required: false
       type: text
     - default: ""
