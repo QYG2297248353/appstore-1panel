@@ -11,15 +11,15 @@ additionalProperties:
     - default: ""
       edit: true
       envKey: DEEPLX_TOKEN
-      labelEn: Token
-      labelZh: 令牌
+      labelEn: Authentication Token
+      labelZh: 鉴权令牌
       required: false
       type: text
     - default: ""
       edit: true
       envKey: DEEPLX_AUTHKEY
-      labelEn: Auth Key
-      labelZh: 授权密钥
+      labelEn: Deepl API Key
+      labelZh: DeepL API 密钥
       required: false
       type: text
     - default: ""
