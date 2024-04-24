@@ -15,6 +15,6 @@ additionalProperties:
   crossVersionUpdate: true
   limit: 0
   recommend: 0
-  website: https://www.iyuu.cn/
-  github: https://github.com/ledccn/IYUUAutoReseed
-  document: https://gitee.com/ledc/IYUUAutoReseed/tree/master/wiki
+  website: https://iyuu.cn/
+  github: https://github.com/ledccn/iyuuplus-dev
+  document: https://www.iyuu.cn/
