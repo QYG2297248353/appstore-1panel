@@ -1,0 +1,362 @@
+additionalProperties:
+  formFields:
+    - default: 3000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: WebUI Port
+      labelZh: 控制台 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: 3001
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP_API
+      labelEn: API Port
+      labelZh: API 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: "/home/movie-pilot"
+      edit: true
+      envKey: COOKIECLOUD_ROOT_PATH
+      labelEn: Root Path
+      labelZh: 数据持久化 根路径
+      required: true
+      type: text
+    - default: "/var/run/docker.sock"
+      edit: true
+      envKey: DOCKER_SOCKET
+      labelEn: Docker Socket
+      labelZh: Docker Socket
+      required: true
+      type: text
+    - default: 0
+      edit: true
+      envKey: PUID
+      labelEn: PUID user's uid
+      labelZh: PUID 用户的uid
+      required: false
+      type: number
+    - default: 0
+      edit: true
+      envKey: PGID
+      labelEn: PGID user's gid
+      labelZh: PGID 用户的gid
+      required: false
+      type: number
+    - default: "022"
+      edit: true
+      envKey: UMASK
+      labelEn: UMASK permission mask
+      labelZh: UMASK 权限掩码
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: PROXY_HOST
+      labelEn: Proxy Host
+      labelZh: 网络代理
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: MOVIEPILOT_AUTO_UPDATE
+      labelEn: Auto Update
+      labelZh: 自动更新
+      required: false
+      type: select
+      values:
+        - label: 开启
+          value: "true"
+        - label: 发布版
+          value: "release"
+        - label: 测试版
+          value: "dev"
+        - label: 关闭
+          value: "false"
+    - default: "admin"
+      edit: true
+      envKey: SUPERUSER
+      labelEn: Superuser
+      labelZh: 超级用户
+      required: false
+      type: text
+    - default: "moviepilot"
+      edit: true
+      envKey: API_TOKEN
+      labelEn: API Token
+      labelZh: API 令牌
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: BIG_MEMORY_MODE
+      labelEn: Big Memory Mode
+      labelZh: 大内存模式
+      required: false
+      type: select
+      values:
+        - label: 开启
+          value: "true"
+        - label: 关闭
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: DOH_ENABLED
+      labelEn: DNS over HTTPS (DoH)
+      labelZh: DNS over HTTPS (DoH)
+      required: false
+      type: select
+      values:
+        - label: 开启
+          value: "true"
+        - label: 关闭
+          value: "false"
+    - default: 6
+      edit: true
+      envKey: META_CACHE_EXPIRE
+      labelEn: Metadata Recognition Cache Expiration Time (hours)
+      labelZh: 元数据识别缓存过期时间 (小时)
+      required: false
+      type: number
+    - default: ""
+      edit: true
+      envKey: GITHUB_TOKEN
+      labelEn: GitHub Token
+      labelZh: GitHub 令牌
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: DEV_MODE
+      labelEn: Development Mode (Enabling will pause all scheduled tasks)
+      labelZh: 开发模式 (开启会暂停所有定时任务)
+      required: false
+      type: select
+      values:
+        - label: 开启
+          value: "true"
+        - label: 关闭
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: AUTO_UPDATE_RESOURCES
+      labelEn: Auto Update Resources (Must support GitHub access)
+      labelZh: 自动更新资源包 (必须支持GitHub访问)
+      required: false
+      type: select
+      values:
+        - label: 开启
+          value: "true"
+        - label: 关闭
+          value: "false"
+    - default: "api.themoviedb.org"
+      edit: true
+      envKey: TMDB_API_DOMAIN
+      labelEn: The Movie Database API Domain
+      labelZh: TMDB API地址
+      required: false
+      type: text
+    - default: "image.tmdb.org"
+      edit: true
+      envKey: TMDB_IMAGE_DOMAIN
+      labelEn: The Movie Database Image Domain
+      labelZh: TMDB图片地址
+      required: false
+      type: text
+    - default: "tmdb"
+      edit: true
+      envKey: WALLPAPER
+      labelEn: Home Page Movie Poster Source
+      labelZh: 首页电影海报 来源
+      required: false
+      type: select
+      values:
+        - label: TMBD
+          value: "tmdb"
+        - label: Bing
+          value: "bing"
+    - default: "themoviedb"
+      edit: true
+      envKey: RECOGNIZE_SOURCE
+      labelEn: Metadata Recognition Source
+      labelZh: 元数据识别来源
+      required: false
+      type: select
+      values:
+        - label: TMBD
+          value: "themoviedb"
+        - label: 豆瓣
+          value: "douban"
+    - default: "true"
+      edit: true
+      envKey: FANART_ENABLED
+      labelEn: Fanart Enabled
+      labelZh: Fanart 启用
+      required: false
+      type: select
+      values:
+        - label: 开启
+          value: "true"
+        - label: 关闭
+          value: "false"
+    - default: "themoviedb"
+      edit: true
+      envKey: SCRAP_SOURCE
+      labelEn: Scraping Source
+      labelZh: 刮削元数据及图片使用的数据源
+      required: false
+      type: select
+      values:
+        - label: TMBD
+          value: "themoviedb"
+        - label: 豆瓣
+          value: "douban"
+    - default: "true"
+      edit: true
+      envKey: SCRAP_FOLLOW_TMDB
+      labelEn: Follow TMDB Information for Added Media
+      labelZh: 新增已入库媒体是否跟随TMDB信息变化
+      required: false
+      type: select
+      values:
+        - label: 开启
+          value: "true"
+        - label: 关闭
+          value: "false"
+    - default: ""
+      edit: true
+      envKey: AUTO_DOWNLOAD_USER
+      labelEn: Automatically Download User ID when Searching Remotely (all for all)
+      labelZh: 远程交互搜索时自动择优下载的用户ID (all 代表全部)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: OCR_HOST
+      labelEn: OCR Host
+      labelZh: OCR 服务地址
+      required: false
+      type: text
+    - default: "true"
+      edit: true
+      envKey: DOWNLOAD_SUBTITLE
+      labelEn: Download Subtitles
+      labelZh: 下载字幕
+      required: false
+      type: select
+      values:
+        - label: 开启
+          value: "true"
+        - label: 关闭
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: SEARCH_MULTIPLE_NAME
+      labelEn: Search Multiple Names
+      labelZh: 搜索多个名称
+      required: false
+      type: select
+      values:
+        - label: 开启
+          value: "true"
+        - label: 关闭
+          value: "false"
+    - default: "{{title}}{% if year %} ({{year}}){% endif %}/{{title}}{% if year %} ({{year}}){% endif %}{% if part %}-{{part}}{% endif %}{% if videoFormat %} - {{videoFormat}}{% endif %}{{fileExt}}"
+      edit: true
+      envKey: MOVIE_RENAME_FORMAT
+      labelEn: Movie Rename Format
+      labelZh: 电影重命名格式
+      required: false
+      type: text
+    - default: "{{title}}{% if year %} ({{year}}){% endif %}/Season {{season}}/{{title}} - {{season_episode}}{% if part %}-{{part}}{% endif %}{% if episode %} - 第 {{episode}} 集{% endif %}{{fileExt}}"
+      edit: true
+      envKey: TV_RENAME_FORMAT
+      labelEn: TV Show Rename Format
+      labelZh: 电视剧重命名格式
+      required: false
+      type: text
+    - default: "https://github.com/jxxghp/MoviePilot-Plugins"
+      edit: true
+      envKey: PLUGIN_MARKET
+      labelEn: Plugin Market (Multiple addresses use , separated)
+      labelZh: 插件市场 (多个地址使用,分隔)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: ALL_PROXY
+      labelEn: All Proxy
+      labelZh: 全局代理
+      required: false
+      type: text
+    - default: "localhost,127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+      edit: true
+      envKey: NO_PROXY
+      labelEn: No Proxy
+      labelZh: 禁用代理网段
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AUTH_SITE
+      labelEn: Auth Site
+      labelZh: 认证站点 (查看说明文档)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: IYUU_SIGN
+      labelEn: IYUU Sign
+      labelZh: IYUU登录令牌
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SITE_USERNAME
+      labelEn: username or uid
+      labelZh: 认证用户ID (格式：变量名=值)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SITE_PASSKEY
+      labelEn: passkay
+      labelZh: 认证密钥 (格式：变量名=值)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SITE_USERNAME_BACKUP
+      labelEn: username or uid
+      labelZh: 备用认证用户ID (格式：变量名=值)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SITE_PASSKEY_BACKUP
+      labelEn: passkay
+      labelZh: 备用认证密钥 (格式：变量名=值)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_1
+      labelEn: Custom mount directory 1
+      labelZh: 自定义挂载目录 1
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_2
+      labelEn: Custom mount directory 2
+      labelZh: 自定义挂载目录 2
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_3
+      labelEn: Custom mount directory 3
+      labelZh: 自定义挂载目录 3
+      required: false
+      type: text
