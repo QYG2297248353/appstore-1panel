@@ -12,15 +12,28 @@ DeepLX 不受请求数量限制。
 
 ### Usage 用法
 
-> 请求参数
+#### API: `/translate`
 
-text: string
+#### 方法：POST
 
-source_lang: string
+#### 请求标头
 
-target_lang: string
+| Header          | Description     | Value                      |
+|:----------------|:----------------|:---------------------------|
+| `Content-Type`  | 请求正文的内容类型。      | `application/json`         |
+| `Authorization` | 用于保护 API 的访问令牌。 | `Bearer your_access_token` |
 
-> 返回参数
+请注意，如果您无法通过 `Authorization` ，也可以改用 URL Params。例如 `/translate?token=your_access_token`
+
+#### 请求参数
+
+| Parameter     | Type     | Description | Required |
+|:--------------|:---------|:------------|:---------|
+| `text`        | `string` | 要翻译的文本。     | `true`   |
+| `source_lang` | `string` | 源文本的语言代码。   | `true`   |
+| `target_lang` | `string` | 要翻译为的语言代码。  | `true`   |
+
+#### 响应
 
 ```json
 {
