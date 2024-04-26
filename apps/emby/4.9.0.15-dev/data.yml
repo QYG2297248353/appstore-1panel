@@ -1,6 +1,6 @@
 additionalProperties:
   formFields:
-    - default: "emby/embyserver:4.9.0.14"
+    - default: "emby/embyserver:4.9.0.15"
       edit: true
       envKey: OS_VERSION
       labelEn: os version
@@ -9,11 +9,11 @@ additionalProperties:
       type: select
       values:
         - label: AMD_X64
-          value: "emby/embyserver:4.9.0.14"
+          value: "emby/embyserver:4.9.0.15"
         - label: ARM64_V8
-          value: "emby/embyserver_arm64v8:4.9.0.14"
+          value: "emby/embyserver_arm64v8:4.9.0.15"
         - label: ARM32_V7
-          value: "emby/embyserver_arm32v7:4.9.0.14"
+          value: "emby/embyserver_arm32v7:4.9.0.15"
     - default: "host"
       edit: true
       envKey: NETWORK_MODE
