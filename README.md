@@ -6,6 +6,7 @@
 
 ## 维护应用
 
+- [x] [Appwrite](https://appwrite.io/)
 - [x] [Bark](https://bark.day.app/)
 - [x] [Cookie-Cloud](https://github.com/easychen/CookieCloud/)
 - [x] [DeepLX](https://github.com/OwO-Network/DeepLX/)
