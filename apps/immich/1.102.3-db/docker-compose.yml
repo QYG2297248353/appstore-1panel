@@ -67,7 +67,7 @@ services:
     environment:
       NODE_ENV: ${NODE_ENV}
       LOG_LEVEL: ${LOG_LEVEL}
-      DB_HOSTNAME: pg14-vectors-immich
+      DB_HOSTNAME: immich-pg14-vectors
       DB_PORT: 5432
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
@@ -101,7 +101,7 @@ services:
     environment:
       NODE_ENV: ${NODE_ENV}
       LOG_LEVEL: ${LOG_LEVEL}
-      DB_HOSTNAME: pg14-vectors-immich
+      DB_HOSTNAME: immich-pg14-vectors
       DB_PORT: 5432
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
