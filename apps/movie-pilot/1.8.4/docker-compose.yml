@@ -1,0 +1,69 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  movie-pilot:
+    image: jxxghp/moviepilot:1.8.4
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3000
+      - ${PANEL_APP_PORT_HTTP_API}:3001
+    volumes:
+      - ${COOKIECLOUD_ROOT_PATH}/config:/config
+      - ${COOKIECLOUD_ROOT_PATH}/moviepilot:/moviepilot
+      - ${DOCKER_SOCKET:-/var/run/docker.sock}:/var/run/docker.sock
+      - ${COOKIECLOUD_ROOT_PATH}/download:/download
+      - ${CUSTOM_MOUNT_DIRECTORY_1:-./default_mount_1}:${CUSTOM_MOUNT_DIRECTORY_1:-/default_mount_1}
+      - ${CUSTOM_MOUNT_DIRECTORY_2:-./default_mount_2}:${CUSTOM_MOUNT_DIRECTORY_2:-/default_mount_2}
+      - ${CUSTOM_MOUNT_DIRECTORY_3:-./default_mount_3}:${CUSTOM_MOUNT_DIRECTORY_3:-/default_mount_3}
+    environment:
+      - TZ=Asia/Shanghai
+      - NGINX_PORT=3000
+      - PORT=3001
+      - PUID=${PUID:-0}
+      - PGID=${PGID:-0}
+      - UMASK=${UMASK:-022}
+      - PROXY_HOST=${PROXY_HOST:-}
+      - MOVIEPILOT_AUTO_UPDATE=${MOVIEPILOT_AUTO_UPDATE:-false}
+      - SUPERUSER=${SUPERUSER:-admin}
+      - API_TOKEN=${API_TOKEN:-moviepilot}
+      - BIG_MEMORY_MODE=${BIG_MEMORY_MODE:-false}
+      - DOH_ENABLED=${DOH_ENABLED:-false}
+      - META_CACHE_EXPIRE=${META_CACHE_EXPIRE:-3600}
+      - GITHUB_TOKEN=${GITHUB_TOKEN:-}
+      - DEV_MODE=${DEV_MODE:-false}
+      - AUTO_UPDATE_RESOURCES=${AUTO_UPDATE_RESOURCES:-false}
+      - TMDB_API_DOMAIN=${TMDB_API_DOMAIN:-api.themoviedb.org}
+      - TMDB_IMAGE_DOMAIN=${TMDB_IMAGE_DOMAIN:-image.tmdb.org}
+      - WALLPAPER=${WALLPAPER:-tmdb}
+      - RECOGNIZE_SOURCE=${RECOGNIZE_SOURCE:-themoviedb}
+      - FANART_ENABLED=${FANART_ENABLED:-true}
+      - SCRAP_SOURCE=${SCRAP_SOURCE:-themoviedb}
+      - SCRAP_FOLLOW_TMDB=${SCRAP_FOLLOW_TMDB:-true}
+      - AUTO_DOWNLOAD_USER=${AUTO_DOWNLOAD_USER:-}
+      - OCR_HOST=${OCR_HOST:-}
+      - DOWNLOAD_SUBTITLE=${DOWNLOAD_SUBTITLE:-true}
+      - SEARCH_MULTIPLE_NAME=${SEARCH_MULTIPLE_NAME:-false}
+      - MOVIE_RENAME_FORMAT=${MOVIE_RENAME_FORMAT}
+      - TV_RENAME_FORMAT=${TV_RENAME_FORMAT}
+      - PLUGIN_MARKET=${PLUGIN_MARKET:-https://github.com/jxxghp/MoviePilot-Plugins}
+      - all_proxy=${ALL_PROXY:-}
+      - no_proxy=${NO_PROXY:-localhost,127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16}
+      - AUTH_SITE=${AUTH_SITE:-}
+      - IYUU_SIGN=${IYUU_SIGN:-}
+      - ${SITE_USERNAME:-UID1}
+      - ${SITE_PASSKEY:-PASSKEY1}
+      - ${SITE_USERNAME_BACKUP:-UID2}
+      - ${SITE_PASSKEY_BACKUP:-PASSKEY2}
+    logging:
+      driver: json-file
+      options:
+        max-size: 5m

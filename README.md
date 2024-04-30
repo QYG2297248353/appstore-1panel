@@ -6,6 +6,7 @@
 
 ## 维护应用
 
+- [x] [Appwrite](https://appwrite.io/)
 - [x] [Bark](https://bark.day.app/)
 - [x] [Cookie-Cloud](https://github.com/easychen/CookieCloud/)
 - [x] [DeepLX](https://github.com/OwO-Network/DeepLX/)
@@ -127,7 +128,7 @@ echo "Script execution completed."
 - 再次安装升级版本
 - 填写之前保留参数
 - 安装成功
-  历史数据问题：由于使用持久化目录，卸载软件不会删除数据，请不要误删持久化目录，默认为 `/home/data/{appname}`
+  历史数据问题：由于使用持久化目录，卸载软件不会删除数据，请不要误删持久化目录，默认为 `/home/{appname}`
 
 ## 温馨提示
 

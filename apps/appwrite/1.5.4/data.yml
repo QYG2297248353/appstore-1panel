@@ -1,0 +1,367 @@
+additionalProperties:
+  formFields:
+    - default: "/home/appwrite"
+      edit: true
+      envKey: APPWRITE_ROOT_PATH
+      labelEn: Root Path
+      labelZh: 数据持久化 根路径
+      required: true
+      type: text
+    - default: 80
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: HTTP Port
+      labelZh: HTTP 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: 443
+      edit: true
+      envKey: PANEL_APP_PORT_HTTPS
+      labelEn: HTTPS Port
+      labelZh: HTTPS 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: _APP_OPENSSL_KEY_V1
+      labelEn: Server Private Key
+      labelZh: 服务器私有密钥
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: _APP_EXECUTOR_SECRET
+      labelEn: Executor Secret
+      labelZh: 函数执行器通信的密钥
+      required: true
+      type: password
+    - default: "localhost"
+      edit: true
+      envKey: _APP_DOMAIN
+      labelEn: Domain
+      labelZh: Appwrite 域地址
+      required: true
+      type: text
+    - default: "localhost"
+      edit: true
+      envKey: _APP_DOMAIN_TARGET
+      labelEn: Target Domain
+      labelZh: DNS A 记录主机名
+      required: true
+      type: text
+    - default: "functions.localhost"
+      edit: true
+      envKey: _APP_DOMAIN_FUNCTIONS
+      labelEn: Domain
+      labelZh: 功能预览 URL 的域
+      required: false
+      type: text
+    - default: "rootsecretpassword"
+      edit: true
+      envKey: _APP_DB_ROOT_PASS
+      labelEn: MariaDB Root Password
+      labelZh: MariaDB 服务器根密码
+      required: false
+      type: password
+    - default: "appwrite"
+      edit: true
+      envKey: _APP_DB_SCHEMA
+      labelEn: MariaDB Schema
+      labelZh: MariaDB 服务器数据库架构
+      required: false
+      type: text
+    - default: "user"
+      edit: true
+      envKey: _APP_DB_USER
+      labelEn: MariaDB User
+      labelZh: MariaDB 服务器用户名
+      required: false
+      type: text
+    - default: "password"
+      edit: true
+      envKey: _APP_DB_PASS
+      labelEn: MariaDB User Password
+      labelZh: MariaDB 服务器用户密码
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: _APP_SMTP_HOST
+      labelEn: SMTP Host
+      labelZh: SMTP 服务器主机名地址
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_SMTP_PORT
+      labelEn: SMTP Port
+      labelZh: SMTP 服务器 TCP 端口
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_SMTP_SECURE
+      labelEn: SMTP Secure Connection Protocol
+      labelZh: SMTP 安全连接协议
+      required: false
+      type: select
+      values:
+        - label: None
+          value: ""
+        - label: SSL
+          value: "ssl"
+        - label: TLS
+          value: "tls"
+    - default: ""
+      edit: true
+      envKey: _APP_SMTP_USERNAME
+      labelEn: SMTP Username
+      labelZh: SMTP 服务器用户名
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_SMTP_PASSWORD
+      labelEn: SMTP Password
+      labelZh: SMTP 服务器用户密码
+      required: false
+      type: password
+    - default: "local"
+      edit: true
+      envKey: _APP_STORAGE_DEVICE
+      labelEn: Default Storage Device
+      labelZh: 选择默认存储设备
+      required: true
+      type: select
+      values:
+        - label: local
+          value: "local"
+        - label: s3
+          value: "s3"
+        - label: dospaces
+          value: "dospaces"
+        - label: backblaze
+          value: "backblaze"
+        - label: linode
+          value: "linode"
+        - label: wasabi
+          value: "wasabi"
+    - default: ""
+      edit: true
+      envKey: _APP_STORAGE_S3_ACCESS_KEY
+      labelEn: AWS S3 Storage Access Key
+      labelZh: AWS S3 存储访问密钥
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: _APP_STORAGE_S3_SECRET
+      labelEn: AWS S3 Storage Secret Key
+      labelZh: AWS S3 存储密钥
+      required: false
+      type: password
+    - default: "us-east-1"
+      edit: true
+      envKey: _APP_STORAGE_S3_REGION
+      labelEn: AWS S3 Storage Region
+      labelZh: AWS S3 存储密钥区域
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_STORAGE_S3_BUCKET
+      labelEn: AWS S3 Storage Bucket
+      labelZh: AWS S3 存储桶
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_STORAGE_DO_SPACES_ACCESS_KEY
+      labelEn: DigitalOcean Storage Access Key
+      labelZh: DigitalOcean 存储访问密钥
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: _APP_STORAGE_DO_SPACES_SECRET
+      labelEn: DigitalOcean Storage Secret Key
+      labelZh: DigitalOcean 存储密钥
+      required: false
+      type: password
+    - default: "us-east-1"
+      edit: true
+      envKey: _APP_STORAGE_DO_SPACES_REGION
+      labelEn: DigitalOcean Storage Region
+      labelZh: DigitalOcean 存储密钥区域
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_STORAGE_DO_SPACES_BUCKET
+      labelEn: DigitalOcean Storage Bucket
+      labelZh: DigitalOcean 存储桶
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_STORAGE_BACKBLAZE_ACCESS_KEY
+      labelEn: Backblaze Storage Access Key
+      labelZh: Backblaze 存储访问密钥
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: _APP_STORAGE_BACKBLAZE_SECRET
+      labelEn: Backblaze Storage Secret Key
+      labelZh: Backblaze 存储密钥
+      required: false
+      type: password
+    - default: "us-west-004"
+      edit: true
+      envKey: _APP_STORAGE_BACKBLAZE_REGION
+      labelEn: Backblaze Storage Region
+      labelZh: Backblaze 存储密钥区域
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_STORAGE_BACKBLAZE_BUCKET
+      labelEn: Backblaze Storage Bucket
+      labelZh: Backblaze 存储桶
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_STORAGE_LINODE_ACCESS_KEY
+      labelEn: Linode Storage Access Key
+      labelZh: Linode 存储访问密钥
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: _APP_STORAGE_LINODE_SECRET
+      labelEn: Linode Storage Secret Key
+      labelZh: Linode 存储密钥
+      required: false
+      type: password
+    - default: "eu-central-1"
+      edit: true
+      envKey: _APP_STORAGE_LINODE_REGION
+      labelEn: Linode Storage Region
+      labelZh: Linode 存储密钥区域
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_STORAGE_LINODE_BUCKET
+      labelEn: Linode Storage Bucket
+      labelZh: Linode 存储桶
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_STORAGE_WASABI_ACCESS_KEY
+      labelEn: Wasabi Storage Access Key
+      labelZh: Wasabi 存储访问密钥
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: _APP_STORAGE_WASABI_SECRET
+      labelEn: Wasabi Storage Secret Key
+      labelZh: Wasabi 存储密钥
+      required: false
+      type: password
+    - default: "eu-central-1"
+      edit: true
+      envKey: _APP_STORAGE_WASABI_REGION
+      labelEn: Wasabi Storage Region
+      labelZh: Wasabi 存储密钥区域
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_STORAGE_WASABI_BUCKET
+      labelEn: Wasabi Storage Bucket
+      labelZh: Wasabi 存储桶
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_VCS_GITHUB_APP_NAME
+      labelEn: GitHub App Name
+      labelZh: GitHub 应用程序的名称
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_VCS_GITHUB_PRIVATE_KEY
+      labelEn: GitHub App RSA Private Key
+      labelZh: GitHub 应用程序 RSA 私钥
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_VCS_GITHUB_APP_ID
+      labelEn: GitHub App ID
+      labelZh: GitHub 应用程序 ID
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_VCS_GITHUB_WEBHOOK_SECRET
+      labelEn: GitHub Webhook Secret
+      labelZh: GitHub webhook 密钥
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_VCS_GITHUB_CLIENT_SECRET
+      labelEn: GitHub Client Secret
+      labelZh: GitHub 客户端密钥
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_VCS_GITHUB_CLIENT_ID
+      labelEn: GitHub Client ID
+      labelZh: GitHub 客户端 ID
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_MIGRATIONS_FIREBASE_CLIENT_ID
+      labelEn: Google OAuth Client ID
+      labelZh: Google OAuth 客户端 ID
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_MIGRATIONS_FIREBASE_CLIENT_SECRET
+      labelEn: Google OAuth Client Secret
+      labelZh: Google OAuth 客户端密钥
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: _APP_ASSISTANT_OPENAI_API_KEY
+      labelEn: OpenAI API Key
+      labelZh: OpenAI API 密钥
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: _APP_DOCKER_HUB_USERNAME
+      labelEn: Docker Hub Username
+      labelZh: Docker Hub 的用户名
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: _APP_DOCKER_HUB_PASSWORD
+      labelEn: Docker Hub Password
+      labelZh: Docker Hub 的密码
+      required: false
+      type: password

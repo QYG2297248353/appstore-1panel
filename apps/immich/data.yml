@@ -13,7 +13,7 @@ additionalProperties:
   shortDescEn: High performance self-hosted photo and video backup solution
   type: tool
   crossVersionUpdate: true
-  limit: 0
+  limit: 1
   website: https://immich.app/
   github: https://github.com/immich-app/immich
   document: https://immich.app/docs/overview/introduction

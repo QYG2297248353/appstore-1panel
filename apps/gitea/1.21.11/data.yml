@@ -1,0 +1,226 @@
+additionalProperties:
+  formFields:
+    - default: mysql
+      envKey: PANEL_DB_TYPE
+      labelEn: Database Service
+      labelZh: 数据库服务
+      required: true
+      type: apps
+      child:
+        default: ""
+        envKey: PANEL_DB_HOST
+        required: true
+        type: service
+      values:
+        - label: MySQL
+          value: mysql
+        - label: PostgreSQL
+          value: postgres
+    - default: "/home/gitea"
+      edit: true
+      envKey: GITEA_ROOT_PATH
+      labelEn: Root Path
+      labelZh: 数据持久化 根路径
+      required: true
+      type: text
+    - default: gitea
+      envKey: PANEL_DB_NAME
+      labelEn: Database
+      labelZh: 数据库名
+      random: true
+      required: true
+      rule: paramCommon
+      type: text
+    - default: gitea
+      envKey: PANEL_DB_USER
+      labelEn: User
+      labelZh: 数据库用户
+      random: true
+      required: true
+      rule: paramCommon
+      type: text
+    - default: gitea
+      envKey: PANEL_DB_USER_PASSWORD
+      labelEn: Password
+      labelZh: 数据库用户密码
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: 3000
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: Port
+      labelZh: HTTP 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: 222
+      envKey: PANEL_APP_PORT_SSH
+      labelEn: Port
+      labelZh: SSH 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: "git"
+      envKey: PANEL_APP_USER
+      labelEn: Gitea User
+      labelZh: Gitea 的用户的用户名
+      required: true
+      type: text
+    - default: 1000
+      envKey: PANEL_APP_USER_UID
+      labelEn: Gitea User UID
+      labelZh: Gitea 的用户的 UID
+      required: true
+      type: number
+    - default: 1000
+      envKey: PANEL_APP_USER_GID
+      labelEn: Gitea User GID
+      labelZh: Gitea 的用户的 GID
+      required: true
+      type: number
+    - default: "Gitea"
+      envKey: GITEA__DEFAULT__APP_NAME
+      labelEn: Gitea Page Title
+      labelZh: Gittea 页面标题
+      required: false
+      type: text
+    - default: "Gitea - Git 和一杯茶"
+      envKey: GITEA__ui.meta__AUTHOR
+      labelEn: Gitea Author Meta Tag
+      labelZh: 主页的作者元标记
+      required: false
+      type: text
+    - default: "Gitea（Git with a cup of tea）是一个用 Go 编写的无痛自托管 Git 服务"
+      envKey: GITEA__ui.meta__DESCRIPTION
+      labelEn: Gitea Description Meta Tag
+      labelZh: 主页的描述元标记
+      required: false
+      type: text
+    - default: "go,git,self-hosted,gitea"
+      envKey: GITEA__ui.meta__KEYWORDS
+      labelEn: Gitea Keywords Meta Tag
+      labelZh: 主页的关键字元标记
+      required: false
+      type: text
+    - default: "http"
+      envKey: GITEA__server__PROTOCOL
+      labelEn: Gitea Protocol
+      labelZh: Gitea 协议
+      required: true
+      type: select
+      values:
+        - label: "http"
+          value: "http"
+        - label: "https"
+          value: "https"
+        - label: "fcgi"
+          value: "fcgi"
+        - label: "http+unix"
+          value: "http+unix"
+        - label: "fcgi+unix"
+          value: "fcgi+unix"
+    - default: "localhost"
+      envKey: GITEA__server__DOMAIN
+      labelEn: Gitea Domain
+      labelZh: Gitea 域名
+      required: true
+      type: text
+    - default: "%(PROTOCOL)s://%(DOMAIN)s:%(HTTP_PORT)s/"
+      envKey: GITEA__server__ROOT_URL
+      labelEn: Gitea Root URL
+      labelZh: 覆盖自动生成的公共 URL
+      required: true
+      type: text
+    - default: "false"
+      envKey: GITEA__server__LFS_START_SERVER
+      labelEn: Enable Git LFS support
+      labelZh: 启用 Git LFS 支持
+      required: true
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+    - default: "false"
+      envKey: GITEA__server__ENABLE_CAPTCHA
+      labelEn: Enable Captcha
+      labelZh: 启用验证码
+      required: true
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+    - default: "false"
+      envKey: GITEA__mailer__ENABLED
+      labelEn: Enable SMTP (Mail Service) Gitea 1.18 and above
+      labelZh: 启用 SMTP (邮件服务) Gitea 1.18 及更高版本
+      required: true
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+    - default: ""
+      envKey: GITEA__mailer__PROTOCOL
+      labelEn: SMTP Protocol
+      labelZh: SMTP 协议 (如 smtp)
+      required: false
+      type: text
+    - default: ""
+      envKey: GITEA__mailer__SMTP_ADDR
+      labelEn: SMTP Server
+      labelZh: SMTP 服务器 (如 smtp.example.com)
+      required: false
+      type: text
+    - default: ""
+      envKey: GITEA__mailer__SMTP_PORT
+      labelEn: SMTP Port
+      labelZh: SMTP 端口 (如 25, 465, 587)
+      required: false
+      type: text
+    - default: ""
+      envKey: GITEA__mailer__USER
+      labelEn: SMTP User
+      labelZh: SMTP 用户
+      required: false
+      type: text
+    - default: ""
+      envKey: GITEA__mailer__PASSWD
+      labelEn: SMTP Password
+      labelZh: SMTP 密码
+      required: false
+      type: text
+    - default: ""
+      envKey: GITEA__mailer__FROM
+      labelEn: SMTP From
+      labelZh: SMTP 发件人
+      required: false
+      type: text
+    - default: "false"
+      envKey: GITEA__proxy__PROXY_ENABLED
+      labelEn: Enable Proxy
+      labelZh: 启用代理
+      required: true
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+    - default: ""
+      envKey: GITEA__proxy__PROXY_URL
+      labelEn: Proxy URL
+      labelZh: 代理服务器 URL
+      required: false
+      type: text
+    - default: "*.github.com"
+      envKey: GITEA__proxy__PROXY_HOSTS
+      labelEn: Proxy URL
+      labelZh: 代理的主机名的逗号分隔列表
+      required: false
+      type: text
