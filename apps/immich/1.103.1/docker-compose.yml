@@ -14,8 +14,28 @@ networks:
 name: immich
 
 services:
+  immich-pg14-vectors:
+    image: tensorchord/pgvecto-rs:pg14-v0.2.0
+    container_name: immich-pg14-vectors
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - immich-net
+    ports:
+      - ${DB_PORT}:5432
+    env_file:
+      - .env
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_DB: ${DB_DATABASE_NAME}
+    volumes:
+      - ${IMMICH_ROOT_PATH}/pg14/data:/var/lib/postgresql/data
+
   immich-machine-learning:
     image: ghcr.io/immich-app/immich-machine-learning:v1.103.1
+    container_name: immich-machine-learning
     labels:
       createdBy: "Apps"
     restart: always
@@ -29,7 +49,10 @@ services:
       - .env
 
   immich-microservices:
+    depends_on:
+      - immich-pg14-vectors
     image: ghcr.io/immich-app/immich-server:v1.103.1
+    container_name: immich-microservices
     labels:
       createdBy: "Apps"
     restart: always
@@ -44,8 +67,8 @@ services:
     environment:
       NODE_ENV: ${NODE_ENV}
       LOG_LEVEL: ${LOG_LEVEL}
-      DB_HOSTNAME: ${DB_HOSTNAME}
-      DB_PORT: ${DB_PORT}
+      DB_HOSTNAME: pg14-vectors-immich
+      DB_PORT: 5432
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_DATABASE: ${DB_DATABASE_NAME}
@@ -57,8 +80,10 @@ services:
       REDIS_PASSWORD: ${REDIS_PASSWORD}
 
   immich-server:
+    depends_on:
+      - immich-pg14-vectors
     image: ghcr.io/immich-app/immich-server:v1.103.1
-    container_name: ${CONTAINER_NAME}
+    container_name: immich-server
     labels:
       createdBy: "Apps"
     restart: always
@@ -76,8 +101,8 @@ services:
     environment:
       NODE_ENV: ${NODE_ENV}
       LOG_LEVEL: ${LOG_LEVEL}
-      DB_HOSTNAME: ${DB_HOSTNAME}
-      DB_PORT: ${DB_PORT}
+      DB_HOSTNAME: pg14-vectors-immich
+      DB_PORT: 5432
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_DATABASE: ${DB_DATABASE_NAME}

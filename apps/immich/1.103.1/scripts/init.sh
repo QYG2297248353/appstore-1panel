@@ -3,11 +3,14 @@
 if [ -f .env ]; then
   source .env
 
-  if [ -n "$(docker network ls -q -f name=$IMMICH_NETWORK)" ]; then
-    docker network rm $IMMICH_NETWORK
-  fi
+  # 卸载容器名称以 immich- 开头的容器
+  docker ps -a | grep immich- | awk '{print $1}' | xargs docker rm -f
 
-  sed -i "s/\${IMMICH_NETWORK}/$IMMICH_NETWORK/" docker-compose.yml
+  # 删除容器名称以 immich- 开头的镜像
+  docker images | grep immich- | awk '{print $3}' | xargs docker rmi -f
+
+  # 删除 immich- 开头的网络
+  docker network ls | grep immich- | awk '{print $1}' | xargs docker network rm
 
   echo "Directories and permissions set successfully."
 

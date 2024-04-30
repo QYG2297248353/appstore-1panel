@@ -8,33 +8,21 @@ additionalProperties:
       default: redis
       envKey: PANEL_REDIS_DB_TYPE
       labelEn: Cache Service
-      labelZh: 数据缓存服务
+      labelZh: Tip 缓存服务
       required: false
       type: apps
       values:
         - label: Redis
           value: redis
-    - child:
-        default: ""
-        envKey: PANEL_PGSQL_DB_HOST
-        required: false
-        type: service
-      default: postgresql
+    - default: postgresql
       envKey: PANEL_PGSQL_DB_TYPE
       labelEn: Database Service
-      labelZh: 向量数据库服务 (请参考安装说明)
+      labelZh: Tip 向量数据库服务 (自动安装)
       required: false
-      type: apps
+      type: select
       values:
         - label: PostgreSQL
           value: postgresql
-    - default: "immich-net"
-      edit: true
-      envKey: IMMICH_NETWORK
-      labelEn: microservices network
-      labelZh: 服务网络 (编排应用独立网络)
-      required: true
-      type: text
     - default: "/home/immich-app"
       edit: true
       envKey: IMMICH_ROOT_PATH
@@ -80,18 +68,11 @@ additionalProperties:
           value: warn
         - label: Error
           value: error
-    - default: "localhost"
-      edit: true
-      envKey: DB_HOSTNAME
-      labelEn: Database Host
-      labelZh: 数据库主机
-      required: true
-      type: text
     - default: 5432
       edit: true
       envKey: DB_PORT
       labelEn: Database Port
-      labelZh: 数据库端口
+      labelZh: 数据库开放端口
       required: true
       rule: paramPort
       type: number
@@ -99,14 +80,15 @@ additionalProperties:
       edit: true
       envKey: DB_USERNAME
       labelEn: Database User
-      labelZh: 数据库用户
+      labelZh: 数据库-超级用户
       required: true
       type: text
     - default: "postgres"
       edit: true
       envKey: DB_PASSWORD
       labelEn: Database Password
-      labelZh: 数据库密码
+      labelZh: 数据库-超级用户密码
+      random: true
       required: true
       type: password
     - default: "immich"

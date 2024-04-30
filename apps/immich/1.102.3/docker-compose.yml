@@ -16,6 +16,7 @@ name: immich
 services:
   immich-machine-learning:
     image: ghcr.io/immich-app/immich-machine-learning:v1.102.3
+    container_name: immich-machine-learning
     labels:
       createdBy: "Apps"
     restart: always
@@ -30,6 +31,7 @@ services:
 
   immich-microservices:
     image: ghcr.io/immich-app/immich-server:v1.102.3
+    container_name: immich-microservices
     labels:
       createdBy: "Apps"
     restart: always
@@ -58,7 +60,7 @@ services:
 
   immich-server:
     image: ghcr.io/immich-app/immich-server:v1.102.3
-    container_name: ${CONTAINER_NAME}
+    container_name: immich-server
     labels:
       createdBy: "Apps"
     restart: always
