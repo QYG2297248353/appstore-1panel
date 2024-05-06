@@ -9,7 +9,7 @@ networks:
 name: immich
 
 services:
-  pg14-vectors-immich:
+  immich-pg14-vectors:
     image: tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:90724186f0a3517cf6914295b5ab410db9ce23190a2d9d0b9dd6463e3fa298f0
     networks:
       - ${MICROSERVICES_NETWORK}
@@ -43,7 +43,7 @@ services:
 
   immich-microservices:
     depends_on:
-      - pg14-vectors-immich
+      - immich-pg14-vectors
     image: ghcr.io/immich-app/immich-server:v1.97.0
     networks:
       - ${MICROSERVICES_NETWORK}
@@ -57,7 +57,7 @@ services:
     environment:
       NODE_ENV: ${NODE_ENV}
       LOG_LEVEL: ${LOG_LEVEL}
-      DB_HOSTNAME: pg14-vectors-immich
+      DB_HOSTNAME: immich-pg14-vectors
       DB_PORT: 5432
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
@@ -73,7 +73,7 @@ services:
 
   immich-server:
     depends_on:
-      - pg14-vectors-immich
+      - immich-pg14-vectors
     image: ghcr.io/immich-app/immich-server:v1.97.0
     networks:
       - ${MICROSERVICES_NETWORK}
@@ -90,7 +90,7 @@ services:
     environment:
       NODE_ENV: ${NODE_ENV}
       LOG_LEVEL: ${LOG_LEVEL}
-      DB_HOSTNAME: pg14-vectors-immich
+      DB_HOSTNAME: immich-pg14-vectors
       DB_PORT: 5432
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
