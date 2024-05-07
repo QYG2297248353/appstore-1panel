@@ -6,7 +6,7 @@ networks:
 
 services:
   halo:
-    image: halohub/halo:2.15.0
+    image: halohub/halo:2.15.1
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
