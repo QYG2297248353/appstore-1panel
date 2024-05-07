@@ -4,6 +4,14 @@
 
 一个支持多种存储，支持网页浏览和 WebDAV 的文件列表程序，由 gin 和 Solidjs 驱动。
 
+## 账户信息
+
+首次安装查看日志，获取管理员账户密码
+
+```log
+Successfully created the {admin} user and the initial password is: {password}
+```
+
 ## 查看管理员信息
 
 3.25.0以上版本将密码改成加密方式存储的hash值，无法直接反算出密码，如果忘记了密码只能通过重新 随机生成 或者 手动设置
