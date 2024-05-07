@@ -6,6 +6,7 @@
 
 ## 维护应用
 
+- [x] [AList](https://alist.nn.ci/)
 - [x] [Appwrite](https://appwrite.io/)
 - [x] [Bark](https://bark.day.app/)
 - [x] [Cookie-Cloud](https://github.com/easychen/CookieCloud/)
