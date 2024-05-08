@@ -34,7 +34,7 @@ additionalProperties:
       edit: true
       envKey: PANEL_APP_PORT_HTTP
       labelEn: Server port
-      labelZh: 服务端口
+      labelZh: WebUI 端口
       required: true
       rule: paramPort
       type: number
@@ -43,6 +43,14 @@ additionalProperties:
       envKey: IMMICH_MACHINE_LEARNING_PORT
       labelEn: Server port
       labelZh: 机器学习端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: 3001
+      edit: true
+      envKey: IMMICH_MICROSERVICES_PORT
+      labelEn: Server port
+      labelZh: 微服务端口
       required: true
       rule: paramPort
       type: number

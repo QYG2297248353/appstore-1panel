@@ -60,6 +60,8 @@ services:
     restart: always
     networks:
       - immich-net
+    ports:
+      - ${IMMICH_MICROSERVICES_PORT:-3001}:3001
     command: [ "start.sh", "microservices" ]
     volumes:
       - ${IMMICH_ROOT_PATH}/data/library:/usr/src/app/upload
