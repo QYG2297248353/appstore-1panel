@@ -38,6 +38,14 @@ additionalProperties:
       required: true
       rule: paramPort
       type: number
+    - default: 3003
+      edit: true
+      envKey: IMMICH_MACHINE_LEARNING_PORT
+      labelEn: Server port
+      labelZh: 机器学习端口
+      required: true
+      rule: paramPort
+      type: number
     - default: "production"
       edit: true
       envKey: NODE_ENV

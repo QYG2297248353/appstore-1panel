@@ -41,6 +41,8 @@ services:
     restart: always
     networks:
       - immich-net
+    ports:
+      - ${IMMICH_MACHINE_LEARNING_PORT:-3003}:3003
     volumes:
       - ${IMMICH_ROOT_PATH}/data/cache:/cache
     environment:
