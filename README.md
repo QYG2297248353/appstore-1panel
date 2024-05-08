@@ -52,18 +52,46 @@
 >
 > 维护状态：🟢 维护中 🔴 未维护 🟡 表示不定期维护
 
-## 脚本安装
+## 应用安装
 
-温馨提示：当您同时安装其他第三方库时，如果存在目录冲突，脚本会主动删除冲突的第三方库应用，如果您不同意，请不要执行脚本。
-我们建议您在安装之前备份您的数据，或手动安装。
+> 温馨提示：
+> 当您已安装其他第三方库时并且存在应用冲突，安装过程中会主动删除冲突的第三方库应用，如果您不同意，请不要执行脚本。
+>
+> 我们建议您在安装之前备份您的数据，或手动安装。
 
-> 方案一：使用 `curl` 安装，不会提示脚本下载异常
+### 一键式安装
+
+如果您不想每次都手动执行命令，可以使用一键式安装。
+
+```shell
+curl -sSL https://install.lifebus.top/auto_app_install.sh | bash
+```
+
+#### 卸载自动化脚本
+
+```shell
+curl -sSL https://install.lifebus.top/auto_app_uninstall.sh | bash
+```
+
+### 手动安装
+
+应用的升级与更新均需要重新执行安装脚本。
+
+#### 手动执行模式
+
+```shell
+curl -sSL https://install.lifebus.top/app_install.sh | bash
+```
+
+#### 计划任务模式
+
+将内容写入Shell计划任务中，设定定期执行。
 
 ```shell
 #!/bin/bash
 
 # 定义脚本URL
-script_url="https://github.com/QYG2297248353/appstore-1panel/releases/download/install/install.sh"
+script_url="https://install.lifebus.top/app_install.sh"
 
 # 执行脚本
 echo "Downloading and executing script from $script_url..."
@@ -77,7 +105,7 @@ echo "Script execution completed."
 + Tip 如果你只看到两行命令,说明执行失败
 
 ```sh
-Downloading and executing script from https://github.com/QYG2297248353/appstore-1panel/releases/download/install/install.sh...
+Downloading and executing script from https://install.lifebus.top/app_install.sh...
 Script execution completed.
 ```
 
@@ -92,23 +120,51 @@ export http_proxy="http://$proxy_server:$proxy_port"
 export https_proxy="http://$proxy_server:$proxy_port"
 ```
 
-当前使用 `http` 代理，如果你的代理服务器是 `socks5` 请修改 `http_proxy` 和 `https_proxy` 为 `socks5` 协议
+> 当前使用 `http` 代理，如果你的代理服务器是 `socks5` 请修改 `http_proxy` 和 `https_proxy` 为 `socks5` 协议
 
-> 方案二：复制 `install.sh` 脚本内容
+### 中国特供版安装
 
-[install.sh](install.sh)
+同步周期较长，请耐心等待。
 
-### 中国特供版
-
-同步时间较长,请耐心等待。
-> 备用脚本URL
+> 备用脚本地址：
+>
+> `https://install.lifebus.top/app_install_zh.sh`
+>
 > `https://f.lifebus.top/public/shell/1Panel/install_zh.sh`
+
+#### 一键式安装
+
+如果您不想每次都手动执行命令，可以使用一键式安装。
+
+```shell
+curl -sSL https://install.lifebus.top/auto_app_install_zh.sh | bash
+```
+
+##### 卸载自动化脚本
+
+```shell
+curl -sSL https://install.lifebus.top/auto_app_uninstall_zh.sh | bash
+```
+
+#### 手动安装
+
+应用的升级与更新均需要重新执行安装脚本。
+
+##### 手动执行模式
+
+```shell
+curl -sSL https://install.lifebus.top/app_install_zh.sh | bash
+```
+
+##### 计划任务模式
+
+将内容写入Shell计划任务中，设定定期执行。
 
 ```shell
 #!/bin/bash
 
 # 定义脚本URL
-script_url="https://gitee.com/qyg2297248353/appstore-1panel/releases/download/v1.0/install_zh.sh"
+script_url="https://install.lifebus.top/app_install_zh.sh"
 
 # 执行脚本
 echo "Downloading and executing script from $script_url..."
