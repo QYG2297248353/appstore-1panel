@@ -93,7 +93,15 @@ additionalProperties:
       edit: true
       envKey: DB_PORT
       labelEn: Database Port
-      labelZh: 数据库端口
+      labelZh: 数据库端口 (容器默认)
+      required: true
+      rule: paramPort
+      type: number
+    - default: 5432
+      edit: true
+      envKey: EXPOSED_DB_PORT
+      labelEn: Database Port
+      labelZh: 数据库映射端口 (宿主机端口)
       required: true
       rule: paramPort
       type: number
