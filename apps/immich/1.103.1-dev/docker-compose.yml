@@ -50,7 +50,7 @@ services:
     networks:
       - 1panel-network
     devices:
-      - /dev/dri:/dev/dri
+      - ${IMMICH_DRIVE_PATH:-/dev/dri}:/dev/dri
     command: [ "start.sh", "microservices" ]
     volumes:
       - ${IMMICH_ROOT_PATH}/data/library:/usr/src/app/upload

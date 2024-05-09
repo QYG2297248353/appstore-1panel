@@ -21,7 +21,8 @@
 |  🔴  |       Gogs        |             https://gogs.io/              | Gogs 是一种无障碍的自助托管 Git 服务                                               |           |
 |  🟡  |      GitLab       |         https://about.gitlab.com/         | GitLab 是最全面的人工智能驱动的 DevSecOps 平台。                                     |           |
 |  🟢  |       Halo        |             https://halo.run/             | 强大易用的开源建站工具                                                           |           |
-|  🟢  |      Immich       |            https://immich.app/            | 高性能自托管照片和视频管理解决方案                                                     |           |
+|  🟢  |      Immich       |            https://immich.app/            | 高性能自托管照片和视频管理解决方案                                                     |  Immich   |
+|  🟢  | Immich Monitoring |            https://immich.app/            | 【指标监控方案】高性能自托管照片和视频管理解决方案                                             |  Immich   |
 |  🟢  |     IYUUPlus      |           https://doc.iyuu.cn/            | 基于特征码的索引工具                                                            |           |
 |  🟢  |     Jellyfin      |           https://jellyfin.org/           | 自由软件媒体系统                                                              |           |
 |  🟢  |     LinkDing      | https://github.com/sissbruecker/linkding/ | 自托管书签管理器                                                              |           |

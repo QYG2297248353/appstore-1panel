@@ -160,7 +160,7 @@ additionalProperties:
       labelZh: 机器学习 预加载模型
       required: false
       type: text
-    - default: "antelopev2"
+    - default: "buffalo_l"
       edit: true
       envKey: MACHINE_LEARNING_PRELOAD__FACIAL_RECOGNITION
       labelEn: Machine Learning Preload Model
@@ -204,6 +204,13 @@ additionalProperties:
       required: true
       rule: paramPort
       type: number
+    - default: "/dev/dri"
+      edit: true
+      envKey: IMMICH_DRIVE_PATH
+      labelEn: Drive path
+      labelZh: 硬件驱动路径
+      required: true
+      type: text
     - default: ""
       edit: true
       envKey: HTTP_PROXY

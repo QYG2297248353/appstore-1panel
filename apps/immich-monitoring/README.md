@@ -2,6 +2,11 @@
 
 Immich - 高性能自托管照片和视频备份解决方案
 
+## 默认账户
+
+Grafana 默认账户：`admin`
+Grafana 默认密码：`admin`
+
 ## 应用说明
 
 Immich 提供各种性能指标，以便进行本地监控和深入分析。这种集成主要采用 Prometheus 指标的形式。不过，由于使用了 OpenTelemetry
