@@ -75,6 +75,20 @@ additionalProperties:
       labelZh: 数据库主机地址 (容器DNS)
       required: true
       type: text
+    - default: "postgres"
+      edit: true
+      envKey: DB_USERNAME
+      labelEn: Database User
+      labelZh: 数据库用户名 (容器默认)
+      required: true
+      type: text
+    - default: "immich"
+      edit: true
+      envKey: DB_DATABASE_NAME
+      labelEn: Database Name
+      labelZh: 数据库名称 (容器默认)
+      required: true
+      type: text
     - default: 5432
       edit: true
       envKey: DB_PORT
