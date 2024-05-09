@@ -19,7 +19,7 @@ services:
       - ${PANEL_APP_PORT_API}:3131
     volumes:
       - ${IYUUCN_DEV_ROOT_PATH}/iyuu:/iyuu
-      - ${IYUUCN_DEV_ROOT_PATH}/iyuu:/data
+      - ${IYUUCN_DEV_ROOT_PATH}/data:/data
       - ${IYUUCN_DEV_ROOT_PATH}/bt/qBittorrent:/qBittorrent
       - ${IYUUCN_DEV_ROOT_PATH}/bt/transmission:/transmission
       - ${CUSTOM_MOUNT_DIRECTORY_1:-./default_mount_1}:${CUSTOM_MOUNT_DIRECTORY_1:-/default_mount_1}
