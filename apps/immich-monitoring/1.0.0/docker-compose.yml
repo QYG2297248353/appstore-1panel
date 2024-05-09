@@ -15,6 +15,7 @@ services:
     restart: always
     networks:
       - 1panel-network
+    user: '0'
     ports:
       - ${PANEL_APP_PORT_API}:9090
     volumes:
@@ -29,6 +30,7 @@ services:
     restart: always
     networks:
       - 1panel-network
+    user: '0'
     command: [ './run.sh', '-disable-reporting' ]
     ports:
       - ${PANEL_APP_PORT_HTTP}:3000
