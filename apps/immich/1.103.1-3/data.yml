@@ -182,3 +182,24 @@ additionalProperties:
       required: true
       rule: paramPort
       type: number
+    - default: ""
+      edit: true
+      envKey: HTTP_PROXY
+      labelEn: HTTP Proxy
+      labelZh: HTTP 代理
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: HTTPS_PROXY
+      labelEn: HTTPS Proxy
+      labelZh: HTTPS 代理
+      required: false
+      type: text
+    - default: "localhost,127.0.0.1,::1"
+      edit: true
+      envKey: NO_PROXY
+      labelEn: No Proxy
+      labelZh: 无代理
+      required: false
+      type: text

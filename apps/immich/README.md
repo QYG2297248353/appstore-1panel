@@ -16,6 +16,20 @@ Immich 使用 Redis 作为缓存服务，所以需要安装 Redis 服务。
 
 由于为了支持 `指标监控` 服务，为此增设两个新增端口映射 `8081` 和 `8082`，如果您不需要指标监控，将其修改为任意其他端口即可。
 
+## 模型仓库
+
+可用于 Immich 智能搜索的多模式模型。
+
+### CLIP
+
+对英语支持最好，对其他语言支持较差。
+[immich-app's Collections - CLIP](https://huggingface.co/collections/immich-app/clip-654eaefb077425890874cd07)
+
+### Multilingual CLIP
+
+对多种语言支持较好。
+[immich-app's Collections - Multilingual CLIP](https://huggingface.co/collections/immich-app/multilingual-clip-654eb08c2382f591eeb8c2a7)
+
 ## 常见问题
 
 + 安装缓慢
