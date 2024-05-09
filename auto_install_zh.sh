@@ -11,3 +11,6 @@ chmod +x /home/task/app_install_zh.sh
 
 # 添加到 crontab
 (crontab -l ; echo "0 */6 * * * /bin/bash /home/task/app_install_zh.sh") | crontab -
+
+# 执行一次
+/bin/bash /home/task/app_install_zh.sh
