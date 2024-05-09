@@ -31,7 +31,7 @@ services:
     networks:
       - 1panel-network
     ports:
-      - ${DB_PORT}:${DB_PORT}
+      - ${DB_PORT}:5432
     environment:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_USER: ${DB_USERNAME}
