@@ -1,0 +1,25 @@
+additionalProperties:
+  formFields:
+    - default: "/home/immich-app"
+      edit: true
+      envKey: IMMICH_ROOT_PATH
+      labelEn: Data persistence root path
+      labelZh: 数据持久化 根路径
+      required: true
+      type: text
+    - default: 3000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: Grafana Port
+      labelZh: Grafana 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: 9090
+      edit: true
+      envKey: PANEL_APP_PORT_API
+      labelEn: Prometheus Port
+      labelZh: Prometheus 端口
+      required: true
+      rule: paramPort
+      type: number
