@@ -211,6 +211,13 @@ additionalProperties:
       labelZh: 硬件驱动路径
       required: true
       type: text
+    - default: "https://hf-mirror.com"
+      edit: true
+      envKey: HF_ENDPOINT
+      labelEn: Hugging Face Endpoint
+      labelZh: Hugging Face 服务地址
+      required: false
+      type: text
     - default: ""
       edit: true
       envKey: HTTP_PROXY
