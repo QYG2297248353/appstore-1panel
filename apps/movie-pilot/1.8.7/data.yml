@@ -44,7 +44,7 @@ additionalProperties:
       labelZh: PGID 用户的gid
       required: false
       type: number
-    - default: "000"
+    - default: "022"
       edit: true
       envKey: UMASK
       labelEn: UMASK permission mask
@@ -112,7 +112,7 @@ additionalProperties:
           value: "true"
         - label: 关闭
           value: "false"
-    - default: 3600
+    - default: 6
       edit: true
       envKey: META_CACHE_EXPIRE
       labelEn: Metadata Recognition Cache Expiration Time (hours)
@@ -323,6 +323,20 @@ additionalProperties:
       envKey: SITE_PASSKEY
       labelEn: passkay
       labelZh: 认证密钥 (格式：变量名=值)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SITE_USERNAME_BACKUP
+      labelEn: username or uid
+      labelZh: 备用认证用户ID (格式：变量名=值)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SITE_PASSKEY_BACKUP
+      labelEn: passkay
+      labelZh: 备用认证密钥 (格式：变量名=值)
       required: false
       type: text
     - default: ""

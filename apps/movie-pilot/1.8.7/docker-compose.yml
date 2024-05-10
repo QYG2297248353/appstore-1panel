@@ -6,7 +6,7 @@ networks:
 
 services:
   movie-pilot:
-    image: jxxghp/moviepilot:1.7.9
+    image: jxxghp/moviepilot:1.8.7
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
@@ -30,8 +30,7 @@ services:
       - PORT=3001
       - PUID=${PUID:-0}
       - PGID=${PGID:-0}
-      - UMASK=${UMASK:-000}
-      - PROXY_HOST=${PROXY_HOST:-}
+      - UMASK=${UMASK:-022}
       - MOVIEPILOT_AUTO_UPDATE=${MOVIEPILOT_AUTO_UPDATE:-false}
       - SUPERUSER=${SUPERUSER:-admin}
       - API_TOKEN=${API_TOKEN:-moviepilot}
@@ -55,12 +54,15 @@ services:
       - MOVIE_RENAME_FORMAT=${MOVIE_RENAME_FORMAT}
       - TV_RENAME_FORMAT=${TV_RENAME_FORMAT}
       - PLUGIN_MARKET=${PLUGIN_MARKET:-https://github.com/jxxghp/MoviePilot-Plugins}
+      - PROXY_HOST=${PROXY_HOST:-}
       - all_proxy=${ALL_PROXY:-}
       - no_proxy=${NO_PROXY:-localhost,127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16}
       - AUTH_SITE=${AUTH_SITE:-}
       - IYUU_SIGN=${IYUU_SIGN:-}
-      - ${SITE_USERNAME:-}
-      - ${SITE_PASSKEY:-}
+      - ${SITE_USERNAME:-UID1}
+      - ${SITE_PASSKEY:-PASSKEY1}
+      - ${SITE_USERNAME_BACKUP:-UID2}
+      - ${SITE_PASSKEY_BACKUP:-PASSKEY2}
     logging:
       driver: json-file
       options:
