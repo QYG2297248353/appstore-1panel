@@ -31,10 +31,11 @@
 |  🟢  |      MariaDB      |           https://mariadb.org/            | 创新的开源数据库                                                              |           |
 |  🟢  |    MoviePilot     |   https://github.com/jxxghp/MoviePilot/   | NAS媒体库自动化管理工具                                                         |           |
 |  🟢  |       Nacos       |             https://nacos.io/             | 动态服务发现、配置管理和服务管理平台                                                    |           |
+|  🟢  |       NeZha       |             https://nacos.io/             | 【哪吒监控】开源、轻量、易用的服务器监控、运维工具                                             |           |
 |  🟢  |      OneDev       |            https://onedev.io/             | DevOps 平台、带有 CI/CD、看板和软件包的 Git 服务器                                    |           |
 |  🟢  |    PostgreSQL     |        https://www.postgresql.org/        | 世界上最先进的开源关系数据库                                                        |           |
 |  🟢  |    qBittorrent    |       https://www.qbittorrent.org/        | qBittorrent 比特流客户端                                                    |           |
-|  🟢  |     QingLong      |    https://github.com/whyour/qinglong/    | 支持 Python3、JavaScript、Shell、Typescript 的定时任务管理平台                      |           |
+|  🟢  |     QingLong      |    https://github.com/whyour/qinglong/    | 【青龙面板】支持 Python3、JavaScript、Shell、Typescript 的定时任务管理平台                |           |
 |  🟢  |       Redis       |             https://redis.io/             | 从世界上最快的内存数据库创建者那里获取该数据库                                               |           |
 |  🟢  |     Sentinel      |         https://sentinelguard.io/         | 面向分布式、多语言异构化服务架构的流量治理组件                                               |           |
 |  🟢  |      SFTPGo       |            https://sftpgo.com/            | 功能齐全、高度可配置的 SFTP、HTTP/S、FTP/S 和 WebDAV 服务器                            |           |
