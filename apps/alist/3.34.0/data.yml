@@ -4,7 +4,7 @@ additionalProperties:
       edit: true
       envKey: OS_VERSION
       labelEn: os version
-      labelZh: 系统版本 (针对Arm架构用户)
+      labelZh: 系统版本
       required: true
       type: select
       values:
