@@ -6,7 +6,7 @@ networks:
 
 services:
   emby:
-    image: ${OS_VERSION}
+    image: lovechen/embyserver:4.7.14.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
@@ -16,7 +16,10 @@ services:
       - UID=${UID}
       - GID=${GID}
       - GIDLIST=${GIDLIST}
+      - NVIDIA_VISIBLE_DEVICES=all
     volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
       - ${EMBY_ROOT_PATH}/config:/config
       - ${EMBY_ROOT_PATH}/config/config/system.xml:/config/config/system.xml
       - ${EMBY_ROOT_PATH}/mnt:/mnt
@@ -30,3 +33,11 @@ services:
       - 7359:7359/udp
     devices:
       - ${EMBY_DRIVE_PATH}:/dev/dri
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities:
+                - gpu
