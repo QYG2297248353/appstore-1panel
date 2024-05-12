@@ -17,6 +17,7 @@ services:
       - ${PANEL_APP_PORT_API:-12555}:12555
     volumes:
       - ${STREAM_REC_ROOT_PATH}/records:/opt/records
+      - ${STREAM_REC_ROOT_PATH}/download:/app
     environment:
       - TZ=${TZ:-Asia/Shanghai}
       - LOG_LEVEL=INFO

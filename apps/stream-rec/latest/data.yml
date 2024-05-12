@@ -31,7 +31,7 @@ additionalProperties:
       required: true
       random: true
       type: text
-    - default: ""
+    - default: "stream-rec"
       edit: false
       envKey: REC_LOGIN_SECRET
       labelEn: Login Secret

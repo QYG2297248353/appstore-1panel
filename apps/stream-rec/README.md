@@ -4,11 +4,22 @@
 
 虎牙/抖音/斗鱼/Twitch/PandaTV直播，弹幕自动录制
 
+## 默认账户
+
+| 用户名        | 密码         |
+|------------|------------|
+| stream-rec | stream-rec |
+
 ## 流录制
 
 Stream-rec是一个用于各种流媒体服务的自动流媒体录制工具。
 
 它由 Kotlin、Ktor 和 ffmpeg 提供支持。
+
+### 录制存储
+
++ 本地文件系统
+默认情况下，流媒体文件将保存在容器内的`/app`目录中。外部映射地址 `/home/stream-rec/download`。
 
 ## 特征
 
