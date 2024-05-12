@@ -1,0 +1,20 @@
+name: Stream-Rec
+tags:
+  - 实用工具
+title: 自动流媒体录制工具
+type: 实用工具
+description: 自动流媒体录制工具
+additionalProperties:
+  key: stream-rec
+  name: Stream-Rec
+  tags:
+    - Tool
+  shortDescZh: Stream-rec是一个用于各种流媒体服务的自动流媒体录制工具
+  shortDescEn: Stream-rec is an automatic streaming media recording tool for various streaming media services
+  type: tool
+  crossVersionUpdate: true
+  limit: 1
+  recommend: 0
+  website: https://github.com/hua0512/stream-rec
+  github: https://github.com/hua0512/stream-rec
+  document: https://github.com/hua0512/stream-rec
