@@ -169,7 +169,7 @@ services:
       - _APP_ASSISTANT_OPENAI_API_KEY=${_APP_ASSISTANT_OPENAI_API_KEY}
 
   appwrite-realtime:
-    image: appwrite/appwrite:1.5.4
+    image: appwrite/appwrite:1.5.5
     restart: always
     entrypoint: realtime
     <<: *x-logging
@@ -213,7 +213,7 @@ services:
       - _APP_LOGGING_CONFIG
 
   appwrite-worker-audits:
-    image: appwrite/appwrite:1.5.4
+    image: appwrite/appwrite:1.5.5
     labels:
       createdBy: "Apps"
     restart: always
@@ -241,7 +241,7 @@ services:
       - _APP_LOGGING_CONFIG
 
   appwrite-worker-webhooks:
-    image: appwrite/appwrite:1.5.4
+    image: appwrite/appwrite:1.5.5
     labels:
       createdBy: "Apps"
     restart: always
@@ -270,7 +270,7 @@ services:
       - _APP_LOGGING_CONFIG
 
   appwrite-worker-deletes:
-    image: appwrite/appwrite:1.5.4
+    image: appwrite/appwrite:1.5.5
     labels:
       createdBy: "Apps"
     restart: always
@@ -327,7 +327,7 @@ services:
       - _APP_EXECUTOR_HOST=${_APP_EXECUTOR_HOST:-http://appwrite-executor/v1}
 
   appwrite-worker-databases:
-    image: appwrite/appwrite:1.5.4
+    image: appwrite/appwrite:1.5.5
     labels:
       createdBy: "Apps"
     restart: always
@@ -355,7 +355,7 @@ services:
       - _APP_LOGGING_CONFIG
 
   appwrite-worker-builds:
-    image: appwrite/appwrite:1.5.4
+    image: appwrite/appwrite:1.5.5
     labels:
       createdBy: "Apps"
     restart: always
@@ -420,7 +420,7 @@ services:
       - _APP_STORAGE_WASABI_BUCKET=${_APP_STORAGE_WASABI_BUCKET}
 
   appwrite-worker-certificates:
-    image: appwrite/appwrite:1.5.4
+    image: appwrite/appwrite:1.5.5
     labels:
       createdBy: "Apps"
     restart: always
@@ -455,7 +455,7 @@ services:
       - _APP_LOGGING_CONFIG
 
   appwrite-worker-functions:
-    image: appwrite/appwrite:1.5.4
+    image: appwrite/appwrite:1.5.5
     labels:
       createdBy: "Apps"
     restart: always
@@ -493,7 +493,7 @@ services:
       - _APP_LOGGING_PROVIDER
 
   appwrite-worker-mails:
-    image: appwrite/appwrite:1.5.4
+    image: appwrite/appwrite:1.5.5
     labels:
       createdBy: "Apps"
     restart: always
@@ -522,7 +522,7 @@ services:
       - _APP_LOGGING_CONFIG
 
   appwrite-worker-messaging:
-    image: appwrite/appwrite:1.5.4
+    image: appwrite/appwrite:1.5.5
     labels:
       createdBy: "Apps"
     restart: always
@@ -551,7 +551,7 @@ services:
       - _APP_SMS_PROVIDER
 
   appwrite-worker-migrations:
-    image: appwrite/appwrite:1.5.4
+    image: appwrite/appwrite:1.5.5
     labels:
       createdBy: "Apps"
     restart: always
@@ -583,7 +583,7 @@ services:
       - _APP_MIGRATIONS_FIREBASE_CLIENT_SECRET=${_APP_MIGRATIONS_FIREBASE_CLIENT_SECRET}
 
   appwrite-maintenance:
-    image: appwrite/appwrite:1.5.4
+    image: appwrite/appwrite:1.5.5
     labels:
       createdBy: "Apps"
     restart: always
@@ -618,7 +618,7 @@ services:
       - _APP_MAINTENANCE_RETENTION_SCHEDULES=${_APP_MAINTENANCE_RETENTION_SCHEDULES:-86400}
 
   appwrite-worker-usage:
-    image: appwrite/appwrite:1.5.4
+    image: appwrite/appwrite:1.5.5
     labels:
       createdBy: "Apps"
     restart: always
@@ -648,7 +648,7 @@ services:
       - _APP_USAGE_AGGREGATION_INTERVAL=${_APP_USAGE_AGGREGATION_INTERVAL:-30}
 
   appwrite-worker-usage-dump:
-    image: appwrite/appwrite:1.5.4
+    image: appwrite/appwrite:1.5.5
     entrypoint: worker-usage-dump
     <<: *x-logging
     networks:
@@ -675,7 +675,7 @@ services:
       - _APP_USAGE_AGGREGATION_INTERVAL=${_APP_USAGE_AGGREGATION_INTERVAL:-30}
 
   appwrite-scheduler-functions:
-    image: appwrite/appwrite:1.5.4
+    image: appwrite/appwrite:1.5.5
     labels:
       createdBy: "Apps"
     restart: always
@@ -701,7 +701,7 @@ services:
       - _APP_DB_PASS=${_APP_DB_PASS:-password}
 
   appwrite-scheduler-messages:
-    image: appwrite/appwrite:1.5.4
+    image: appwrite/appwrite:1.5.5
     labels:
       createdBy: "Apps"
     restart: always
