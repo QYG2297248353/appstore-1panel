@@ -6,7 +6,7 @@ networks:
 
 services:
   zerotier:
-    image: zerotier/zerotier:1.12.2
+    image: zerotier/zerotier:1.14.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
