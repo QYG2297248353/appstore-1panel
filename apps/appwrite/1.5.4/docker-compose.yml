@@ -17,7 +17,7 @@ networks:
 
 services:
   traefik:
-    image: traefik:2.11
+    image: traefik:v3.0
     labels:
       createdBy: "Apps"
     restart: always
