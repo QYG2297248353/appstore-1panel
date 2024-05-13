@@ -8,7 +8,7 @@ services:
   es-node:
     container_name: ${CONTAINER_NAME}-${ES_NODE_NAME}
     restart: always
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
     volumes:
       - ${ES_ROOT_PATH}/certs:/usr/share/elasticsearch/config/certs
       - ${ES_ROOT_PATH}/${ES_NODE_NAME}/data:/usr/share/elasticsearch/data
