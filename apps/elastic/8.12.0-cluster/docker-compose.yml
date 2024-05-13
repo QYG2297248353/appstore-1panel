@@ -7,7 +7,7 @@ networks:
 services:
   elastic-init:
     container_name: elastic-init
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
     networks:
       - ${CLUSTER_NETWORK}
     volumes:
@@ -81,7 +81,7 @@ services:
         condition: service_healthy
     container_name: es01
     restart: always
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
     volumes:
       - ${ES_ROOT_PATH}/certs:/usr/share/elasticsearch/config/certs
       - ${ES_ROOT_PATH}/es01/data:/usr/share/elasticsearch/data
@@ -140,7 +140,7 @@ services:
       - es01
     container_name: es02
     restart: always
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
     volumes:
       - ${ES_ROOT_PATH}/certs:/usr/share/elasticsearch/config/certs
       - ${ES_ROOT_PATH}/es02/data:/usr/share/elasticsearch/data
@@ -196,7 +196,7 @@ services:
       - es02
     container_name: es03
     restart: always
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
     volumes:
       - ${ES_ROOT_PATH}/certs:/usr/share/elasticsearch/config/certs
       - ${ES_ROOT_PATH}/es03/data:/usr/share/elasticsearch/data
