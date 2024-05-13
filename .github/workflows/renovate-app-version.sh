@@ -21,6 +21,6 @@ do
 	  # Trim the "v" prefix
 	  trimmed_version=${version/#"v"}
           mkdir -p apps/$app_name/$trimmed_version
-          cp -r apps/$app_name/$old_version/. apps/$app_name/$trimmed_version
+          cp -R apps/$app_name/$old_version/* apps/$app_name/$trimmed_version
     fi
 done
