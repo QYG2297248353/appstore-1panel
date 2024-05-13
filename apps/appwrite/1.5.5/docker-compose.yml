@@ -787,7 +787,7 @@ services:
       - OPR_EXECUTOR_STORAGE_WASABI_BUCKET=${_APP_STORAGE_WASABI_BUCKET}
 
   appwrite-mariadb:
-    image: mariadb:10.11
+    image: mariadb:11.3
     labels:
       createdBy: "Apps"
     restart: always
