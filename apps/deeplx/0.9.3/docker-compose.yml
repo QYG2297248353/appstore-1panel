@@ -6,7 +6,7 @@ networks:
 
 services:
   deeplx:
-    image: ghcr.io/owo-network/deeplx:v0.9.3
+    image: ghcr.io/owo-network/deeplx:v0.9.4
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
