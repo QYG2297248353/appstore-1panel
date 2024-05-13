@@ -1,0 +1,241 @@
+additionalProperties:
+  formFields:
+    - default: "/home/immich-app"
+      edit: true
+      envKey: IMMICH_ROOT_PATH
+      labelEn: Data persistence root path
+      labelZh: 数据持久化 根路径
+      required: true
+      type: text
+    - default: 2283
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: WebUI port
+      labelZh: WebUI 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: "0.0.0.0"
+      edit: true
+      envKey: HOST
+      labelEn: Host
+      labelZh: 主机服务 地址
+      required: true
+      type: text
+    - default: 3001
+      edit: true
+      envKey: SERVER_PORT
+      labelEn: Server Port
+      labelZh: 主机服务 端口(映射WebUI)
+      required: true
+      rule: paramPort
+      type: number
+    - default: 3002
+      edit: true
+      envKey: MICROSERVICES_PORT
+      labelEn: Microservices Port
+      labelZh: 微服务 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: "0.0.0.0"
+      edit: true
+      envKey: MACHINE_LEARNING_HOST
+      labelEn: Machine Learning Host
+      labelZh: 机器学习 主机
+      required: true
+      type: text
+    - default: 3003
+      edit: true
+      envKey: MACHINE_LEARNING_PORT
+      labelEn: Machine Learning Port
+      labelZh: 机器学习 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: "Asia/Shanghai"
+      edit: true
+      envKey: TZ
+      labelEn: Timezone
+      labelZh: 时区
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: DB_PASSWORD
+      labelEn: Database Password
+      labelZh: 数据库连接密码
+      random: true
+      required: true
+      type: password
+    - default: "immich-pg14-vectors"
+      edit: true
+      envKey: DB_HOSTNAME
+      labelEn: Database Host
+      labelZh: 数据库主机地址 (容器DNS)
+      required: true
+      type: text
+    - default: "postgres"
+      edit: true
+      envKey: DB_USERNAME
+      labelEn: Database User
+      labelZh: 数据库用户名 (容器默认)
+      required: true
+      type: text
+    - default: "immich"
+      edit: true
+      envKey: DB_DATABASE_NAME
+      labelEn: Database Name
+      labelZh: 数据库名称 (容器默认)
+      required: true
+      type: text
+    - default: 5432
+      edit: true
+      envKey: DB_PORT
+      labelEn: Database Port
+      labelZh: 数据库端口 (容器默认)
+      required: true
+      rule: paramPort
+      type: number
+    - default: 5432
+      edit: true
+      envKey: EXPOSED_DB_PORT
+      labelEn: Database Port
+      labelZh: 数据库映射端口 (宿主机端口)
+      required: true
+      rule: paramPort
+      type: number
+    - default: "false"
+      edit: true
+      envKey: DB_SKIP_MIGRATIONS
+      labelEn: Skip data migration on startup
+      labelZh: 启动时跳过数据迁移
+      required: true
+      type: select
+      values:
+        - label: 跳过
+          value: "true"
+        - label: 不跳过
+          value: "false"
+    - default: "127.0.0.1"
+      edit: true
+      envKey: REDIS_HOSTNAME
+      labelEn: Redis Host
+      labelZh: Redis 主机
+      required: true
+      type: text
+    - default: 6379
+      edit: true
+      envKey: REDIS_PORT
+      labelEn: Redis Port
+      labelZh: Redis 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: 0
+      edit: true
+      envKey: REDIS_DBINDEX
+      labelEn: Redis DB Index
+      labelZh: Redis 数据库索引
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: REDIS_USERNAME
+      labelEn: Redis Username
+      labelZh: Redis 用户名
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: REDIS_PASSWORD
+      labelEn: Redis Password
+      labelZh: Redis 密码
+      required: false
+      type: password
+    - default: "XLM-Roberta-Large-Vit-B-16Plus"
+      edit: true
+      envKey: MACHINE_LEARNING_PRELOAD__CLIP
+      labelEn: Machine Learning Preload Model
+      labelZh: 机器学习 预加载模型
+      required: false
+      type: text
+    - default: "buffalo_l"
+      edit: true
+      envKey: MACHINE_LEARNING_PRELOAD__FACIAL_RECOGNITION
+      labelEn: Machine Learning Preload Model
+      labelZh: 人脸识别 预加载模型
+      required: false
+      type: select
+      values:
+        - label: antelopev2
+          value: "antelopev2"
+        - label: buffalo_l
+          value: "buffalo_l"
+        - label: buffalo_m
+          value: "buffalo_m"
+        - label: buffalo_s
+          value: "buffalo_s"
+    - default: "false"
+      edit: true
+      envKey: IMMICH_METRICS
+      labelEn: Enable metrics
+      labelZh: 是否开启指标监控
+      required: true
+      type: select
+      values:
+        - label: 开启监控
+          value: "true"
+        - label: 关闭监控
+          value: "false"
+    - default: 8081
+      edit: true
+      envKey: PROMETHEUS_SERVER_PORT
+      labelEn: Prometheus Server Port
+      labelZh: 指标监控服务 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: 8082
+      edit: true
+      envKey: PROMETHEUS_MICROSERVICES_PORT
+      labelEn: Prometheus Microservices Port
+      labelZh: 指标监控微服务 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: "/dev/dri"
+      edit: true
+      envKey: IMMICH_DRIVE_PATH
+      labelEn: Drive path
+      labelZh: 硬件驱动路径
+      required: true
+      type: text
+    - default: "https://hf-mirror.com"
+      edit: true
+      envKey: HF_ENDPOINT
+      labelEn: Hugging Face Endpoint
+      labelZh: Hugging Face 服务地址
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: HTTP_PROXY
+      labelEn: HTTP Proxy
+      labelZh: HTTP 代理
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: HTTPS_PROXY
+      labelEn: HTTPS Proxy
+      labelZh: HTTPS 代理
+      required: false
+      type: text
+    - default: "localhost,127.0.0.1,::1"
+      edit: true
+      envKey: NO_PROXY
+      labelEn: No Proxy
+      labelZh: 无代理
+      required: false
+      type: text
