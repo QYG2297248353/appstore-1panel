@@ -22,6 +22,7 @@ services:
       - TZ=${TZ:-Asia/Shanghai}
       - LOG_LEVEL=INFO
       - DB_PATH=/opt/records
+      - DOWNLOAD_PATH=/download
       - JWT_SECRET=${REC_JWT_SECRET}
       - LOGIN_SECRET=${REC_LOGIN_SECRET}
 

@@ -18,10 +18,9 @@ Stream-rec是一个用于各种流媒体服务的自动流媒体录制工具。
 
 ### 录制存储
 
-+ 本地文件系统
-  默认情况下，流媒体文件将保存在容器内的`/app`目录中。请修改为 `/download`
+映射路径 `/home/stream-rec/download`。
 
-外部映射地址 `/home/stream-rec/download`。
+其中 `/home/stream-rec` 为持久化路径，可根据实际情况进行查看。
 
 ## 特征
 
