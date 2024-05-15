@@ -1,19 +1,5 @@
 additionalProperties:
   formFields:
-    - default: "emby/embyserver:4.9.0.18"
-      edit: true
-      envKey: OS_VERSION
-      labelEn: os version
-      labelZh: 系统版本 (针对Arm架构用户)
-      required: true
-      type: select
-      values:
-        - label: AMD_X64
-          value: "emby/embyserver:4.9.0.18"
-        - label: ARM64_V8
-          value: "emby/embyserver_arm64v8:4.9.0.18"
-        - label: ARM32_V7
-          value: "emby/embyserver_arm32v7:4.9.0.18"
     - default: "host"
       edit: true
       envKey: NETWORK_MODE
