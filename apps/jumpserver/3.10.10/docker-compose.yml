@@ -1,0 +1,49 @@
+version: "3"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  jumpserver:
+    image: jumpserver/jms_all:v3.10.10
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    privileged: true
+    environment:
+      SECRET_KEY: ${SECRET_KEY}
+      BOOTSTRAP_TOKEN: ${BOOTSTRAP_TOKEN}
+      DEBUG: ${DEBUG:-FALSE}
+      LOG_LEVEL: ${LOG_LEVEL}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      MAGNUS_MYSQL_PORT: ${MAGNUS_MYSQL_PORT}
+      MAGNUS_MARIADB_PORT: ${MAGNUS_MARIADB_PORT}
+      MAGNUS_REDIS_PORT: ${MAGNUS_REDIS_PORT}
+      DOMAINS: ${DOMAINS:-}
+      CACHE_LOGIN_PASSWORD_ENABLED: false
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:80
+      - ${SSH_PORT}:2222
+      - ${MAGNUS_MYSQL_PORT}:33061
+      - ${MAGNUS_MARIADB_PORT}:33062
+      - ${MAGNUS_REDIS_PORT}:63790
+    volumes:
+      - ${JUMPSERVER_ROOT_PATH}/data/core/data:/opt/jumpserver/data
+      - ${JUMPSERVER_ROOT_PATH}/data/koko/data:/opt/koko/data
+      - ${JUMPSERVER_ROOT_PATH}/data/lion/data:/opt/lion/data
+      - ${JUMPSERVER_ROOT_PATH}/data/chen/data:/opt/chen/data
+      - ${JUMPSERVER_ROOT_PATH}/data/kael/data:/opt/kael/data
+      - ${JUMPSERVER_ROOT_PATH}/data/log/nginx:/var/log/nginx
+      - ${JUMPSERVER_ROOT_PATH}/opt/download:/opt/download
+      - ${JUMPSERVER_ROOT_PATH}/opt/player:/opt/player
