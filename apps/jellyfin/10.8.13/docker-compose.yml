@@ -12,7 +12,7 @@ services:
       createdBy: "Apps"
     restart: always
     network_mode: ${NETWORK_MODE}
-    user: ${PUID:-1000}:${PGID:-1000}
+    user: ${PUID:-0}:${PGID:-0}
     ports:
       - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
       - ${PANEL_APP_PORT_HTTPS}:${PANEL_APP_PORT_HTTPS}
@@ -32,7 +32,7 @@ services:
       - ${JELLYFIN_DRIVE_PATH:-/dev/dri}:/dev/dri
       - ${JELLYFIN_OPENCL_DRIVE_PATH:-/dev/kfd}:/dev/kfd
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:${PANEL_APP_PORT_HTTP}/health" ]
+      test: [ "CMD", "curl", "-f", "http://localhost:8096/health" ]
       interval: 1m
       timeout: 10s
       retries: 3
