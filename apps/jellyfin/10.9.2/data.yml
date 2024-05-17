@@ -1,0 +1,116 @@
+additionalProperties:
+  formFields:
+    - default: "host"
+      edit: true
+      envKey: NETWORK_MODE
+      labelEn: Drive path
+      labelZh: 网络模式
+      required: true
+      type: select
+      values:
+        - label: 主机模式
+          value: "host"
+        - label: 桥接模式
+          value: "bridge"
+        - label: 无网络
+          value: "none"
+        - label: 1panel-network
+          value: "1panel-network"
+    - default: "/home/jellyfin"
+      edit: true
+      envKey: JELLYFIN_ROOT_PATH
+      labelEn: Data persistence root path
+      labelZh: 数据持久化 根路径
+      required: true
+      type: text
+    - default: 8096
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: WebUI Port
+      labelZh: 网页端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: 8920
+      edit: true
+      envKey: PANEL_APP_PORT_HTTPS
+      labelEn: WebUI SSL Port
+      labelZh: 网页SSL端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: 0
+      edit: true
+      envKey: PUID
+      labelEn: PUID user's uid
+      labelZh: PUID 用户的uid
+      required: false
+      type: number
+    - default: 0
+      edit: true
+      envKey: PGID
+      labelEn: PGID user's gid
+      labelZh: PGID 用户的gid
+      required: false
+      type: number
+    - default: "/dev/dri"
+      edit: true
+      envKey: JELLYFIN_DRIVE_PATH
+      labelEn: Drive path
+      labelZh: 驱动存放路径
+      required: true
+      type: text
+    - default: "/dev/kfd"
+      edit: true
+      envKey: JELLYFIN_OPENCL_DRIVE_PATH
+      labelEn: Drive path
+      labelZh: 驱动存放路径
+      required: true
+      type: text
+    - default: "false"
+      edit: true
+      envKey: JELLYFIN_IPV6_ENABLE
+      labelEn: Enable IPv6
+      labelZh: 启用IPv6
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"
+    - default: ""
+      edit: true
+      envKey: JELLYFIN_HTTP_PROXY
+      labelEn: HTTP Proxy
+      labelZh: HTTP 网络代理
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: JELLYFIN_HTTPS_PROXY
+      labelEn: HTTPS Proxy
+      labelZh: HTTPS 网络代理
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_1
+      labelEn: Custom mount directory 1
+      labelZh: 自定义挂载目录 1
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_2
+      labelEn: Custom mount directory 2
+      labelZh: 自定义挂载目录 2
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_3
+      labelEn: Custom mount directory 3
+      labelZh: 自定义挂载目录 3
+      required: false
+      type: text

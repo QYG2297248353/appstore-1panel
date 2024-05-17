@@ -1,0 +1,42 @@
+version: "3.5"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:10.9.2
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    network_mode: ${NETWORK_MODE}
+    user: ${PUID:-0}:${PGID:-0}
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
+      - ${PANEL_APP_PORT_HTTPS}:${PANEL_APP_PORT_HTTPS}
+      - 1900:1900/udp
+      - 7359:7359/udp
+    volumes:
+      - ${JELLYFIN_ROOT_PATH}/config:/config
+      - ${JELLYFIN_ROOT_PATH}/config/config/network.xml:/config/config/network.xml
+      - ${JELLYFIN_ROOT_PATH}/cache:/cache
+      - ${JELLYFIN_ROOT_PATH}/media:/media
+      - ${JELLYFIN_ROOT_PATH}/config/font:/config/font
+      - ${JELLYFIN_ROOT_PATH}/config/dejavu:/usr/share/fonts/truetype/dejavu
+      - ${CUSTOM_MOUNT_DIRECTORY_1:-./default_mount_1}:${CUSTOM_MOUNT_DIRECTORY_1:-/default_mount_1}
+      - ${CUSTOM_MOUNT_DIRECTORY_2:-./default_mount_2}:${CUSTOM_MOUNT_DIRECTORY_2:-/default_mount_2}
+      - ${CUSTOM_MOUNT_DIRECTORY_3:-./default_mount_3}:${CUSTOM_MOUNT_DIRECTORY_3:-/default_mount_3}
+    devices:
+      - ${JELLYFIN_DRIVE_PATH:-/dev/dri}:/dev/dri
+      - ${JELLYFIN_OPENCL_DRIVE_PATH:-/dev/kfd}:/dev/kfd
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8096/health" ]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+    environment:
+      - ROC_ENABLE_PRE_VEGA=1
+      - HTTP_PROXY=${JELLYFIN_HTTP_PROXY:-}
+      - HTTPS_PROXY=${JELLYFIN_HTTPS_PROXY:-}
