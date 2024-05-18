@@ -60,21 +60,21 @@ additionalProperties:
       labelZh: 驱动存放路径
       required: true
       type: text
-    - default: 1000
+    - default: 0
       edit: true
       envKey: UID
       labelEn: User ID
       labelZh: 用户ID
       required: true
       type: number
-    - default: 1000
+    - default: 0
       edit: true
       envKey: GID
       labelEn: Group ID
       labelZh: 组ID
       required: true
       type: number
-    - default: "1000,39,998"
+    - default: "0,39,998"
       edit: true
       envKey: GIDLIST
       labelEn: Group ID List
