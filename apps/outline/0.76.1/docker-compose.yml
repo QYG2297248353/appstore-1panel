@@ -17,6 +17,7 @@ services:
     ports:
       - ${PANEL_APP_PORT_HTTP-3000}:${PANEL_APP_PORT_HTTP-3000}
     environment:
+      APP_NAME: ${APP_NAME:-Outline}
       NODE_ENV: production
       FORCE_HTTPS: false
       ENABLE_UPDATES: false
@@ -65,8 +66,6 @@ services:
       SLACK_VERIFICATION_TOKEN: ${SLACK_VERIFICATION_TOKEN:-}
       SLACK_APP_ID: ${SLACK_APP_ID:-}
       SLACK_MESSAGE_ACTIONS: ${SLACK_MESSAGE_ACTIONS:-}
-      IFRAMELY_URL: ${IFRAMELY_URL:-}
-      IFRAMELY_API_KEY: ${IFRAMELY_API_KEY:-}
       SMTP_HOST: ${SMTP_HOST:-}
       SMTP_PORT: ${SMTP_PORT:-}
       SMTP_USERNAME: ${SMTP_USERNAME:-}
@@ -75,5 +74,7 @@ services:
       SMTP_REPLY_EMAIL: ${SMTP_REPLY_EMAIL:-}
       SMTP_TLS_CIPHERS: ${SMTP_TLS_CIPHERS:-TLSv1.2}
       SMTP_SECURE: ${SMTP_SECURE:-true}
+      IFRAMELY_URL: ${IFRAMELY_URL:-127.0.0.1}
+      IFRAMELY_API_KEY: ${IFRAMELY_API_KEY:-}
     volumes:
       - ${OUTLINE_ROOT_PATH}/data:/var/lib/outline/data

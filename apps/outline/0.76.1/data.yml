@@ -50,6 +50,13 @@ additionalProperties:
       labelZh: 外部链接 (可选)
       required: false
       type: text
+    - default: "OutLine"
+      edit: true
+      envKey: APP_NAME
+      labelEn: App Name
+      labelZh: 应用名称
+      required: false
+      type: text
     - default:
       edit: true
       envKey: SLACK_CLIENT_ID

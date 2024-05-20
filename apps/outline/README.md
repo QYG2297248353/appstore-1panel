@@ -66,8 +66,8 @@ Outline的源代码是公开的，开发是公开完成的。更喜欢托管在�
 
 环境支持：
 
-+ 数据库：PostgreSQL
-+ 缓存：Redis
++ 数据库：PostgreSQL (v12+)
++ 缓存：Redis (v4+)
 
 ### `SECRET_KEY` 安全密钥
 
