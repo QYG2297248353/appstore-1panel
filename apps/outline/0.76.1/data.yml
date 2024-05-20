@@ -36,6 +36,18 @@ additionalProperties:
       labelZh: 数据库链接 (PostgreSQL)
       required: true
       type: text
+    - default: "disable"
+      edit: true
+      envKey: PGSSLMODE
+      labelEn: Database SSL Mode
+      labelZh: 数据库 SSL 模式 (PostgreSQL)
+      required: true
+      type: select
+      values:
+        - label: 禁用
+          value: "disable"
+        - label: 启用
+          value: "enable"
     - default: "redis://:outline@127.0.0.1:6379"
       edit: true
       envKey: REDIS_URL
