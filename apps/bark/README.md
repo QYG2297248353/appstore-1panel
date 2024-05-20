@@ -9,9 +9,40 @@
 + 不会消耗设备的电量， 基于系统推送服务与推送扩展，APP本体并不需要运行。
 + 隐私安全，可以通过一些方式确保包含作者本人在内的所有人都无法窃取你的隐私。
 
+## 安装说明
+
+### `BARK_SERVER_DSN` 数据库链接
+
+MySQL DSN 数据库链接
+
+格式：
+
+```shell
+user:pass@tcp(host)/dbname
+```
+
+#### 参数说明
+
+| 参数     | 说明     |
+|--------|--------|
+| user   | 数据库用户名 |
+| pass   | 数据库密码  |
+| host   | 数据库地址  |
+| dbname | 数据库名称  |
+
+使用其他端口时 `host` 格式为 `host:port`
+
 ## [URL格式](https://bark.day.app/#/tutorial?id=url格式)
 
 URL由推送key、参数 title、参数 body 组成。有下面两种组合方式
+
+#### 服务基础验证
+
+可选项，验证方式为 `Basic`，具体格式为 `Basic base64(username:password)`，其中 `base64(username:password)`
+为 `username:password` 的 `base64` 编码结果。
+
++ 用户名 (服务基础验证)
++ 密码 (服务基础验证)
 
 ```
 /:key/:body 
