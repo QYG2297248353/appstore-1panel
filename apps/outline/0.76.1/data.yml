@@ -87,7 +87,7 @@ additionalProperties:
       edit: true
       envKey: GOOGLE_CLIENT_ID
       labelEn: Google Client ID
-      labelZh: Slack 客户端 ID (鉴权方式)
+      labelZh: Google 客户端 ID (鉴权方式)
       required: false
       type: text
     - default: ""
