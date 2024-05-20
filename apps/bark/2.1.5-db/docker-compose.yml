@@ -18,6 +18,4 @@ services:
     volumes:
       - ${BARK_ROOT_PATH}/data:/data
     command:
-      - bark-server
-      - -addr 0.0.0.0:8080
-      - -dsn ${DB_USERNAME}:${DB_PASSWORD}@tcp(${DB_HOSTNAME}:${DB_PORT})/${DB_DATABASE_NAME}
+      - "bark-server -addr 0.0.0.0:8080 -dsn ${DB_USERNAME}:${DB_PASSWORD}@tcp(${DB_HOSTNAME}:${DB_PORT})/${DB_DATABASE_NAME}"
