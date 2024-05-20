@@ -1,0 +1,377 @@
+additionalProperties:
+  formFields:
+    - default: 5244
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: Port
+      labelZh: 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: "/home/outline"
+      edit: true
+      envKey: OUTLINE_ROOT_PATH
+      labelEn: Root Path
+      labelZh: 持久化路径
+      required: true
+      type: text
+    - default: "fbad4f5da794acbc10f060cdfcf8673300f3302d87f076d7f6e781d4840e9c3d"
+      edit: true
+      envKey: SECRET_KEY
+      labelEn: Secret Key
+      labelZh: 安全密钥
+      required: true
+      type: text
+    - default: "b2be1c54acbfe6d965bda01e63195cc815e4743a6fb5ba5f82eae916d98989b5"
+      edit: true
+      envKey: UTILS_SECRET
+      labelEn: Utils Secret
+      labelZh: 工具密钥
+      required: true
+      type: text
+    - default: "postgres://outline:outline@127.0.0.1:5432/outline"
+      edit: true
+      envKey: DATABASE_URL
+      labelEn: Database URL
+      labelZh: 数据库链接 (PostgreSQL)
+      required: true
+      type: text
+    - default: "redis://:outline@127.0.0.1:6379"
+      edit: true
+      envKey: REDIS_URL
+      labelEn: Redis URL
+      labelZh: 缓存链接 (Redis)
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: URL
+      labelEn: URL
+      labelZh: 外部链接 (可选)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SLACK_CLIENT_ID
+      labelEn: Slack Client ID
+      labelZh: Slack 客户端 ID (鉴权方式)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SLACK_CLIENT_SECRET
+      labelEn: Slack Client Secret
+      labelZh: Slack 客户端 密钥 (鉴权方式)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: GOOGLE_CLIENT_ID
+      labelEn: Google Client ID
+      labelZh: Slack 客户端 ID (鉴权方式)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: GOOGLE_CLIENT_SECRET
+      labelEn: Google Client Secret
+      labelZh: Google 客户端 密钥 (鉴权方式)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AZURE_CLIENT_ID
+      labelEn: Azure Client ID
+      labelZh: Azure 客户端 ID (鉴权方式)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AZURE_CLIENT_SECRET
+      labelEn: Azure Client Secret
+      labelZh: Azure 客户端 密钥 (鉴权方式)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AZURE_RESOURCE_APP_ID
+      labelEn: Azure Resource App ID
+      labelZh: Azure 资源应用 ID (鉴权方式)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: GITHUB_CLIENT_ID
+      labelEn: Github Client ID
+      labelZh: Github 客户端 ID (鉴权方式)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: GITHUB_CLIENT_SECRET
+      labelEn: Github Client Secret
+      labelZh: Github 客户端 密钥 (鉴权方式)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: GITHUB_APP_ID
+      labelEn: Github App ID
+      labelZh: Github 应用ID (鉴权方式)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: GITHUB_APP_NAME
+      labelEn: Github App Name
+      labelZh: Github 应用名称  (鉴权方式)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: GITHUB_APP_PRIVATE_KEY
+      labelEn: Github App Private Key
+      labelZh: Github 应用私钥 (鉴权方式)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: OIDC_CLIENT_ID
+      labelEn: OIDC Client ID
+      labelZh: OIDC 客户端 ID (鉴权方式)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: OIDC_CLIENT_SECRET
+      labelEn: OIDC Client Secret
+      labelZh: OIDC 客户端 密钥 (鉴权方式)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: OIDC_AUTH_URI
+      labelEn: OIDC Auth URI
+      labelZh: OIDC 颁发者 (鉴权方式)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: OIDC_TOKEN_URI
+      labelEn: OIDC Token URI
+      labelZh: OIDC 令牌颁发者 (鉴权方式)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: OIDC_USERINFO_URI
+      labelEn: OIDC User Info URI
+      labelZh: OIDC 用户信息颁发者 (鉴权方式)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: OIDC_LOGOUT_URI
+      labelEn: OIDC Logout URI
+      labelZh: OIDC 登出颁发者 (鉴权方式)
+      required: false
+      type: text
+    - default: "preferred_username"
+      edit: true
+      envKey: OIDC_USERNAME_CLAIM
+      labelEn: OIDC Username Claim
+      labelZh: OIDC 用户名声明 (鉴权方式)
+      required: false
+      type: text
+    - default: "OpenID"
+      edit: true
+      envKey: OIDC_DISPLAY_NAME
+      labelEn: OIDC Display Name
+      labelZh: OIDC 登录按钮名称 (鉴权方式)
+      required: false
+      type: text
+    - default: "openid profile email"
+      edit: true
+      envKey: OIDC_SCOPES
+      labelEn: OIDC Scopes
+      labelZh: OIDC 作用域
+      required: false
+      type: text
+    - default: "local"
+      edit: true
+      envKey: FILE_STORAGE
+      labelEn: File Storage
+      labelZh: 文件存储方式
+      required: true
+      type: select
+      values:
+        - label: 本地
+          value: "local"
+        - label: S3
+          value: "s3"
+    - default: ""
+      edit: true
+      envKey: AWS_ACCESS_KEY_ID
+      labelEn: Aws Access Key ID (S3)
+      labelZh: Aws Access Key ID (S3)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AWS_SECRET_ACCESS_KEY
+      labelEn: Aws Secret Access Key (S3)
+      labelZh: Aws Secret Access Key (S3)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AWS_REGION
+      labelEn: Aws Region (S3)
+      labelZh: Aws Region (S3)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AWS_S3_ACCELERATE_URL
+      labelEn: Aws S3 Accelerate URL (S3)
+      labelZh: Aws S3 Accelerate URL (S3)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AWS_S3_UPLOAD_BUCKET_URL
+      labelEn: Aws S3 Upload Bucket URL (S3)
+      labelZh: Aws S3 Upload Bucket URL (S3)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AWS_S3_UPLOAD_BUCKET_NAME
+      labelEn: Aws S3 Upload Bucket Name (S3)
+      labelZh: Aws S3 Upload Bucket Name (S3)
+      required: false
+      type: text
+    - default: "true"
+      edit: true
+      envKey: AWS_S3_FORCE_PATH_STYLE
+      labelEn: Aws S3 Force Path Style (S3)
+      labelZh: Aws S3 Force Path Style (S3)
+      required: false
+      type: text
+    - default: "private"
+      edit: true
+      envKey: AWS_S3_ACL
+      labelEn: Aws S3 Acl (S3)
+      labelZh: Aws S3 Acl (S3)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CDN_URL
+      labelEn: CDN URL
+      labelZh: CDN 源地址
+      required: false
+      type: text
+    - default: "zh_CN"
+      edit: true
+      envKey: DEFAULT_LANGUAGE
+      labelEn: Default Language
+      labelZh: 默认语言
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SLACK_VERIFICATION_TOKEN
+      labelEn: Slack Verification Token
+      labelZh: Slack 验证 Token (Slack 检索)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SLACK_APP_ID
+      labelEn: Slack App ID
+      labelZh: Slack 应用 ID (Slack 检索)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SLACK_MESSAGE_ACTIONS
+      labelEn: Slack Message Actions
+      labelZh: Slack 消息操作 (Slack 检索)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: IFRAMELY_URL
+      labelEn: Iframely URL
+      labelZh: Iframely URL (Iframely API)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: IFRAMELY_API_KEY
+      labelEn: Iframely API Key
+      labelZh: Iframely API Key (Iframely API)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SMTP_HOST
+      labelEn: SMTP Host
+      labelZh: SMTP 主机 (邮件服务)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SMTP_PORT
+      labelEn: SMTP Port
+      labelZh: SMTP 端口 (邮件服务)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SMTP_USERNAME
+      labelEn: SMTP Username
+      labelZh: SMTP 用户名 (邮件服务)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SMTP_PASSWORD
+      labelEn: SMTP Password
+      labelZh: SMTP 密码 (邮件服务)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SMTP_FROM_EMAIL
+      labelEn: SMTP From Email
+      labelZh: SMTP 发件地址 (邮件服务)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SMTP_REPLY_EMAIL
+      labelEn: SMTP Reply Email
+      labelZh: SMTP 回复地址 (邮件服务)
+      required: false
+      type: text
+    - default: "TLSv1.2"
+      edit: true
+      envKey: SMTP_TLS_CIPHERS
+      labelEn: SMTP TLS Ciphers
+      labelZh: SMTP TLS 加密方式 (邮件服务)
+      required: false
+      type: text
+    - default: "true"
+      edit: true
+      envKey: SMTP_SECURE
+      labelEn: SMTP Secure
+      labelZh: SMTP 安全方式 (邮件服务)
+      required: false
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 关闭
+          value: "false"
