@@ -33,6 +33,7 @@
 |  🟢  |       Nacos       |             https://nacos.io/             | 动态服务发现、配置管理和服务管理平台                                                   |           |
 |  🟢  |       NeZha       |             https://nacos.io/             | 【哪吒监控】开源、轻量、易用的服务器监控、运维工具                                            |           |
 |  🟢  |      OneDev       |            https://onedev.io/             | DevOps 平台、带有 CI/CD、看板和软件包的 Git 服务器                                   |           |
+|  🟢  |      OutLine      |        https://www.getoutline.com/        | 快速、协作的团队知识库                                                          |           |
 |  🟢  |    PostgreSQL     |        https://www.postgresql.org/        | 世界上最先进的开源关系数据库                                                       |           |
 |  🟢  |    qBittorrent    |       https://www.qbittorrent.org/        | qBittorrent 比特流客户端                                                   |           |
 |  🟢  |     QingLong      |    https://github.com/whyour/qinglong/    | 【青龙面板】支持 Python3、JavaScript、Shell、Typescript 的定时任务管理平台               |           |
