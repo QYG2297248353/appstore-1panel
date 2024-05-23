@@ -1,0 +1,23 @@
+version: '3.3'
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  nezha-dashboard:
+    image: ${OS_VERSION}
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP:-8008}:80
+      - ${PANEL_APP_PORT_GRPC:-5555}:${PANEL_APP_PORT_GRPC:-5555}
+    volumes:
+      - ${NEZHA_DASHBOARD_ROOT_PATH}/data:/dashboard/data
+      - ${NEZHA_DASHBOARD_ROOT_PATH}/static-custom/static:/dashboard/resource/static/custom
+      - ${NEZHA_DASHBOARD_ROOT_PATH}/theme-custom/template:/dashboard/resource/template/theme-custom
+      - ${NEZHA_DASHBOARD_ROOT_PATH}/dashboard-custom/template:/dashboard/resource/template/dashboard-custom
