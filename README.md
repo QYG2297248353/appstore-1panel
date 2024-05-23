@@ -47,6 +47,7 @@
 |  🟡  |    Stream-Rec     |   https://github.com/hua0512/stream-rec   | Stream-rec是一个用于各种流媒体服务的自动流媒体录制工具                                     |           |
 |  🟢  |   Transmission    |        https://transmissionbt.com/        | 快速、简单、免费的 Bittorrent 客户端                                             |           |
 |  🟢  |    Uptime Kuma    |         https://uptime.kuma.pet/          | 自托管监控工具                                                              |           |
+|  🟢  |       Yarr        |      https://github.com/nkanaev/yarr      | Rss 阅读器                                                              |           |
 |  🟢  |     ZeroTier      |         https://www.zerotier.com/         | ZeroTier 可让您构建几乎任何类型的现代化安全多点虚拟化网络                                    | ZeroTier  |
 |  🟢  |      Ztncui       |         https://www.zerotier.com/         | 【自建服务端】ZeroTier 可让您构建几乎任何类型的现代化安全多点虚拟化网络                             | ZeroTier  |
 
