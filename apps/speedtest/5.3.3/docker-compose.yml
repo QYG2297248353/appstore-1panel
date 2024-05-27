@@ -6,7 +6,7 @@ networks:
 
 services:
   speedtest:
-    image: ghcr.io/librespeed/speedtest:5.3.3
+    image: ghcr.io/librespeed/speedtest:latest
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
