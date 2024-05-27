@@ -1,5 +1,21 @@
 additionalProperties:
   formFields:
+    - default: "1panel-network"
+      edit: true
+      envKey: NETWORK_MODE
+      labelEn: Drive path
+      labelZh: 网络模式
+      required: true
+      type: select
+      values:
+        - label: 主机模式
+          value: "host"
+        - label: 桥接模式
+          value: "bridge"
+        - label: 无网络
+          value: "none"
+        - label: 1panel-network
+          value: "1panel-network"
     - default: 5700
       edit: true
       envKey: PANEL_APP_PORT_HTTP

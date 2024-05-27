@@ -3,6 +3,8 @@
 if [[ -f ./.env ]]; then
   source .env
 
+  echo "Check Start..."
+
   echo "Check Finish."
 
 else
