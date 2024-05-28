@@ -8,7 +8,7 @@ name: immich
 
 services:
   immich-machine-learning:
-    image: ghcr.io/immich-app/immich-machine-learning:v1.103.1
+    image: ghcr.io/immich-app/immich-machine-learning:v1.105.1
     container_name: immich-machine-learning
     labels:
       createdBy: "Apps"
