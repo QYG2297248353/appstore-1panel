@@ -1,0 +1,36 @@
+version: "3"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  transmission:
+    image: ${TRANSMISSION_IMAGE}
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    network_mode: ${NETWORK_MODE}
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:9091
+      - ${PANEL_APP_PORT_API:-51413}:${PANEL_APP_PORT_API:-51413}
+      - ${PANEL_APP_PORT_API:-51413}:${PANEL_APP_PORT_API:-51413}/udp
+    volumes:
+      - ${TRANSMISSION_ROOT_PATH}/config:/config
+      - ${TRANSMISSION_ROOT_PATH}/downloads:/downloads
+      - ${TRANSMISSION_ROOT_PATH}/watch:/watch
+      - ${CUSTOM_MOUNT_DIRECTORY_1:-./default_mount_1}:${CUSTOM_MOUNT_DIRECTORY_1:-/default_mount_1}
+      - ${CUSTOM_MOUNT_DIRECTORY_2:-./default_mount_2}:${CUSTOM_MOUNT_DIRECTORY_2:-/default_mount_2}
+      - ${CUSTOM_MOUNT_DIRECTORY_3:-./default_mount_3}:${CUSTOM_MOUNT_DIRECTORY_3:-/default_mount_3}
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - UMASK=${UMASK:-022}
+      - TZ=${TZ:-Asia/Shanghai}
+      - USER=${USER:-admin}
+      - PASS=${PASS:-admin}
+      - TRANSMISSION_WEB_HOME=${TRANSMISSION_WEB_HOME:-}
+      - WHITELIST=${WHITELIST:-}
+      - PEERPORT= ${PANEL_APP_PORT_API:-51413}
+      - HOST_WHITELIST=${HOST_WHITELIST:-}
