@@ -38,6 +38,7 @@ services:
       - DOH_ENABLED=${DOH_ENABLED:-false}
       - META_CACHE_EXPIRE=${META_CACHE_EXPIRE:-3600}
       - GITHUB_TOKEN=${GITHUB_TOKEN:-}
+      - GITHUB_PROXY=${GITHUB_PROXY:-}
       - DEV_MODE=${DEV_MODE:-false}
       - AUTO_UPDATE_RESOURCES=${AUTO_UPDATE_RESOURCES:-false}
       - TMDB_API_DOMAIN=${TMDB_API_DOMAIN:-api.themoviedb.org}

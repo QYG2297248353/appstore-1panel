@@ -126,6 +126,13 @@ additionalProperties:
       labelZh: GitHub 令牌
       required: false
       type: text
+    - default: ""
+      edit: true
+      envKey: GITHUB_PROXY
+      labelEn: GitHub Proxy
+      labelZh: GitHub 镜像地址 (https://mirror.ghproxy.com/)
+      required: false
+      type: text
     - default: "false"
       edit: true
       envKey: DEV_MODE
