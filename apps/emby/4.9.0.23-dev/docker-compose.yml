@@ -6,7 +6,7 @@ networks:
 
 services:
   emby:
-    image: emby/embyserver:4.9.0.22
+    image: emby/embyserver:4.9.0.23
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
