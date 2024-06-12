@@ -1,12 +1,16 @@
 # 1Panel 应用商店
 
-> # 警告 请勿升级 1Panel 到 v1.10.10-lts 版本，否则会导致应用商店无法使用
-> # Warning Do not upgrade 1Panel to version v1.10.10-lts, otherwise the application store will not work
-> # 警告 1Panel v1.10.10-lts 版本のアップグレードはしないでください。そうしないと、アプリケーションストアが機能しなくなります
-> # 警告 1Panel v1.10.10-lts 버전으로 업그레이드하지 마십시오. 그렇지 않으면 애플리케이션 스토어가 작동하지 않습니다
-> 
-> ## 2024/06/09 公告
-> 升级后无法正常使用
+> # 2024年06月12日 公告
+> 由于 1Panel 的升级，造成部分应用无法正常使用，我们考虑到用户体验，决定暂时关闭应用商店更新，等待团队商议解决方案。
+> ### 拟定解决方案
+> 1. 当您收到提示 /xxx/xxx/.env 文件不存在时，请手动创建该文件，不需要填写任何内容的空文件。
+> 2. 当您升级 1Panel 出现容器不存在时，请查看容器列表是否正常运行，如果没有运行，可卸载应用并重新安装。
+> 3. 当您升级 1Panel 出现应用无法正常使用时，请查看应用是否正常运行，如果没有运行，可卸载应用并重新安装。
+> 4. 关闭期间，您可能会收到部分应用的更新，没有关系，您可以选择性更新，不会影响您的使用。
+> 5. 由于数据均采用持久化方式存储，卸载应用不会删除数据，您可以放心卸载并重新安装。
+>
+> # 2024年06月09日 公告
+> 警告 请勿升级 1Panel 到 v1.10.10-lts 版本，否则会导致应用商店无法使用！
 
 本仓库中的所有应用不会与 1Panel 官方应用商店冲突(存在相同应用并不影响后续的安装与升级,择优选择你需要的版本即可)
 ，我们会定期更新应用，如果您有任何问题，请联系我们。
@@ -72,7 +76,7 @@
 >
 > 我们建议您在安装之前备份您的数据，或手动安装。
 
-### 一键式安装
+### 方案一：自动化安装
 
 如果您不想每次都手动执行命令，可以使用一键式安装。
 
@@ -80,13 +84,13 @@
 curl -sSL https://install.lifebus.top/auto_app_install.sh | bash
 ```
 
-#### 卸载自动化脚本
+> 卸载自动化脚本
 
 ```shell
 curl -sSL https://install.lifebus.top/auto_app_uninstall.sh | bash
 ```
 
-### 手动安装
+### 方案二：手动安装
 
 应用的升级与更新均需要重新执行安装脚本。
 
@@ -96,7 +100,7 @@ curl -sSL https://install.lifebus.top/auto_app_uninstall.sh | bash
 curl -sSL https://install.lifebus.top/app_install.sh | bash
 ```
 
-#### 计划任务模式
+### 方案三：计划任务模式
 
 将内容写入Shell计划任务中，设定定期执行。
 
@@ -135,7 +139,7 @@ export https_proxy="http://$proxy_server:$proxy_port"
 
 > 当前使用 `http` 代理，如果你的代理服务器是 `socks5` 请修改 `http_proxy` 和 `https_proxy` 为 `socks5` 协议
 
-### 中国特供版安装
+## 特别安装：中国特供版安装
 
 同步周期较长，请耐心等待。
 
@@ -145,7 +149,7 @@ export https_proxy="http://$proxy_server:$proxy_port"
 >
 > `https://f.lifebus.top/public/shell/1Panel/install_zh.sh`
 
-#### 一键式安装
+### 特别安装之自动化安装
 
 如果您不想每次都手动执行命令，可以使用一键式安装。
 
@@ -153,23 +157,23 @@ export https_proxy="http://$proxy_server:$proxy_port"
 curl -sSL https://install.lifebus.top/auto_app_install_zh.sh | bash
 ```
 
-##### 卸载自动化脚本
+> 卸载自动化脚本
 
 ```shell
 curl -sSL https://install.lifebus.top/auto_app_uninstall_zh.sh | bash
 ```
 
-#### 手动安装
+### 特别安装之手动安装
 
 应用的升级与更新均需要重新执行安装脚本。
 
-##### 手动执行模式
+#### 手动执行安装脚本
 
 ```shell
 curl -sSL https://install.lifebus.top/app_install_zh.sh | bash
 ```
 
-##### 计划任务模式
+### 特别安装之计划任务模式
 
 将内容写入Shell计划任务中，设定定期执行。
 
@@ -190,21 +194,12 @@ echo "Script execution completed."
 
 ## 常见问题
 
-### 升级失败
-
-请检查您的网络是否正常
-请检查您的磁盘空间是否充足
-
-#### 解决方案：
-
-卸载重装
-
-- 备份参数，记录软件安装参数
-- 卸载软件
-- 再次安装升级版本
-- 填写之前保留参数
-- 安装成功
-  历史数据问题：由于使用持久化目录，卸载软件不会删除数据，请不要误删持久化目录，默认为 `/home/{appname}`
++ 升级失败
+    + 检查网络状况与磁盘空间
+    + 配置镜像地址
+    + 尝试重新升级
+    + 进行卸载重装
+    + 多次升级依旧失败，请联系我们
 
 ## 温馨提示
 

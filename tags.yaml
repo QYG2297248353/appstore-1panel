@@ -22,7 +22,7 @@ additionalProperties:
       sort: 6
     - key: AI
       name: AI / 大模型
-      sort: 7  
+      sort: 7
     - key: BI
       name: BI
       sort: 8

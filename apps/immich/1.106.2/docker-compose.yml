@@ -1,0 +1,56 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+name: immich
+
+services:
+  immich-pg14-vectors:
+    image: tensorchord/pgvecto-rs:pg14-v0.2.0
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_DB:-5432}:5432
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USERNAME:-postgres}
+      POSTGRES_DB: ${DB_DATABASE_NAME:-immich}
+    volumes:
+      - ${IMMICH_ROOT_PATH}/pg14/data:/var/lib/postgresql/data
+
+  immich-machine-learning:
+    image: ghcr.io/immich-app/immich-machine-learning:v1.106.2
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    volumes:
+      - ${IMMICH_ROOT_PATH}/data/cache:/cache
+    env_file:
+      - .env
+
+  immich-server:
+    depends_on:
+      - immich-pg14-vectors
+    image: ghcr.io/immich-app/immich-server:v1.106.2
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    command: [ "start.sh", "immich" ]
+    devices:
+      - ${IMMICH_DRIVE_PATH:-/dev/dri}:/dev/dri
+    volumes:
+      - ${IMMICH_ROOT_PATH}/data/library:/usr/src/app/upload
+      - /etc/localtime:/etc/localtime
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3001
+    env_file:
+      - .env
