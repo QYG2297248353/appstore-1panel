@@ -42,19 +42,21 @@ Immich 使用 Redis 作为缓存服务，所以需要安装 Redis 服务。
 
 ## 安装参数
 
-+ 模型仓库
+### 机器学习 预加载模型(CLIP)
 
-可用于 Immich 智能搜索的多模式模型。
+可选模型列表，粘贴时输入 `immich-app/` 之后的内容即可。
 
-+ CLIP
-
-对英语支持最好，对其他语言支持较差。
 [immich-app's Collections - CLIP](https://huggingface.co/collections/immich-app/clip-654eaefb077425890874cd07)
 
-+ Multilingual CLIP
-
-对多种语言支持较好。
 [immich-app's Collections - Multilingual CLIP](https://huggingface.co/collections/immich-app/multilingual-clip-654eb08c2382f591eeb8c2a7)
+
+默认模型
+
+中文支持较好的模型 `XLM-Roberta-Large-Vit-B-16Plus`
+
+### 人脸识别 预加载模型
+
+`buffalo_l`, `buffalo_m`, `buffalo_s`, `antelopev2`
 
 ## 常见问题
 
