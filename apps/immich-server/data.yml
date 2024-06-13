@@ -1,11 +1,11 @@
-name: Immich
+name: Immich 服务端
 tags:
   - 多媒体
 title: 高性能自托管照片和视频备份解决方案
 description: 高性能自托管照片和视频备份解决方案
 additionalProperties:
-  key: immich
-  name: Immich
+  key: immich-server
+  name: Immich 服务端
   tags:
     - Media
     - Storage
