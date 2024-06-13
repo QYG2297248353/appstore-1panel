@@ -1,0 +1,61 @@
+additionalProperties:
+  formFields:
+    - default: "/home/immich-machine-learning"
+      edit: true
+      envKey: IMMICH_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 2283
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: API 端口
+      labelEn: API port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "/dev/dri"
+      edit: true
+      envKey: IMMICH_DRIVE_PATH
+      labelZh: 硬件驱动路径
+      labelEn: Drive path
+      required: true
+      type: text
+    - default: "Asia/Shanghai"
+      edit: true
+      envKey: TZ
+      labelZh: 时区
+      labelEn: Timezone
+      required: true
+      type: text
+    - default: "XLM-Roberta-Large-Vit-B-16Plus"
+      edit: true
+      envKey: MACHINE_LEARNING_PRELOAD__CLIP
+      labelEn: Machine Learning Preload Model
+      labelZh: 机器学习 预加载模型
+      required: false
+      type: text
+    - default: "buffalo_l"
+      edit: true
+      envKey: MACHINE_LEARNING_PRELOAD__FACIAL_RECOGNITION
+      labelEn: Machine Learning Preload Model
+      labelZh: 人脸识别 预加载模型
+      required: false
+      type: select
+      values:
+        - label: antelopev2
+          value: "antelopev2"
+        - label: buffalo_l
+          value: "buffalo_l"
+        - label: buffalo_m
+          value: "buffalo_m"
+        - label: buffalo_s
+          value: "buffalo_s"
+    - default: "https://hf-mirror.com"
+      edit: true
+      envKey: HF_ENDPOINT
+      labelZh: Hugging Face 服务地址
+      labelEn: Hugging Face Endpoint
+      required: false
+      type: text

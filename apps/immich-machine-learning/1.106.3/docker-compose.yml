@@ -1,0 +1,23 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+name: immich-machine-learning
+
+services:
+  immich-machine-learning:
+    image: ghcr.io/immich-app/immich-machine-learning:v1.106.3
+    container_name: immich-machine-learning-${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    volumes:
+      - ${IMMICH_ROOT_PATH}/data/cache:/cache
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3003
+    env_file:
+      - .env

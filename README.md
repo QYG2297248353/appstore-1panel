@@ -33,7 +33,9 @@
 |  🔴  |          Gogs           |             https://gogs.io/              | Gogs 是一种无障碍的自助托管 Git 服务                                              |           |
 |  🔴  |         GitLab          |         https://about.gitlab.com/         | GitLab 是最全面的人工智能驱动的 DevSecOps 平台。                                    |           |
 |  🔴  |          Halo           |             https://halo.run/             | 强大易用的开源建站工具                                                          |           |
-|  🟢  |         Immich          |            https://immich.app/            | 高性能自托管照片和视频管理解决方案                                                    |  Immich   |
+|  🟢  |         Immich          |            https://immich.app/            | 【完整版本】高性能自托管照片和视频管理解决方案                                              |  Immich   |
+|  🟢  |      Immich-Server      |            https://immich.app/            | 【主服务模块】高性能自托管照片和视频管理解决方案                                             |  Immich   |
+|  🟢  | Immich-Machine-Learning |            https://immich.app/            | 【机器学习模块】高性能自托管照片和视频管理解决方案                                            |  Immich   |
 |  🔴  | Immich Monitoring(即将放弃) |            https://immich.app/            | 【指标监控方案】高性能自托管照片和视频管理解决方案                                            |  Immich   |
 |  🔴  |        IYUUPlus         |           https://doc.iyuu.cn/            | 基于特征码的索引工具                                                           |           |
 |  🔴  |        Jellyfin         |           https://jellyfin.org/           | 自由软件媒体系统                                                             |           |

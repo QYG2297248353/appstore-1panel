@@ -2,18 +2,32 @@ additionalProperties:
   formFields:
     - child:
         default: ""
-        envKey: PANEL_REDIS_HOST
+        envKey: PANEL_REDIS_SERVICE
         required: true
         type: service
       default: redis
       envKey: PANEL_REDIS_TYPE
-      labelZh: Redis 服务
-      labelEn: Redis Service
+      labelZh: Redis 服务 (前置检查)
+      labelEn: Redis Service (Pre-check)
       required: true
       type: apps
       values:
         - label: Redis
           value: redis
+    - child:
+        default: ""
+        envKey: PANEL_POSTGRES_SERVICE
+        required: true
+        type: service
+      default: redis
+      envKey: PANEL_POSTGRES_TYPE
+      labelZh: Postgres 服务 (前置检查)
+      labelEn: Postgres Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: Postgres
+          value: postgres
     - default: "/home/immich-app"
       edit: true
       envKey: IMMICH_ROOT_PATH
@@ -43,6 +57,28 @@ additionalProperties:
       labelEn: Timezone
       required: true
       type: text
+    - default: "127.0.0.1"
+      edit: true
+      envKey: DB_HOSTNAME
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: 5432
+      edit: true
+      envKey: DB_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "postgres"
+      edit: true
+      envKey: DB_USERNAME
+      labelZh: 数据库 用户名
+      labelEn: Database User
+      required: true
+      type: text
     - default: ""
       edit: true
       envKey: DB_PASSWORD
@@ -52,30 +88,8 @@ additionalProperties:
       required: true
       rule: paramComplexity
       type: password
-    - default: 5432
-      edit: true
-      envKey: PANEL_APP_PORT_DB
-      labelZh: 数据库 端口
-      labelEn: Database Port
-      required: true
-      rule: paramPort
-      type: number
-    - default: "immich-pg14-vectors"
-      disabled: true
-      envKey: DB_HOSTNAME
-      labelZh: 数据库 主机地址
-      labelEn: Database Host
-      required: true
-      type: text
-    - default: "postgres"
-      disabled: true
-      envKey: DB_USERNAME
-      labelZh: 数据库 用户名
-      labelEn: Database User
-      required: true
-      type: text
     - default: "immich"
-      disabled: true
+      edit: true
       envKey: DB_DATABASE_NAME
       labelZh: 数据库 名称
       labelEn: Database Name
@@ -117,54 +131,3 @@ additionalProperties:
       labelEn: Redis Password
       required: false
       type: password
-    - default: "XLM-Roberta-Large-Vit-B-16Plus"
-      edit: true
-      envKey: MACHINE_LEARNING_PRELOAD__CLIP
-      labelEn: Machine Learning Preload Model
-      labelZh: 机器学习 预加载模型
-      required: false
-      type: text
-    - default: "buffalo_l"
-      edit: true
-      envKey: MACHINE_LEARNING_PRELOAD__FACIAL_RECOGNITION
-      labelEn: Machine Learning Preload Model
-      labelZh: 人脸识别 预加载模型
-      required: false
-      type: select
-      values:
-        - label: antelopev2
-          value: "antelopev2"
-        - label: buffalo_l
-          value: "buffalo_l"
-        - label: buffalo_m
-          value: "buffalo_m"
-        - label: buffalo_s
-          value: "buffalo_s"
-    - default: "https://hf-mirror.com"
-      edit: true
-      envKey: HF_ENDPOINT
-      labelZh: Hugging Face 服务地址
-      labelEn: Hugging Face Endpoint
-      required: false
-      type: text
-    - default: ""
-      edit: true
-      envKey: HTTP_PROXY
-      labelZh: HTTP 代理
-      labelEn: HTTP Proxy
-      required: false
-      type: text
-    - default: ""
-      edit: true
-      envKey: HTTPS_PROXY
-      labelZh: HTTPS 代理
-      labelEn: HTTPS Proxy
-      required: false
-      type: text
-    - default: "localhost,127.0.0.1,::1"
-      edit: true
-      envKey: NO_PROXY
-      labelZh: 绕过代理地址
-      labelEn: No Proxy
-      required: false
-      type: text
