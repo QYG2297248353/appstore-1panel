@@ -1,11 +1,11 @@
-name: Emby
+name: Emby 开心版
 tags:
   - 多媒体
 title: 媒体服务器
 description: 主从式架构的媒体服务器软件
 additionalProperties:
-  key: emby
-  name: Emby
+  key: emby-lovechen
+  name: Emby 开心版
   tags:
     - Media
     - Local
@@ -14,6 +14,6 @@ additionalProperties:
   type: website
   crossVersionUpdate: true
   limit: 0
-  website: https://emby.media/
-  github: https://github.com/MediaBrowser/Emby/
-  document: https://emby.media/blog/
+  website: https://hub.docker.com/r/lovechen/embyserver
+  github: https://hub.docker.com/r/lovechen/embyserver
+  document: https://hub.docker.com/r/lovechen/embyserver

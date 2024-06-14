@@ -13,10 +13,10 @@ services:
     restart: always
     network_mode: ${NETWORK_MODE}
     environment:
-      - UID=${UID}
-      - GID=${GID}
-      - GIDLIST=${GIDLIST}
-      - NVIDIA_VISIBLE_DEVICES=all
+      - UID=${UID:-0}
+      - GID=${GID:-0}
+      - GIDLIST=${GID_LIST:-0}
+      - NVIDIA_VISIBLE_DEVICES=${NVIDIA_VISIBLE_DEVICES:-all}
     volumes:
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime
@@ -29,8 +29,6 @@ services:
     ports:
       - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
       - ${PANEL_APP_PORT_HTTPS}:${PANEL_APP_PORT_HTTPS}
-      - 1900:1900/udp
-      - 7359:7359/udp
     devices:
       - ${EMBY_DRIVE_PATH}:/dev/dri
     deploy:

@@ -5,17 +5,17 @@ networks:
     external: true
 
 services:
-  emby:
-    image: emby/embyserver:4.9.0.24
+  emby_beta:
+    image: emby/embyserver:4.9.0.25
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
     restart: always
     network_mode: ${NETWORK_MODE}
     environment:
-      - UID=${UID}
-      - GID=${GID}
-      - GIDLIST=${GIDLIST}
+      - UID=${UID:-0}
+      - GID=${GID:-0}
+      - GIDLIST=${GID_LIST:-0}
     volumes:
       - ${EMBY_ROOT_PATH}/config:/config
       - ${EMBY_ROOT_PATH}/config/config/system.xml:/config/config/system.xml
@@ -26,7 +26,5 @@ services:
     ports:
       - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
       - ${PANEL_APP_PORT_HTTPS}:${PANEL_APP_PORT_HTTPS}
-      - 1900:1900/udp
-      - 7359:7359/udp
     devices:
-      - ${EMBY_DRIVE_PATH}:/dev/dri
+      - ${EMBY_DRIVE_PATH:-/dev/dri}:/dev/dri

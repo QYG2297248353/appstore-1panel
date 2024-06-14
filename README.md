@@ -28,7 +28,8 @@
 |  🔴  |      Elasticsearch      |   https://www.elastic.co/elasticsearch/   | Elasticsearch 是一个分布式、RESTful 风格的搜索和数据分析引擎                            |  Elastic  |
 |  🔴  |         Kibana          |      https://www.elastic.co/kibana/       | Kibana 针对大规模数据快速运行数据分析                                               |  Elastic  |
 |  🔴  |        Logstash         |     https://www.elastic.co/logstash/      | Logstash 是免费且开放的服务器端数据处理管道                                           |  Elastic  |
-|  🔴  |          Emby           |            https://emby.media/            | Emby Server 是一款个人媒体服务器，可在几乎所有设备上运行应用程序                               |           |
+|  🟢  |          Emby           |            https://emby.media/            | Emby Server 是一款个人媒体服务器，可在几乎所有设备上运行应用程序                               |           |
+|  🟢  |      Emby-lovechen      |            https://emby.media/            | 【开心版】Emby Server 是一款个人媒体服务器，可在几乎所有设备上运行应用程序                          |           |
 |  🔴  |          Gitea          |             https://gitea.io/             | 私有、快速、可靠的 DevOps 平台                                                  |           |
 |  🔴  |          Gogs           |             https://gogs.io/              | Gogs 是一种无障碍的自助托管 Git 服务                                              |           |
 |  🔴  |         GitLab          |         https://about.gitlab.com/         | GitLab 是最全面的人工智能驱动的 DevSecOps 平台。                                    |           |
@@ -48,7 +49,7 @@
 |  🔴  |          NeZha          |             https://nacos.io/             | 【哪吒监控】开源、轻量、易用的服务器监控、运维工具                                            |           |
 |  🔴  |         OneDev          |            https://onedev.io/             | DevOps 平台、带有 CI/CD、看板和软件包的 Git 服务器                                   |           |
 |  🔴  |         OutLine         |        https://www.getoutline.com/        | 快速、协作的团队知识库                                                          |           |
-|  🔴  |       PostgreSQL        |        https://www.postgresql.org/        | 世界上最先进的开源关系数据库                                                       |           |
+|  🟢  |       PostgreSQL        |        https://www.postgresql.org/        | 世界上最先进的开源关系数据库                                                       |           |
 |  🔴  |       qBittorrent       |       https://www.qbittorrent.org/        | qBittorrent 比特流客户端                                                   |           |
 |  🔴  |        QingLong         |    https://github.com/whyour/qinglong/    | 【青龙面板】支持 Python3、JavaScript、Shell、Typescript 的定时任务管理平台               |           |
 |  🔴  |          Redis          |             https://redis.io/             | 从世界上最快的内存数据库创建者那里获取该数据库                                              |           |
