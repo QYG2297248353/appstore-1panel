@@ -19,14 +19,7 @@ additionalProperties:
       edit: true
       envKey: DEEPLX_AUTHKEY
       labelEn: Deepl API Key
-      labelZh: DeepL (官方) API 密钥
-      required: false
-      type: text
-    - default: ""
-      edit: true
-      envKey: DEEPLX_SESSION
-      labelEn: DeepL Pro dl_session cookie
-      labelZh: DeepL Pro (官方) dl_session cookie
+      labelZh: DeepL API 密钥
       required: false
       type: text
     - default: ""

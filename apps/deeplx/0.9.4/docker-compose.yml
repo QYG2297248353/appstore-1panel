@@ -16,11 +16,7 @@ services:
     ports:
       - ${PANEL_APP_PORT_HTTP}:1188
     environment:
-      - PORT=1188
       - TOKEN=${DEEPLX_TOKEN}
       - AUTHKEY=${DEEPLX_AUTHKEY}
-      - DL_SESSION=${DEEPLX_SESSION}
       - HTTP_PROXY=${HTTP_PROXY:-}
       - HTTPS_PROXY=${HTTPS_PROXY:-}
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
