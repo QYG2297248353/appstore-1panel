@@ -82,8 +82,8 @@ additionalProperties:
     - default: ""
       edit: true
       envKey: DB_PASSWORD
+      labelZh: 数据库 密码
       labelEn: Database Password
-      labelZh: 数据库连接密码
       random: true
       required: true
       rule: paramComplexity
