@@ -2,7 +2,7 @@
 
 Emby是一个主从式架构的媒体服务器软件，可以用来整理服务器上的视频和音频，并将音频和视频流式传输到客户端设备。
 
-![Emby](img.png)
+![Emby](https://emby.media/resources/Devices-Background-Image.png)
 
 ## 简介
 
