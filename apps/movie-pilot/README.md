@@ -4,11 +4,11 @@ MoviePilot 基于 NAStool 部分代码重新设计，聚焦自动化核心需求
 
 > 仪表盘
 
-![MoviePilot](https://wiki.movie-pilot.org/dashboard.png)
+![MoviePilot-Dashboard](https://wiki.movie-pilot.org/dashboard.png)
 
 > 插件库
 
-![](https://wiki.movie-pilot.org/plugin.png)
+![MoviePilot-Plugin](https://wiki.movie-pilot.org/plugin.png)
 
 ## 安装环境
 
