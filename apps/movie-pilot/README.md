@@ -1,89 +1,25 @@
 # MoviePilot
 
-NAS媒体库自动化管理工具
+MoviePilot 基于 NAStool 部分代码重新设计，聚焦自动化核心需求，减少问题同时更易于扩展和维护
 
-基于 NAStool 部分代码重新设计，聚焦自动化核心需求，减少问题同时更易于扩展和维护
+> 仪表盘
 
-### 安装配置
+![MoviePilot](https://wiki.movie-pilot.org/dashboard.png)
 
-容器首次启动需要下载浏览器内核，根据网络情况可能需要较长时间。
+> 插件库
 
-#### 认证站点 （安装前确保至少有一个认证站点）
+![](https://wiki.movie-pilot.org/plugin.png)
 
-> 认证方式一：
->
-> 认证站点：iyuu
->
-> IYUU登录令牌：IYUUxxxxxx
->
-> 不用填写 `认证用户ID` 与 `认证密钥`
+## 安装环境
 
-=========================================
+### 网络
 
-> 认证方式二：
->
-> 认证站点：hdfans
->
-> 认证用户ID：HDFANS_UID=xxxx
->
-> 认证密钥：HDFANS_PASSKEY=xxxx
->
-> 不用填写 `IYUU登录令牌`
+MoviePilot通过调用 TheMovieDb 的Api来读取和匹配媒体元数据，通过访问 Github 来执行程序升级、安装插件等。
 
-支持配置多个认证站点，使用,分隔，如：iyuu,hhclub，会依次执行认证操作，直到有一个站点认证成功。
-配置AUTH_SITE后，需要根据下表配置对应站点的认证参数。
-认证资源v1.2.4+支持：iyuu/hhclub/audiences/hddolby/zmpt/freefarm/hdfans/wintersakura/leaves/ptba
-/icc2022/ptlsp/xingtan/ptvicomo/agsvpt/hdkyl/qingwa
+### Linux 系统
 
-| 站点           | 参数                                                |
-|--------------|---------------------------------------------------|
-| iyuu         | `IYUU_SIGN`：IYUU登录令牌                              |
-| hhclub       | `HHCLUB_USERNAME`：用户名 `HHCLUB_PASSKEY`：密钥         |
-| audiences    | `AUDIENCES_UID`：用户ID `AUDIENCES_PASSKEY`：密钥       |
-| hddolby      | `HDDOLBY_ID`：用户ID `HDDOLBY_PASSKEY`：密钥            |
-| zmpt         | `ZMPT_UID`：用户ID `ZMPT_PASSKEY`：密钥                 |
-| freefarm     | `FREEFARM_UID`：用户ID `FREEFARM_PASSKEY`：密钥         |
-| hdfans       | `HDFANS_UID`：用户ID `HDFANS_PASSKEY`：密钥             |
-| wintersakura | `WINTERSAKURA_UID`：用户ID `WINTERSAKURA_PASSKEY`：密钥 |
-| leaves       | `LEAVES_UID`：用户ID `LEAVES_PASSKEY`：密钥             |
-| ptba         | `PTBA_UID`：用户ID `PTBA_PASSKEY`：密钥                 |
-| icc2022      | `ICC2022_UID`：用户ID `ICC2022_PASSKEY`：密钥           |
-| ptlsp        | `PTLSP_UID`：用户ID `PTLSP_PASSKEY`：密钥               |
-| xingtan      | `XINGTAN_UID`：用户ID `XINGTAN_PASSKEY`：密钥           |
-| ptvicomo     | `PTVICOMO_UID`：用户ID `PTVICOMO_PASSKEY`：密钥         |
-| agsvpt       | `AGSVPT_UID`：用户ID `AGSVPT_PASSKEY`：密钥             |
-| hdkyl        | `HDKYL_UID`：用户ID `HDKYL_PASSKEY`：密钥               |
-| qingwa       | `QINGWA_UID`：用户ID `QINGWA_PASSKEY`：密钥             |
-
-#### WEB后台管理
-
-通过设置的超级管理员用户登录后台管理界面
-首次安装，密码请在日志中查看。
-
-```shell
-# 默认用户
-admin
-# 默认端口
-3000
-```
-
-密码重置：删除配置目录下的`user.db`文件，重启服务后会重新生成密码
-
-### 插件支持
-
-#### 站点维护
-
-需要安装 `CookieCloud` 应用实现。
-
-+ 通过CookieCloud同步快速添加站点，不需要使用的站点可在WEB管理界面中禁用或删除，无法同步的站点也可手动新增。
-+ 需要通过环境变量设置用户认证信息且认证成功后才能使用站点相关功能，未认证通过时站点相关的插件也会无法显示。
-
-#### 文件整理
-
-+ 默认通过监控下载器实现下载完成后自动整理入库并刮削媒体信息，需要后台打开下载器监控开关，且仅会处理通过MoviePilot添加下载的任务。
-+ 使用目录监控等插件实现更灵活的自动整理。
-
-部分插件功能基于文件系统监控实现（如目录监控等），需在宿主机上（不是docker容器内）执行以下命令并重启：
+部分功能基于文件系统监控实现（如目录监控等），监控的文件较多时，往往会因为操作系统默认允许的文件句柄数太小导致报错，相关功能失效。
+需在宿主机操作系统上（不是docker容器内）执行以下命令并重启生效：
 
 ```shell
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
@@ -91,49 +27,93 @@ echo fs.inotify.max_user_instances=524288 | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
 ```
 
-#### 通知交互
+### 站点
 
-+ 支持通过微信/Telegram/Slack/SynologyChat/VoceChat等渠道远程管理和订阅下载，其中 微信/Telegram
-  将会自动添加操作菜单（微信菜单条数有限制，部分菜单不显示）。
+MoviePilot包括两大部分功能：文件整理刮削、资源订阅下载，其中资源订阅下载功能需要有可用的PT站点。
 
-+
+#### 用户认证
 
-微信回调地址、SynologyChat传入地址地址相对路径均为：/api/v1/message/；VoceChat的Webhook地址相对路径为：/api/v1/message/?token=moviepilot，其中moviepilot为设置的API_TOKEN。
+为了控制用户数量避免大规范泛滥使用，MoviePilot引入了PT用户认证机制，你需要有认证站点范围内的账号才能使用软件的资源搜索、订阅及下载功能，出此下策与利益无关，属NAStool一路走来，吸取失败经验的无奈之举。
 
-#### 反向代理
+> 站点配置参数
+>
+> 安装应用时(除IYUU外)，填写格式为 参数名=值，例如：
+>
+> `HHCLUB_USERNAME=xxxxx`
+>
+> `HHCLUB_PASSKEY=xxxxx`
 
-+ 代理配置
+|      站点      |     用户名(用户ID)      | 密钥(授权码)                |
+|:------------:|:------------------:|------------------------|
+|     iyuu     |    `IYUU_SIGN`     | `无`                    |
+|    hhclub    | `HHCLUB_USERNAME`  | `HHCLUB_PASSKEY`       |
+|  audiences   |  `AUDIENCES_UID`   | `AUDIENCES_PASSKEY`    |
+|   hddolby    |    `HDDOLBY_ID`    | `HDDOLBY_PASSKEY`      |
+|     zmpt     |     `ZMPT_UID`     | `ZMPT_PASSKEY`         |
+|   freefarm   |   `FREEFARM_UID`   | `FREEFARM_PASSKEY`     |
+|    hdfans    |    `HDFANS_UID`    | `HDFANS_PASSKEY`       |
+| wintersakura | `WINTERSAKURA_UID` | `WINTERSAKURA_PASSKEY` |
+|    leaves    |    `LEAVES_UID`    | `LEAVES_PASSKEY`       |
+|     ptba     |     `PTBA_UID`     | `PTBA_PASSKEY`         |
+|   icc2022    |   `ICC2022_UID`    | `ICC2022_PASSKEY`      |
+|   xingtan    |   `XINGTAN_UID`    | `XINGTAN_PASSKEY`      |
+|   ptvicomo   |   `PTVICOMO_UID`   | `PTVICOMO_PASSKEY`     |
+|    agsvpt    |    `AGSVPT_UID`    | `AGSVPT_PASSKEY`       |
+|    hdkyl     |    `HDKYL_UID`     | `HDKYL_PASSKEY`        |
+|    qingwa    |    `QINGWA_UID`    | `QINGWA_PASSKEY`       |
+|   discfan    |   `DISCFAN_UID`    | `DISCFAN_PASSKEY`      |
 
-```shell
-    location / {
-        proxy_pass http://{ip}:{port};
-        proxy_set_header Host $http_host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-```
+### 配套软件
 
-+ 反代使用ssl时，需要开启http2，否则会导致日志加载时间过长或不可用
+MoviePilot只是媒体库自动化管理的一环，需要通过调用下载器来完成资源的下载，需要通过媒体服务器来管理和展示媒体资源，同时通过媒体服务器Api来查询库存情况控制重复下载，通过CookieCloud来快速同步站点Cookie和新增站点。安装前需要先完成配套软件的安装。
 
-```shell
-server {
-    listen 443 ssl;
-    http2 on;
-    # ...
+#### 下载器
+
++ Qbittorrent `^4.3.9`
++ Transmission `^3.0`
+
+#### 媒体服务器
+
++ Emby `^4.8.0.45`
++ Jellyfin `新版`
++ Plex `新版`
+
+#### CookieCloud
+
++ CookieCloud服务端 `可选`
+
+MoviePilot已经内置了CookieCloud服务端，如需独立安装可参考 easychen/CookieCloud 说明
+
++ CookieCloud浏览器插件
+
+不管是使用CookieCloud独立服务端还是使用内置服务，都需要安装浏览器插件。
+
+## 安装说明
+
++ 用户初始密码
+
+前往 `日志` 页面查看初始密码，首次登录后请及时修改密码
+
+## 反向代理
+
+如需开启域名访问MoviePilot，则需要搭建反向代理服务。以nginx为例，需要添加以下配置项。
+
+```nginx
+location / {
+    proxy_pass http://${Host}:${Port};
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
 }
 ```
 
-+ 新建的企业微信应用需要固定公网IP的代理才能收到消息
+反向代理使用SSL时，还需要开启http2，否则会导致日志加载时间过长或不可用。
 
-```shell
-    location /cgi-bin/gettoken {
-        proxy_pass https://qyapi.weixin.qq.com;
-    }
-    location /cgi-bin/message/send {
-        proxy_pass https://qyapi.weixin.qq.com;
-    }
-    location  /cgi-bin/menu/create {
-        proxy_pass https://qyapi.weixin.qq.com;
-    }
+```nginx
+server {
+    listen 443 ssl;
+    http2 on;
+    # other settings
+}
 ```
