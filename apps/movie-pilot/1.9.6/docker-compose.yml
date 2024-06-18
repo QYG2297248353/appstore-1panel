@@ -36,7 +36,6 @@ services:
       - SUPERUSER=${SUPERUSER:-admin}
       - API_TOKEN=${API_TOKEN:-moviepilot}
       - AUTO_UPDATE_RESOURCES=${AUTO_UPDATE_RESOURCES:-false}
-      - AUTH_SITE=${AUTH_SITE:-iyuu}
       - IYUU_SIGN=${IYUU_SIGN:-}
     logging:
       driver: json-file
