@@ -6,7 +6,7 @@ networks:
 
 services:
   postgresql:
-    image: postgres:15-alpine
+    image: postgres:16-alpine
     container_name: pg15-alpine-${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
