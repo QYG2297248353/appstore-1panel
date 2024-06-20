@@ -36,13 +36,14 @@ additionalProperties:
       labelZh: API 令牌
       labelEn: API Token
       required: true
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: PROXY_HOST
       labelZh: 网络代理
       labelEn: Proxy Host
       required: false
+      rule: paramExtUrl
       type: text
     - default: "false"
       edit: true

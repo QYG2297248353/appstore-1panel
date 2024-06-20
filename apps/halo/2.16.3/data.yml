@@ -73,7 +73,6 @@ additionalProperties:
       envKey: DB_NAME
       labelZh: 数据库 名称
       labelEn: Database Name
-      random: true
       required: true
       rule: paramCommon
       type: text
