@@ -36,7 +36,7 @@
 |  🔴  |        Appwrite         |           https://appwrite.io/            | 您的后台，省去麻烦                                                            |           |
 |  🔴  |          Bark           |           https://bark.day.app/           | 一款注重隐私、安全可控的自定义通知推送工具                                                |           |
 |  🔴  |      Cookie Cloud       | https://github.com/easychen/CookieCloud/  | CookieCloud是一个和自架服务器同步浏览器Cookie和LocalStorage的小工具                     |           |
-|  🔴  |         DeepLX          |        https://deeplx.owo.network/        | DeepL免费API（无需TOKEN）                                                  |           |
+|  🟢  |         DeepLX          |        https://deeplx.owo.network/        | DeepL免费API（无需TOKEN）                                                  |           |
 |  🔴  |      Elasticsearch      |   https://www.elastic.co/elasticsearch/   | Elasticsearch 是一个分布式、RESTful 风格的搜索和数据分析引擎                            |  Elastic  |
 |  🔴  |         Kibana          |      https://www.elastic.co/kibana/       | Kibana 针对大规模数据快速运行数据分析                                               |  Elastic  |
 |  🔴  |        Logstash         |     https://www.elastic.co/logstash/      | Logstash 是免费且开放的服务器端数据处理管道                                           |  Elastic  |
@@ -49,16 +49,15 @@
 |  🟢  |         Immich          |            https://immich.app/            | 【完整版本】高性能自托管照片和视频管理解决方案                                              |  Immich   |
 |  🟢  |      Immich-Server      |            https://immich.app/            | 【主服务模块】高性能自托管照片和视频管理解决方案                                             |  Immich   |
 |  🟢  | Immich-Machine-Learning |            https://immich.app/            | 【机器学习模块】高性能自托管照片和视频管理解决方案                                            |  Immich   |
-|  🔴  | Immich Monitoring(即将放弃) |            https://immich.app/            | 【指标监控方案】高性能自托管照片和视频管理解决方案                                            |  Immich   |
 |  🔴  |        IYUUPlus         |           https://doc.iyuu.cn/            | 基于特征码的索引工具                                                           |           |
-|  🔴  |        Jellyfin         |           https://jellyfin.org/           | 自由软件媒体系统                                                             |           |
+|  🟢  |        Jellyfin         |           https://jellyfin.org/           | 自由软件媒体系统                                                             |           |
 |  🔴  |        LinkDing         | https://github.com/sissbruecker/linkding/ | 自托管书签管理器                                                             |           |
 |  🔴  |          MinIO          |              https://min.io/              | MinIO 是一种高性能、兼容 S3 的对象存储                                             |           |
 |  🔴  |          MySQL          |          https://www.mysql.com/           | 关系数据库管理系统                                                            |           |
 |  🔴  |         MariaDB         |           https://mariadb.org/            | 创新的开源数据库                                                             |           |
-|  🔴  |       MoviePilot        |   https://github.com/jxxghp/MoviePilot/   | NAS媒体库自动化管理工具                                                        |           |
+|  🟢  |       MoviePilot        |   https://github.com/jxxghp/MoviePilot/   | NAS媒体库自动化管理工具                                                        |           |
 |  🔴  |          Nacos          |             https://nacos.io/             | 动态服务发现、配置管理和服务管理平台                                                   |           |
-|  🔴  |          NeZha          |             https://nacos.io/             | 【哪吒监控】开源、轻量、易用的服务器监控、运维工具                                            |           |
+|  🟢  |          NeZha          |             https://nacos.io/             | 【哪吒监控】开源、轻量、易用的服务器监控、运维工具                                            |           |
 |  🔴  |         OneDev          |            https://onedev.io/             | DevOps 平台、带有 CI/CD、看板和软件包的 Git 服务器                                   |           |
 |  🔴  |         OutLine         |        https://www.getoutline.com/        | 快速、协作的团队知识库                                                          |           |
 |  🟢  |       PostgreSQL        |        https://www.postgresql.org/        | 世界上最先进的开源关系数据库                                                       |           |
