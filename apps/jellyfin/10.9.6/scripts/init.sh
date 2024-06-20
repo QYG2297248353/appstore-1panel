@@ -26,11 +26,57 @@ if [[ -f ./.env ]]; then
     sed -i "s/<EnableIPV6>[a-z]\{4,5\}<\/EnableIPV6>/<EnableIPV6>$JELLYFIN_IPV6_ENABLE<\/EnableIPV6>/g" "$JELLYFIN_ROOT_PATH/config/config/network.xml"
   fi
 
-  cp -f ./dejavu/* "$JELLYFIN_ROOT_PATH/config/dejavu/"
-  cp -f ./font/* "$JELLYFIN_ROOT_PATH/config/font/"
+  BASE_URL="https://f.lifebus.top/public/1panel/appstore/jellyfin/"
+
+  DEJAVU_FILES=(
+    "DejaVuSans"
+    "DejaVuSans-Bold"
+    "DejaVuSansMono"
+    "DejaVuSansMono-Bold"
+    "DejaVuSerif"
+    "DejaVuSerif-Bold"
+  )
+
+  FONT_FILES=(
+    "NotoSansCJKsc-Black"
+    "NotoSansMonoCJKsc-Bold"
+    "NotoSansCJKsc-Bold"
+    "NotoSansCJKsc-Light"
+    "NotoSansMonoCJKsc-Regular"
+    "NotoSansCJKsc-Regular"
+    "NotoSansCJKsc-DemiLight"
+    "NotoSansCJKsc-Medium"
+    "NotoSansCJKsc-Thin"
+    "NotoSansCJKsc-Black"
+    "NotoSansMonoCJKsc-Bold"
+    "NotoSansCJKsc-Bold"
+    "NotoSansCJKsc-Medium"
+    "NotoSansMonoCJKsc-Regular"
+    "NotoSansCJKsc-Regular"
+    "NotoSansCJKsc-DemiLight"
+    "NotoSansCJKsc-Light"
+    "NotoSansCJKsc-Thin"
+    "NotoSansCJKsc-Black"
+    "NotoSansMonoCJKsc-Bold"
+    "NotoSansCJKsc-Bold"
+    "NotoSansCJKsc-Medium"
+    "NotoSansMonoCJKsc-Regular"
+    "NotoSansCJKsc-Regular"
+    "NotoSansCJKsc-DemiLight"
+    "NotoSansCJKsc-Light"
+    "NotoSansCJKsc-Thin"
+  )
+
+  for FILE in "${DEJAVU_FILES[@]}"; do
+    wget -q "${BASE_URL}dejavu/${FILE}" -P "$JELLYFIN_ROOT_PATH/config/dejavu/" || echo "Failed to download $FILE, continuing..."
+  done
+
+  for FILE in "${FONT_FILES[@]}"; do
+    wget -q "${BASE_URL}font/${FILE}" -P "$JELLYFIN_ROOT_PATH/config/font/" || echo "Failed to download $FILE, continuing..."
+  done
 
   echo "Check Finish."
 
 else
-  echo ".env not found."
+  echo "Error: .env file not found."
 fi
