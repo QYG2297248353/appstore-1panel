@@ -1,45 +1,33 @@
 additionalProperties:
   formFields:
-    - default: "registry.cn-shanghai.aliyuncs.com/naibahq/nezha-dashboard:v0.16.25"
-      edit: true
-      envKey: OS_VERSION
-      labelEn: os version
-      labelZh: 镜像仓库
-      required: true
-      type: select
-      values:
-        - label: GitHub
-          value: "ghcr.io/naiba/nezha-dashboard:v0.16.25"
-        - label: 阿里云
-          value: "registry.cn-shanghai.aliyuncs.com/naibahq/nezha-dashboard:v0.16.25"
     - default: "/home/nezha"
       edit: true
-      envKey: NEZHA_DASHBOARD_ROOT_PATH
-      labelEn: Root Path
-      labelZh: 数据持久化 根路径
+      envKey: NEZHA_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
       required: true
       type: text
     - default: 8008
       edit: true
       envKey: PANEL_APP_PORT_HTTP
-      labelEn: WebUI Port
-      labelZh: 网页端口 HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
       required: true
       rule: paramPort
       type: number
     - default: 5555
       edit: true
       envKey: PANEL_APP_PORT_GRPC
-      labelEn: gRPC Port
       labelZh: gRPC 端口
+      labelEn: gRPC Port
       required: true
       rule: paramPort
       type: number
     - default: "github"
       edit: true
       envKey: OAUTH2_TYPE
+      labelZh: OAuth 服务商
       labelEn: OAuth Provider
-      labelZh: OAuth提供商
       required: true
       type: select
       values:
@@ -58,8 +46,8 @@ additionalProperties:
     - default: ""
       edit: true
       envKey: OAUTH2_ADMIN
-      labelEn: Admin Logins
-      labelZh: 管理员账号 (OAuth 登录名)
+      labelZh: 管理员账号ID
+      labelEn: Admin Account ID
       required: true
       type: text
     - default: ""
@@ -86,21 +74,21 @@ additionalProperties:
     - default: "哪吒监控"
       edit: true
       envKey: NZ_SITE_TITLE
-      labelEn: Site Title
       labelZh: 网站标题
+      labelEn: Site Title
       required: true
       type: text
     - default: "nezha-dashboard"
       edit: true
       envKey: NZ_COOKIE_NAME
-      labelEn: Cookie Name
       labelZh: Cookie 名称 (默认)
+      labelEn: Cookie Name
       required: true
       type: text
     - default: "default"
       edit: true
       envKey: NZ_THEME
-      labelEn: Theme
       labelZh: 网站主题 (默认)
+      labelEn: Theme
       required: true
       type: text
