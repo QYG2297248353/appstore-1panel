@@ -804,7 +804,7 @@ services:
     command: 'mysqld --innodb-flush-method=fsync'
 
   appwrite-redis:
-    image: redis:7.2.4-alpine
+    image: redis:7.2.5-alpine
     labels:
       createdBy: "Apps"
     restart: always
