@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ -f ./.env ]]; then
-  source .env
+  source ./.env
 
   if [[ -f ./scripts/entrypoint.sh ]]; then
     chmod +x ./scripts/entrypoint.sh

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ -f ./.env ]]; then
-  source .env
+  source ./.env
 
   # 创建目录
   mkdir -p "$ES_ROOT_PATH"

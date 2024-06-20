@@ -3,7 +3,7 @@
 # 检查 .env 文件是否存在
 if [ -f .env ]; then
   # 导入 .env 文件中的变量
-  source .env
+  source ./.env
 
   # 检查模板是否启用
   if [ "$MS_TEMPLATE_ENABLED" = "true" ]; then

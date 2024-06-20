@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ -f ./.env ]]; then
-  source .env
+  source ./.env
 
   keys
   mkdir -p "$SP_TRACKER_ROOT_PATH"

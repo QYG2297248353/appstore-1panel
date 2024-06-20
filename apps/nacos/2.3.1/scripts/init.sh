@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ -f ./.env ]]; then
-  source .env
+  source ./.env
 
   if command -v mysql &> /dev/null; then
     if [[ -f ./scripts/mysql-schema.sql ]]; then

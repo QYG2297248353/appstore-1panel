@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ -f ./.env ]]; then
-  source .env
+  source ./.env
 
   mkdir -p "$EMBY_ROOT_PATH"
 

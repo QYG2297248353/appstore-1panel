@@ -3,7 +3,7 @@
 # 检查 .env 文件是否存在
 if [ -f .env ]; then
   # 导入 .env 文件中的变量
-  source .env
+  source ./.env
 
   # 替换 docker-compose.yml 中的网络变量
   sed -i "s/\${DOCKER_NET}/$CLUSTER_NETWORK/" docker-compose.yml

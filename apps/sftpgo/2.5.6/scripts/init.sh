@@ -2,7 +2,7 @@
 
 if [ -f .env ]; then
 
-  source .env
+  source ./.env
 
   if [ "$SFTPGO_ROOT_PATH" = "." ]; then
     SFTPGO_ROOT_PATH=$(pwd)

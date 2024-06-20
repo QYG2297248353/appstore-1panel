@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ -f ./.env ]]; then
-  source .env
+  source ./.env
 
   if grep -q "NACOS_START_MODE" ./.env; then
     echo "NACOS_START_MODE found."

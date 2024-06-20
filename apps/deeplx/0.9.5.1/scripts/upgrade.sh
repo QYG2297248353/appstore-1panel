@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -f .env ]; then
-  source .env
+  source ./.env
 
   echo "Check Finish."
 

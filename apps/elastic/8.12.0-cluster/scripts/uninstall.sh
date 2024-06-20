@@ -3,7 +3,7 @@
 # 检查 .env 文件是否存在
 if [ -f .env ]; then
   # 导入 .env 文件中的变量
-  source .env
+  source ./.env
 
   # 使用 docker network rm 命令删除网络
   docker network rm $CLUSTER_NETWORK

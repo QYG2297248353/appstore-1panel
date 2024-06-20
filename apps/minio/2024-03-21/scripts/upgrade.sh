@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ -f ./.env ]]; then
-  source .env
+  source ./.env
 
   if grep -q "MINIO_IMAGE" ./.env; then
     echo "MINIO_IMAGE 已存在"

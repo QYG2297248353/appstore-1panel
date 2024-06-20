@@ -3,7 +3,7 @@
 echo "Initializing OneDev..."
 
 if [ -f .env ]; then
-  source .env
+  source ./.env
 
   echo "Setting up environment variables..."
 
