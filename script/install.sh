@@ -26,7 +26,7 @@ if [ -z "$BASE_DIR" ]; then
 fi
 
 echo "$(date): Step 1 - Cloning repository..."
-git clone -b released https://github.com/QYG2297248353/appstore-1panel $BASE_DIR"/1panel/resource/apps/local/appstore-localApps"
+git clone --depth 1 -b released https://github.com/QYG2297248353/appstore-1panel $BASE_DIR"/1panel/resource/apps/local/appstore-localApps"
 
 apps_directory=$BASE_DIR"/1panel/resource/apps/local/appstore-localApps/apps"
 local_directory=$BASE_DIR"/1panel/resource/apps/local"

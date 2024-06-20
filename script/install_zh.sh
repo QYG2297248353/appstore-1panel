@@ -27,7 +27,7 @@ if [ -z "$BASE_DIR" ]; then
 fi
 
 echo "$(date): [步骤一] - 开始下载应用仓库..."
-git clone -b released https://gitee.com/qyg2297248353/appstore-1panel $BASE_DIR"/1panel/resource/apps/local/appstore-localApps"
+git clone --depth 1 -b released https://gitee.com/qyg2297248353/appstore-1panel $BASE_DIR"/1panel/resource/apps/local/appstore-localApps"
 
 apps_directory=$BASE_DIR"/1panel/resource/apps/local/appstore-localApps/apps"
 local_directory=$BASE_DIR"/1panel/resource/apps/local"
