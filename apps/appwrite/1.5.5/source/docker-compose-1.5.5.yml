@@ -8,7 +8,7 @@ version: '3'
 
 services:
   traefik:
-    image: traefik:2.11
+    image: traefik:v3.0
     container_name: appwrite-traefik
     <<: *x-logging
     command:
