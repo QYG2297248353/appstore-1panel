@@ -10,30 +10,30 @@ additionalProperties:
       type: number
     - default: ""
       edit: true
-      envKey: DEEPLX_TOKEN
-      labelZh: 接口鉴权令牌
-      labelEn: API Token
+      envKey: TOKEN
+      labelZh: 访问令牌以保护您的 API
+      labelEn: Access Token to protect your API
       required: false
       type: text
     - default: ""
       edit: true
-      envKey: DEEPLX_AUTHKEY
-      labelZh: DeepL API 密钥
-      labelEn: Deepl API Key
+      envKey: AUTHKEY
+      labelZh: DeepL官方提供的API Auth Key
+      labelEn: Official API Auth Key provided by DeepL
       required: false
       type: text
     - default: ""
       edit: true
-      envKey: DEEPLX_SESSION
-      labelZh: 官方 dl_session Cookie值
-      labelEn: Official dl_session Cookie Value
+      envKey: DL_SESSION
+      labelZh: DeepL Pro 帐户 dl_session cookie
+      labelEn: DeepL Pro account dl_session cookie
       required: false
       type: text
     - default: ""
       edit: true
-      envKey: HTTP_SSL_PROXY
-      labelZh: HTTP(s) 网络代理
-      labelEn: HTTP(s) Proxy
+      envKey: PROXY
+      labelZh: http代理服务器地址
+      labelEn: http proxy server address
       required: false
       rule: paramExtUrl
       type: text

@@ -17,7 +17,5 @@ services:
       - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP:-1188}
     environment:
       - PORT=${PANEL_APP_PORT_HTTP:-1188}
-      - HTTP_PROXY=${HTTP_SSL_PROXY:-}
-      - HTTPS_PROXY=${HTTP_SSL_PROXY:-}
     env_file:
       - .env

@@ -1,6 +1,4 @@
 name: DeepLX
-tags:
-  - 实用工具
 title: DeepL 免费API
 type: 实用工具
 description: DeepL 免费API
@@ -8,13 +6,14 @@ additionalProperties:
   key: deeplx
   name: DeepLX
   tags:
-    - Tool
+    - WebSite
+    - Middleware
+    - Local
   shortDescZh: DeepL 免费API
   shortDescEn: DeepL Free API
   type: tool
   crossVersionUpdate: true
   limit: 0
-  recommend: 0
-  website: https://deeplx.owo.network/
+  website: https://www.deepl.com/
   github: https://github.com/OwO-Network/DeepLX
   document: https://deeplx.owo.network/
