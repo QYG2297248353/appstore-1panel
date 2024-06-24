@@ -49,9 +49,27 @@
         "docker"
       ],
       "matchPackageNames": [
+        "emby/embyserver"
+      ],
+      "allowedVersions": "/^4\\.8\\.\\d+\\.\\d+$/"
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
         "ghcr.io/*"
       ],
       "versionCompatibility": "^(?<compatibility>.*)-(?<version>.*)$",
+      "versioning": "semver"
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "ghcr.io/*"
+      ],
       "versioning": "semver"
     }
   ],
