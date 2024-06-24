@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 
 networks:
   1panel-network:
@@ -6,7 +6,7 @@ networks:
 
 services:
   onedev:
-    image: 1dev/server:10.7.7
+    image: 1dev/server:10.9.1
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
@@ -19,10 +19,8 @@ services:
     volumes:
       - ${ONEDEV_ROOT_PATH}/data:/opt/onedev
       - /var/run/docker.sock:/var/run/docker.sock
-    env_file:
-      - .env
     environment:
-      - initial_user=${INITIAL_USER}
+      - initial_user=${INITIAL_USER：-}
       - initial_password=${INITIAL_PASSWORD}
       - initial_email=${INITIAL_EMAIL}
       - initial_server_url=${INITIAL_SERVER_URL}
