@@ -52,8 +52,8 @@
 |  🟢  |        Jellyfin         |           https://jellyfin.org/           | 自由软件媒体系统                                                             |           |
 |  🔴  |        LinkDing         | https://github.com/sissbruecker/linkding/ | 自托管书签管理器                                                             |           |
 |  🔴  |          MinIO          |              https://min.io/              | MinIO 是一种高性能、兼容 S3 的对象存储                                             |           |
-|  🔴  |          MySQL          |          https://www.mysql.com/           | 关系数据库管理系统                                                            |           |
-|  🔴  |         MariaDB         |           https://mariadb.org/            | 创新的开源数据库                                                             |           |
+|  🟢  |          MySQL          |          https://www.mysql.com/           | 关系数据库管理系统                                                            |           |
+|  🟢  |         MariaDB         |           https://mariadb.org/            | 创新的开源数据库                                                             |           |
 |  🟢  |       MoviePilot        |   https://github.com/jxxghp/MoviePilot/   | NAS媒体库自动化管理工具                                                        |           |
 |  🔴  |          Nacos          |             https://nacos.io/             | 动态服务发现、配置管理和服务管理平台                                                   |           |
 |  🟢  |          NeZha          |             https://nacos.io/             | 【哪吒监控】开源、轻量、易用的服务器监控、运维工具                                            |           |
