@@ -45,6 +45,18 @@
       "allowedVersions": "/^7.2.*/"
     },
     {
+      "matchFileNames": [
+        "apps/mysql/5.*.*/*.yml"
+      ],
+      "allowedVersions": "/^5.*.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/mysql/8.*.*/*.yml"
+      ],
+      "allowedVersions": "/^8.*.*/"
+    },
+    {
       "matchDatasources": [
         "docker"
       ],

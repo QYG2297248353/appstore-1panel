@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 
 networks:
   1panel-network:
@@ -13,13 +13,14 @@ services:
     restart: always
     networks:
       - 1panel-network
-    environment:
-      MYSQL_ROOT_PASSWORD: ${PANEL_DB_ROOT_PASSWORD}
+    user: ${UID:-1000}:${GID:-1000}
     ports:
       - ${PANEL_APP_PORT_HTTP}:3306
+    env_file:
+      - ./.env
     volumes:
       - ${MYSQL_ROOT_PATH}/data:/var/lib/mysql
-      - ${MYSQL_ROOT_PATH}/conf/my.cnf:/etc/my.cnf
+      - ${MYSQL_ROOT_PATH}/config/my.cnf:/etc/my.cnf
       - ${MYSQL_ROOT_PATH}/log:/var/log/mysql
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro

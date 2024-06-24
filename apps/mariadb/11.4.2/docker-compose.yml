@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 
 networks:
   1panel-network:
@@ -6,7 +6,7 @@ networks:
 
 services:
   mariadb:
-    image: mariadb:10.11.6
+    image: mariadb:11.4.2
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
@@ -17,6 +17,6 @@ services:
       - ${PANEL_APP_PORT_HTTP}:3306
     volumes:
       - ${MARIADB_ROOT_PATH}/data:/var/lib/mysql
-      - ${MARIADB_ROOT_PATH}/conf/my.cnf:/etc/mysql/my.cnf
-    environment:
-      MYSQL_ROOT_PASSWORD: ${PANEL_DB_ROOT_PASSWORD}
+      - ${MARIADB_ROOT_PATH}/config/my.cnf:/etc/mysql/my.cnf
+    env_file:
+      - ./.env

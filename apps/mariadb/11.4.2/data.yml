@@ -1,8 +1,8 @@
 additionalProperties:
   formFields:
-    - default: "/home/mysql"
+    - default: "/home/mariadb"
       edit: true
-      envKey: MYSQL_ROOT_PATH
+      envKey: MARIADB_ROOT_PATH
       labelZh: 数据持久化路径
       labelEn: Data persistence path
       required: true

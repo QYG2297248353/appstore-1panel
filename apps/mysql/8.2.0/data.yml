@@ -1,24 +1,24 @@
 additionalProperties:
   formFields:
-    - default: mysql
-      envKey: PANEL_DB_ROOT_PASSWORD
-      labelEn: Root Password
-      labelZh: root用户密码
+    - default: "/home/mysql"
+      edit: true
+      envKey: MYSQL_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3306
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: 连接端口
+      labelEn: Connection Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      envKey: MYSQL_ROOT_PASSWORD
+      labelZh: 管理员密码
+      labelEn: Admin Password
       random: true
       required: true
       rule: paramComplexity
       type: password
-    - default: 3306
-      envKey: PANEL_APP_PORT_HTTP
-      labelEn: Port
-      labelZh: 端口
-      required: true
-      rule: paramPort
-      type: number
-    - default: "/home/mysql"
-      edit: true
-      envKey: MYSQL_ROOT_PATH
-      labelEn: Root Path
-      labelZh: 数据持久化 根路径
-      required: true
-      type: text
