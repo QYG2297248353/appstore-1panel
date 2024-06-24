@@ -61,7 +61,7 @@
 |  🔴  |         OutLine         |        https://www.getoutline.com/        | 快速、协作的团队知识库                                                          |           |
 |  🟢  |       PostgreSQL        |        https://www.postgresql.org/        | 世界上最先进的开源关系数据库                                                       |           |
 |  🔴  |       qBittorrent       |       https://www.qbittorrent.org/        | qBittorrent 比特流客户端                                                   |           |
-|  🔴  |        QingLong         |    https://github.com/whyour/qinglong/    | 【青龙面板】支持 Python3、JavaScript、Shell、Typescript 的定时任务管理平台               |           |
+|  🟢  |        QingLong         |    https://github.com/whyour/qinglong/    | 【青龙面板】支持 Python3、JavaScript、Shell、Typescript 的定时任务管理平台               |           |
 |  🟢  |          Redis          |             https://redis.io/             | 从世界上最快的内存数据库创建者那里获取该数据库                                              |           |
 |  🔴  |        Sentinel         |         https://sentinelguard.io/         | 面向分布式、多语言异构化服务架构的流量治理组件                                              |           |
 |  🔴  |         SFTPGo          |            https://sftpgo.com/            | 功能齐全、高度可配置的 SFTP、HTTP/S、FTP/S 和 WebDAV 服务器                           |           |

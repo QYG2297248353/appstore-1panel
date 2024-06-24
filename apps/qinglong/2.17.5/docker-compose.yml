@@ -11,7 +11,8 @@ services:
     labels:
       createdBy: "Apps"
     restart: always
-    network_mode: ${NETWORK_MODE}
+    networks:
+      - 1panel-network
     volumes:
       - ${QINGLONG_ROOT_PATH}/data:/ql/data
     ports:

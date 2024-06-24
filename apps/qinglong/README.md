@@ -1,12 +1,10 @@
 # 青龙
 
-支持 Python3、JavaScript、Shell、Typescript 的定时任务管理平台。
+支持 Python3、JavaScript、Shell、Typescript 的定时任务管理平台
 
-## API 文档
+![青龙](https://user-images.githubusercontent.com/22700758/191449379-f9f56204-0e31-4a16-be5a-331f52696a73.png)
 
-[青龙 Apifox](https://qinglong.apifox.cn/)
-
-## 主要功能：
+## 简介
 
 + 支持多种脚本语言（python3、javaScript、shell、typescript）
 + 支持在线管理脚本、环境变量、配置文件
@@ -16,9 +14,13 @@
 + 支持暗黑模式
 + 支持手机端操作
 
+## API 文档
+
+[青龙 Apifox](https://qinglong.apifox.cn/)
+
 ## 内置命令
 
-### task
+### `task` 任务命令
 
 ```shell
 # 依次执行，如果设置了随机延迟，将随机延迟一定秒数
@@ -35,7 +37,7 @@ task -m <max_time> <file_path>
 task <file_path> -- -u whyour -p password
 ```
 
-### ql
+### `ql` 青龙命令
 
 ```shell
 # 更新并重启青龙
@@ -57,3 +59,15 @@ ql resetlet
 # 禁用两步登录
 ql resettfa
 ```
+
+| **参数**     | **说明**                                            |
+|------------|---------------------------------------------------|
+| file_url   | 脚本地址                                              |
+| repo_url   | 仓库地址                                              |
+| whitelist  | 拉取仓库时的白名单，即就是需要拉取的脚本的路径包含的字符串，多个竖线分割              |
+| blacklist  | 拉取仓库时的黑名单，即就是需要拉取的脚本的路径不包含的字符串，多个竖线分割             |
+| dependence | 拉取仓库需要的依赖文件，会直接从仓库拷贝到scripts下的仓库目录，不受黑名单影响，多个竖线分割 |
+| extensions | 拉取仓库的文件后缀，多个竖线分割                                  |
+| branch     | 拉取仓库的分支                                           |
+| days       | 需要保留的日志的天数                                        |
+| file_path  | 任务执行时的文件路径                                        |
