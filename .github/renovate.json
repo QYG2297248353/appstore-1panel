@@ -34,15 +34,15 @@
     },
     {
       "matchFileNames": [
-        "apps/redis/7.*/*.yml"
+        "apps/redis/6.2.*/*.yml"
       ],
-      "allowedVersions": "/^7.*/"
+      "allowedVersions": "/^6.2.*/"
     },
     {
       "matchFileNames": [
-        "apps/redis/6.*/*.yml"
+        "apps/redis/7.2.*/*.yml"
       ],
-      "allowedVersions": "/^6.*/"
+      "allowedVersions": "/^7.2.*/"
     },
     {
       "matchFileNames": [
