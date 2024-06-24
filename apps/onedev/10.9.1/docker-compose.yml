@@ -19,6 +19,8 @@ services:
     volumes:
       - ${ONEDEV_ROOT_PATH}/data:/opt/onedev
       - /var/run/docker.sock:/var/run/docker.sock
+    env_file:
+      - ./config/onedev.env
     environment:
       - initial_user=${INITIAL_USER：-}
       - initial_password=${INITIAL_PASSWORD}
