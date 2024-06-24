@@ -6,7 +6,7 @@ networks:
 
 services:
   mysql:
-    image: mysql:5.7.44
+    image: mysql:8.4.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
