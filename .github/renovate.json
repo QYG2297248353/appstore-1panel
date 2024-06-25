@@ -46,15 +46,15 @@
     },
     {
       "matchFileNames": [
-        "apps/mysql/5.*.*/*.yml"
+        "apps/mysql/5.7.*/*.yml"
       ],
-      "allowedVersions": "/^5.*.*/"
+      "allowedVersions": "/^5.7.*/"
     },
     {
       "matchFileNames": [
-        "apps/mysql/8.*.*/*.yml"
+        "apps/mysql/8.2.*/*.yml"
       ],
-      "allowedVersions": "/^8.*.*/"
+      "allowedVersions": ">=8.2"
     },
     {
       "matchDatasources": [
