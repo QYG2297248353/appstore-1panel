@@ -6,7 +6,7 @@ networks:
 
 services:
   percona:
-    image: mysql:8.0
+    image: percona:8.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
