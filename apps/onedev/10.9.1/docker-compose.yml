@@ -22,7 +22,7 @@ services:
     env_file:
       - ${ONEDEV_ROOT_PATH}/config/onedev.env
     environment:
-      - initial_user=${INITIAL_USER：-}
+      - initial_user=${INITIAL_USER}
       - initial_password=${INITIAL_PASSWORD}
       - initial_email=${INITIAL_EMAIL}
       - initial_server_url=${INITIAL_SERVER_URL}
