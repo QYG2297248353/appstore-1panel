@@ -1,0 +1,28 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  percona:
+    image: mysql:8.0
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    user: ${UID:-1000}:${GID:-1000}
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3306
+    env_file:
+      - ./.env
+    volumes:
+      - ${MYSQL_ROOT_PATH}/data:/var/lib/mysql
+      - ${MYSQL_ROOT_PATH}/config/my.cnf:/etc/my.cnf
+      - ${MYSQL_ROOT_PATH}/log:/var/log/mysql
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    command:
+      - --default-authentication-plugin=mysql_native_password

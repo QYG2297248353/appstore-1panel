@@ -1,0 +1,17 @@
+name: Percona
+title: 关系型数据库
+description: 关系型数据库
+additionalProperties:
+  key: percona
+  name: Percona
+  tags:
+    - Database
+    - Local
+  shortDescZh: 关系型数据库
+  shortDescEn: Open source relational database management system
+  type: runtime
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.percona.com/
+  github: https://github.com/percona/percona-server/
+  document: https://www.percona.com/mysql/software/percona-server-for-mysql/
