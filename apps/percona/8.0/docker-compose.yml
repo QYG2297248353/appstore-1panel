@@ -19,9 +19,9 @@ services:
     env_file:
       - ./.env
     volumes:
-      - ${MYSQL_ROOT_PATH}/data:/var/lib/mysql
-      - ${MYSQL_ROOT_PATH}/config/my.cnf:/etc/my.cnf
-      - ${MYSQL_ROOT_PATH}/log:/var/log/mysql
+      - ${PERCONA_ROOT_PATH}/data:/var/lib/mysql
+      - ${PERCONA_ROOT_PATH}/config/my.cnf:/etc/my.cnf
+      - ${PERCONA_ROOT_PATH}/log:/var/log/mysql
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     command:
