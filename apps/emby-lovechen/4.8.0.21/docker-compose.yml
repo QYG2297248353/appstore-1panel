@@ -31,11 +31,3 @@ services:
       - ${PANEL_APP_PORT_HTTPS}:${PANEL_APP_PORT_HTTPS}
     devices:
       - ${EMBY_DRIVE_PATH}:/dev/dri
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities:
-                - gpu
