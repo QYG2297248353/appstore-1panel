@@ -47,6 +47,7 @@ additionalProperties:
       labelZh: 数据库 主机地址
       labelEn: Database Host
       required: true
+      type: text
     - default: "postgresql"
       edit: true
       envKey: DB_TYPE
