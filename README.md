@@ -34,7 +34,7 @@
 |:----:|:-----------------------:|:-----------------------------------------:|:---------------------------------------------------------------------|:---------:|
 |  🔴  |          AList          |           https://alist.nn.ci/            | 一款支持多重存储的文件列表程序                                                      |           |
 |  🔴  |          Bark           |           https://bark.day.app/           | 一款注重隐私、安全可控的自定义通知推送工具                                                |           |
-|  🔴  |      Cookie Cloud       | https://github.com/easychen/CookieCloud/  | CookieCloud是一个和自架服务器同步浏览器Cookie和LocalStorage的小工具                     |           |
+|  🟢  |      Cookie Cloud       | https://github.com/easychen/CookieCloud/  | CookieCloud是一个和自架服务器同步浏览器Cookie和LocalStorage的小工具                     |           |
 |  🟢  |         DeepLX          |        https://deeplx.owo.network/        | DeepL免费API（无需TOKEN）                                                  |           |
 |  🔴  |      Elasticsearch      |   https://www.elastic.co/elasticsearch/   | Elasticsearch 是一个分布式、RESTful 风格的搜索和数据分析引擎                            |  Elastic  |
 |  🔴  |         Kibana          |      https://www.elastic.co/kibana/       | Kibana 针对大规模数据快速运行数据分析                                               |  Elastic  |
@@ -48,7 +48,7 @@
 |  🟢  |         Immich          |            https://immich.app/            | 【完整版本】高性能自托管照片和视频管理解决方案                                              |  Immich   |
 |  🟢  |      Immich-Server      |            https://immich.app/            | 【主服务模块】高性能自托管照片和视频管理解决方案                                             |  Immich   |
 |  🟢  | Immich-Machine-Learning |            https://immich.app/            | 【机器学习模块】高性能自托管照片和视频管理解决方案                                            |  Immich   |
-|  🔴  |        IYUUPlus         |           https://doc.iyuu.cn/            | 基于特征码的索引工具                                                           |           |
+|  🟢  |        IYUU Plus        |           https://doc.iyuu.cn/            | 基于特征码的索引工具                                                           |           |
 |  🟢  |        Jellyfin         |           https://jellyfin.org/           | 自由软件媒体系统                                                             |           |
 |  🔴  |        LinkDing         | https://github.com/sissbruecker/linkding/ | 自托管书签管理器                                                             |           |
 |  🔴  |          MinIO          |              https://min.io/              | MinIO 是一种高性能、兼容 S3 的对象存储                                             |           |
