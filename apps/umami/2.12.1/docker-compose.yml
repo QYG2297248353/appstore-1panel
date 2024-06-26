@@ -1,0 +1,30 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  umami:
+    image: ghcr.io/umami-software/umami:postgresql-v2.12.1
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    volumes:
+      - ${UMAMI_ROOT_PATH}/pg/data:/var/lib/postgresql/data
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3000
+      - ${PANEL_APP_PORT_DB_PORT:-}:5432
+    env_file:
+      - .env
+    environment:
+      - DISABLE_TELEMETRY = 1
+      - REMOVE_TRAILING_SLASH = 1
+      - DATABASE_TYPE = postgresql
+      - POSTGRES_DB= umami
+      - POSTGRES_USER= umami
+      - POSTGRES_PASSWORD= umami
+      - DATABASE_URL=postgresql://umami:umami@localhost:5432/umami

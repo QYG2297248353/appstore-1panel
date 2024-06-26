@@ -1,0 +1,37 @@
+additionalProperties:
+  formFields:
+    - default: "/home/umami"
+      edit: true
+      envKey: UMAMI_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3000
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: 连接端口
+      labelEn: Connection Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 5432
+      envKey: PANEL_APP_PORT_DB_PORT
+      labelZh: 数据库端口
+      labelEn: Database Port
+      required: false
+      rule: paramPort
+      type: number
+    - default: ""
+      envKey: APP_SECRET
+      labelZh: 应用密钥
+      labelEn: Application Secret
+      random: true
+      required: false
+      rule: paramComplexity
+      type: password
+    - default: "/"
+      envKey: BASE_PATH
+      labelZh: 基础路径
+      labelEn: Base Path
+      required: true
+      type: text
