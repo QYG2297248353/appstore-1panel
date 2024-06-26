@@ -1,20 +1,18 @@
-name: IYUUPlus
-tags:
-  - 实用工具
+name: IYUU-Plus
 title: 自动辅种工具
-type: 实用工具
 description: 自动辅种工具
 additionalProperties:
   key: iyuu-plus
-  name: IYUUPlus
+  name: IYUU-Plus
   tags:
     - Tool
+    - Runtime
+    - Local
   shortDescZh: 自动辅种工具
   shortDescEn: Auto Reseed Tool
   type: tool
   crossVersionUpdate: true
   limit: 0
-  recommend: 0
   website: https://iyuu.cn/
   github: https://github.com/ledccn/iyuuplus-dev
-  document: https://www.iyuu.cn/
+  document: https://doc.iyuu.cn/

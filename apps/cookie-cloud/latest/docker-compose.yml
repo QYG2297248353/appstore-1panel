@@ -6,7 +6,7 @@ networks:
 
 services:
   cookie-cloud:
-    image: easychen/cookiecloud:2023.01.20.16.39
+    image: easychen/cookiecloud:latest
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
@@ -17,5 +17,5 @@ services:
       - ${PANEL_APP_PORT_HTTP}:8088
     volumes:
       - ${COOKIECLOUD_ROOT_PATH}/data:/data/api/data
-    environment:
-      - API_ROOT=${COOKIECLOUD_WEB_ROOT:-/}
+    env_file:
+      - ./.env

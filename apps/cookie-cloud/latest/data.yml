@@ -11,14 +11,14 @@ additionalProperties:
     - default: "/home/cookie-cloud"
       edit: true
       envKey: COOKIECLOUD_ROOT_PATH
-      labelEn: Root Path
-      labelZh: 数据持久化 根路径
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
       required: true
       type: text
     - default: "/"
       edit: true
-      envKey: COOKIECLOUD_WEB_ROOT
-      labelEn: Web Root
-      labelZh: 网站根路径
-      required: false
+      envKey: API_ROOT
+      labelZh: 网站路径
+      labelEn: Web path
+      required: true
       type: text

@@ -1,37 +1,32 @@
-# IYUUPlus `dev`
+# IYUU Plus
 
-> ## About 公告
->
-> 因旧项目维护难度较大，在不影响已有用户的前提下，于2024年初对项目架构重写重构，新创建的这个仓库。
->
-> 至此 使用 `latest` 版本的用户，可以继续使用，但不再提供更新。也无法主动升级。以下文档为 `dev-latest` 新版文档请注意区分。
->
-> 新用户请使用 `dev-latest` 版本，该分支为新项目的开发分支，会持续更新。
+IYUU 是一个基于种子特征码的交叉索引工具
 
-## 升级说明
+![IYUU Plus](https://doc.iyuu.cn/images/install/005.png)
 
-### `2024/05/10` 发布 Nginx 版本
+## 简介
 
-镜像增加 Nginx 配置，方便用户使用。移除原 `3131` 和 `8787` 端口， 增设 `8780` 端口，减少反向代理配置。
+使用php语言编写并使用php-cli常驻内存运行，通过计划任务，按用户设定的频率调用transmission、qBittorrent下载软件的API接口，提取正在做种的info_hash提交到IYUU辅种服务器的API接口https:
+//api.iyuu.cn（辅种过程和PT站点没有交互，查询辅种压力由IYUU服务器承担），根据IYUU服务器的API接口https:
+//api.iyuu.cn返回的数据拼接种子连接，提交给下载器，由下载器主动去站点下载种子、校验、做种，自动辅种各个站点。
 
-### `dev` 版本 发布
+集成webui界面、辅种、转移、下载、定时访问URL、动态域名ddns等常用功能，提供完善的插件机制。
 
-原使用 `latest` 版本的用户，可以继续使用，但不再提供更新。也无法主动升级。
+支持下载器集群，支持多盘位，支持多下载目录，支持连接远程下载器等。
 
-非要升级的用户，可以参考以下步骤：
+### 技术栈
 
-+ 再次安装 `iyuu-plus (本应用)` 即可，本应用支持重复安装，不会影响原有数据。
-+ 数据迁移，请手动迁移数据，本应用不提供支持。
+| 组件          | 版本     | 官网                                          |
+|:------------|:-------|:--------------------------------------------|
+| Workerman   | 4.1.15 | https://www.workerman.net/doc/workerman/    |
+| Webman      | 1.5.16 | https://www.workerman.net/doc/webman/       |
+| WebmanAdmin | 0.6.24 | https://www.workerman.net/doc/webman-admin/ |
+| PHP         | 8.3.7  | https://www.php.net/                        |
+| MYSQL       | 5.7.26 | https://www.mysql.com/                      |
+| Layui       | 2.8.12 | https://layui.dev/                          |
+| Vue         | 3.4.21 | https://vuejs.org/                          |
 
-## 介绍
-
-+ IYUUPlus项目运行在php-cli模式，常驻内存运行；集成webui界面、辅种、转移、下载、定时访问URL、动态域名ddns等常用功能，提供完善的插件机制。
-
-+ IYUUPlus客户端完全开源，行为透明，安全可靠；根据源码可以自由定制。
-
-+ IYUU自动辅种工具，目前能对国内大部分的PT站点自动辅种，支持下载器集群，支持多盘位，支持多下载目录，支持连接远程下载器等。
-
-## 登录
+## 安装说明
 
 > 爱语飞飞Token: 前往 [爱语飞飞-官网](https://iyuu.cn/) 获取授权Token
 >
@@ -39,51 +34,22 @@
 >
 > 站点认证：请提前准备相应站点
 
-### 初始化
-
-## 免责声明
-
-在使用本工具前，请认真阅读《免责声明》全文如下：
-
-使用IYUUAutoReseed或IYUUPlus自动辅种工具本身是非常安全的，IYUU脚本辅种时不会跟PT站点的服务器产生任何交互，只是会把下载种子链接推送给下载器，由下载器去站点下载种子。理论上，任何站点、任何技术都无法检测你是否使用了IYUUAutoReseed。危险来自于包括但不限于以下几点：
-
-第一：建议不要自己手动跳校验，任何因为跳校验ban号，别怪我没提醒，出事后请不要怪到IYUU的头上；
-
-第二：官方首发资源、其他一切首发资源的种子，IYUUAutoReseed自动辅种工具也无法在出种前辅种，如果因为你个人的作弊而被ban号，跟IYUU无关；
-
-第三：您使用IYUU工具造成的一切损失，与IYUU无关。如不接受此条款，请不要使用IYUUAutoReseed，并立刻删除已经下载的源码。
-
-## 原理
-
-IYUU自动辅种工具（英文名：IYUUAutoReseed），是一款PHP语言编写的Private
-Tracker辅种脚本，通过计划任务或常驻内存，按指定频率调用transmission、qBittorrent下载软件的API接口，提取正在做种的info_hash提交到辅种服务器API接口（辅种过程和PT站没有交互），根据API接口返回的数据拼接种子连接，提交给下载器，由下载器主动去站点下载种子、校验、做种，自动辅种各个站点。
-
 ## 支持的下载器
 
 + [transmission](https://transmissionbt.com/)
+
+Transmission 是一个种子客户端，可以让您在互联置上下载和共享文件。该应用程序适用于多种操作系统，包括 Ubuntu、Fedora、Arch
+Linux、Debian Raspberry Pi 等。您可以使用 terminal 中的 apt 或 yum 命令来安装它。使用
+Transmission，您可以实时监测下载和上传情况，并显示连接一致性图表
+
 + [qBittorrent](https://www.qbittorrent.org/)
 
-### 下载器目录映射
+qBittorrent是一款免费的开源种子下载工具，作为µTorrent的替代品。它在所有平台上都提供相同的功能，包括Windows、Linux和macOS。该应用程序还配备了一个可扩展的搜索引擎以及Web
+UI遠端，以最大化你的torrent体验。使用qBittorrent，你可以在多个平台上轻松下载你喜爱的内容。
 
-当前默认为应用持久化目录，如需修改，请编辑`docker-compose.yml`。
-替换方式：
-替换 `${IYUUCN_ROOT_PATH}/bt/qBittorrent` 为 `qBittorrent` 下载器目录
-替换 `${IYUUCN_ROOT_PATH}/bt/transmission` 为 `transmission` 下载器目录
-新增路径格式： `{主机存放路径}:{容器存放路径}`
+## 反向代理
 
-```shell
-services:
-  iyuuplus-dev:
-    volumes:
-      - ${IYUUCN_ROOT_PATH}/bt/qBittorrent:/qBittorrent
-      - ${IYUUCN_ROOT_PATH}/bt/transmission:/transmission
-```
-
-## 运行要求
-
-+ 数据库：`MySQL 5.7+` (可选)
-
-## Nginx 配置
+> Nginx 配置
 
 ```shell
 location ^~ / {
@@ -93,14 +59,14 @@ location ^~ / {
   proxy_http_version 1.1;
   proxy_set_header Connection "";
   if (!-f $request_filename){
-    # demo
-    # proxy_pass http://127.0.0.1:8787;
-    proxy_pass http(s)://{host}:{port};
+     proxy_pass http://127.0.0.1:8787;
   }
 }
 ```
 
-## 站点认证
+## 绑定合作站点
+
+只有绑定了合作站点的才可以完整的使用IYUUPlus
 
 认证其一即可，绑定爱语飞飞Token并认证, 后续无需重复认证，未认证无法进行辅种
 

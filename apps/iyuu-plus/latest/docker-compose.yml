@@ -6,12 +6,13 @@ networks:
 
 services:
   iyuuplus:
-    image: iyuucn/iyuuplus:latest
+    image: iyuucn/iyuuplus-dev:latest
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
     restart: always
-    network_mode: ${NETWORK_MODE}
+    networks:
+      - 1panel-network
     ports:
       - ${PANEL_APP_PORT_HTTP}:8787
     volumes:
