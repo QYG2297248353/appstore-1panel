@@ -6,7 +6,7 @@ networks:
 
 services:
   umami:
-    image: ghcr.io/umami-software/umami:${DB_TYPE}-v2.12.1
+    image: ghcr.io/umami-software/umami:${DATABASE_TYPE}-v2.12.1
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
