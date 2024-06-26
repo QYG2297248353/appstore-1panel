@@ -5,7 +5,7 @@ additionalProperties:
       envKey: ELASTIC_PASSWORD
       labelEn: Password for the 'elastic' user, Numbers and letters
       labelZh: elastic 用户的密码 数字与字母组合
-      required:
+      required: true
       random: true
       type: password
     - default: ""
