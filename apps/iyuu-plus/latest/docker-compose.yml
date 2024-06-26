@@ -16,6 +16,7 @@ services:
     ports:
       - ${PANEL_APP_PORT_HTTP}:8787
     volumes:
-      - ${IYUUCN_ROOT_PATH}/db:/IYUU/db
-      - ${IYUUCN_ROOT_PATH}/bt/qBittorrent:/qBittorrent
-      - ${IYUUCN_ROOT_PATH}/bt/transmission:/transmission
+      - ${IYUUCN_ROOT_PATH}/iyuu:/iyuu
+      - ${IYUUCN_ROOT_PATH}/data:/data
+      - ${IYUUCN_ROOT_PATH}/qBittorrent:/qBittorrent
+      - ${IYUUCN_ROOT_PATH}/transmission:/transmission
