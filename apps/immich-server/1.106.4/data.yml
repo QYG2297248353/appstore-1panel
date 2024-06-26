@@ -19,7 +19,7 @@ additionalProperties:
         envKey: PANEL_POSTGRES_SERVICE
         required: true
         type: service
-      default: redis
+      default: postgres
       envKey: PANEL_POSTGRES_TYPE
       labelZh: Postgres 服务 (前置检查)
       labelEn: Postgres Service (Pre-check)
