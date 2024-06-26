@@ -5,6 +5,7 @@ additionalProperties:
   key: immich
   name: Immich
   tags:
+    - WebSite
     - Media
     - Storage
     - Local
