@@ -6,7 +6,6 @@ additionalProperties:
         required: true
         type: service
       default: postgresql
-      edit: true
       envKey: PANEL_DB_TYPE
       labelZh: 数据库服务 (前置检查)
       labelEn: Database Service

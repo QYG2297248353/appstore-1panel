@@ -2,12 +2,12 @@ additionalProperties:
   formFields:
     - child:
         default: ""
-        envKey: DATABASE_SERVICE
+        envKey: PANEL_DB_HOST
         required: true
         type: service
       default: postgres
       edit: true
-      envKey: DATABASE_TYPE
+      envKey: PANEL_DB_TYPE
       labelZh: 数据库 服务 (前置检查)
       labelEn: Database Service (Pre-check)
       required: true
@@ -54,7 +54,7 @@ additionalProperties:
       type: text
     - default: postgres
       edit: true
-      envKey: DB_TYPE
+      envKey: DATABASE_TYPE
       labelZh: 数据库类型选择
       labelEn: Database Type
       required: true
