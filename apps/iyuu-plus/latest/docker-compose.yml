@@ -14,7 +14,9 @@ services:
     networks:
       - 1panel-network
     ports:
-      - ${PANEL_APP_PORT_HTTP}:8787
+      - ${PANEL_APP_PORT_HTTP}:8780
+      - ${PANEL_APP_PORT_IYUU:-}:8787
+      - ${PANEL_APP_PORT_WS:-}:3131
     volumes:
       - ${IYUUCN_ROOT_PATH}/iyuu:/iyuu
       - ${IYUUCN_ROOT_PATH}/data:/data
