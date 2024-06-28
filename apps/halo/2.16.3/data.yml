@@ -17,7 +17,9 @@ additionalProperties:
         - label: MySQL
           value: mysql
         - label: MariaDB
-          value: mysql
+          value: mariadb
+        - label: Percona
+          value: percona
     - default: "/home/halo"
       edit: true
       envKey: HALO_ROOT_PATH
@@ -58,9 +60,7 @@ additionalProperties:
       values:
         - label: PostgreSQL
           value: postgresql
-        - label: MySQL
-          value: mysql
-        - label: MariaDB
+        - label: MySQL (MariaDB, Percona)
           value: mysql
     - default: 5432
       edit: true
