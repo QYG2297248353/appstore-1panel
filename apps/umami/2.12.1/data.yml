@@ -52,7 +52,7 @@ additionalProperties:
       labelEn: Base Path
       required: true
       type: text
-    - default: postgres
+    - default: postgresql
       edit: true
       envKey: DATABASE_TYPE
       labelZh: 数据库类型选择
