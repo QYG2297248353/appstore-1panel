@@ -15,7 +15,7 @@ additionalProperties:
         - label: MySQL
           value: mysql
         - label: PostgreSQL
-          value: postgres
+          value: postgresql
     - default: "/home/gitea"
       edit: true
       envKey: GITEA_ROOT_PATH

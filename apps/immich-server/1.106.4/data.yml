@@ -19,15 +19,15 @@ additionalProperties:
         envKey: PANEL_POSTGRES_SERVICE
         required: true
         type: service
-      default: postgres
+      default: postgresql
       envKey: PANEL_POSTGRES_TYPE
       labelZh: Postgres 服务 (前置检查)
       labelEn: Postgres Service (Pre-check)
       required: true
       type: apps
       values:
-        - label: Postgres
-          value: postgres
+        - label: PostgreSQL
+          value: postgresql
     - default: "/home/immich-app"
       edit: true
       envKey: IMMICH_ROOT_PATH
