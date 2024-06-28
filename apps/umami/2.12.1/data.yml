@@ -13,8 +13,8 @@ additionalProperties:
       required: true
       type: apps
       values:
-        - label: Postgres
-          value: postgres
+        - label: PostgreSQL
+          value: postgresql
         - label: MySQL
           value: mysql
         - label: MariaDB
