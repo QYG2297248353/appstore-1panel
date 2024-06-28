@@ -153,5 +153,6 @@ additionalProperties:
       envKey: HF_ENDPOINT
       labelZh: Hugging Face 服务地址
       labelEn: Hugging Face Endpoint
+      rule: paramExtUrl
       required: false
       type: text
