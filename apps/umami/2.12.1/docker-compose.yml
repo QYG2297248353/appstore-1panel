@@ -15,9 +15,9 @@ services:
       - 1panel-network
     ports:
       - ${PANEL_APP_PORT_HTTP}:3000
-    env_file:
-      - .env
     environment:
       - DISABLE_TELEMETRY = 1
       - REMOVE_TRAILING_SLASH = 1
       - DATABASE_URL=${DATABASE_TYPE}://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOSTNAME}:${DB_PORT}/${DB_DATABASE_NAME}
+      - BASE_PATH=${BASE_PATH:-/}
+      - APP_SECRET=${APP_SECRET:-}
