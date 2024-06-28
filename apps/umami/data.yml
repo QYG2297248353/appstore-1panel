@@ -8,10 +8,11 @@ additionalProperties:
     - WebSite
     - Database
     - Middleware
+    - Runtime
     - Local
   shortDescZh: 为速度和效率而构建的网站分析
   shortDescEn: A website analytics tool that is built for speed and efficiency
-  type: runtime
+  type: website
   crossVersionUpdate: true
   limit: 0
   website: https://umami.is/
