@@ -61,7 +61,7 @@ additionalProperties:
       type: select
       values:
         - label: Postgres
-          value: postgres
+          value: postgresql
         - label: MySQL (MariaDB, Percona)
           value: mysql
     - default: "127.0.0.1"
