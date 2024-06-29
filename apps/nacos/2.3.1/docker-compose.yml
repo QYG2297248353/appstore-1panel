@@ -24,3 +24,5 @@ services:
       - NACOS_SERVER_PORT=8848
       - NACOS_AUTH_ENABLE=true
       - SPRING_DATASOURCE_PLATFORM=mysql
+    env_file:
+      - ./.env
