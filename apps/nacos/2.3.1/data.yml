@@ -1,5 +1,24 @@
 additionalProperties:
   formFields:
+    - child:
+        default: ""
+        envKey: PANEL_DB_HOST
+        required: true
+        type: service
+      default: mysql
+      edit: true
+      envKey: PANEL_DB_TYPE
+      labelZh: MySQL 服务 (前置检查)
+      labelEn: Database Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: MySQL
+          value: mysql
+        - label: MariaDB
+          value: mariadb
+        - label: Percona
+          value: percona
     - default: "/home/nacos"
       edit: true
       envKey: NACOS_ROOT_PATH
