@@ -67,7 +67,7 @@ additionalProperties:
       required: true
       type: select
       values:
-        - label: Postgres
+        - label: PostgreSQL
           value: postgresql
         - label: MySQL (MariaDB, Percona)
           value: mysql
