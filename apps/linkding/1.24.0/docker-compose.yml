@@ -16,7 +16,7 @@ services:
     ports:
       - ${PANEL_APP_PORT_HTTP}:9090
     volumes:
-      - ${LINKDING_ROOT_PATH}:/etc/linkding/data
+      - ${LINKDING_ROOT_PATH}/data:/etc/linkding/data
     env_file:
       - ./.env
     environment:
