@@ -57,6 +57,18 @@
       "allowedVersions": ">=8.2"
     },
     {
+      "matchFileNames": [
+        "apps/qbittorrent/4.*.*/*.yml"
+      ],
+      "allowedVersions": "/^4.*.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/transmission/4.*.*/*.yml"
+      ],
+      "allowedVersions": "/^4.*.*/"
+    },
+    {
       "matchDatasources": [
         "docker"
       ],
