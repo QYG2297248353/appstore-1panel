@@ -33,14 +33,14 @@ additionalProperties:
       type: number
     - default: "minio"
       edit: true
-      envKey: PANEL_MINIO_ROOT_USER
+      envKey: MINIO_ROOT_USER
       labelZh: 管理员 用户名
       labelEn: Root User
       required: true
       type: text
     - default: ""
       edit: true
-      envKey: PANEL_MINIO_ROOT_PASSWORD
+      envKey: MINIO_ROOT_PASSWORD
       labelZh: 管理员 密码
       labelEn: Root Password
       random: true
