@@ -15,19 +15,14 @@ services:
       - 1panel-network
     ports:
       - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
-      - ${PANEL_APP_PORT_API}:${MINIO_API}
-    command: server --console-address :${PANEL_APP_PORT_HTTP} --address :${MINIO_API} --json
+      - ${PANEL_APP_PORT_API}:${MINIO_API_PORT}
+    command: server --console-address :${PANEL_APP_PORT_HTTP} --address :${MINIO_API_PORT} --json
     environment:
       - MINIO_VOLUMES=/data
       - MINIO_API_ROOT_ACCESS=on
-      - MINIO_ROOT_USER=${PANEL_MINIO_ROOT_USER}
-      - MINIO_ROOT_PASSWORD=${PANEL_MINIO_ROOT_PASSWORD}
       - MINIO_BROWSER_REDIRECT=true
-      - MINIO_BROWSER=${MINIO_BROWSER}
-      - MINIO_BROWSER_LOGIN_ANIMATION=${MINIO_BROWSER_LOGIN_ANIMATION}
-      - MINIO_BROWSER_SESSION_DURATION=${MINIO_BROWSER_SESSION_DURATION}
-      - MINIO_SERVER_URL=${MINIO_SERVER_URL}
-      - MINIO_BROWSER_REDIRECT_URL=${MINIO_BROWSER_REDIRECT_URL}
+    env_file:
+      - ./.env
     extra_hosts:
       - ${MINIO_SERVER_HOST:-localhost}:127.0.0.1
     volumes:
