@@ -52,6 +52,13 @@ additionalProperties:
       labelEn: Base Path
       required: true
       type: text
+    - default: ""
+      edit: true
+      envKey: ALLOWED_FRAME_URLS
+      labelZh: 允许的 frame 地址
+      labelEn: Allowed frame urls
+      required: false
+      type: text
     - default: postgresql
       edit: true
       envKey: DATABASE_TYPE
