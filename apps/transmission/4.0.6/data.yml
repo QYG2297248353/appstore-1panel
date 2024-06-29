@@ -3,8 +3,8 @@ additionalProperties:
     - default: "host"
       edit: true
       envKey: NETWORK_MODE
-      labelEn: Drive path
       labelZh: 网络模式
+      labelEn: Network Mode
       required: true
       type: select
       values:
@@ -16,102 +16,62 @@ additionalProperties:
           value: "none"
         - label: 1panel-network
           value: "1panel-network"
-    - default: "linuxserver/transmission:4.0.6"
-      edit: true
-      envKey: TRANSMISSION_IMAGE
-      labelEn: Image source
-      labelZh: 镜像源
-      required: true
-      type: select
-      values:
-        - label: Docker Hub
-          value: "linuxserver/transmission:4.0.6"
-        - label: LinuxServer
-          value: "lscr.io/linuxserver/transmission:4.0.6"
     - default: 9091
       edit: true
       envKey: PANEL_APP_PORT_HTTP
-      labelEn: Port
-      labelZh: 端口
+      labelZh: WebUI 端口
+      labelEn: WebUI Port
       required: true
       rule: paramPort
       type: number
     - default: 51413
       edit: true
-      envKey: PANEL_APP_PORT_API
-      labelEn: Port
-      labelZh: 端口
-      required: false
+      envKey: PANEL_APP_PORT_TORRENTING
+      labelZh: Torrenting 端口
+      labelEn: Torrenting Port
+      required: true
       rule: paramPort
       type: number
     - default: "/home/transmission"
       edit: true
       envKey: TRANSMISSION_ROOT_PATH
-      labelEn: Root Path
-      labelZh: 数据持久化 根路径
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
       required: true
       type: text
     - default: "admin"
       edit: true
       envKey: USER
+      labelZh: 用户名
       labelEn: User
-      labelZh: 用户 (默认值 admin)
       required: true
       type: text
     - default: ""
       edit: true
       envKey: PASS
+      labelZh: 密码
       labelEn: Password
-      labelZh: 密码 (默认值 admin)
       required: true
-      type: text
-    - default: 1000
-      edit: true
-      envKey: PUID
-      labelEn: PUID user's uid
-      labelZh: PUID 用户的uid
-      required: false
-      type: number
-    - default: 1000
-      edit: true
-      envKey: PGID
-      labelEn: PGID user's gid
-      labelZh: PGID 用户的gid
-      required: false
-      type: number
-    - default: "022"
-      edit: true
-      envKey: UMASK
-      labelEn: UMASK permission mask
-      labelZh: UMASK 权限掩码
-      required: false
-      type: text
-    - default: "Asia/Shanghai"
-      edit: true
-      envKey: TZ
-      labelEn: Timezone
-      labelZh: 时区
-      required: false
       type: text
     - default: ""
       edit: true
       envKey: TRANSMISSION_WEB_HOME
-      labelEn: Transmission Web Home
-      labelZh: 备用 UI 文件夹的路径
+      labelZh: 第三方 UI 文件夹
+      labelEn: Third-party UI folder
       required: false
       type: text
     - default: ""
       edit: true
       envKey: WHITELIST
+      labelZh: IP 白名单
       labelEn: Whitelist
-      labelZh: 逗号分隔的 IP 白名单的可选列表
       required: false
       type: text
     - default: ""
       edit: true
       envKey: HOST_WHITELIST
+      labelZh: 主机白名单
       labelEn: Host Whitelist
-      labelZh: 逗号分隔的 dns 名称白名单的可选列表
       required: false
       type: text
     - default: ""
