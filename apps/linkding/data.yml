@@ -1,19 +1,18 @@
 name: Linkding
-tags:
-  - 工具
 title: Linkding
-type: 工具
 description: 自己托管的书签管理器
 additionalProperties:
   key: linkding
   name: Linkding
   tags:
-    - Tool
+    - WebSite
+    - Storage
+    - Local
   shortDescZh: 自己托管的书签管理器
   shortDescEn: Self-hosted bookmark manager
-  type: tool
+  type: website
   crossVersionUpdate: true
   limit: 0
   website: https://demo.linkding.link/
-  github: https://github.com/sissbruecker/linkding
+  github: https://github.com/sissbruecker/linkding/
   document: https://github.com/sissbruecker/linkding/blob/master/README.md

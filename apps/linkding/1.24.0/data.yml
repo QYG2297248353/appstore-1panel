@@ -1,151 +1,153 @@
 additionalProperties:
   formFields:
-    - default: "1.24.0-alpine"
-      edit: true
-      envKey: RELEASE_VERSION
-      labelEn: Release Version
-      labelZh: 发布版本
+    - child:
+        default: ""
+        envKey: PANEL_POSTGRES_SERVICE
+        required: true
+        type: service
+      default: postgresql
+      envKey: PANEL_POSTGRES_TYPE
+      labelZh: Postgres 服务 (前置检查)
+      labelEn: Postgres Service (Pre-check)
       required: true
-      type: select
+      type: apps
       values:
-        - label: "1.24.0-alpine"
-          value: "1.24.0-alpine"
-        - label: "1.24.0"
-          value: "1.24.0"
-    - default: 9090
-      edit: true
-      envKey: PANEL_APP_PORT_HTTP
-      labelEn: Server port
-      labelZh: 服务端口
-      required: true
-      rule: paramPort
-      type: number
+        - label: PostgreSQL
+          value: postgresql
     - default: "/home/linkding"
       edit: true
       envKey: LINKDING_ROOT_PATH
-      labelEn: Data persistence root path
-      labelZh: 数据持久化 根路径
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
       required: true
       type: text
+    - default: 9090
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
     - default: ""
       edit: true
       envKey: LD_SUPERUSER_NAME
+      labelZh: 管理员 用户名
       labelEn: Superuser name
-      labelZh: 超级用户名称
       required: true
       type: text
     - default: ""
       edit: true
       envKey: LD_SUPERUSER_PASSWORD
+      labelZh: 管理员 密码
       labelEn: Superuser password
-      labelZh: 超级用户密码
       required: true
       rule: paramComplexity
       type: password
     - default: "False"
       edit: true
       envKey: LD_DISABLE_BACKGROUND_TASKS
-      labelEn: Disable background tasks
       labelZh: 禁用后台任务
+      labelEn: Disable background tasks
       required: true
       type: select
       values:
-        - label: "False"
+        - label: 禁用
           value: "False"
-        - label: "True"
+        - label: 启用
           value: "True"
     - default: "False"
       edit: true
       envKey: LD_DISABLE_URL_VALIDATION
-      labelEn: Disable URL validation
       labelZh: 禁用 URL 验证
+      labelEn: Disable URL validation
       required: true
       type: select
       values:
-        - label: "False"
+        - label: 禁用
           value: "False"
-        - label: "True"
+        - label: 启用
           value: "True"
     - default: 60
       edit: true
       envKey: LD_REQUEST_TIMEOUT
+      labelZh: 请求超时时间 (秒)
       labelEn: Request timeout (seconds)
-      labelZh: 超时配置 (秒)
       required: true
       type: number
     - default: ""
       edit: true
       envKey: LD_CONTEXT_PATH
+      labelZh: 网站路径
       labelEn: Context path
-      labelZh: 上下文路径
       required: false
       type: text
     - default: "false"
       edit: true
       envKey: LD_LOG_X_FORWARDED_FOR
+      labelZh: 记录真实 IP
       labelEn: Log real IP
-      labelZh: 日志记录真实IP
       required: true
       type: select
       values:
-        - label: "false"
+        - label: 禁用
           value: "false"
-        - label: "true"
+        - label: 启用
           value: "true"
     - default: "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url={url}&size=32"
       edit: true
       envKey: LD_FAVICON_PROVIDER
-      labelEn: Favicon provider
       labelZh: 网站图标提供商
+      labelEn: Favicon provider
       required: true
       type: text
-    - default: "linkding"
-      edit: true
-      envKey: LD_DB_DATABASE
-      labelEn: Database Name
-      labelZh: 数据库名称
-      required: true
-      type: text
-    - default: "linkding"
-      edit: true
-      envKey: LD_DB_USER
-      labelEn: Database User
-      labelZh: 数据库-用户名
-      required: true
-      type: text
-    - default: ""
-      edit: true
-      envKey: LD_DB_PASSWORD
-      labelEn: Database Password
-      labelZh: 数据库-用户密码
-      required: true
-      type: password
     - default: "localhost"
       edit: true
       envKey: LD_DB_HOST
+      labelZh: 数据库 主机
       labelEn: Database Host
-      labelZh: 数据库主机
       required: true
       type: text
     - default: 5432
       edit: true
       envKey: LD_DB_PORT
       labelEn: Database Port
-      labelZh: 数据库开放端口
+      labelZh: 数据库 端口
       required: true
       rule: paramPort
       type: number
+    - default: "linkding"
+      edit: true
+      envKey: LD_DB_USER
+      labelZh: 数据库 用户名
+      labelEn: Database User
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: LD_DB_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      required: true
+      type: password
+    - default: "linkding"
+      edit: true
+      envKey: LD_DB_DATABASE
+      labelZh: 数据库名称
+      labelEn: Database Name
+      required: true
+      type: text
     - default: "{}"
       edit: true
       envKey: LD_DB_OPTIONS
-      labelEn: Database Options (JSON)
       labelZh: 数据库选项 (JSON)
+      labelEn: Database Options (JSON)
       required: true
       type: text
     - default: ""
       edit: true
       envKey: LD_CSRF_TRUSTED_ORIGINS
-      labelEn: CSRF trusted origins
       labelZh: CSRF 可信来源
+      labelEn: CSRF trusted origins
       required: false
       type: text
