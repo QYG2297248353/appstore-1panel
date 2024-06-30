@@ -153,13 +153,6 @@ additionalProperties:
       type: text
     - default: ""
       edit: true
-      envKey: LD_CSRF_TRUSTED_ORIGINS
-      labelZh: CSRF 可信来源
-      labelEn: CSRF trusted origins
-      required: false
-      type: text
-    - default: ""
-      edit: true
       envKey: ALL_PROXY
       labelZh: 代理地址
       labelEn: Proxy address
