@@ -164,6 +164,7 @@ additionalProperties:
       labelZh: 代理地址
       labelEn: Proxy address
       required: false
+      rule: paramExtUrl
       type: text
     - default: "localhost,127.0.0.1,::1"
       edit: true
