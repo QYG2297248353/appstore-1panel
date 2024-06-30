@@ -20,5 +20,7 @@ services:
     env_file:
       - ./.env
     environment:
-      LD_SERVER_PORT: 9090
-      LD_DB_ENGINE: postgres
+      - LD_SERVER_PORT=9090
+      - LD_DB_ENGINE=postgres
+      - HTTP_PROXY=${ALL_PROXY}
+      - HTTPS_PROXY=${ALL_PROXY}
