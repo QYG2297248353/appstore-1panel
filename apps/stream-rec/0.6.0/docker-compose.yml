@@ -6,7 +6,7 @@ networks:
 
 services:
   stream-rec-backend:
-    image: streamrec/stream-rec:v0.6.0
+    image: streamrec/stream-rec:v0.6.9
     container_name: stream-rec
     labels:
       createdBy: "Apps"
