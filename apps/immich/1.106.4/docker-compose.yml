@@ -32,7 +32,7 @@ services:
       - ${IMMICH_ROOT_PATH}/pg14/data:/var/lib/postgresql/data
 
   immich-machine-learning:
-    image: ghcr.io/immich-app/immich-machine-learning:v1.106.4
+    image: ghcr.io/immich-app/immich-machine-learning:v1.107.0
     container_name: immich-machine-learning-${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
