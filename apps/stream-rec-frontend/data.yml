@@ -1,9 +1,9 @@
-name: Stream Rec
+name: Stream Rec 前台服务
 title: 自动流媒体录制工具
 description: 自动流媒体录制工具
 additionalProperties:
-  key: stream-rec
-  name: Stream Rec
+  key: stream-rec-frontend
+  name: Stream Rec 前台服务
   tags:
     - WebSite
     - Tool

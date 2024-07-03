@@ -6,15 +6,26 @@ networks:
 
 services:
   uptime-kuma:
-    image: louislam/uptime-kuma:${RELEASE_VERSION}
+    image: louislam/uptime-kuma:1.23.13
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
     restart: always
     networks:
       - 1panel-network
-    volumes:
-      - ${UPTIME_KUMA_ROOT_PATH}/data:/app/data
-      - ${UPTIME_KUMA_DOCKER_SOCKET}:/var/run/docker.sock
     ports:
       - ${PANEL_APP_PORT_HTTP}:3001
+    volumes:
+      - ${UPTIME_KUMA_ROOT_PATH}/data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - PUID=0
+      - PGID=0
+      - UPTIME_KUMA_PORT=3001
+      - UPTIME_KUMA_HOST=127.0.0.1
+      - DATA_DIR=/app/data
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
+      - UPTIME_KUMA_ALLOW_ALL_CHROME_EXEC=0
+      - UPTIME_KUMA_WS_ORIGIN_CHECK=cors-like
+    env_file:
+      - ./.env

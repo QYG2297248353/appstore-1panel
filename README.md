@@ -70,9 +70,9 @@
 |  🔴  |        SpeedTest        |        https://www.speedtest.net/         | 互联网速度测试                                                              | SpeedTest |
 |  🔴  |       SpeedTest-X       | https://github.com/BadApple9/speedtest-x/ | 一个自托管的速度测试应用程序，具有超棒的测试结果数据表。                                         | SpeedTest |
 |  🔴  |    SpeedTest-Tracker    |    https://docs.speedtest-tracker.dev/    | Speedtest Tracker 是一款自托管互联网性能跟踪应用程序，可针对 Ookla 的 Speedtest 服务运行速度测试检查 |           |
-|  🔴  |       Stream-Rec        |   https://github.com/hua0512/stream-rec   | Stream-rec是一个用于各种流媒体服务的自动流媒体录制工具                                     |           |
+|  🟢  |       Stream-Rec        |   https://github.com/hua0512/stream-rec   | Stream-rec是一个用于各种流媒体服务的自动流媒体录制工具                                     |           |
 |  🟢  |      Transmission       |        https://transmissionbt.com/        | 快速、简单、免费的 Bittorrent 客户端                                             |           |
-|  🔴  |       Uptime Kuma       |         https://uptime.kuma.pet/          | 自托管监控工具                                                              |           |
+|  🟢  |       Uptime Kuma       |         https://uptime.kuma.pet/          | 自托管监控工具                                                              |           |
 |  🟢  |          Umami          |             https://umami.is/             | 为速度和效率而构建的网站分析                                                       |           |
 |  🔴  |          Yarr           |      https://github.com/nkanaev/yarr      | Rss 阅读器                                                              |           |
 |  🔴  |        ZeroTier         |         https://www.zerotier.com/         | ZeroTier 可让您构建几乎任何类型的现代化安全多点虚拟化网络                                    | ZeroTier  |
