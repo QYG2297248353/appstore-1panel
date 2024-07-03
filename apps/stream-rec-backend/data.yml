@@ -11,7 +11,7 @@ additionalProperties:
   shortDescEn: Automatic streaming media recording tool
   type: tool
   crossVersionUpdate: true
-  limit: 1
+  limit: 0
   website: https://github.com/hua0512/stream-rec/
   github: https://github.com/hua0512/stream-rec/
   document: https://github.com/hua0512/stream-rec/
