@@ -22,7 +22,7 @@ services:
       - PUID=0
       - PGID=0
       - UPTIME_KUMA_PORT=3001
-      - UPTIME_KUMA_HOST=127.0.0.1
+      - UPTIME_KUMA_HOST=0.0.0.0
       - DATA_DIR=/app/data
       - NODE_TLS_REJECT_UNAUTHORIZED=0
       - UPTIME_KUMA_ALLOW_ALL_CHROME_EXEC=0
