@@ -20,3 +20,5 @@ services:
     environment:
       - MODE=standalone
       - WEBPORT=80
+    env_file:
+      - ./.env
