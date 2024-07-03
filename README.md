@@ -36,6 +36,7 @@
 |  🟢  |          Bark           |           https://bark.day.app/           | 一款注重隐私、安全可控的自定义通知推送工具                                                |           |
 |  🟢  |      Cookie Cloud       | https://github.com/easychen/CookieCloud/  | CookieCloud是一个和自架服务器同步浏览器Cookie和LocalStorage的小工具                     |           |
 |  🟢  |         DeepLX          |        https://deeplx.owo.network/        | DeepL免费API（无需TOKEN）                                                  |           |
+|  🟢  |         Dockge          |         https://dockge.kuma.pet/          | 面向堆栈的管理器                                                             |           |
 |  🔴  |      Elasticsearch      |   https://www.elastic.co/elasticsearch/   | Elasticsearch 是一个分布式、RESTful 风格的搜索和数据分析引擎                            |  Elastic  |
 |  🔴  |         Kibana          |      https://www.elastic.co/kibana/       | Kibana 针对大规模数据快速运行数据分析                                               |  Elastic  |
 |  🔴  |        Logstash         |     https://www.elastic.co/logstash/      | Logstash 是免费且开放的服务器端数据处理管道                                           |  Elastic  |
