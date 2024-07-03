@@ -1,19 +1,18 @@
 name: SpeedTest
-tags:
-  - 工具
 title: SpeedTest
-type: 工具
-description: Javascript 实现的非常轻量级的速度测试
+description: 轻量级的速度测试
 additionalProperties:
   key: speedtest
   name: SpeedTest
   tags:
+    - WebSite
     - Tool
-  shortDescZh: Javascript 实现的非常轻量级的速度测试
-  shortDescEn: Javascript implementation of very lightweight speed tests
-  type: tool
+    - Local
+  shortDescZh: 轻量级的速度测试
+  shortDescEn: Lightweight speed test
+  type: website
   crossVersionUpdate: true
   limit: 0
   website: https://librespeed.org/
-  github: https://github.com/librespeed/speedtest
-  document: https://github.com/librespeed/speedtest/blob/master/README.md
+  github: https://github.com/librespeed/speedtest/
+  document: https://github.com/librespeed/speedtest/

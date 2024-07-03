@@ -67,8 +67,7 @@
 |  🔴  |        Sentinel         |         https://sentinelguard.io/         | 面向分布式、多语言异构化服务架构的流量治理组件                                              |           |
 |  🔴  |         SFTPGo          |            https://sftpgo.com/            | 功能齐全、高度可配置的 SFTP、HTTP/S、FTP/S 和 WebDAV 服务器                           |           |
 |  🟢  |         SiYuan          |         https://b3log.org/siyuan/         | 一款隐私优先、自托管、完全开源的个人知识管理软件                                             |           |
-|  🔴  |        SpeedTest        |        https://www.speedtest.net/         | 互联网速度测试                                                              | SpeedTest |
-|  🔴  |       SpeedTest-X       | https://github.com/BadApple9/speedtest-x/ | 一个自托管的速度测试应用程序，具有超棒的测试结果数据表。                                         | SpeedTest |
+|  🟢  |        SpeedTest        |        https://www.speedtest.net/         | 互联网速度测试                                                              | SpeedTest |
 |  🔴  |    SpeedTest-Tracker    |    https://docs.speedtest-tracker.dev/    | Speedtest Tracker 是一款自托管互联网性能跟踪应用程序，可针对 Ookla 的 Speedtest 服务运行速度测试检查 |           |
 |  🟢  |       Stream-Rec        |   https://github.com/hua0512/stream-rec   | Stream-rec是一个用于各种流媒体服务的自动流媒体录制工具                                     |           |
 |  🟢  |      Transmission       |        https://transmissionbt.com/        | 快速、简单、免费的 Bittorrent 客户端                                             |           |
