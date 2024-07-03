@@ -6,41 +6,39 @@ networks:
 
 services:
   stream-rec-backend:
-    image: streamrec/stream-rec:latest
-    container_name: stream-rec
+    image: streamrec/stream-rec:v0.6.9
+    container_name: ${CONTAINER_NAME}-backend
     labels:
       createdBy: "Apps"
     restart: always
     networks:
       - 1panel-network
     ports:
-      - ${PANEL_APP_PORT_API:-12555}:12555
+      - ${PANEL_APP_PORT_API}:12555
     volumes:
       - ${STREAM_REC_ROOT_PATH}/records:/opt/records
       - ${STREAM_REC_ROOT_PATH}/download:/download
     environment:
-      - TZ=${TZ:-Asia/Shanghai}
+      - TZ=Asia/Shanghai
       - LOG_LEVEL=INFO
       - DB_PATH=/opt/records
       - DOWNLOAD_PATH=/download
-      - JWT_SECRET=${REC_JWT_SECRET}
-      - LOGIN_SECRET=${REC_LOGIN_SECRET}
+    env_file:
+      - ./.env
 
   stream-rec-frontend:
     depends_on:
       - stream-rec-backend
-    image: streamrec/stream-rec-front:latest
-    container_name: stream-rec-frontend
+    image: streamrec/stream-rec-front:v0.6.9
+    container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
     restart: always
     networks:
       - 1panel-network
     ports:
-      - ${PANEL_APP_PORT_HTTP:-15275}:15275
+      - ${PANEL_APP_PORT_HTTP}:15275
     environment:
-      - TZ=${TZ:-Asia/Shanghai}
-      - API_URL=${REC_API_URL}
-      - NEXTAUTH_SECRET=${REC_NEXTAUTH_SECRET}
-      - NEXTAUTH_URL=${REC_NEXTAUTH_URL}
-      - WS_API_URL=${REC_WS_API_URL}
+      - TZ=Asia/Shanghai
+    env_file:
+      - ./.env
