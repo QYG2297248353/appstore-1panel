@@ -37,6 +37,19 @@ Stream-rec 是一个自动录制各种直播平台的工具。
 >
 > 密码：stream-rec
 
+### 必须修改配置
+
++ `WebSocket API 地址`
+
+默认值：`ws://stream-rec-backend:12555/live/update`
+
+需要获取：
+
++ 宿主机 IP 地址
++ 配置项 `API 端口`, 默认值：`12555`
+
+填写格式：`ws://{宿主机 IP 地址}:{API 端口}/live/update`
+
 ### 无法修改项目
 
 + `NextAuth 服务器地址`

@@ -54,7 +54,7 @@ additionalProperties:
       required: true
       type: text
     - default: "ws://stream-rec-backend:12555/live/update"
-      disabled: true
+      edit: true
       envKey: WS_API_URL
       labelZh: WebSocket API 地址
       labelEn: WebSocket API URL
