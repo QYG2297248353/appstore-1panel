@@ -1,9 +1,7 @@
 version: '3.8'
-
 networks:
   1panel-network:
     external: true
-
 services:
   alist:
     image: xhofe/alist:v3.35.0
@@ -18,4 +16,4 @@ services:
     volumes:
       - ${ALIST_ROOT_PATH}/data:/opt/alist/data
     env_file:
-      - custom.env
+      - ./custom.env
