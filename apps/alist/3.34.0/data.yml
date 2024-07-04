@@ -1,31 +1,17 @@
 additionalProperties:
   formFields:
-    - default: "xhofe/alist:v3.34.0"
-      edit: true
-      envKey: OS_VERSION
-      labelEn: os version
-      labelZh: 系统版本
-      required: true
-      type: select
-      values:
-        - label: AList
-          value: "xhofe/alist:v3.34.0"
-        - label: AList-FFmpeg
-          value: "xhofe/alist:v3.34.0-ffmpeg"
-        - label: AList-Aria2
-          value: "xhofe/alist-aria2:v3.34.0"
-    - default: 5244
-      edit: true
-      envKey: PANEL_APP_PORT_HTTP
-      labelEn: Port
-      labelZh: 端口
-      required: true
-      rule: paramPort
-      type: number
     - default: "/home/alist"
       edit: true
       envKey: ALIST_ROOT_PATH
-      labelEn: Root Path
-      labelZh: 数据持久化 根路径
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
       required: true
       type: text
+    - default: 5244
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number

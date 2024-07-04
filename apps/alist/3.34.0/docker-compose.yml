@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.8'
 
 networks:
   1panel-network:
@@ -6,7 +6,7 @@ networks:
 
 services:
   alist:
-    image: ${OS_VERSION}
+    image: xhofe/alist:v3.35.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
@@ -17,7 +17,5 @@ services:
       - ${PANEL_APP_PORT_HTTP}:5244
     volumes:
       - ${ALIST_ROOT_PATH}/data:/opt/alist/data
-    environment:
-      - PUID=0
-      - PGID=0
-      - UMASK=022
+    env_file:
+      - custom.env

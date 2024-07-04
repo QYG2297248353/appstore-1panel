@@ -1,109 +1,43 @@
 # AList
 
-> 新版本（V3 及更高版本）与 V2 不兼容，因此如果您从 V2 升级，我们建议您完全重新安装 Alist。
+一个支持多种存储的文件列表程序
 
-一个支持多种存储，支持网页浏览和 WebDAV 的文件列表程序，由 gin 和 Solidjs 驱动。
+![AList](https://alist.nn.ci/logo.svg)
 
-## 账户信息
+## 特性
 
-首次安装查看日志，获取管理员账户密码
++ 使用简单
+    + AList 从一开始就设计为易于安装，并且可以在所有平台上使用。
 
-```log
-Successfully created the {admin} user and the initial password is: {password}
-```
++ 多种存储
+    + AList 支持多个存储提供商，包括本地存储、阿里云盘、OneDrive、Google Drive 等，且易于拓展。
 
-## 查看管理员信息
++ 支持 WebDAV
+    + AList 支持所有 WebDAV 存储，这是一种用于访问文件的标准。
 
-3.25.0以上版本将密码改成加密方式存储的hash值，无法直接反算出密码，如果忘记了密码只能通过重新 随机生成 或者 手动设置
++ 黑暗模式
+    + 自由切换明暗模式
 
-```sh
-# 随机生成一个密码
-docker exec -it alist ./alist admin random
-# 手动设置一个密码,`NEW_PASSWORD`是指你需要设置的密码
-docker exec -it alist ./alist admin set {NEW_PASSWORD}
-```
++ 受保护的路由
+    + 为特定路径添加密码保护和身份验证
 
-## 版本说明
++ 文件预览
+    + 支持视频、音频、文档、PDF、图片预览等，甚至支持 ipa 安装
 
-### `{version}` 版本号
++ 打包下载/批量下载
+    + 使用浏览器的 stream api 支持打包下载，无需使用服务器 / 使用Aria2进行批量下载支持文件夹
 
-正常版本
++ 单点登录
+    + 使用单点登录快速登录AList
 
-### `{version}-aria2` aria2
++ 自动注册AList帐号
+    + 使用单点登录自动注册为AList帐号快速注册
 
-增加离线下载功能，支持 aria2 下载，需要配合 aria2 使用
++ 离线下载
+    + 将种子内容离线下载到指定的目录內,需要苛刻的网络环境
 
-### `{version}-ffmpeg` ffmpeg
++ 保险箱加密/解密 文件
+    + 任何人都可以安全地将加密数据存储在远程存储提供商上。数据存储在保险箱中，提供商只能看到保险箱，看不到您的数据。
 
-增加本地存储视频封面功能，需要配合 ffmpeg 使用
-
-## 反向代理
-
-程序默认监听 5244 端口。如有修改，请一并修改下列配置中的端口号。如果你使用反向代理，建议你设置site_url，以帮助alist更好的工作。
-
-### Nginx
-
-```config
-location / {
-  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-  proxy_set_header X-Forwarded-Proto $scheme;
-  proxy_set_header Host $http_host;
-  proxy_set_header X-Real-IP $remote_addr;
-  proxy_set_header Range $http_range;
-	proxy_set_header If-Range $http_if_range;
-  proxy_redirect off;
-  proxy_pass http://127.0.0.1:5244;
-  # the max size of file to upload
-  client_max_body_size 20000m;
-}
-```
-
-> 如果使用宝塔面板，请务必删除以下默认配置
-> ```config
-> - location ~ ^/(\.user.ini|\.htaccess|\.git|\.svn|\.project|LICENSE|README.md
-> - location ~ .\*\.(gif|jpg|jpeg|png|bmp|swf)$
-> - location ~ .\*\.(js|css)?$
-> ```
-
-### Apache
-
-在 VirtualHost 字段下添加配置项 ProxyPass
-
-```xml
-
-<VirtualHost *:80>
-        ServerName myapp.example.com
-        ServerAdmin webmaster@example.com
-        DocumentRoot /www/myapp/public
-
-        AllowEncodedSlashes NoDecode
-        ProxyPass "/" "http://127.0.0.1:5244/" nocanon
-        </VirtualHost>
-```
-
-### Caddy
-
-在 Caddyfile 文件下添加 reverse_proxy
-
-```text
-:80 {
-  reverse_proxy 127.0.0.1:5244
-}
-```
-
-如果部署在 443 端口正常使用的服务器上且使用域名进行访问，建议使用这种配置让 Caddy 自动申请证书
-
-```text
-example.com {
-  reverse_proxy 127.0.0.1:5244
-}
-```
-
-## 修改配置
-
-> config.json内配置文件修改后都需要重启 AList 才会生效
->
-> Docker：进入 Docker 容器内data/config.json
-> 相当于挂载目录 {持久化目录：/home/alist}/data/config.json
-
-不建议修改端口类配置，如需修改端口请使用面板修改后，重启或重建容器
++ 更多新功能
+    + 包括文本编辑器、README/HTML 渲染、文件永久链接、Cloudflare Workers 代理等
