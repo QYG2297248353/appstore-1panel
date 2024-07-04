@@ -127,7 +127,7 @@ services:
         condition: service_healthy
     container_name: kibana-${CONTAINER_NAME}
     restart: always
-    image: docker.elastic.co/kibana/kibana:8.12.0
+    image: docker.elastic.co/kibana/kibana:8.14.2
     volumes:
       - ${ES_ROOT_PATH}/certs:/usr/share/kibana/config/certs
       - ${ES_ROOT_PATH}/kibana/data:/usr/share/kibana/data
