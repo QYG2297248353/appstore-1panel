@@ -59,6 +59,18 @@ additionalProperties:
       labelEn: Allowed frame urls
       required: false
       type: text
+    - default: 0
+      edit: true
+      envKey: DISABLE_BOT_CHECK
+      labelZh: 禁用机器人检测
+      labelEn: Disable bot detection
+      required: true
+      type: select
+      values:
+        - label: 开启
+          value: 1
+        - label: 关闭
+          value: 0
     - default: postgresql
       edit: true
       envKey: DATABASE_TYPE
