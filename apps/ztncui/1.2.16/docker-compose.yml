@@ -6,7 +6,7 @@ networks:
 
 services:
   ztncui:
-    image: keynetworks/ztncui:1.2.16
+    image: keynetworks/ztncui:1.2.17
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
