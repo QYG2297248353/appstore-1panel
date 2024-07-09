@@ -48,19 +48,13 @@
       "matchFileNames": [
         "apps/mysql/5.7.*/*.yml"
       ],
-      "allowedVersions": ">5.7.0"
+      "allowedVersions": "/^5.7.*/"
     },
     {
       "matchFileNames": [
         "apps/mysql/8.*/*.yml"
       ],
-      "allowedVersions": ">=8.0.0 <9.0.0"
-    },
-    {
-      "matchFileNames": [
-        "apps/mysql/9.*/*.yml"
-      ],
-      "allowedVersions": ">=9.0.0"
+      "allowedVersions": "/^8.*/"
     },
     {
       "matchFileNames": [
