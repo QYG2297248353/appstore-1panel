@@ -21,7 +21,7 @@ additionalProperties:
       labelZh: 加密密钥
       labelEn: Encryption key
       required: false
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: SITE_URL

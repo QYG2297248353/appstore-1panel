@@ -17,6 +17,7 @@ services:
       - ${ALIST_ROOT_PATH}/data:/opt/alist/data
     env_file:
       - ./config/custom.env
+      - ./.env
     environment:
       - ${CUSTOM_MOUNT_DIRECTORY_1:-./default_mount_1}:${CUSTOM_MOUNT_DIRECTORY_1:-/default_mount_1}
       - ${CUSTOM_MOUNT_DIRECTORY_2:-./default_mount_2}:${CUSTOM_MOUNT_DIRECTORY_2:-/default_mount_2}
