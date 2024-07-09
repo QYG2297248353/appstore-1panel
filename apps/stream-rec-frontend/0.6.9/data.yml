@@ -38,7 +38,7 @@ additionalProperties:
       required: true
       type: text
     - default: "http://localhost:15275/"
-      disabled: true
+      edit: true
       envKey: NEXTAUTH_URL
       labelZh: NextAuth 服务器地址
       labelEn: NextAuth Server URL

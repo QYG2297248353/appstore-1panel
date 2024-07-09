@@ -40,13 +40,20 @@ Stream-rec 是一个自动录制各种直播平台的工具。
 ### `API 地址` 配置
 
 ```shell
-# 协议 + 主机 + 端口 + /api
+# 协议 + 主机 + API端口 + /api
 http://192.168.1.20:12555/api
 ```
 
 ### `WebSocket API 地址` 配置
 
 ```shell
-# ws:// + 主机 + 端口 + /live/update
+# ws:// + 主机 + API端口 + /live/update
 ws://192.168.1.20:12555/live/update
+```
+
+### `NextAuth 服务器地址` 配置
+
+```shell
+# 协议 + 主机 + Web端口 + /
+http://localhost:15275/
 ```
