@@ -6,7 +6,7 @@ networks:
 
 services:
   siyuan:
-    image: b3log/siyuan:v3.0.17
+    image: b3log/siyuan:v3.1.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
