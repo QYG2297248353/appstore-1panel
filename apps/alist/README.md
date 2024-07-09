@@ -41,3 +41,38 @@
 
 + 更多新功能
     + 包括文本编辑器、README/HTML 渲染、文件永久链接、Cloudflare Workers 代理等
+
+## 安装说明
+
+### 重置密码
+
++ 随机生成一个密码
+
+```shell
+alist admin random
+```
+
++ 设置指定密码
+
+```shell
+alist admin set {PASSWORD}
+```
+
+### 反向代理
+
+> Nginx 配置示例
+
+```conf
+location / {
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header X-Forwarded-Proto $scheme;
+  proxy_set_header Host $host:$server_port;
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header Range $http_range;
+  proxy_set_header If-Range $http_if_range;
+  proxy_redirect off;
+  proxy_pass http://127.0.0.1:5244;
+  # 文件最大上传大小 20GB
+  client_max_body_size 20000m;
+}
+```

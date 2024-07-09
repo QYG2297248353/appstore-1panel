@@ -16,4 +16,4 @@ services:
     volumes:
       - ${ALIST_ROOT_PATH}/data:/opt/alist/data
     env_file:
-      - ./custom.env
+      - ./config/custom.env
