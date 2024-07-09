@@ -32,19 +32,16 @@
 
 | 维护状态 |          应用名称           |                    官网                     | 描述                                                                   |    集合     |
 |:----:|:-----------------------:|:-----------------------------------------:|:---------------------------------------------------------------------|:---------:|
-|  🔴  |          AList          |           https://alist.nn.ci/            | 一款支持多重存储的文件列表程序                                                      |           |
+|  🟢  |          AList          |           https://alist.nn.ci/            | 一款支持多重存储的文件列表程序                                                      |           |
 |  🟢  |          Bark           |           https://bark.day.app/           | 一款注重隐私、安全可控的自定义通知推送工具                                                |           |
 |  🟢  |      Cookie Cloud       | https://github.com/easychen/CookieCloud/  | CookieCloud是一个和自架服务器同步浏览器Cookie和LocalStorage的小工具                     |           |
 |  🟢  |         DeepLX          |        https://deeplx.owo.network/        | DeepL免费API（无需TOKEN）                                                  |           |
 |  🟢  |         Dockge          |         https://dockge.kuma.pet/          | 面向堆栈的管理器                                                             |           |
 |  🔴  |      Elasticsearch      |   https://www.elastic.co/elasticsearch/   | Elasticsearch 是一个分布式、RESTful 风格的搜索和数据分析引擎                            |  Elastic  |
 |  🔴  |         Kibana          |      https://www.elastic.co/kibana/       | Kibana 针对大规模数据快速运行数据分析                                               |  Elastic  |
-|  🔴  |        Logstash         |     https://www.elastic.co/logstash/      | Logstash 是免费且开放的服务器端数据处理管道                                           |  Elastic  |
 |  🟢  |          Emby           |            https://emby.media/            | Emby Server 是一款个人媒体服务器，可在几乎所有设备上运行应用程序                               |           |
 |  🟢  |      Emby-lovechen      |            https://emby.media/            | 【开心版】Emby Server 是一款个人媒体服务器，可在几乎所有设备上运行应用程序                          |           |
 |  🔴  |          Gitea          |             https://gitea.io/             | 私有、快速、可靠的 DevOps 平台                                                  |           |
-|  🔴  |          Gogs           |             https://gogs.io/              | Gogs 是一种无障碍的自助托管 Git 服务                                              |           |
-|  🔴  |         GitLab          |         https://about.gitlab.com/         | GitLab 是最全面的人工智能驱动的 DevSecOps 平台。                                    |           |
 |  🟢  |          Halo           |             https://halo.run/             | 强大易用的开源建站工具                                                          |           |
 |  🟢  |         Immich          |            https://immich.app/            | 【完整版本】高性能自托管照片和视频管理解决方案                                              |  Immich   |
 |  🟢  |      Immich-Server      |            https://immich.app/            | 【主服务模块】高性能自托管照片和视频管理解决方案                                             |  Immich   |
@@ -53,21 +50,20 @@
 |  🟢  |        Jellyfin         |           https://jellyfin.org/           | 自由软件媒体系统                                                             |           |
 |  🟢  |        LinkDing         | https://github.com/sissbruecker/linkding/ | 自托管书签管理器                                                             |           |
 |  🟢  |          MinIO          |              https://min.io/              | MinIO 是一种高性能、兼容 S3 的对象存储                                             |           |
+|  🟢  |       MoviePilot        |   https://github.com/jxxghp/MoviePilot/   | NAS媒体库自动化管理工具                                                        |           |
 |  🟢  |          MySQL          |          https://www.mysql.com/           | 关系数据库管理系统                                                            |   MySQL   |
 |  🟢  |         MariaDB         |           https://mariadb.org/            | 【MySQL分支】创新的开源数据库                                                    |   MySQL   |
 |  🟢  |         Percona         |         https://www.percona.com/          | 【MySQL分支】关系数据库管理系统                                                   |   MySQL   |
-|  🟢  |       MoviePilot        |   https://github.com/jxxghp/MoviePilot/   | NAS媒体库自动化管理工具                                                        |           |
 |  🟢  |          Nacos          |             https://nacos.io/             | 动态服务发现、配置管理和服务管理平台                                                   |           |
 |  🟢  |          NeZha          |             https://nacos.io/             | 【哪吒监控】开源、轻量、易用的服务器监控、运维工具                                            |           |
 |  🟢  |         OneDev          |            https://onedev.io/             | DevOps 平台、带有 CI/CD、看板和软件包的 Git 服务器                                   |           |
 |  🔴  |         OutLine         |        https://www.getoutline.com/        | 快速、协作的团队知识库                                                          |           |
 |  🟢  |       PostgreSQL        |        https://www.postgresql.org/        | 世界上最先进的开源关系数据库                                                       |           |
 |  🟢  |       qBittorrent       |       https://www.qbittorrent.org/        | qBittorrent 比特流客户端                                                   |           |
-|  🟢  |        QingLong         |    https://github.com/whyour/qinglong/    | 【青龙面板】支持 Python3、JavaScript、Shell、Typescript 的定时任务管理平台               |           |
+|  🟢  |        QingLong         |    https://github.com/whyour/qinglong/    | 【青龙】支持 Python3、JavaScript、Shell、Typescript 的定时任务管理平台                 |           |
 |  🟢  |          Redis          |             https://redis.io/             | 从世界上最快的内存数据库创建者那里获取该数据库                                              |           |
 |  🔴  |        Sentinel         |         https://sentinelguard.io/         | 面向分布式、多语言异构化服务架构的流量治理组件                                              |           |
-|  🔴  |         SFTPGo          |            https://sftpgo.com/            | 功能齐全、高度可配置的 SFTP、HTTP/S、FTP/S 和 WebDAV 服务器                           |           |
-|  🟢  |         SiYuan          |         https://b3log.org/siyuan/         | 一款隐私优先、自托管、完全开源的个人知识管理软件                                             |           |
+|  🟢  |         SiYuan          |         https://b3log.org/siyuan/         | 【思源笔记】一款隐私优先、自托管、完全开源的个人知识管理软件                                       |           |
 |  🟢  |        SpeedTest        |        https://www.speedtest.net/         | 互联网速度测试                                                              | SpeedTest |
 |  🔴  |    SpeedTest-Tracker    |    https://docs.speedtest-tracker.dev/    | Speedtest Tracker 是一款自托管互联网性能跟踪应用程序，可针对 Ookla 的 Speedtest 服务运行速度测试检查 |           |
 |  🟢  |       Stream-Rec        |   https://github.com/hua0512/stream-rec   | Stream-rec是一个用于各种流媒体服务的自动流媒体录制工具                                     |           |
@@ -75,8 +71,7 @@
 |  🟢  |       Uptime Kuma       |         https://uptime.kuma.pet/          | 自托管监控工具                                                              |           |
 |  🟢  |          Umami          |             https://umami.is/             | 为速度和效率而构建的网站分析                                                       |           |
 |  🔴  |          Yarr           |      https://github.com/nkanaev/yarr      | Rss 阅读器                                                              |           |
-|  🔴  |        ZeroTier         |         https://www.zerotier.com/         | ZeroTier 可让您构建几乎任何类型的现代化安全多点虚拟化网络                                    | ZeroTier  |
-|  🔴  |         Ztncui          |         https://www.zerotier.com/         | 【自建服务端】ZeroTier 可让您构建几乎任何类型的现代化安全多点虚拟化网络                             | ZeroTier  |
+|  🟢  |         Ztncui          |         https://www.zerotier.com/         | 【自建服务端】ZeroTier 可让您构建几乎任何类型的现代化安全多点虚拟化网络                             | ZeroTier  |
 
 > 说明：
 >

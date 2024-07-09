@@ -2,6 +2,10 @@
 
 包含 ZeroTier One 和 ztncui 的 Docker 映像，用于在容器中设置具有 Web 用户界面的独立 ZeroTier 网络控制器。
 
+![ztncui](https://docs.zerotier.com/assets/images/integrating-gateway-f59b544e1196b304d4fc502a64b19e27.png)
+
+## 简介
+
 ZeroTier 这一类 P2P VPN 是在互联网的基础上将自己的所有设备组成一个私有的网络，可以理解为互联网连接的局域网。最常见的场景就是在公司可以用手机直接访问家里的
 NAS，而且是点对点直连，数据传输并不经由第三方服务器中转。
 
@@ -18,3 +22,7 @@ PLANET ：行星服务器，Zerotier 根服务器
 MOON ：卫星服务器，用户自建的私有根服务器，起到代理加速的作用
 
 LEAF ：网络客户端，就是每台连接到网络节点。
+
+## 安装说明
+
+> 默认用户名：`admin`
