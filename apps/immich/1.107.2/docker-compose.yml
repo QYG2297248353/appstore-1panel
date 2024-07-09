@@ -44,7 +44,7 @@ services:
     ports:
       - ${PANEL_APP_PORT_MACHINE_LEARNING}:3003
     env_file:
-      - .env
+      - ./.env
 
   immich-server:
     depends_on:
@@ -64,4 +64,4 @@ services:
     ports:
       - ${PANEL_APP_PORT_HTTP}:3001
     env_file:
-      - .env
+      - ./.env

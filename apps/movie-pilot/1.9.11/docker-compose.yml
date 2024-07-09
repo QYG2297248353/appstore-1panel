@@ -43,4 +43,4 @@ services:
         max-size: 5m
     env_file:
       - ./data/moviepilot.env
-      - .env
+      - ./.env

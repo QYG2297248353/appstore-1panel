@@ -20,4 +20,4 @@ services:
     ports:
       - ${PANEL_APP_PORT_HTTP}:3003
     env_file:
-      - .env
+      - ./.env

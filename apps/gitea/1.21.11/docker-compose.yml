@@ -26,7 +26,7 @@ services:
       - GITEA__database__USER=${PANEL_DB_USER}
       - GITEA__database__PASSWD=${PANEL_DB_USER_PASSWORD}
     env_file:
-      - .env
+      - ./.env
     volumes:
       - ${GITEA_ROOT_PATH}/data:/data
       - /etc/timezone:/etc/timezone:ro

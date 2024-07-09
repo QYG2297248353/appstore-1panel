@@ -18,4 +18,4 @@ services:
     environment:
       - PORT=${PANEL_APP_PORT_HTTP:-1188}
     env_file:
-      - .env
+      - ./.env

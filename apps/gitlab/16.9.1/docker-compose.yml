@@ -13,7 +13,7 @@ services:
     restart: always
     network_mode: ${NETWORK_MODE}
     env_file:
-      - .env
+      - ./.env
     hostname: '127.0.0.1'
     environment:
       GITLAB_ROOT_PASSWORD: ${GITLAB_ROOT_PASSWORD}
