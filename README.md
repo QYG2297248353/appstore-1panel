@@ -41,7 +41,8 @@
 |  🔴  |         Kibana          |      https://www.elastic.co/kibana/       | Kibana 针对大规模数据快速运行数据分析                                               |  Elastic  |
 |  🟢  |          Emby           |            https://emby.media/            | Emby Server 是一款个人媒体服务器，可在几乎所有设备上运行应用程序                               |           |
 |  🟢  |      Emby-lovechen      |            https://emby.media/            | 【开心版】Emby Server 是一款个人媒体服务器，可在几乎所有设备上运行应用程序                          |           |
-|  🔴  |          Gitea          |             https://gitea.io/             | 私有、快速、可靠的 DevOps 平台                                                  |           |
+|  🟢  |          Gitea          |             https://gitea.io/             | 私有、快速、可靠的 DevOps 平台                                                  |   Gitea   |
+|  🟢  |      Gitea Runner       |             https://gitea.io/             | 【Runner】私有、快速、可靠的 DevOps 平台                                          |   Gitea   |
 |  🟢  |          Halo           |             https://halo.run/             | 强大易用的开源建站工具                                                          |           |
 |  🟢  |         Immich          |            https://immich.app/            | 【完整版本】高性能自托管照片和视频管理解决方案                                              |  Immich   |
 |  🟢  |      Immich-Server      |            https://immich.app/            | 【主服务模块】高性能自托管照片和视频管理解决方案                                             |  Immich   |

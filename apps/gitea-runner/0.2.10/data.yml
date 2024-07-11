@@ -1,0 +1,37 @@
+additionalProperties:
+  formFields:
+    - default: "/home/gitea"
+      edit: true
+      envKey: GITEA_RUNNER_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: GITEA_INSTANCE_URL
+      labelZh: Gitea 实例 URL
+      labelEn: Gitea instance URL
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: GITEA_RUNNER_REGISTRATION_TOKEN
+      labelZh: 注册令牌
+      labelEn: Registration token
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: GITEA_RUNNER_NAME
+      labelZh: Runner 名称
+      labelEn: Runner name
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: GITEA_RUNNER_LABELS
+      labelZh: Runner 标签
+      labelEn: Runner labels
+      required: true
+      type: text

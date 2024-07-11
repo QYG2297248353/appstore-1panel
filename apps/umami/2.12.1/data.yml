@@ -74,7 +74,7 @@ additionalProperties:
     - default: postgresql
       edit: true
       envKey: DATABASE_TYPE
-      labelZh: 数据库类型选择
+      labelZh: 数据库 类型
       labelEn: Database Type
       required: true
       type: select
@@ -109,7 +109,7 @@ additionalProperties:
       edit: true
       envKey: DB_PASSWORD
       labelEn: Database Password
-      labelZh: 数据库连接密码
+      labelZh: 数据库 密码
       random: true
       required: true
       rule: paramComplexity
