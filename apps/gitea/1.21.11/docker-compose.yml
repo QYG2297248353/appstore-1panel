@@ -24,6 +24,6 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     environment:
-      - USER_UID=0
-      - USER_GID=0
+      - USER_UID=1000
+      - USER_GID=1000
       - DB_HOST=${DB_HOSTNAME}:${DB_PORT}
