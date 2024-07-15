@@ -67,7 +67,7 @@ additionalProperties:
     - default: ""
       edit: true
       envKey: CDN_URL
-      labelZh: 域名
+      labelZh: CDN 域名
       labelEn: CDN Domain
       required: false
       type: text
@@ -256,13 +256,6 @@ additionalProperties:
       labelEn: GitHub Client Secret (GitHub Integration)
       required: false
       type: password
-    - default: ""
-      edit: true
-      envKey: GITHUB_CLIENT_ID
-      labelZh: GitHub 客户端 ID (GitHub 集成)
-      labelEn: GitHub Client ID (GitHub Integration)
-      required: false
-      type: text
     - default: ""
       edit: true
       envKey: GITHUB_APP_NAME
