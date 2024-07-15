@@ -49,14 +49,14 @@ additionalProperties:
       labelZh: 加密密钥
       labelEn: Secret Key
       required: true
-      type: text
+      type: password
     - default: "b2be1c54acbfe6d965bda01e63195cc815e4743a6fb5ba5f82eae916d98989b5"
       edit: true
       envKey: UTILS_SECRET
       labelZh: 工具密钥
       labelEn: Utils Secret
       required: true
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: URL
