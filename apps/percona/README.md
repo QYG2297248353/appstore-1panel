@@ -2,7 +2,7 @@
 
 Percona Server for MySQL
 
-![Percona](https://github.com/percona/percona-server/blob/8.0/doc/source/percona-server-logo.jpg)
+![Percona](https://file.lifebus.top/imgs/percona_logo.jpg)
 
 ## 简介
 

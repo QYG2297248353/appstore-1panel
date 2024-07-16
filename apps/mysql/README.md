@@ -1,6 +1,6 @@
 # MySQL
 
-![MySQL](https://upload.wikimedia.org/wikipedia/zh/6/62/MySQL.svg)
+![MySQL](https://file.lifebus.top/imgs/mysql_logo.svg)
 
 MySQL 是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于Oracle 公司。
 

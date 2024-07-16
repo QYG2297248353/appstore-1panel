@@ -4,7 +4,7 @@ MariaDB 服务器是社区开发的 MySQL 服务器分支。
 
 MariaDB 由原始 MySQL 团队的核心成员发起，积极与外部开发人员合作，提供业界功能最丰富、最稳定且许可合理的开放 SQL 服务器。
 
-![MariaDB](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/MariaDB_colour_logo.svg/1200px-MariaDB_colour_logo.svg.png)
+![MariaDB](https://file.lifebus.top/imgs/mariadb_logo.png)
 
 ## 简介
 
