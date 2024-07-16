@@ -37,20 +37,6 @@ additionalProperties:
       required: true
       rule: paramPort
       type: number
-    - default: "/dev/dri"
-      edit: true
-      envKey: IMMICH_DRIVE_PATH
-      labelZh: 硬件驱动路径
-      labelEn: Drive path
-      required: true
-      type: text
-    - default: "Asia/Shanghai"
-      edit: true
-      envKey: TZ
-      labelZh: 时区
-      labelEn: Timezone
-      required: true
-      type: text
     - default: ""
       edit: true
       envKey: DB_PASSWORD

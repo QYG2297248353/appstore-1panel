@@ -2,7 +2,7 @@
 
 Immich - 高性能自托管照片和视频备份解决方案
 
-![Immich](https://immich.app/assets/images/feature-panel-e29ae95e6015f5c3c7328bef6aa7682c.png)
+![Immich](https://file.lifebus.top/imgs/immich_cover.png)
 
 ## 简介
 
