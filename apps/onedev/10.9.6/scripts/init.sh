@@ -3,7 +3,8 @@
 if [ -f .env ]; then
   source ./.env
 
-  cp ./config/onedev.dev ${ONEDEV_ROOT_PATH}/config/onedev.dev
+  # setup-1 add default values
+  echo "ENV_FILE=.env" >> .env
 
   echo "Check Finish."
 

@@ -1,5 +1,23 @@
 # 1Panel 第三方应用商店
 
+> # 2024年07月16日 公告
+>
+> 为了解决应用安装问题，我们将在近期发布新的应用安装脚本，敬请期待！
+>
+> 具体上线应用，可以参考下方应用列表状态标识。
+>
+> 通过固定环境变量文件，解决应用安装问题，不再需要手动创建 `.env` 文件。
+>
+> 对于 `FIT2CLOUD 飞致云` 旗下开源产品 `1Panel` 经过多次商讨，依旧无法将原有问题解决。迫于无奈，这次我们采用迂回战术，通过固定环境变量文件的方式解决问题。
+>
+> 因此提高了维护成本，但相比于用户体验，我们认为这是值得的。简洁的 `docker-compose.yml` 才是我们的目标。
+>
+> 后续接入 `Dockge` 应用，将会迎来新的安装方式，敬请期待！
+>
+> 新老用户均可使用新的安装方式，升级或安装自动化脚本，无需卸载原有安装脚本。
+>
+> 由于结构变化，我们建议您，完全卸载应用后重新安装，以免出现问题。
+>
 > # 2024年06月14日 公告
 > 由于 1Panel 的升级，自版本 `v1.10.10-lts` 开始，所有应用均已停止更新！
 >
@@ -57,7 +75,7 @@
 |  🔴  |         Percona         |         https://www.percona.com/          | 【MySQL分支】关系数据库管理系统                                                   |   MySQL   |
 |  🔴  |          Nacos          |             https://nacos.io/             | 动态服务发现、配置管理和服务管理平台                                                   |           |
 |  🔴  |          NeZha          |             https://nacos.io/             | 【哪吒监控】开源、轻量、易用的服务器监控、运维工具                                            |           |
-|  🔴  |         OneDev          |            https://onedev.io/             | DevOps 平台、带有 CI/CD、看板和软件包的 Git 服务器                                   |           |
+|  🟢  |         OneDev          |            https://onedev.io/             | DevOps 平台、带有 CI/CD、看板和软件包的 Git 服务器                                   |           |
 |  🟢  |         OutLine         |        https://www.getoutline.com/        | 快速、协作的团队知识库                                                          |           |
 |  🔴  |       PostgreSQL        |        https://www.postgresql.org/        | 世界上最先进的开源关系数据库                                                       |           |
 |  🔴  |       qBittorrent       |       https://www.qbittorrent.org/        | qBittorrent 比特流客户端                                                   |           |
@@ -89,7 +107,7 @@
 
 ### 方案一：自动化安装
 
-如果您不想每次都手动执行命令，可以使用一键式安装。
+如果您不想每次都手动执行命令，可以使用一键式安装。我们优先推荐此方式。
 
 ```shell
 curl -sSL https://install.lifebus.top/auto_install.sh | bash

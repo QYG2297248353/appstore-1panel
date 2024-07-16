@@ -20,7 +20,9 @@ services:
       - ${ONEDEV_ROOT_PATH}/data:/opt/onedev
       - /var/run/docker.sock:/var/run/docker.sock
     env_file:
-      - ${ONEDEV_ROOT_PATH}/config/onedev.env
+      - /etc/1panel/envs/global.env
+      - /etc/1panel/envs/onedev/onedev.env
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
     environment:
       - initial_user=${INITIAL_USER}
       - initial_password=${INITIAL_PASSWORD}

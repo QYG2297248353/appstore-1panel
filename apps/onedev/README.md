@@ -2,7 +2,7 @@
 
 DevOps 平台
 
-![OneDev](https://onedev.io/img/screenshot.png)
+![OneDev](https://file.lifebus.top/imgs/onedev_cover.png)
 
 ## 简介
 
