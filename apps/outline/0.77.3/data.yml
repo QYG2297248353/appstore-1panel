@@ -57,12 +57,13 @@ additionalProperties:
       labelEn: Utils Secret
       required: true
       type: password
-    - default: ""
+    - default: "http://127.0.0.1:3000"
       edit: true
       envKey: URL
       labelZh: 域名
       labelEn: Domain
-      required: false
+      required: true
+      rule: paramExtUrl
       type: text
     - default: ""
       edit: true
@@ -71,12 +72,13 @@ additionalProperties:
       labelEn: CDN Domain
       required: false
       type: text
-    - default: ""
+    - default: "https://iframe.ly/api/iframely"
       edit: true
       envKey: IFRAMELY_URL
       labelZh: iFramely 地址
       labelEn: iFramely URL
-      required: false
+      required: true
+      rule: paramExtUrl
       type: text
     - default: ""
       edit: true
