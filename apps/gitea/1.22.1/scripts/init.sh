@@ -3,6 +3,9 @@
 if [ -f .env ]; then
   source ./.env
 
+  # setup-1
+  echo "ENV_FILE=.env" >> .env
+
   echo "Check Finish."
 
 else

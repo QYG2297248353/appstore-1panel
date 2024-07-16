@@ -17,8 +17,9 @@ services:
       - ${PANEL_APP_PORT_HTTP}:3000
       - ${PANEL_APP_PORT_SSH}:22
     env_file:
-      - ./config/gitea.env
-      - ./.env
+      - /etc/1panel/envs/global.env
+      - /etc/1panel/envs/gitea/gitea.env
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
     volumes:
       - ${GITEA_ROOT_PATH}/data:/data
       - /etc/timezone:/etc/timezone:ro
