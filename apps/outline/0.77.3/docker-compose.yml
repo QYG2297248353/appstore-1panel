@@ -18,7 +18,8 @@ services:
     volumes:
       - ${OUTLINE_ROOT_PATH}/data:/var/lib/outline/data
     env_file:
-      - ${PANEL_APP_LOCAL_DIR}/outline/env/outline.env
+      - /etc/1panel/envs/outline/outline.env
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
     environment:
       - DATABASE_URL=postgres://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOSTNAME}:${DB_PORT}/${DB_DATABASE_NAME}
       - REDIS_URL=${REDIS_URL}

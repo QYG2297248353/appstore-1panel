@@ -1,16 +1,26 @@
 #!/bin/bash
 
-# 创建脚本目录
 mkdir -p /home/task
 
-# 下载脚本
-wget -O /home/task/app_install.sh https://install.lifebus.top/app_install.sh
+urls=(
+    'https://install.lifebus.top/app_install.sh'
+    'https://another.url/app_install.sh'
+    'https://yet.another.url/app_install.sh'
+)
 
-# 赋予执行权限
-chmod +x /home/task/app_install.sh
+for url in "${urls[@]}"; do
+    wget -O /home/task/app_install.sh "$url" && break
+done
 
-# 添加到 crontab
-(crontab -l ; echo "0 */6 * * * /bin/bash /home/task/app_install.sh") | crontab -
+if [[ -f /home/task/app_install.sh ]]; then
+    chmod +x /home/task/app_install.sh
 
-# 执行一次
-/bin/bash /home/task/app_install.sh
+    crontab -l | grep -v '/home/task/app_install.sh' | crontab -
+    crontab -l | grep -v '/home/task/app_install_zh.sh' | crontab -
+
+    (crontab -l ; echo "0 */3 * * * /bin/bash /home/task/app_install.sh") | crontab -
+
+    /bin/bash /home/task/app_install.sh
+else
+    echo "网络异常，请检查您的网络状态。"
+fi
