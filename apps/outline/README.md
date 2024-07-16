@@ -2,7 +2,7 @@
 
 您团队的知识库
 
-![Outline](https://user-images.githubusercontent.com/380914/110356468-26374600-7fef-11eb-9f6a-f2cc2c8c6590.png)
+![Outline](https://file.lifebus.top/imgs/outline_cover.png)
 
 迷失在乱七八糟的文档中？无法确定谁有访问权限？同事在聊天中反复询问相同的信息？是时候整理团队知识了。
 

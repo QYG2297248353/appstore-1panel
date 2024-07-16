@@ -2,7 +2,7 @@
 
 Gitea 是一个轻量级的 DevOps 平台软件。
 
-![Gitea](https://about.gitea.com/img/home-screenshot.png)
+![Gitea](https://file.lifebus.top/imgs/gitea_cover_show.png)
 
 Gitea 是一个轻量级的 DevOps 平台软件。从开发计划到产品成型的整个软件生命周期，他都能够高效而轻松的帮助团队和开发者。包括
 Git 托管、代码审查、团队协作、软件包注册和 CI/CD。它与 GitHub、Bitbucket 和 GitLab 等比较类似。 Gitea 最初是从 Gogs
