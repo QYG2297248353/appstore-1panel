@@ -24,5 +24,5 @@ services:
     environment:
       - DATABASE_URL=postgres://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOSTNAME}:${DB_PORT}/${DB_DATABASE_NAME}
       - REDIS_URL=${REDIS_URL}
-      - ${IFRAMELY_URL:-IFRAMELY_URL_EXAMPLE}
-      - ${IFRAMELY_API_KEY:-IFRAMELY_API_KEY_EXAMPLE}
+      - ${IFRAMELY_URL:-unknown_1}:${IFRAMELY_URL:-unknown_1}
+      - ${IFRAMELY_API_KEY:-unknown_2}:${IFRAMELY_API_KEY:-unknown_2}
