@@ -31,6 +31,7 @@ echo "$(date): Step 1 - Cloning repository..."
 repos=(
     'https://github.com/QYG2297248353/appstore-1panel'
     'https://gitee.com/qyg2297248353/appstore-1panel'
+    'https://gitea.com/QYG2297248353/appstore-1panel'
 )
 
 for repo in "${repos[@]}"; do
