@@ -1,6 +1,6 @@
 # 思源笔记
 
-![思源笔记](https://b3log.org/siyuan/static/feature0.png)
+![思源笔记](https://file.lifebus.top/imgs/siyuan_b3log_cover.png)
 
 ## 简介
 

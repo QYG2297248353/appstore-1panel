@@ -14,11 +14,12 @@ services:
     networks:
       - 1panel-network
     command: [ '--workspace=/siyuan/workspace/', '--accessAuthCode=${AuthCode}' ]
-    user: ${UID:-1000}:${GID:-1000}
+    user: 1000:1000
     ports:
       - ${PANEL_APP_PORT_HTTP}:6806
+    env_file:
+      - /etc/1panel/envs/global.env
     volumes:
       - ${SIYUAN_ROOT_PATH}/workspace:/siyuan/workspace
     environment:
-      - TZ=${Timezone:-Asia/Shanghai}
       - RUN_IN_CONTAINER=true
