@@ -4,7 +4,8 @@ if [ -f .env ]; then
   source .env
 
   # setup-1 add default values
-  echo "ENV_FILE=.env" >> .env
+  CURRENT_DIR=$(pwd)
+  echo "ENV_FILE=${CURRENT_DIR}/.env" >> .env
 
   # setup-2 remove empty values
   sed -i '/^.*=""/d' .env

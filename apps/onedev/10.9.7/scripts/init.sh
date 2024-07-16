@@ -1,10 +1,11 @@
 #!/bin/bash
 
 if [ -f .env ]; then
-  source ./.env
+  source .env
 
   # setup-1 add default values
-  echo "ENV_FILE=.env" >> .env
+  CURRENT_DIR=$(pwd)
+  echo "ENV_FILE=${CURRENT_DIR}/.env" >> .env
 
   echo "Check Finish."
 
