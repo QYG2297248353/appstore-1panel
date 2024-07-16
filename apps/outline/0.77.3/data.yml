@@ -218,13 +218,6 @@ additionalProperties:
       type: password
     - default: ""
       edit: true
-      envKey: SMTP_PASSWORD
-      labelZh: SMTP 密码
-      labelEn: SMTP Password
-      required: false
-      type: password
-    - default: ""
-      edit: true
       envKey: SMTP_FROM_EMAIL
       labelZh: SMTP 发件人
       labelEn: SMTP From Email
