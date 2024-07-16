@@ -1,4 +1,4 @@
-# 1Panel 应用商店
+# 1Panel 第三方应用商店
 
 > # 2024年06月14日 公告
 > 由于 1Panel 的升级，自版本 `v1.10.10-lts` 开始，所有应用均已停止更新！
@@ -92,14 +92,22 @@
 如果您不想每次都手动执行命令，可以使用一键式安装。
 
 ```shell
-curl -sSL https://install.lifebus.top/auto_app_install.sh | bash
+curl -sSL https://install.lifebus.top/auto_install.sh | bash
 ```
 
-> 卸载自动化脚本
+> 卸载自动化脚本 (不会卸载应用)
 
 ```shell
-curl -sSL https://install.lifebus.top/auto_app_uninstall.sh | bash
+curl -sSL https://install.lifebus.top/auto_uninstall.sh | bash
 ```
+
+如需卸载应用列表，您可以手动删除以下目录：
+
++ 应用目录：`${1panel应用目录}/resource/apps/local`
+
++ 应用公共文件目录：`/etc/1panel/envs`
+
++ 应用数据目录：`${应用持久化目录}`
 
 ### 方案二：手动安装
 
@@ -118,89 +126,22 @@ curl -sSL https://install.lifebus.top/app_install.sh | bash
 ```shell
 #!/bin/bash
 
-# 定义脚本URL
 script_url="https://install.lifebus.top/app_install.sh"
 
-# 执行脚本
 echo "Downloading and executing script from $script_url..."
 bash <(curl -sL "$script_url")
 
-# 输出执行结果
 echo "Script execution completed."
-
 ```
 
-+ Tip 如果你只看到两行命令,说明执行失败
+#### 配置脚本网络代理
 
 ```sh
-Downloading and executing script from https://install.lifebus.top/app_install.sh...
-Script execution completed.
-```
-
-+ 给脚本配置网络代理 （插入到定义脚本URL之前即可）
-
-```sh
-# 定义代理服务器地址和端口
+proxy_protocols="http"
 proxy_server="server address"
 proxy_port="server port"
-# 设置网络代理
-export http_proxy="http://$proxy_server:$proxy_port"
-export https_proxy="http://$proxy_server:$proxy_port"
-```
-
-> 当前使用 `http` 代理，如果你的代理服务器是 `socks5` 请修改 `http_proxy` 和 `https_proxy` 为 `socks5` 协议
-
-## 特别安装：中国特供版安装
-
-同步周期较长，请耐心等待。
-
-> 备用脚本地址：
->
-> `https://install.lifebus.top/app_install_zh.sh`
->
-> `https://f.lifebus.top/public/shell/1Panel/install_zh.sh`
-
-### 特别安装之自动化安装
-
-如果您不想每次都手动执行命令，可以使用一键式安装。
-
-```shell
-curl -sSL https://install.lifebus.top/auto_app_install_zh.sh | bash
-```
-
-> 卸载自动化脚本
-
-```shell
-curl -sSL https://install.lifebus.top/auto_app_uninstall_zh.sh | bash
-```
-
-### 特别安装之手动安装
-
-应用的升级与更新均需要重新执行安装脚本。
-
-#### 手动执行安装脚本
-
-```shell
-curl -sSL https://install.lifebus.top/app_install_zh.sh | bash
-```
-
-### 特别安装之计划任务模式
-
-将内容写入Shell计划任务中，设定定期执行。
-
-```shell
-#!/bin/bash
-
-# 定义脚本URL
-script_url="https://install.lifebus.top/app_install_zh.sh"
-
-# 执行脚本
-echo "Downloading and executing script from $script_url..."
-bash <(curl -sL "$script_url")
-
-# 输出执行结果
-echo "Script execution completed."
-
+export http_proxy="$proxy_protocols://$proxy_server:$proxy_port"
+export https_proxy="$proxy_protocols://$proxy_server:$proxy_port"
 ```
 
 ## 常见问题

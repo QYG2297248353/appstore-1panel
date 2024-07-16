@@ -4,8 +4,7 @@ mkdir -p /home/task
 
 urls=(
     'https://install.lifebus.top/app_install.sh'
-    'https://another.url/app_install.sh'
-    'https://yet.another.url/app_install.sh'
+    'https://github.com/QYG2297248353/appstore-1panel/releases/download/install/app_install.sh'
 )
 
 for url in "${urls[@]}"; do
