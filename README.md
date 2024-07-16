@@ -69,7 +69,7 @@
 |  🔴  |        Jellyfin         |           https://jellyfin.org/           | 自由软件媒体系统                                                             |           |
 |  🔴  |        LinkDing         | https://github.com/sissbruecker/linkding/ | 自托管书签管理器                                                             |           |
 |  🔴  |          MinIO          |              https://min.io/              | MinIO 是一种高性能、兼容 S3 的对象存储                                             |           |
-|  🔴  |       MoviePilot        |   https://github.com/jxxghp/MoviePilot/   | NAS媒体库自动化管理工具                                                        |           |
+|  🟢  |       MoviePilot        |   https://github.com/jxxghp/MoviePilot/   | NAS媒体库自动化管理工具                                                        |           |
 |  🔴  |          MySQL          |          https://www.mysql.com/           | 关系数据库管理系统                                                            |   MySQL   |
 |  🔴  |         MariaDB         |           https://mariadb.org/            | 【MySQL分支】创新的开源数据库                                                    |   MySQL   |
 |  🔴  |         Percona         |         https://www.percona.com/          | 【MySQL分支】关系数据库管理系统                                                   |   MySQL   |

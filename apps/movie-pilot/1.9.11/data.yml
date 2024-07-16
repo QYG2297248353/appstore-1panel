@@ -100,7 +100,7 @@ additionalProperties:
       labelEn: IYUU Sign
       labelZh: IYUU登录令牌
       required: false
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: HHCLUB_USERNAME
@@ -114,7 +114,7 @@ additionalProperties:
       labelZh: hhclub 密钥
       labelEn: hhclub passkay
       required: false
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: AUDIENCES_UID
@@ -128,7 +128,7 @@ additionalProperties:
       labelZh: audiences 密钥
       labelEn: audiences passkay
       required: false
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: HDDOLBY_ID
@@ -142,7 +142,7 @@ additionalProperties:
       labelZh: hddolby 密钥
       labelEn: hddolby passkay
       required: false
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: ZMPT_UID
@@ -156,7 +156,7 @@ additionalProperties:
       labelZh: zmpt 密钥
       labelEn: zmpt passkay
       required: false
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: FREEFARM_UID
@@ -170,7 +170,7 @@ additionalProperties:
       labelZh: freefarm 密钥
       labelEn: freefarm passkay
       required: false
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: HDFANS_UID
@@ -184,7 +184,7 @@ additionalProperties:
       labelZh: hdfans 密钥
       labelEn: hdfans passkay
       required: false
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: WINTERSAKURA_UID
@@ -198,7 +198,7 @@ additionalProperties:
       labelZh: wintersakura 密钥
       labelEn: wintersakura passkay
       required: false
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: LEAVES_UID
@@ -212,7 +212,7 @@ additionalProperties:
       labelZh: leaves 密钥
       labelEn: leaves passkay
       required: false
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: PTBA_UID
@@ -226,7 +226,7 @@ additionalProperties:
       labelZh: ptba 密钥
       labelEn: ptba passkay
       required: false
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: ICC2022_UID
@@ -240,7 +240,7 @@ additionalProperties:
       labelZh: icc2022 密钥
       labelEn: icc2022 passkay
       required: false
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: XINGTAN_UID
@@ -254,7 +254,7 @@ additionalProperties:
       labelZh: xingtan 密钥
       labelEn: xingtan passkay
       required: false
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: PTVICOMO_UID
@@ -268,7 +268,7 @@ additionalProperties:
       labelZh: ptvicomo 密钥
       labelEn: ptvicomo passkay
       required: false
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: AGSVPT_UID
@@ -282,7 +282,7 @@ additionalProperties:
       labelZh: agsvpt 密钥
       labelEn: agsvpt passkay
       required: false
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: HDKYL_UID
@@ -296,7 +296,7 @@ additionalProperties:
       labelZh: hdkyl 密钥
       labelEn: hdkyl passkay
       required: false
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: QINGWA_UID
@@ -310,7 +310,7 @@ additionalProperties:
       labelZh: qingwa 密钥
       labelEn: qingwa passkay
       required: false
-      type: text
+      type: password
     - default: ""
       edit: true
       envKey: DISCFAN_UID
@@ -324,4 +324,18 @@ additionalProperties:
       labelZh: discfan 密钥
       labelEn: discfan passkay
       required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: ROUSI_UID
+      labelZh: rousi 用户ID
+      labelEn: rousi username
+      required: false
       type: text
+    - default: ""
+      edit: true
+      envKey: ROUSI_PASSKEY
+      labelZh: rousi 密钥
+      labelEn: rousi passkay
+      required: false
+      type: password

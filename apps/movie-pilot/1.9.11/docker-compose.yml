@@ -16,8 +16,12 @@ services:
     ports:
       - ${PANEL_APP_PORT_HTTP}:3000
       - ${PANEL_APP_PORT_API}:3001
+    env_file:
+      - /etc/1panel/envs/global.env
+      - /etc/1panel/envs/moviepilot/moviepilot.env
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
     volumes:
-      - ${DOCKER_SOCKET:-/var/run/docker.sock}:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock
       - ${MOVIEPILOT_ROOT_PATH}/config:/config
       - ${MOVIEPILOT_ROOT_PATH}/moviepilot:/moviepilot
       - ${MOVIEPILOT_ROOT_PATH}/download:/download
@@ -25,18 +29,11 @@ services:
       - ${CUSTOM_MOUNT_DIRECTORY_2:-./default_mount_2}:${CUSTOM_MOUNT_DIRECTORY_2:-/default_mount_2}
       - ${CUSTOM_MOUNT_DIRECTORY_3:-./default_mount_3}:${CUSTOM_MOUNT_DIRECTORY_3:-/default_mount_3}
     environment:
-      - TZ=Asia/Shanghai
       - NGINX_PORT=3000
       - PORT=3001
-      - PUID=${PUID:-0}
-      - PGID=${PGID:-0}
-      - UMASK=${UMASK:-022}
-      - PROXY_HOST=${PROXY_HOST:-}
-      - MOVIEPILOT_AUTO_UPDATE=${MOVIEPILOT_AUTO_UPDATE:-false}
-      - SUPERUSER=${SUPERUSER:-admin}
-      - API_TOKEN=${API_TOKEN:-moviepilot}
-      - AUTO_UPDATE_RESOURCES=${AUTO_UPDATE_RESOURCES:-false}
-      - IYUU_SIGN=${IYUU_SIGN:-}
+      - PUID=0
+      - PGID=0
+      - UMASK=022
     logging:
       driver: json-file
       options:
