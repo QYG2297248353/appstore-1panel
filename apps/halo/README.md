@@ -4,7 +4,7 @@
 
 配合上丰富的模板与插件，帮助你构建你心中的理想站点。
 
-![Halo](https://www.halo.run/upload/dashboard-2023-12-03.png)
+![Halo](https://file.lifebus.top/imgs/halo_cover.png)
 
 ## 简介
 
