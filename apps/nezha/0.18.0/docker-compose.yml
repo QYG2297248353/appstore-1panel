@@ -14,8 +14,8 @@ services:
     networks:
       - 1panel-network
     ports:
-      - ${PANEL_APP_PORT_HTTP:-8008}:80
-      - ${PANEL_APP_PORT_GRPC:-5555}:${PANEL_APP_PORT_GRPC:-5555}
+      - ${PANEL_APP_PORT_HTTP}:80
+      - ${PANEL_APP_PORT_GRPC}:${PANEL_APP_PORT_GRPC}
     volumes:
       - ${NEZHA_ROOT_PATH}/data:/dashboard/data
       - ${NEZHA_ROOT_PATH}/static-custom/static:/dashboard/resource/static/custom

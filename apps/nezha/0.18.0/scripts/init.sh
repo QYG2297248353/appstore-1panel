@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [[ -f ./.env ]]; then
-  source ./.env
+if [[ -f .env ]]; then
+  source .env
 
   mkdir -p $NEZHA_ROOT_PATH
   mkdir -p $NEZHA_ROOT_PATH/data

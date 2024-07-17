@@ -2,9 +2,11 @@
 
 开源、轻量、易用的服务器监控、运维工具
 
-![哪吒监控](https://raw.githubusercontent.com/naiba/nezha/master/resource/static/brand.svg)
+![哪吒监控](https://file.lifebus.top/imgs/nezha_logo.svg)
 
 ## OAuth2 配置
+
+推荐使用 `Gitee` 或 `Gitea` 作为管理员账号登录，因为 `Github` 在中国大陆访问速度较慢。
 
 ### 获取 Github 的 Client ID 和密钥
 
@@ -15,7 +17,8 @@
     + 依次选择 “OAuth Apps” - “New OAuth App”
     + Application name - 随意填写
     + Homepage URL - 填写面板的访问域名，如："http://dashboard.example.com" （你的域名）
-    + Authorization callback URL - 填写回调地址，如："http://dashboard.example.com/oauth2/callback" （不要忘记/oauth2/callback）
+        + Authorization callback URL - 填写回调地址，如："http://dashboard.example.com/oauth2/callback"
+          （不要忘记/oauth2/callback）
 + 点击 “Register application”
 + 保存页面中的 Client ID，然后点击 “Generate a new client secret“，创建一个新的 Client Secret，新建的密钥仅会显示一次，请妥善保存
 
@@ -38,21 +41,22 @@
 
 ## 反向代理
 
+> Nginx
+
 ```nginx
-#PROXY-START/
-location / {
-    proxy_pass http://127.0.0.1:8008;
-    proxy_set_header Host $http_host;
-    proxy_set_header      Upgrade $http_upgrade;
-}
-location ~ ^/(ws|terminal/.+)$  {
-    proxy_pass http://127.0.0.1:8008;
-    proxy_http_version 1.1;
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection "Upgrade";
-    proxy_set_header Host $http_host;
-}
-#PROXY-END/
+  location / {
+      proxy_pass http://127.0.0.1:8008;
+      proxy_set_header Host $http_host;
+      proxy_set_header      Upgrade $http_upgrade;
+  }
+  
+  location ~ ^/(ws|terminal/.+)$  {
+      proxy_pass http://127.0.0.1:8008;
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection "Upgrade";
+      proxy_set_header Host $http_host;
+  }
 ```
 
 ## 关于 Agent 安装
@@ -76,3 +80,9 @@ Agent 是哪吒监控的数据采集工具，用于采集服务器的性能数�
 如需手动修改配置文件，可以在 `/home/nezha/data/config.yaml` 中修改 `ddns` 配置。
 
 其中 `/home/nezha` 为持久化路径，如果你的持久化路径不同，请自行替换。
+
+## 常见问题
+
++ 修改配置重建不生效
+
+请前往持久化目录下的 `data` 目录中的 `config.yaml` 修改配置后，然后重启容器
