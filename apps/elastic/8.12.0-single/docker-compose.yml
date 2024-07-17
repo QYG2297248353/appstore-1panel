@@ -7,7 +7,7 @@ networks:
 services:
   es-single-init:
     container_name: elastic-init
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.14.3
     networks:
       - 1panel-network
     volumes:
@@ -69,7 +69,7 @@ services:
         condition: service_healthy
     container_name: es-single-es01
     restart: always
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.14.3
     volumes:
       - ${ES_ROOT_PATH}/certs:/usr/share/elasticsearch/config/certs
       - ${ES_ROOT_PATH}/es01/data:/usr/share/elasticsearch/data
