@@ -1,0 +1,97 @@
+additionalProperties:
+  formFields:
+    - default: "host"
+      edit: true
+      envKey: NETWORK_MODE
+      labelZh: 网络模式
+      labelEn: Network Mode
+      required: true
+      type: select
+      values:
+        - label: 主机模式
+          value: "host"
+        - label: 桥接模式
+          value: "bridge"
+        - label: 无网络
+          value: "none"
+        - label: 1panel-network
+          value: "1panel-network"
+    - default: 9091
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 51413
+      edit: true
+      envKey: PANEL_APP_PORT_TORRENTING
+      labelZh: Torrenting 端口
+      labelEn: Torrenting Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "/home/transmission"
+      edit: true
+      envKey: TRANSMISSION_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: "admin"
+      edit: true
+      envKey: USER
+      labelZh: 用户名
+      labelEn: User
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: PASS
+      labelZh: 密码
+      labelEn: Password
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: TRANSMISSION_WEB_HOME
+      labelZh: 第三方 UI 文件夹
+      labelEn: Third-party UI folder
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: WHITELIST
+      labelZh: IP 白名单
+      labelEn: Whitelist
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: HOST_WHITELIST
+      labelZh: 主机白名单
+      labelEn: Host Whitelist
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_1
+      labelEn: Custom mount directory 1
+      labelZh: 自定义挂载目录 1
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_2
+      labelEn: Custom mount directory 2
+      labelZh: 自定义挂载目录 2
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_3
+      labelEn: Custom mount directory 3
+      labelZh: 自定义挂载目录 3
+      required: false
+      type: text

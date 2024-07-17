@@ -1,0 +1,18 @@
+name: Stream Rec
+title: 自动流媒体录制工具
+description: 自动流媒体录制工具
+additionalProperties:
+  key: stream-rec
+  name: Stream Rec
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: 自动流媒体录制工具
+  shortDescEn: Automatic streaming media recording tool
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/hua0512/stream-rec/
+  github: https://github.com/hua0512/stream-rec/
+  document: https://github.com/hua0512/stream-rec/

@@ -1,0 +1,100 @@
+additionalProperties:
+  formFields:
+    - default: "/home/speedtest"
+      edit: true
+      envKey: SPEED_TEST_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 2283
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "LibreSpeed"
+      edit: true
+      envKey: TITLE
+      labelZh: 网页标题
+      labelEn: Web title
+      required: true
+      type: text
+    - default: "false"
+      edit: true
+      envKey: TELEMETRY
+      labelZh: 启用遥测
+      labelEn: Enable telemetry
+      required: true
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+    - default: ""
+      edit: true
+      envKey: PASSWORD
+      labelZh: 访问密码 (开启遥测)
+      labelEn: Access password (Enable telemetry)
+      required: true
+      type: text
+    - default: "false"
+      edit: true
+      envKey: ENABLE_ID_OBFUSCATION
+      labelZh: ID 混淆 (开启遥测)
+      labelEn: ID obfuscation (Enable telemetry)
+      required: true
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: REDACT_IP_ADDRESSES
+      labelZh: 隐藏 IP 地址 (开启遥测)
+      labelEn: Hide IP addresses (Enable telemetry)
+      required: true
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+    - default: ""
+      edit: true
+      envKey: EMAIL
+      labelZh: 邮箱地址 (开启遥测)
+      labelEn: Email address (Enable telemetry)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: IPINFO_APIKEY
+      labelZh: ipinfo.io 的 API 密钥 (开启遥测)
+      labelEn: ipinfo.io API key (Enable telemetry)
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: DISABLE_IPINFO
+      labelZh: 禁用 ipinfo.io (开启遥测)
+      labelEn: Disable ipinfo.io (Enable telemetry)
+      required: true
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+    - default: "km"
+      edit: true
+      envKey: DISTANCE
+      labelZh: 距离单位 (km/mi)
+      labelEn: Distance unit (km/mi)
+      required: false
+      type: text

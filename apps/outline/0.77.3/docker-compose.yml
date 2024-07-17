@@ -1,0 +1,25 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  outline:
+    image: outlinewiki/outline:0.77.3
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3000
+    volumes:
+      - ${OUTLINE_ROOT_PATH}/data:/var/lib/outline/data
+    env_file:
+      - /etc/1panel/envs/global.env
+      - /etc/1panel/envs/outline/outline.env
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    environment:
+      - DATABASE_URL=postgres://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOSTNAME}:${DB_PORT}/${DB_DATABASE_NAME}

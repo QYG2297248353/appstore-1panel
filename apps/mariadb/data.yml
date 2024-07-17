@@ -1,0 +1,17 @@
+name: MariaDB
+title: 开源关系数据库管理系统
+description: 开源关系数据库管理系统
+additionalProperties:
+  key: mariadb
+  name: MariaDB
+  tags:
+    - Database
+    - Local
+  shortDescZh: 开源关系数据库管理系统
+  shortDescEn: Open source relational database management system
+  type: runtime
+  crossVersionUpdate: true
+  limit: 0
+  website: https://mariadb.org/
+  github: https://github.com/MariaDB/server
+  document: https://mariadb.org/documentation/

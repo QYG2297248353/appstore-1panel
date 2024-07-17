@@ -1,0 +1,27 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  bark:
+    image: finab/bark-server:v2.1.5
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8080
+    env_file:
+      - /etc/1panel/envs/global.env
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${BARK_ROOT_PATH}/data:/data
+    environment:
+      - BARK_SERVER_ADDRESS=0.0.0.0:8080
+      - BARK_SERVER_URL_PREFIX=/
+      - BARK_SERVER_DATA_DIR=/data
+      - BARK_SERVER_SERVERLESS=false

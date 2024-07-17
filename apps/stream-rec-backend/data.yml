@@ -1,0 +1,17 @@
+name: Stream Rec API服务
+title: 自动流媒体录制工具
+description: 自动流媒体录制工具
+additionalProperties:
+  key: stream-rec-backend
+  name: Stream Rec API服务
+  tags:
+    - Tool
+    - Local
+  shortDescZh: 自动流媒体录制工具
+  shortDescEn: Automatic streaming media recording tool
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/hua0512/stream-rec/
+  github: https://github.com/hua0512/stream-rec/
+  document: https://github.com/hua0512/stream-rec/

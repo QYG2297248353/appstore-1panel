@@ -1,0 +1,20 @@
+name: MinIO
+title: 开源的对象存储服务器
+description: 开源的对象存储服务器
+additionalProperties:
+  key: minio
+  name: MinIO
+  tags:
+    - WebSite
+    - Middleware
+    - Storage
+    - Runtime
+    - Local
+  shortDescZh: 开源的对象存储服务器
+  shortDescEn: Open source object storage server
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://min.io/
+  github: https://github.com/minio/minio/
+  document: https://min.io/docs/

@@ -1,0 +1,27 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  stream-rec-backend:
+    image: streamrec/stream-rec:v0.6.9
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:12555
+    volumes:
+      - ${STREAM_REC_ROOT_PATH}/records:/opt/records
+      - ${STREAM_REC_ROOT_PATH}/download:/download
+    environment:
+      - TZ=Asia/Shanghai
+      - LOG_LEVEL=INFO
+      - DB_PATH=/opt/records
+      - DOWNLOAD_PATH=/download
+    env_file:
+      - .env

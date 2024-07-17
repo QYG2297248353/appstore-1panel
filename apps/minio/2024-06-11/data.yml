@@ -1,0 +1,103 @@
+additionalProperties:
+  formFields:
+    - default: "/home/minio"
+      edit: true
+      envKey: MINIO_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 9001
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 9000
+      edit: true
+      envKey: PANEL_APP_PORT_API
+      labelZh: API 端口 (映射内部端口)
+      labelEn: API Port (mapped internal port)
+      required: true
+      rule: paramPort
+      type: number
+    - default: 9000
+      edit: true
+      envKey: MINIO_API_PORT
+      labelZh: API 内部端口
+      labelEn: Internal API Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "minio"
+      edit: true
+      envKey: MINIO_ROOT_USER
+      labelZh: 管理员 用户名
+      labelEn: Root User
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: MINIO_ROOT_PASSWORD
+      labelZh: 管理员 密码
+      labelEn: Root Password
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: "on"
+      edit: true
+      envKey: MINIO_BROWSER
+      labelEn: Enable WebUI
+      labelZh: 启用 WebUI
+      required: true
+      type: select
+      values:
+        - label: 开启
+          value: "on"
+        - label: 关闭
+          value: "off"
+    - default: "on"
+      edit: true
+      envKey: MINIO_BROWSER_LOGIN_ANIMATION
+      labelEn: WebUI login animation
+      labelZh: WebUI 登录动画
+      required: true
+      type: select
+      values:
+        - label: 开启
+          value: "on"
+        - label: 关闭
+          value: "off"
+    - default: "12h"
+      edit: true
+      envKey: MINIO_BROWSER_SESSION_DURATION
+      labelEn: Session duration
+      labelZh: 会话持续时间 (s/秒 m/分钟 h/小时 d/天)
+      required: true
+      type: text
+    - default: "http://127.0.0.1:9000"
+      edit: true
+      envKey: MINIO_SERVER_URL
+      labelZh: API 服务器 URL
+      labelEn: API Server URL
+      rule: paramExtUrl
+      required: true
+      type: text
+    - default: "localhost"
+      edit: true
+      envKey: MINIO_SERVER_HOST
+      labelZh: API 域名
+      labelEn: API Hostname
+      required: true
+      type: text
+    - default: "http://127.0.0.1:9001"
+      edit: true
+      envKey: MINIO_BROWSER_REDIRECT_URL
+      labelZh: WebUI 重定向 URL
+      labelEn: WebUI Redirect URL
+      rule: paramExtUrl
+      required: true
+      type: text

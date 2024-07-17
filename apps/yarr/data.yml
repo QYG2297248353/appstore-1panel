@@ -1,0 +1,20 @@
+name: Yarr
+tags:
+  - 实用工具
+title: Rss 阅读器
+type: 实用工具
+description: Rss 阅读器
+additionalProperties:
+  key: yarr
+  name: Yarr
+  tags:
+    - Tool
+  shortDescZh: Rss 阅读器
+  shortDescEn: Rss Reader
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  recommend: 0
+  website: https://github.com/nkanaev/yarr/
+  github: https://github.com/nkanaev/yarr
+  document: https://github.com/nkanaev/yarr/

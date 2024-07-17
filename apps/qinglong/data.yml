@@ -1,0 +1,17 @@
+name: 青龙
+title: 定时任务管理平台
+description: 定时任务管理平台
+additionalProperties:
+  key: qinglong
+  name: 青龙
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 定时任务管理平台
+  shortDescEn: A scheduled task management platform
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://qinglong.online/
+  github: https://github.com/whyour/qinglong/
+  document: https://qinglong.online/

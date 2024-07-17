@@ -1,0 +1,22 @@
+name: Renovate
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+    inputs:
+      manual-trigger:
+        description: 'Manually trigger Renovate'
+        default: ''
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - name: Run Renovate
+        uses: renovatebot/github-action@d4cde0ac34e53942ead1619a101748e3ab842937 # v40.2.1
+        with:
+          useSlim: false
+          token: ${{ secrets.GITHUBTOKEN }}

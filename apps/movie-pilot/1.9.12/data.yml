@@ -1,0 +1,341 @@
+additionalProperties:
+  formFields:
+    - default: "/home/movie-pilot"
+      edit: true
+      envKey: MOVIEPILOT_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 3001
+      edit: true
+      envKey: PANEL_APP_PORT_API
+      labelZh: API 端口
+      labelEn: API Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "admin"
+      edit: true
+      envKey: SUPERUSER
+      labelZh: 管理员用户名
+      labelEn: Superuser Username
+      required: true
+      type: text
+    - default: "moviepilot"
+      edit: true
+      envKey: API_TOKEN
+      labelZh: API 令牌
+      labelEn: API Token
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: PROXY_HOST
+      labelZh: 网络代理
+      labelEn: Proxy Host
+      required: false
+      rule: paramExtUrl
+      type: text
+    - default: "false"
+      edit: true
+      envKey: AUTO_UPDATE_RESOURCES
+      labelZh: 自动更新资源包
+      labelEn: Auto Update Resources
+      required: true
+      type: select
+      values:
+        - label: 开启
+          value: "true"
+        - label: 关闭
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: MOVIEPILOT_AUTO_UPDATE
+      labelZh: 自动更新
+      labelEn: Auto Update
+      required: true
+      type: select
+      values:
+        - label: 开启
+          value: "true"
+        - label: 发布版
+          value: "release"
+        - label: 测试版
+          value: "dev"
+        - label: 关闭
+          value: "false"
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_1
+      labelEn: Custom mount directory 1
+      labelZh: 自定义挂载目录 1
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_2
+      labelEn: Custom mount directory 2
+      labelZh: 自定义挂载目录 2
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_3
+      labelEn: Custom mount directory 3
+      labelZh: 自定义挂载目录 3
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: IYUU_SIGN
+      labelEn: IYUU Sign
+      labelZh: IYUU登录令牌
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: HHCLUB_USERNAME
+      labelZh: hhclub 用户名
+      labelEn: hhclub username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: HHCLUB_PASSKEY
+      labelZh: hhclub 密钥
+      labelEn: hhclub passkay
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: AUDIENCES_UID
+      labelZh: audiences 用户ID
+      labelEn: audiences username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AUDIENCES_PASSKEY
+      labelZh: audiences 密钥
+      labelEn: audiences passkay
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: HDDOLBY_ID
+      labelZh: hddolby 用户ID
+      labelEn: hddolby username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: HDDOLBY_PASSKEY
+      labelZh: hddolby 密钥
+      labelEn: hddolby passkay
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: ZMPT_UID
+      labelZh: zmpt 用户ID
+      labelEn: zmpt username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: ZMPT_PASSKEY
+      labelZh: zmpt 密钥
+      labelEn: zmpt passkay
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: FREEFARM_UID
+      labelZh: freefarm 用户ID
+      labelEn: freefarm username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: FREEFARM_PASSKEY
+      labelZh: freefarm 密钥
+      labelEn: freefarm passkay
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: HDFANS_UID
+      labelZh: hdfans 用户ID
+      labelEn: hdfans username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: HDFANS_PASSKEY
+      labelZh: hdfans 密钥
+      labelEn: hdfans passkay
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: WINTERSAKURA_UID
+      labelZh: wintersakura 用户ID
+      labelEn: wintersakura username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: WINTERSAKURA_PASSKEY
+      labelZh: wintersakura 密钥
+      labelEn: wintersakura passkay
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: LEAVES_UID
+      labelZh: leaves 用户ID
+      labelEn: leaves username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: LEAVES_PASSKEY
+      labelZh: leaves 密钥
+      labelEn: leaves passkay
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: PTBA_UID
+      labelZh: ptba 用户ID
+      labelEn: ptba username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: PTBA_PASSKEY
+      labelZh: ptba 密钥
+      labelEn: ptba passkay
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: ICC2022_UID
+      labelZh: icc2022 用户ID
+      labelEn: icc2022 username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: ICC2022_PASSKEY
+      labelZh: icc2022 密钥
+      labelEn: icc2022 passkay
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: XINGTAN_UID
+      labelZh: xingtan 用户ID
+      labelEn: xingtan username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: XINGTAN_PASSKEY
+      labelZh: xingtan 密钥
+      labelEn: xingtan passkay
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: PTVICOMO_UID
+      labelZh: ptvicomo 用户ID
+      labelEn: ptvicomo username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: PTVICOMO_PASSKEY
+      labelZh: ptvicomo 密钥
+      labelEn: ptvicomo passkay
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: AGSVPT_UID
+      labelZh: agsvpt 用户ID
+      labelEn: agsvpt username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AGSVPT_PASSKEY
+      labelZh: agsvpt 密钥
+      labelEn: agsvpt passkay
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: HDKYL_UID
+      labelZh: hdkyl 用户ID
+      labelEn: hdkyl username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: HDKYL_PASSKEY
+      labelZh: hdkyl 密钥
+      labelEn: hdkyl passkay
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: QINGWA_UID
+      labelZh: qingwa 用户ID
+      labelEn: qingwa username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: QINGWA_PASSKEY
+      labelZh: qingwa 密钥
+      labelEn: qingwa passkay
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: DISCFAN_UID
+      labelZh: discfan 用户ID
+      labelEn: discfan username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: DISCFAN_PASSKEY
+      labelZh: discfan 密钥
+      labelEn: discfan passkay
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: ROUSI_UID
+      labelZh: rousi 用户ID
+      labelEn: rousi username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: ROUSI_PASSKEY
+      labelZh: rousi 密钥
+      labelEn: rousi passkay
+      required: false
+      type: password

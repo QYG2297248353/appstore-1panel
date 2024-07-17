@@ -1,0 +1,24 @@
+additionalProperties:
+  formFields:
+    - default: 8088
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: Port
+      labelZh: 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: "/home/cookie-cloud"
+      edit: true
+      envKey: COOKIECLOUD_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: "/"
+      edit: true
+      envKey: API_ROOT
+      labelZh: 网站路径
+      labelEn: Web path
+      required: true
+      type: text

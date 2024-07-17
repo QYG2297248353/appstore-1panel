@@ -1,0 +1,21 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  stream-rec-frontend:
+    image: streamrec/stream-rec-front:v0.6.9
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:15275
+    environment:
+      - TZ=Asia/Shanghai
+    env_file:
+      - .env

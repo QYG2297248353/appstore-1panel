@@ -1,0 +1,27 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+name: immich-server
+
+services:
+  immich-server:
+    image: ghcr.io/immich-app/immich-server:v1.108.0
+    container_name: immich-server-${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    devices:
+      - ${IMMICH_DRIVE_PATH:-/dev/dri}:/dev/dri
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3001
+    env_file:
+      - /etc/1panel/envs/global.env
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${IMMICH_ROOT_PATH}/data/library:/usr/src/app/upload
+      - /etc/localtime:/etc/localtime

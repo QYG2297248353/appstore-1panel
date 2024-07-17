@@ -1,0 +1,23 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  nezha-dashboard:
+    image: ghcr.io/naiba/nezha-dashboard:v0.18.1
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:80
+      - ${PANEL_APP_PORT_GRPC}:${PANEL_APP_PORT_GRPC}
+    volumes:
+      - ${NEZHA_ROOT_PATH}/data:/dashboard/data
+      - ${NEZHA_ROOT_PATH}/static-custom/static:/dashboard/resource/static/custom
+      - ${NEZHA_ROOT_PATH}/theme-custom/template:/dashboard/resource/template/theme-custom
+      - ${NEZHA_ROOT_PATH}/dashboard-custom/template:/dashboard/resource/template/dashboard-custom

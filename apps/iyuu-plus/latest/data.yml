@@ -1,0 +1,54 @@
+additionalProperties:
+  formFields:
+    - default: "/home/iyuuplus"
+      edit: true
+      envKey: IYUUCN_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8780
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口 (Nginx)
+      labelEn: WebUI port (Nginx)
+      required: true
+      rule: paramPort
+      type: number
+    - default: 8787
+      edit: true
+      envKey: PANEL_APP_PORT_IYUU
+      labelZh: WebUI 端口 (IYUU)
+      labelEn: WebUI port (IYUU)
+      required: false
+      rule: paramPort
+      type: number
+    - default: 3131
+      edit: true
+      envKey: PANEL_APP_PORT_WS
+      labelZh: WebUI 端口 (WS)
+      labelEn: WebUI port (WS)
+      required: false
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_1
+      labelEn: Custom mount directory 1
+      labelZh: 自定义挂载目录 1
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_2
+      labelEn: Custom mount directory 2
+      labelZh: 自定义挂载目录 2
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_3
+      labelEn: Custom mount directory 3
+      labelZh: 自定义挂载目录 3
+      required: false
+      type: text

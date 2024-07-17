@@ -1,0 +1,29 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  "sentinel-dashboard":
+    image: bladex/sentinel-dashboard:1.8.6
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    network_mode: ${NETWORK_MODE}
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8858
+      - ${COMMUNICATION_PORT}:8719
+    entrypoint:
+      - "java"
+      - "-Djava.security.egd=file:/dev/./urandom"
+      - "-Dserver.port=8858"
+      - "-Dcsp.sentinel.api.port=8719"
+      - "-Dcsp.sentinel.dashboard.server=localhost:8858"
+      - "-Dproject.name=sentinel-dashboard"
+      - "-Dsentinel.dashboard.auth.username=${SENTINEL_DASHBOARD_AUTH_USERNAME}"
+      - "-Dsentinel.dashboard.auth.password=${SENTINEL_DASHBOARD_AUTH_PASSWORD}"
+      - "-Dfeign.sentinel.enabled=${SENTINEL_DASHBOARD_FEIGN_ENABLED}"
+      - "-jar"
+      - "app.jar"

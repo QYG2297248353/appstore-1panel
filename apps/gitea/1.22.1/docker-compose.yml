@@ -1,0 +1,31 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  gitea:
+    image: gitea/gitea:1.22.1
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3000
+      - ${PANEL_APP_PORT_SSH}:22
+    env_file:
+      - /etc/1panel/envs/global.env
+      - /etc/1panel/envs/gitea/gitea.env
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${GITEA_ROOT_PATH}/data:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - ENABLE_SWAGGER=false
+      - DB_HOST=${DB_HOSTNAME}:${DB_PORT}

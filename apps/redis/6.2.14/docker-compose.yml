@@ -1,0 +1,28 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  redis:
+    image: redis:6.2.14-alpine
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:6379
+    command: >
+      sh -c '
+      if [ -z "${REDIS_ROOT_PASSWORD}" ]; then
+        redis-server /etc/redis/redis.conf
+      else
+        redis-server /etc/redis/redis.conf --requirepass ${REDIS_ROOT_PASSWORD}
+      fi'
+    volumes:
+      - ${REDIS_ROOT_PATH}/data:/data
+      - ${REDIS_ROOT_PATH}/config/redis.conf:/etc/redis/redis.conf
+      - ${REDIS_ROOT_PATH}/logs:/logs

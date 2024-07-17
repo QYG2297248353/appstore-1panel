@@ -1,0 +1,25 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  siyuan:
+    image: b3log/siyuan:v3.1.1
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    command: [ '--workspace=/siyuan/workspace/', '--accessAuthCode=${AuthCode}' ]
+    user: 1000:1000
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:6806
+    env_file:
+      - /etc/1panel/envs/global.env
+    volumes:
+      - ${SIYUAN_ROOT_PATH}/workspace:/siyuan/workspace
+    environment:
+      - RUN_IN_CONTAINER=true

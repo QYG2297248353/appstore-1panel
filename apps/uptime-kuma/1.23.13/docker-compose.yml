@@ -1,0 +1,32 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:1.23.13
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3001
+    env_file:
+      - /etc/1panel/envs/global.env
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${UPTIME_KUMA_ROOT_PATH}/data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - PUID=0
+      - PGID=0
+      - UPTIME_KUMA_PORT=3001
+      - UPTIME_KUMA_HOST=0.0.0.0
+      - DATA_DIR=/app/data
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
+      - UPTIME_KUMA_ALLOW_ALL_CHROME_EXEC=0
+      - UPTIME_KUMA_WS_ORIGIN_CHECK=cors-like

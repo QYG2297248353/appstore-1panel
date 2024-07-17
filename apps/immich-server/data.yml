@@ -1,0 +1,20 @@
+name: Immich 服务端
+tags:
+  - 多媒体
+title: 高性能自托管照片和视频备份解决方案
+description: 高性能自托管照片和视频备份解决方案
+additionalProperties:
+  key: immich-server
+  name: Immich 服务端
+  tags:
+    - Media
+    - Storage
+    - Local
+  shortDescZh: 高性能自托管照片和视频备份解决方案
+  shortDescEn: High performance self-hosted photo and video backup solution
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://immich.app/
+  github: https://github.com/immich-app/immich
+  document: https://immich.app/docs/overview/introduction

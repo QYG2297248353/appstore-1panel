@@ -1,0 +1,24 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  umami:
+    image: ghcr.io/umami-software/umami:${DATABASE_TYPE}-v2.12.1
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3000
+    env_file:
+      - /etc/1panel/envs/global.env
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    environment:
+      - DISABLE_TELEMETRY = 1
+      - REMOVE_TRAILING_SLASH = 1
+      - DATABASE_URL=${DATABASE_TYPE}://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOSTNAME}:${DB_PORT}/${DB_DATABASE_NAME}

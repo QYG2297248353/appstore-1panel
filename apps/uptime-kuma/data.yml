@@ -1,0 +1,19 @@
+name: Uptime Kuma
+title: 自托管的监控工具
+type: 实用工具
+description: 自托管的监控工具
+additionalProperties:
+  key: uptime-kuma
+  name: Uptime Kuma
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: 自托管的监控工具
+  shortDescEn: Self-hosted monitoring tool
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://uptime.kuma.pet/
+  github: https://github.com/louislam/uptime-kuma/
+  document: https://github.com/louislam/uptime-kuma/wiki/

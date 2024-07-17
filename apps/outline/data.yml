@@ -1,0 +1,18 @@
+name: Outline
+title: 您团队的知识库
+description: 您团队的知识库
+additionalProperties:
+  key: outline
+  name: Outline
+  tags:
+    - WebSite
+    - Storage
+    - Local
+  shortDescZh: 您团队的知识库
+  shortDescEn: Your team's knowledge base
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.getoutline.com/
+  github: https://github.com/outline/outline/
+  document: https://docs.getoutline.com/

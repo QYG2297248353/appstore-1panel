@@ -1,0 +1,101 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "gitIgnoredAuthors": [
+    "githubaction@githubaction.com"
+  ],
+  "rebaseWhen": "never",
+  "packageRules": [
+    {
+      "packageNames": [
+        "docker-compose"
+      ],
+      "automerge": true
+    },
+    {
+      "matchFileNames": [
+        "apps/postgresql/pg*/*.yml"
+      ],
+      "allowedVersions": "/^pg14*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/postgresql/pg*/*.yml"
+      ],
+      "allowedVersions": "/^pg15*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/postgresql/pg*/*.yml"
+      ],
+      "allowedVersions": "/^pg16*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/redis/6.2.*/*.yml"
+      ],
+      "allowedVersions": "/^6.2.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/redis/7.2.*/*.yml"
+      ],
+      "allowedVersions": "/^7.2.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/mysql/5.7.*/*.yml"
+      ],
+      "allowedVersions": "/^5.7.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/mysql/8.*/*.yml"
+      ],
+      "allowedVersions": "/^8.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/qbittorrent/4.*.*/*.yml"
+      ],
+      "allowedVersions": "/^4.*.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/transmission/4.*.*/*.yml"
+      ],
+      "allowedVersions": "/^4.*.*/"
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "emby/embyserver"
+      ],
+      "allowedVersions": "/^4\\.8\\.\\d+\\.\\d+$/"
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "ghcr.io/*"
+      ],
+      "versionCompatibility": "^(?<compatibility>.*)-(?<version>.*)$",
+      "versioning": "semver"
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "ghcr.io/*"
+      ],
+      "versioning": "semver"
+    }
+  ],
+  "prCreation": "immediate"
+}

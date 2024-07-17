@@ -1,0 +1,19 @@
+name: Emby 开心版
+tags:
+  - 多媒体
+title: 媒体服务器
+description: 主从式架构的媒体服务器软件
+additionalProperties:
+  key: emby-lovechen
+  name: Emby 开心版
+  tags:
+    - Media
+    - Local
+  shortDescZh: 主从式架构的媒体服务器软件
+  shortDescEn: A media server software with master-slave architecture
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://hub.docker.com/r/lovechen/embyserver
+  github: https://hub.docker.com/r/lovechen/embyserver
+  document: https://hub.docker.com/r/lovechen/embyserver

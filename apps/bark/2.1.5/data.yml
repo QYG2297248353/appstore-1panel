@@ -1,0 +1,38 @@
+additionalProperties:
+  formFields:
+    - default: "/home/bark"
+      edit: true
+      envKey: BARK_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: BARK_SERVER_DSN
+      labelEn: Database URL
+      labelZh: 数据库链接
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: BARK_SERVER_BASIC_AUTH_USER
+      labelEn: Basic Auth User
+      labelZh: 用户名 (服务基础验证)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: BARK_SERVER_BASIC_AUTH_PASSWORD
+      labelEn: Basic Auth Password
+      labelZh: 密码 (服务基础验证)
+      required: false
+      type: text
