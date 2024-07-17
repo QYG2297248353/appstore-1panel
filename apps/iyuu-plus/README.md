@@ -2,7 +2,7 @@
 
 IYUU 是一个基于种子特征码的交叉索引工具
 
-![IYUU Plus](https://doc.iyuu.cn/images/install/005.png)
+![IYUU Plus](https://file.lifebus.top/imgs/iyuuplus_cover.png)
 
 ## 简介
 
@@ -51,17 +51,17 @@ UI遠端，以最大化你的torrent体验。使用qBittorrent，你可以在多
 
 > Nginx 配置
 
-```shell
-location ^~ / {
-  proxy_set_header X-Real-IP $remote_addr;
-  proxy_set_header Host $host;
-  proxy_set_header X-Forwarded-Proto $scheme;
-  proxy_http_version 1.1;
-  proxy_set_header Connection "";
-  if (!-f $request_filename){
-     proxy_pass http://127.0.0.1:8787;
-  }
-}
+```nginx
+    location ^~ / {
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header Host $host;
+      proxy_set_header X-Forwarded-Proto $scheme;
+      proxy_http_version 1.1;
+      proxy_set_header Connection "";
+      if (!-f $request_filename){
+         proxy_pass http://127.0.0.1:8787;
+      }
+    }
 ```
 
 ## 绑定合作站点

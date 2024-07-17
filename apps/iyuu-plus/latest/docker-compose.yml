@@ -22,3 +22,6 @@ services:
       - ${IYUUCN_ROOT_PATH}/data:/data
       - ${IYUUCN_ROOT_PATH}/qBittorrent:/qBittorrent
       - ${IYUUCN_ROOT_PATH}/transmission:/transmission
+      - ${CUSTOM_MOUNT_DIRECTORY_1:-./default_mount_1}:${CUSTOM_MOUNT_DIRECTORY_1:-/default_mount_1}
+      - ${CUSTOM_MOUNT_DIRECTORY_2:-./default_mount_2}:${CUSTOM_MOUNT_DIRECTORY_2:-/default_mount_2}
+      - ${CUSTOM_MOUNT_DIRECTORY_3:-./default_mount_3}:${CUSTOM_MOUNT_DIRECTORY_3:-/default_mount_3}
