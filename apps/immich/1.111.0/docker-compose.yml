@@ -32,7 +32,7 @@ services:
       POSTGRES_INITDB_ARGS: '--data-checksums'
 
   immich-machine-learning:
-    image: ghcr.io/immich-app/immich-machine-learning:v1.111.0
+    image: ghcr.io/immich-app/immich-machine-learning:v1.112.0
     container_name: immich-machine-learning-${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
