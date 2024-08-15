@@ -6,7 +6,7 @@ networks:
 
 services:
   wiseflow:
-    image: qyg2297248353/wiseflow:v0.3.0
+    image: qyg2297248353/wiseflow:v0.3.1
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
