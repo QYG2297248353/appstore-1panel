@@ -4,7 +4,7 @@ networks:
 
 services:
   photoprism:
-    image: photoprism/photoprism:240711
+    image: photoprism/photoprism:20220121
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
