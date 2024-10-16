@@ -4,7 +4,7 @@ networks:
 
 services:
   transmission:
-    image: linuxserver/transmission:4.0.3
+    image: linuxserver/transmission:4.0.6
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
