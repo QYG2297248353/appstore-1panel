@@ -4,7 +4,7 @@ networks:
 
 services:
   nezha-dashboard:
-    image: ghcr.io/naiba/nezha-dashboard:v0.20.0
+    image: ghcr.io/naiba/nezha-dashboard:v0.20.1
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
