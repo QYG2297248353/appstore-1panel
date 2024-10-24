@@ -4,7 +4,7 @@ networks:
 
 services:
   nezha-dash:
-    image: hamster1963/nezha-dash:v0.8.0
+    image: hamster1963/nezha-dash:v1.0.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
