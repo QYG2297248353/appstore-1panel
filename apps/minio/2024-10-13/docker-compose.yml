@@ -4,7 +4,7 @@ networks:
 
 services:
   minio:
-    image: minio/minio:RELEASE.2024-10-13T13-34-11Z.fips
+    image: minio/minio:RELEASE.2024-10-29T16-01-48Z.fips
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
