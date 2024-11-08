@@ -4,7 +4,7 @@ networks:
 
 services:
   baota:
-    image: btpanel/baota:9.0_lts_latest
+    image: btpanel/baota:9.0_lts_lnmp
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
