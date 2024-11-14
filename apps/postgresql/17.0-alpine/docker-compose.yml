@@ -4,7 +4,7 @@ networks:
 
 services:
   postgresql:
-    image: postgres:17.0-alpine
+    image: postgres:17.1-alpine
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"

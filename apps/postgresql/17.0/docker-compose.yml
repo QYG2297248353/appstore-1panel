@@ -4,7 +4,7 @@ networks:
 
 services:
   postgresql:
-    image: postgres:17.0
+    image: postgres:17.1
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
