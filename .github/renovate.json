@@ -11,7 +11,8 @@
     "githubaction@githubaction.com"
   ],
   "ignorePaths": [
-    "apps/tangsengdaodao/1.5/docker-compose.yml"
+    "apps/tangsengdaodao/1.5/docker-compose.yml",
+    "one_panel/**"
   ],
   "rebaseWhen": "never",
   "packageRules": [
