@@ -3,8 +3,6 @@
 if [ -f .env ]; then
   source .env
 
-
-
   # setup-2 copy config file
   mkdir -p "$ELEMENT_WEB_ROOT_PATH"
   mkdir -p "$ELEMENT_WEB_ROOT_PATH/config"

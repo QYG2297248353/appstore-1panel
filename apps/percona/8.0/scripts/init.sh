@@ -3,8 +3,6 @@
 if [ -f .env ]; then
   source .env
 
-
-
   mkdir -p "$PERCONA_ROOT_PATH"
   mkdir -p "$PERCONA_ROOT_PATH/config"
   mkdir -p "$PERCONA_ROOT_PATH/data"

@@ -3,8 +3,6 @@
 if [ -f .env ]; then
   source .env
 
-
-
   cp conf/traccar.xml "${TRACCAR_ROOT_PATH}/traccar.xml"
 
   echo "Check Finish."

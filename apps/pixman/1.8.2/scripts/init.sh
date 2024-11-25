@@ -3,8 +3,6 @@
 if [ -f .env ]; then
   source .env
 
-
-
   if [ ! -d $PIXMAN_ROOT_PATH/m3u ]; then
     mkdir -p $PIXMAN_ROOT_PATH/m3u
   fi

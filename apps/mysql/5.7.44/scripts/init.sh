@@ -3,8 +3,6 @@
 if [ -f .env ]; then
   source .env
 
-
-
   mkdir -p "$MYSQL_ROOT_PATH"
   mkdir -p "$MYSQL_ROOT_PATH/config"
   mkdir -p "$MYSQL_ROOT_PATH/data"

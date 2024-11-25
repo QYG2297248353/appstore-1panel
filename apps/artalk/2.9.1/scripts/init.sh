@@ -3,8 +3,6 @@
 if [ -f .env ]; then
   source .env
 
-
-
   DATA_DIR="$ARTALK_ROOT_PATH/data"
 
   mkdir -p "$DATA_DIR"

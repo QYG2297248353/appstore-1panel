@@ -3,8 +3,6 @@
 if [ -f .env ]; then
   source .env
 
-
-
   if [ "$DB_TYPE" == "mysql" ]; then
     echo "dataSourceName=$DB_USER:$DB_PASSWD@tcp($DB_HOSTNAME:$DB_PORT)/" >> .env
   fi

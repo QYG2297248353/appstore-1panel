@@ -3,8 +3,6 @@
 if [ -f .env ]; then
   source .env
 
-
-
   mkdir -p $KIBANA_ROOT_PATH
   mkdir -p "$KIBANA_ROOT_PATH/data"
 

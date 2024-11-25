@@ -3,8 +3,6 @@
 if [ -f .env ]; then
   source .env
 
-
-
   # setup-2 remove empty values
   sed -i '/^.*=""/d' .env
 

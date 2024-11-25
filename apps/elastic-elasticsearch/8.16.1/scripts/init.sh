@@ -3,8 +3,6 @@
 if [ -f .env ]; then
   source .env
 
-
-
   mkdir -p $ELASTICSEARCH_ROOT_PATH
   mkdir -p "$ELASTICSEARCH_ROOT_PATH/data"
   mkdir -p "$ELASTICSEARCH_ROOT_PATH/backup"

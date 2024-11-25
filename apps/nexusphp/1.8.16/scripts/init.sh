@@ -3,8 +3,6 @@
 if [ -f .env ]; then
   source .env
 
-
-
   # setup-2 download geoip2
   GEOIP_DIR="$NEXUSPHP_ROOT_PATH/geoip2"
   mkdir -p "$GEOIP_DIR"

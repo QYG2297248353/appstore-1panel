@@ -3,8 +3,6 @@
 if [ -f .env ]; then
   source .env
 
-
-
   mkdir -p "$MARIADB_ROOT_PATH"
   mkdir -p "$MARIADB_ROOT_PATH/config"
   mkdir -p "$MARIADB_ROOT_PATH/data"
