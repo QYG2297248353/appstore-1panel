@@ -22,9 +22,6 @@ services:
     ports:
       - ${PANEL_APP_PORT_HTTPS}:9200
       - ${PANEL_APP_PORT_CLUSTER}:9300
-    env_file:
-      - /etc/1panel/envs/global.env
-      - ${ENV_FILE:-/etc/1panel/envs/default.env}
     volumes:
       - ${ELASTICSEARCH_ROOT_PATH}/data:/usr/share/elasticsearch/data
       - ${ELASTICSEARCH_ROOT_PATH}/backup:/usr/share/elasticsearch/backup

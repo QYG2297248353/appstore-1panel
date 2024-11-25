@@ -15,9 +15,8 @@ services:
       - ${PANEL_APP_PORT_HTTP}:3000
       - ${PANEL_APP_PORT_API}:3001
     env_file:
-      - /etc/1panel/envs/global.env
-      - /etc/1panel/envs/moviepilot/moviepilot2.env
-      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+      - ./envs/moviepilot.env
+      - .env
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${MOVIEPILOT_ROOT_PATH}/config:/config

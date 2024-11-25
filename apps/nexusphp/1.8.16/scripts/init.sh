@@ -3,10 +3,7 @@
 if [ -f .env ]; then
   source .env
 
-  # setup-1 add default values
-  CURRENT_DIR=$(pwd)
-  sed -i '/^ENV_FILE=/d' .env
-  echo "ENV_FILE=${CURRENT_DIR}/.env" >> .env
+qyg2297248353/mediacms:v4.1.0
 
   # setup-2 download geoip2
   GEOIP_DIR="$NEXUSPHP_ROOT_PATH/geoip2"
@@ -24,7 +21,7 @@ if [ -f .env ]; then
   mkdir -p "$CONFIG_DIR"
 
   CONFIG_FILE="$CONFIG_DIR/.env.example"
-  cp /etc/1panel/envs/nexusphp/nexusphp.env $CONFIG_FILE
+  cp ./envs/nexusphp.env $CONFIG_FILE
   sed -i "s/APP_KEY=.*/APP_KEY=$APP_KEY/" $CONFIG_FILE
 
   echo "Check Finish."

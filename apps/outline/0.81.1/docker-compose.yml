@@ -16,8 +16,7 @@ services:
     volumes:
       - ${OUTLINE_ROOT_PATH}/data:/var/lib/outline/data
     env_file:
-      - /etc/1panel/envs/global.env
-      - /etc/1panel/envs/outline/outline.env
-      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+      - ./envs/outline.env
+      - .env
     environment:
       - DATABASE_URL=postgres://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOSTNAME}:${DB_PORT}/${DB_DATABASE_NAME}

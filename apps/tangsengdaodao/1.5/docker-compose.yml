@@ -15,9 +15,6 @@ services:
       - ${PANEL_APP_PORT_WK_TCP}:5100
       - ${PANEL_APP_PORT_WK_WS}:5200
       - ${PANEL_APP_PORT_WK_WEB_SERVER}:5300
-    env_file:
-      - /etc/1panel/envs/global.env
-      - ${ENV_FILE:-/etc/1panel/envs/default.env}
     volumes:
       - ${TANGSENGDAODAO_ROOT_PATH}/wukongim:/root/wukongim
     environment:
@@ -39,9 +36,6 @@ services:
       - tsdd-wukongim
     ports:
       - ${PANEL_APP_PORT_TS_APP_HTTP}:8090
-    env_file:
-      - /etc/1panel/envs/global.env
-      - ${ENV_FILE:-/etc/1panel/envs/default.env}
     command: "api"
     healthcheck:
       test: "wget -q -Y off -O /dev/null http://localhost:8090/v1/ping > /dev/null 2>&1"
@@ -71,9 +65,6 @@ services:
       - 1panel-network
     ports:
       - ${PANEL_APP_PORT_TS_APP_WEB}:80
-    env_file:
-      - /etc/1panel/envs/global.env
-      - ${ENV_FILE:-/etc/1panel/envs/default.env}
     environment:
       - API_URL=http://${WK_EXTERNAL_IP}:${PANEL_APP_PORT_TS_APP_HTTP}/
   tsdd-manager:
@@ -86,8 +77,5 @@ services:
       - 1panel-network
     ports:
       - ${PANEL_APP_PORT_HTTP}:80
-    env_file:
-      - /etc/1panel/envs/global.env
-      - ${ENV_FILE:-/etc/1panel/envs/default.env}
     environment:
       - API_URL=http://${WK_EXTERNAL_IP}:${PANEL_APP_PORT_TS_APP_HTTP}/

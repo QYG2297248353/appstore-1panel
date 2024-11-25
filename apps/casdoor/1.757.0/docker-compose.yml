@@ -14,9 +14,8 @@ services:
     ports:
       - ${PANEL_APP_PORT_HTTP}:8000
     env_file:
-      - /etc/1panel/envs/global.env
-      - /etc/1panel/envs/casdoor/casdoor.env
-      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+      - ./envs/casdoor.env
+      - .env
     volumes:
       - ${CASDOOR_ROOT_PATH}/files:/files
     environment:

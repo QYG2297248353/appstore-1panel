@@ -18,9 +18,6 @@ services:
         hard: 40000
     ports:
       - ${PANEL_APP_PORT_HTTP}:9090
-    env_file:
-      - /etc/1panel/envs/global.env
-      - ${ENV_FILE:-/etc/1panel/envs/default.env}
     volumes:
       - ${LINKDING_ROOT_PATH}/data:/etc/linkding/data
     environment:

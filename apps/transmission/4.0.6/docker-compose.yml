@@ -14,9 +14,6 @@ services:
       - ${PANEL_APP_PORT_HTTP}:9091
       - ${PANEL_APP_PORT_TORRENTING}
       - ${PANEL_APP_PORT_TORRENTING}/udp
-    env_file:
-      - /etc/1panel/envs/global.env
-      - ${ENV_FILE:-/etc/1panel/envs/default.env}
     volumes:
       - ${TRANSMISSION_ROOT_PATH}/config:/config
       - ${TRANSMISSION_ROOT_PATH}/downloads:/downloads

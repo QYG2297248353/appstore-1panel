@@ -13,9 +13,6 @@ services:
       - 1panel-network
     ports:
       - ${PANEL_APP_PORT_API}:12555
-    env_file:
-      - /etc/1panel/envs/global.env
-      - ${ENV_FILE:-/etc/1panel/envs/default.env}
     volumes:
       - ${STREAM_REC_ROOT_PATH}/records:/opt/records
       - ${STREAM_REC_ROOT_PATH}/download:/download
@@ -36,6 +33,3 @@ services:
       - 1panel-network
     ports:
       - ${PANEL_APP_PORT_HTTP}:15275
-    env_file:
-      - /etc/1panel/envs/global.env
-      - ${ENV_FILE:-/etc/1panel/envs/default.env}

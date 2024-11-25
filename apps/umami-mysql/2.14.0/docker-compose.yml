@@ -15,9 +15,6 @@ services:
       - 1panel-network
     ports:
       - ${PANEL_APP_PORT_HTTP}:3000
-    env_file:
-      - /etc/1panel/envs/global.env
-      - ${ENV_FILE:-/etc/1panel/envs/default.env}
     environment:
       - DISABLE_TELEMETRY = 1
       - REMOVE_TRAILING_SLASH = 1

@@ -28,9 +28,8 @@ services:
       - ${PANEL_APP_PORT_POPS}:995
       - ${PANEL_APP_PORT_MANAGESIEVE}:4190
     env_file:
-      - /etc/1panel/envs/global.env
-      - /etc/1panel/envs/mailserver/mailserver.env
-      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+      - ./envs/mailserver.env
+      - .env
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${MAILSERVER_ROOT_PATH}/dms/mail-data/:/var/mail/

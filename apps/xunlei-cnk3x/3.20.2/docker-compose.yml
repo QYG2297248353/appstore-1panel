@@ -13,9 +13,6 @@ services:
     ports:
       - ${PANEL_APP_PORT_HTTP}:2345
     privileged: true
-    env_file:
-      - /etc/1panel/envs/global.env
-      - ${ENV_FILE:-/etc/1panel/envs/default.env}
     volumes:
       - ${XUNLEI_ROOT_PATH}/data:/xunlei/data
       - ${XUNLEI_ROOT_PATH}/downloads:/xunlei/downloads

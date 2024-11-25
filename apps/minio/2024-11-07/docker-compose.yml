@@ -15,9 +15,6 @@ services:
       - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
       - ${PANEL_APP_PORT_API}:${MINIO_API_PORT}
     command: server --console-address :${PANEL_APP_PORT_HTTP} --address :${MINIO_API_PORT} --json
-    env_file:
-      - /etc/1panel/envs/global.env
-      - ${ENV_FILE:-/etc/1panel/envs/default.env}
     extra_hosts:
       - ${MINIO_SERVER_HOST:-localhost}:127.0.0.1
     volumes:

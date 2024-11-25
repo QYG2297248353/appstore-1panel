@@ -29,9 +29,8 @@ services:
       # - /dev/nvidia-uvm-tools:/dev/nvidia-uvm-tools
       # - /dev/video11:/dev/video11
     env_file:
-      - /etc/1panel/envs/global.env
-      - /etc/1panel/envs/photoprism/photoprism.env
-      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+      - ./envs/photoprism.env
+      - .env
     volumes:
       - ${PHOTOPRISM_ROOT_PATH}/originals:/photoprism/originals
       - ${PHOTOPRISM_ROOT_PATH}/storage:/photoprism/storage

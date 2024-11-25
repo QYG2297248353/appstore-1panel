@@ -3,10 +3,7 @@
 if [ -f .env ]; then
   source .env
 
-  # setup-1 add default values
-  CURRENT_DIR=$(pwd)
-  sed -i '/^ENV_FILE=/d' .env
-  echo "ENV_FILE=${CURRENT_DIR}/.env" >> .env
+qyg2297248353/mediacms:v4.1.0
 
   if [ ! -d $PIXMAN_ROOT_PATH/m3u ]; then
     mkdir -p $PIXMAN_ROOT_PATH/m3u

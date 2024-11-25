@@ -28,9 +28,6 @@ services:
       # - /dev/nvidia-uvm:/dev/nvidia-uvm
       # - /dev/nvidia-uvm-tools:/dev/nvidia-uvm-tools
       # - /dev/video11:/dev/video11
-    env_file:
-      - /etc/1panel/envs/global.env
-      - ${ENV_FILE:-/etc/1panel/envs/default.env}
     volumes:
       - ${WINDOWS_STORAGE_ROOT_PATH}/storage:/storage
       - ${WINDOWS_SHARE_ROOT_PATH}/share:/data
