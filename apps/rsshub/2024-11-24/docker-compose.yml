@@ -23,7 +23,7 @@ services:
       timeout: 10s
       retries: 3
   rsshub:
-    image: diygod/rsshub:2024-11-24
+    image: diygod/rsshub:2024-11-25
     container_name: rsshub-${CONTAINER_NAME}
     depends_on:
       - browserless
