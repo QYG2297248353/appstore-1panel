@@ -1,0 +1,34 @@
+name: one_panel
+
+on:
+  push:
+    branches:
+      - appstore
+      - released
+    paths:
+      - 'apps/**'
+  pull_request:
+    types: [ closed ]
+    branches:
+      - appstore
+      - released
+
+jobs:
+  copy-apps:
+    if: github.event.pull_request.merged == true || github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Remove existing one_panel directory
+        run: |
+          if [ -d "./one_panel" ]; then
+            rm -rf ./one_panel
+          fi
+
+      - name: Copy apps to one_panel
+        run: |
+          mkdir -p ./one_panel
+          rsync -av --exclude='.env' ./apps/ ./one_panel/
