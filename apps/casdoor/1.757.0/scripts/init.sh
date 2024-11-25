@@ -3,7 +3,7 @@
 if [ -f .env ]; then
   source .env
 
-qyg2297248353/mediacms:v4.1.0
+
 
   if [ "$DB_TYPE" == "mysql" ]; then
     echo "dataSourceName=$DB_USER:$DB_PASSWD@tcp($DB_HOSTNAME:$DB_PORT)/" >> .env

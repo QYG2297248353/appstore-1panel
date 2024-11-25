@@ -3,7 +3,7 @@
 if [ -f .env ]; then
   source .env
 
-qyg2297248353/mediacms:v4.1.0
+
 
   mkdir -p $KIBANA_ROOT_PATH
   mkdir -p "$KIBANA_ROOT_PATH/data"

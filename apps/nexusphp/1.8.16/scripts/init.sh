@@ -3,7 +3,7 @@
 if [ -f .env ]; then
   source .env
 
-qyg2297248353/mediacms:v4.1.0
+
 
   # setup-2 download geoip2
   GEOIP_DIR="$NEXUSPHP_ROOT_PATH/geoip2"

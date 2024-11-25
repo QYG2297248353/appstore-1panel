@@ -3,7 +3,7 @@
 if [ -f .env ]; then
   source .env
 
-qyg2297248353/mediacms:v4.1.0
+
 
   if [ ! -d $PIXMAN_ROOT_PATH/m3u ]; then
     mkdir -p $PIXMAN_ROOT_PATH/m3u
