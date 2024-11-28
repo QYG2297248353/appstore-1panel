@@ -11,7 +11,7 @@ services:
     - HTTP_PROXY=${HTTP_PROXY:-}
     - HTTPS_PROXY=${HTTP_PROXY:-}
     - NO_PROXY=localhost,127.0.0.1,::1
-    image: jellyfin/jellyfin:10.9.11
+    image: jellyfin/jellyfin:10.10.3
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE}
