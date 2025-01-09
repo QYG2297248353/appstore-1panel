@@ -73,7 +73,7 @@ services:
       - /etc/localtime:/etc/localtime
 
   immich-machine-learning:
-    image: ghcr.io/immich-app/immich-machine-learning:v1.123.0
+    image: ghcr.io/immich-app/immich-machine-learning:v1.124.2
     container_name: immich-machine-learning-${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
