@@ -68,7 +68,7 @@ services:
       INDEXING_MAX_SEGMENTATION_TOKENS_LENGTH: ${INDEXING_MAX_SEGMENTATION_TOKENS_LENGTH:-}
 
   db:
-    image: postgres:15-alpine
+    image: postgres:17-alpine
     container_name: db-${CONTAINER_NAME}
     restart: always
     env_file:
