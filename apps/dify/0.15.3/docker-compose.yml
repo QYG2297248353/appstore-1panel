@@ -804,7 +804,7 @@ services:
   # Milvus vector database services
   etcd:
     container_name: milvus-etcd
-    image: quay.io/coreos/etcd:v3.5.5
+    image: quay.io/coreos/etcd:v3.5.18
     profiles:
       - milvus
     environment:
