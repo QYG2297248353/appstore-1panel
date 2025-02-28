@@ -6,7 +6,7 @@ networks:
 
 services:
   umami-mysql:
-    image: umamisoftware/umami:mysql-v2.16.0
+    image: umamisoftware/umami:mysql-v2.16.1
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
