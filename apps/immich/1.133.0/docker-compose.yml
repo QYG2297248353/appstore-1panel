@@ -6,7 +6,7 @@ name: immich
 
 services:
   immich-pg14-vectors:
-    image: ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
+    image: ghcr.io/immich-app/postgres:16-vectorchord0.3.0-pgvectors0.2.0
     container_name: pg14-vectors-${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
