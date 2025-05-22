@@ -47,7 +47,7 @@ services:
   immich-server:
     depends_on:
       - immich-pg14-vectors
-    image: ghcr.io/immich-app/immich-server:v1.132.3
+    image: ghcr.io/immich-app/immich-server:v1.133.0
     container_name: immich-server-${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
