@@ -120,7 +120,7 @@ services:
     environment:
       - TZ=Asia/Shanghai
   seaweedfs-prometheus:
-    image: prom/prometheus:v2.21.0
+    image: prom/prometheus:v2.55.1
     depends_on:
       - seaweedfs-s3
     container_name: ${CONTAINER_NAME}-prometheus
