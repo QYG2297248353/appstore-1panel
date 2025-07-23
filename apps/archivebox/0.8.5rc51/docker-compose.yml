@@ -4,7 +4,7 @@ networks:
 
 services:
   archivebox:
-    image: archivebox/archivebox:0.8.5rc51
+    image: archivebox/archivebox:0.8.5rc9
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
