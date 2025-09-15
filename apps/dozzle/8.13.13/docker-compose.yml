@@ -4,7 +4,7 @@ networks:
 
 services:
   dozzle:
-    image: amir20/dozzle:v8.13.13
+    image: amir20/dozzle:v8.13.14
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
