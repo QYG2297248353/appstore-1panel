@@ -4,7 +4,7 @@ networks:
 
 services:
   neko:
-    image: ghcr.io/m1k1o/neko/chromium:3.0.6
+    image: ghcr.io/m1k1o/neko/chromium:3.0.8
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
