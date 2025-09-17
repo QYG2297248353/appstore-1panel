@@ -4,7 +4,7 @@ networks:
 
 services:
   mdc-ng:
-    image: mdcng/mdc:1.20.10
+    image: mdcng/mdc:1.20.11
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
