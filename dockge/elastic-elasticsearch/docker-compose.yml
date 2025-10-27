@@ -11,7 +11,7 @@ services:
     - LICENSE=basic
     - ES_SETTING_BOOTSTRAP_MEMORY__LOCK=true
     - ES_SETTING_PATH_REPO=/usr/share/elasticsearch/backup
-    image: elasticsearch:8.19.6
+    image: elasticsearch:9.2.0
     labels:
       createdBy: Apps
     networks:

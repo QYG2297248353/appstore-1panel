@@ -10,7 +10,7 @@ services:
     - ROC_ENABLE_PRE_VEGA=1
     - HTTPS_PROXY=${HTTP_PROXY:-}
     - NO_PROXY=localhost,127.0.0.1,::1
-    image: jellyfin/jellyfin:10.11.0
+    image: jellyfin/jellyfin:10.9.11
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE}

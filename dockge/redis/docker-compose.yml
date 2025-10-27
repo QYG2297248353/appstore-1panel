@@ -7,7 +7,7 @@ services:
       else\n  redis-server /etc/redis/redis.conf --requirepass ${REDIS_ROOT_PASSWORD}\n\
       fi'\n"
     container_name: redis
-    image: redis:6.2.20-alpine
+    image: redis:7.4.6-alpine
     labels:
       createdBy: Apps
     networks:

@@ -16,7 +16,7 @@ services:
       - ${SYNAPSE_ROOT_PATH}/data:/data
     networks:
       - 1panel-network
-    restart: no
+    restart: "no"
     environment:
       - SYNAPSE_REPORT_STATS=no
       - SYNAPSE_NO_TLS=true

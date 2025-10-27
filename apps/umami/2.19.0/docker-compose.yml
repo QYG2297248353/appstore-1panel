@@ -17,7 +17,7 @@ services:
       - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
       - ${ENV_FILE:-/etc/1panel/envs/default.env}
     environment:
-      - DISABLE_TELEMETRY = 1
-      - REMOVE_TRAILING_SLASH = 1
+      - DISABLE_TELEMETRY=1
+      - REMOVE_TRAILING_SLASH=1
       - DATABASE_TYPE=postgresql
       - DATABASE_URL=postgresql://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOSTNAME}:${DB_PORT}/${DB_DATABASE_NAME}

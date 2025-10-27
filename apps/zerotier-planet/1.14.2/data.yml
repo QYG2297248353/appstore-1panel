@@ -23,6 +23,14 @@ additionalProperties:
           value: "none"
         - label: 1panel-network
           value: "1panel-network"
+    - default: 9993
+      edit: true
+      envKey: PANEL_APP_PORT_ZT
+      labelZh: Zerotier 端口
+      labelEn: Zerotier port
+      required: true
+      rule: paramPort
+      type: number
     - default: 3443
       edit: true
       envKey: PANEL_APP_PORT_HTTP

@@ -1,6 +1,0 @@
-debug: false
-listen_port: 8008
-language: zh_CN
-site_name: "nz_site_title"
-install_host: 127.0.0.1:8008
-tls: false

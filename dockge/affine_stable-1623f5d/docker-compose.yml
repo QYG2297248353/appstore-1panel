@@ -1,0 +1,36 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  affine:
+    command:
+    - sh
+    - -c
+    - node ./scripts/self-host-predeploy && node ./dist/index.js
+    container_name: affine
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - NODE_OPTIONS="--import=./scripts/register.js"
+    - AFFINE_CONFIG_PATH=/root/.affine/config
+    - REDIS_SERVER_HOST=redis
+    - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_NAME}
+    - NODE_ENV=production
+    - TELEMETRY_ENABLE=false
+    - AFFINE_SERVER_HOST=localhost
+    - AFFINE_SERVER_PORT=3010
+    - AFFINE_SERVER_HTTPS=false
+    - AFFINE_SERVER_EXTERNAL_URL=http://127.0.0.1:3010
+    image: ghcr.io/toeverything/affine-graphql:stable-1623f5d
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:3010
+    - ${PANEL_APP_PORT_COMMUNICATION}:5555
+    restart: always
+    volumes:
+    - ${AFFINE_ROOT_PATH}/config:/root/.affine/config
+    - ${AFFINE_ROOT_PATH}/storage:/root/.affine/storage

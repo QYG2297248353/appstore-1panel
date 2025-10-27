@@ -34,6 +34,6 @@ services:
     image: matrixdotorg/synapse:v1.140.0
     networks:
     - 1panel-network
-    restart: false
+    restart: 'no'
     volumes:
     - ${SYNAPSE_ROOT_PATH}/data:/data
