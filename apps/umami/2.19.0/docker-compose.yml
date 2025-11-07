@@ -4,7 +4,7 @@ networks:
 
 services:
   umami:
-    image: umamisoftware/umami:postgresql-v2.19.0
+    image: umamisoftware/umami:postgresql-3.0.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
