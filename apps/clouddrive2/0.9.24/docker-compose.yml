@@ -4,7 +4,7 @@ networks:
 
 services:
   clouddrive2:
-    image: cloudnas/clouddrive2:0.9.24
+    image: cloudnas/clouddrive2:1.0.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
