@@ -52,7 +52,7 @@ services:
     depends_on:
       dujiaonext-api:
         condition: service_healthy
-    image: dujiaonext/user:v0.1.7
+    image: dujiaonext/user:v1.0.0
     container_name: user-${CONTAINER_NAME}
     restart: always
     networks:
