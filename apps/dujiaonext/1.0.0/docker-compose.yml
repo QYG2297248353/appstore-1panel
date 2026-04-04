@@ -38,7 +38,7 @@ services:
     depends_on:
       dujiaonext-api:
         condition: service_healthy
-    image: dujiaonext/admin:v0.1.8
+    image: dujiaonext/admin:v1.0.0
     container_name: admin-${CONTAINER_NAME}
     restart: always
     networks:
