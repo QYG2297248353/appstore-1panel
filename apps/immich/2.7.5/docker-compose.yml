@@ -26,7 +26,7 @@ services:
   immich-server:
     depends_on:
       - immich-pg14-vectors
-    image: ghcr.io/immich-app/immich-server:v2.7.5
+    image: ghcr.io/immich-app/immich-server:v3.0.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
@@ -52,7 +52,7 @@ services:
       - /etc/localtime:/etc/localtime
 
   immich-machine-learning:
-    image: ghcr.io/immich-app/immich-machine-learning:v2.7.5
+    image: ghcr.io/immich-app/immich-machine-learning:v3.0.0
     container_name: machine-learning-${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
