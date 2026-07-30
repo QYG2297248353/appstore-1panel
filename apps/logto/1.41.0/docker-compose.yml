@@ -4,7 +4,7 @@ networks:
 
 services:
   logto:
-    image: svhd/logto:1.41.0
+    image: svhd/logto:1.42.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
