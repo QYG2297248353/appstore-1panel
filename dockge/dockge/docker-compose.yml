@@ -1,0 +1,23 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  dockge:
+    container_name: dockge
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - DOCKGE_STACKS_DIR=/opt/dockge/stacks
+    image: louislam/dockge:1.5.0
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:5001
+    restart: always
+    volumes:
+    - ${DOCKGE_ROOT_PATH}/data:/app/data
+    - ${DOCKGE_ROOT_PATH}/stacks:/opt/dockge/stacks
+    - /var/run/docker.sock:/var/run/docker.sock

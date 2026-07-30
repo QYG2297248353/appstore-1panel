@@ -1,0 +1,21 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  gitea:
+    container_name: gitea-runner
+    env_file:
+    - ./envs/global.env
+    - .env
+    image: gitea/act_runner:0.6.1
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    privileged: true
+    restart: always
+    volumes:
+    - ${GITEA_RUNNER_ROOT_PATH}/data:/data
+    - /etc/timezone:/etc/timezone:ro
+    - /etc/localtime:/etc/localtime:ro
+    - /var/run/docker.sock:/var/run/docker.sock

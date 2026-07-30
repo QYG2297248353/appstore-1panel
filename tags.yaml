@@ -1,0 +1,53 @@
+name: 1Panel
+title: 新一代的 Linux 服务器运维管理面板
+additionalProperties:
+  tags:
+    - key: WebSite
+      name: 建站
+      sort: 1
+    - key: Database
+      name: 数据库
+      sort: 2
+    - key: Server
+      name: Web 服务器
+      sort: 3
+    - key: Runtime
+      name: 运行环境
+      sort: 4
+    - key: Tool
+      name: 实用工具
+      sort: 5
+    - key: Storage
+      name: 云存储
+      sort: 6
+    - key: AI
+      name: AI / 大模型
+      sort: 7
+    - key: BI
+      name: BI
+      sort: 8
+    - key: Security
+      name: 安全
+      sort: 9
+    - key: DevTool
+      name: 开发工具
+      sort: 10
+    - key: DevOps
+      name: DevOps
+      sort: 11
+    - key: Middleware
+      name: 中间件
+      sort: 12
+    - key: Media
+      name: 多媒体
+      sort: 13
+    - key: Email
+      name: 邮件服务
+      sort: 14
+    - key: Game
+      name: 休闲游戏
+      sort: 15
+    - key: Local
+      name: 本地
+      sort: 99
+  version: v1.6.0

@@ -1,0 +1,24 @@
+{
+  "gateway": {
+    "mode": "local",
+    "controlUi": {
+      "dangerouslyAllowHostHeaderOriginFallback": true
+    }
+  },
+  "agents": {
+    "defaults": {
+      "workspace": "/home/node/.openclaw/workspace"
+    },
+    "list": [
+      {
+        "id": "main",
+        "workspace": "/home/node/.openclaw/workspace",
+        "identity": {
+          "name": "Clawd",
+          "theme": "helpful assistant",
+          "emoji": "🦞"
+        }
+      }
+    ]
+  }
+}

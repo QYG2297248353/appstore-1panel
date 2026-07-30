@@ -1,0 +1,24 @@
+additionalProperties:
+  formFields:
+    - default: "/home/synapse"
+      edit: true
+      envKey: SYNAPSE_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8008
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: 访问端口
+      labelEn: Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "matrix.example.com"
+      edit: true
+      envKey: SYNAPSE_SERVER_NAME
+      labelZh: 服务域名
+      labelEn: Domain Name
+      required: true
+      type: text

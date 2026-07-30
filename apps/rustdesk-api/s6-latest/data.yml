@@ -1,0 +1,220 @@
+additionalProperties:
+  formFields:
+    - default: "/home/rustdesk-api"
+      edit: true
+      envKey: RUSTDESK_API_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 21114
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI API 端口
+      labelEn: WebUI API port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 21115
+      edit: true
+      envKey: PANEL_APP_PORT_NAT
+      labelZh: NAT 测试服务端口
+      labelEn: NAT Test Server Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 21116
+      edit: true
+      envKey: PANEL_APP_PORT_ID
+      labelZh: ID 服务端口
+      labelEn: ID Server Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 21117
+      edit: true
+      envKey: PANEL_APP_PORT_SERVER
+      labelZh: 中继服务端口
+      labelEn: Intermediate Service Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 21118
+      edit: true
+      envKey: PANEL_APP_PORT_API_WS
+      labelZh: WebSocket API 服务端口
+      labelEn: WebSocket API Service Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 21119
+      edit: true
+      envKey: PANEL_APP_PORT_SERVER_WS
+      labelZh: WebSocket Server 服务端口
+      labelEn: WebSocket Server Service Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "http://127.0.0.1:21117"
+      edit: true
+      envKey: RUSTDESK_SERVER_URL
+      labelZh: RustDesk 中级服务地址
+      labelEn: RustDesk Intermediate service address
+      required: true
+      type: text
+    - default: "http://127.0.0.1:21116"
+      edit: true
+      envKey: RUSTDESK_API_RUSTDESK_ID_SERVER
+      labelZh: RustDesk ID 服务地址
+      labelEn: RustDesk ID server address
+      required: true
+      type: text
+    - default: "http://127.0.0.1:21114"
+      edit: true
+      envKey: RUSTDESK_API_RUSTDESK_API_SERVER
+      labelZh: RustDesk API 服务地址
+      labelEn: RustDesk API server address
+      required: true
+      type: text
+    - default: "RustDesk API Admin"
+      edit: true
+      envKey: RUSTDESK_API_ADMIN_TITLE
+      labelZh: 后台页面标题
+      labelEn: Admin page title
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: RUSTDESK_API_RUSTDESK_KEY
+      labelZh: RustDesk API 密钥
+      labelEn: RustDesk API key
+      required: true
+      type: password
+    - default: "168h"
+      edit: true
+      envKey: RUSTDESK_API_APP_TOKEN_EXPIRE
+      labelZh: 登录有效期
+      labelEn: Login validity period
+      required: true
+      type: text
+    - default: "1"
+      edit: true
+      envKey: RUSTDESK_API_RUSTDESK_PERSONAL
+      labelZh: 启用个人版API
+      labelEn: Enable personal API
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "1"
+        - label: 禁用
+          value: "0"
+    - default: "1"
+      edit: true
+      envKey: RUSTDESK_API_APP_WEB_CLIENT
+      labelZh: 启用 Web Client
+      labelEn: Enable Web Client
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "1"
+        - label: 禁用
+          value: "0"
+    - default: "1"
+      edit: true
+      envKey: RUSTDESK_API_APP_SHOW_SWAGGER
+      labelZh: 开启 Swagger 文档
+      labelEn: Enable Swagger docs
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "1"
+        - label: 禁用
+          value: "0"
+    - default: "false"
+      edit: true
+      envKey: RUSTDESK_API_APP_REGISTER
+      labelZh: 启用注册
+      labelEn: Enable register
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: RUSTDESK_API_APP_DISABLE_PWD_LOGIN
+      labelZh: 登录策略
+      labelEn: Login strategy
+      required: true
+      type: select
+      values:
+        - label: 禁用密码登录
+          value: "true"
+        - label: 允许密码登录
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: RUSTDESK_API_PROXY_ENABLE
+      labelZh: 启用代理
+      labelEn: Enable proxy
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"
+    - default: ""
+      edit: true
+      envKey: RUSTDESK_API_PROXY_HOST
+      labelZh: 代理地址
+      labelEn: Proxy address
+      required: false
+      type: text
+    - default: "sqlite"
+      edit: true
+      envKey: RUSTDESK_API_GORM_TYPE
+      labelZh: 数据库类型
+      labelEn: Database type
+      required: true
+      type: select
+      values:
+        - label: sqlite
+          value: "sqlite"
+        - label: MySQL
+          value: "mysql"
+    - default: "127.0.0.1:3306"
+      edit: true
+      envKey: RUSTDESK_API_MYSQL_ADDR
+      labelZh: 数据库地址
+      labelEn: Database Host
+      required: false
+      type: text
+    - default: "rustdesk"
+      edit: true
+      envKey: RUSTDESK_API_MYSQL_DBNAME
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: false
+      rule: paramCommon
+      type: text
+    - default: "rustdesk"
+      edit: true
+      envKey: RUSTDESK_API_MYSQL_USERNAME
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: RUSTDESK_API_MYSQL_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      required: false
+      rule: paramComplexity
+      type: password

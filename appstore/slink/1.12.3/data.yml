@@ -1,0 +1,148 @@
+additionalProperties:
+  formFields:
+    - default: "/home/slink"
+      edit: true
+      envKey: SLINK_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: 访问端口
+      labelEn: Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "http://127.0.0.1:3000"
+      edit: true
+      envKey: ORIGIN
+      labelZh: 主机域名
+      labelEn: Host domain
+      required: true
+      type: text
+    - default: "true"
+      edit: true
+      envKey: USER_APPROVAL_REQUIRED
+      labelZh: 用户上传图片是否需要批准
+      labelEn: Do users need approval to upload images
+      required: true
+      type: select
+      values:
+        - label: 启用用户批准策略
+          value: "true"
+        - label: 禁用用户批准策略
+          value: "false"
+    - default: "true"
+      edit: true
+      envKey: USER_ALLOW_UNAUTHENTICATED_ACCESS
+      labelZh: 允许未认证用户访问公共路由
+      labelEn: Allow unauthenticated users to access public routes
+      required: true
+      type: select
+      values:
+        - label: 允许访问
+          value: "true"
+        - label: 禁止访问
+          value: "false"
+    - default: "true"
+      edit: true
+      envKey: IMAGE_STRIP_EXIF_METADATA
+      labelZh: 是否移除图片的 EXIF 元数据
+      labelEn: Remove EXIF metadata from images
+      required: true
+      type: select
+      values:
+        - label: 移除
+          value: "true"
+        - label: 保留
+          value: "false"
+    - default: "15M"
+      edit: true
+      envKey: IMAGE_MAX_SIZE
+      labelZh: 图片上传最大限制 (最大 50M)
+      labelEn: Maximum image upload limit (max 50M)
+      required: true
+      type: text
+    - default: 8
+      edit: true
+      envKey: USER_PASSWORD_MIN_LENGTH
+      labelZh: 用户密码最小长度
+      labelEn: Minimum user password length
+      required: true
+      type: number
+    - default: "15"
+      edit: true
+      envKey: USER_PASSWORD_REQUIREMENTS
+      labelZh: 用户密码要求
+      labelEn: User password requirements
+      required: true
+      type: select
+      values:
+        - label: 数字 + 大小写字母 + 特殊字符
+          value: "15"
+        - label: 数字 + 大小写字母
+          value: "7"
+        - label: 数字 + 特殊字符
+          value: "9"
+        - label: 大小写字母 + 特殊字符
+          value: "14"
+        - label: 大写字母 + 数字
+          value: "5"
+        - label: 小写字母 + 数字
+          value: "3"
+        - label: 大写字母 + 特殊字符
+          value: "12"
+        - label: 小写字母 + 特殊字符
+          value: "10"
+        - label: 纯数字
+          value: "1"
+        - label: 大小写字母
+          value: "6"
+        - label: 纯大写字母
+          value: "4"
+        - label: 纯小写字母
+          value: "2"
+        - label: 纯特殊字符
+          value: "8"
+    - default: "local"
+      edit: true
+      envKey: STORAGE_PROVIDER
+      labelZh: 存储策略
+      labelEn: Storage strategy
+      required: true
+      type: select
+      values:
+        - label: 本地存储
+          value: "local"
+        - label: SMB 存储
+          value: "smb"
+    - default: ""
+      edit: true
+      envKey: SMB_HOST
+      labelZh: SMB 服务器地址
+      labelEn: SMB server address
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SMB_USERNAME
+      labelZh: SMB 用户名
+      labelEn: SMB username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SMB_PASSWORD
+      labelZh: SMB 密码
+      labelEn: SMB password
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: SMB_SHARE
+      labelZh: SMB 共享路径
+      labelEn: SMB share path
+      required: false
+      type: text

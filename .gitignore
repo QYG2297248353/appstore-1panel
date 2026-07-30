@@ -1,0 +1,11 @@
+# OSX
+.DS_Store
+
+# IntelliJ
+.idea
+
+# VSCode
+.vscode
+scan_arch_ruamel.py
+
+.trae/

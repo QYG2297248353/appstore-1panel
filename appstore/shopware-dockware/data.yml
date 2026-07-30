@@ -1,0 +1,17 @@
+additionalProperties:
+  key: shopware-dockware
+  name: ShopWare (Dockware版)
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 电子商务平台
+  shortDescEn: E-commerce
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.shopware.com/
+  github: https://github.com/shopware/shopware/
+  document: https://docs.dockware.io/
+  architectures:
+    - amd64
+    - arm64

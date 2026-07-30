@@ -1,0 +1,24 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  iframely:
+    container_name: iframely
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - NODE_ENV=production
+    - PORT=8061
+    - HOST=0.0.0.0
+    - HTTPS_PROXY=${HTTP_PROXY}
+    image: qyg2297248353/iframely:v2.4.3
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8061
+    restart: always
+    volumes:
+    - ./config/config.local.js:/iframely/config.local.js

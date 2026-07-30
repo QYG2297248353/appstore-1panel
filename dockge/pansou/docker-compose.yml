@@ -1,0 +1,46 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  pansou-web:
+    container_name: pansou
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - PANSOU_HOST=127.0.0.1
+    - PANSOU_PORT=8888
+    - CACHE_PATH=/app/data/cache
+    - LOG_PATH=/app/data/logs
+    - CACHE_ENABLED=true
+    - CACHE_MAX_SIZE=100
+    - CACHE_TTL=60
+    - ASYNC_PLUGIN_ENABLED=true
+    - ASYNC_RESPONSE_TIMEOUT=4
+    - ASYNC_MAX_BACKGROUND_WORKERS=20
+    - ASYNC_MAX_BACKGROUND_TASKS=100
+    - ASYNC_CACHE_TTL_HOURS=1
+    - HTTPS_PROXY=${HTTP_PROXY:-}
+    healthcheck:
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      test:
+      - CMD
+      - wget
+      - -q
+      - --spider
+      - http://localhost:8888/api/health
+      timeout: 5s
+    image: ghcr.io/fish2018/pansou-web:latest
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:80
+    restart: always
+    volumes:
+    - ${PANSOU_ROOT_PATH}/cache:/app/data/cache
+    - ${PANSOU_ROOT_PATH}/logs:/app/data/logs

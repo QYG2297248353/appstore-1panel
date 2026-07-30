@@ -1,0 +1,17 @@
+additionalProperties:
+  key: astrbot-napcat
+  name: AstrBot (集成NapCat)
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 多平台大模型机器人基础设施
+  shortDescEn: The Multi-Platform LLM Bot Infrastructure
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://astrbot.app/
+  github: https://github.com/AstrBotDevs/AstrBot/
+  document: https://astrbot.app/
+  architectures:
+    - amd64
+    - arm64

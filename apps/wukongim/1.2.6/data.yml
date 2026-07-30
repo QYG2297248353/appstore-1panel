@@ -1,0 +1,47 @@
+additionalProperties:
+  formFields:
+    - default: "/home/wukongim"
+      edit: true
+      envKey: WUKONGIM_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 5300
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 5001
+      envKey: PANEL_APP_PORT_WK_API
+      labelZh: API 端口
+      labelEn: API port
+      required: true
+      type: number
+    - default: 5100
+      envKey: PANEL_APP_PORT_WK_TCP
+      labelZh: TCP端口
+      labelEn: Tcp port
+      required: true
+      type: number
+    - default: 5200
+      envKey: PANEL_APP_PORT_WK_WS
+      labelZh: WebSocket 端口
+      labelEn: WebSocket port
+      required: true
+      type: number
+    - default: 5172
+      envKey: PANEL_APP_PORT_WK_DEMO_SERVER
+      labelZh: 悟空IM演示端口
+      labelEn: WuKongIM demo port
+      required: true
+      type: number
+    - default: "127.0.0.1"
+      envKey: WK_EXTERNAL_IP
+      labelZh: 服务器IP
+      labelEn: Server IP
+      required: true
+      type: text

@@ -1,0 +1,166 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_POSTGRES_SERVICE
+        required: true
+        type: service
+      default: postgresql
+      envKey: PANEL_POSTGRES_TYPE
+      labelZh: Postgres 服务 (前置检查)
+      labelEn: Postgres Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: PostgreSQL
+          value: postgresql
+    - default: 3000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: Web UI 端口
+      labelEn: Web UI Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "http://127.0.0.1:3000"
+      edit: true
+      envKey: BASE_URL
+      labelZh: 访问地址
+      labelEn: Access URL
+      required: true
+      type: text
+    - default: "adc19ed6361cb4af0ff5f5bd3c52930cc6b444777d07bdcb76c2e9d623976b648640c4fbdc00cea739f15ef21522240758d747f65c15c6311f7d8678d8fe1ae565b837cdd5eb9d90594a4501dea1e6711ca0eae873302de27f210219188f4420473749fb67103afe64867120d0f7fadaecd2442e96b165c5f1602e701527f2e72188a18d195127f59632247d578d2b9a9a652240026aa5a317c972e5bdb391caab81b2779eebe0a07e28246b78e58ddd49845cf91f29cbb8e9090b2cf0ce4db0f49d52473fd75f9c274dcb5a9cb3c0bf6dd664b2fb1b603955fef325fd0b34043524b0fad2fcd2686ce04225792e267800b9b66a1762d9ebae4416500541dc8d"
+      edit: true
+      envKey: JWT_SECRET
+      labelZh: 应用密钥
+      labelEn: App key
+      required: true
+      type: password
+    - default: "127.0.0.1"
+      edit: true
+      envKey: POSTGRES_HOST
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: 5432
+      edit: true
+      envKey: POSTGRES_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "fider"
+      edit: true
+      envKey: POSTGRES_NAME
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      rule: paramCommon
+      type: text
+    - default: "fider"
+      edit: true
+      envKey: POSTGRES_USER
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: POSTGRES_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: ""
+      edit: true
+      envKey: EMAIL_NOREPLY
+      labelZh: 发件人地址
+      labelEn: Mailer Sender Address
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: EMAIL_SMTP_HOST
+      labelZh: 主机地址 (SMTP)
+      labelEn: Mailer Host (SMTP)
+      required: false
+      type: text
+    - default: 465
+      edit: true
+      envKey: EMAIL_SMTP_PORT
+      labelZh: 端口 (SMTP)
+      labelEn: Mailer Port (SMTP)
+      required: true
+      type: number
+    - default: ""
+      edit: true
+      envKey: EMAIL_SMTP_USERNAME
+      labelZh: 用户名 (SMTP)
+      labelEn: Mailer Username (SMTP)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: EMAIL_SMTP_PASSWORD
+      labelZh: 密码 (SMTP)
+      labelEn: Mailer Password (SMTP)
+      required: false
+      type: text
+    - default: "true"
+      edit: true
+      envKey: EMAIL_SMTP_ENABLE_STARTTLS
+      labelZh: 启用 STARTTLS (SMTP)
+      labelEn: Enable STARTTLS (SMTP)
+      required: true
+      type: select
+      values:
+        - label: "是"
+          value: "true"
+        - label: "否"
+          value: "false"
+    - default: ""
+      edit: true
+      envKey: EMAIL_MAILGUN_API
+      labelZh: API 地址 (Mailgun)
+      labelEn: API URL (Mailgun)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: EMAIL_MAILGUN_DOMAIN
+      labelZh: 域名 (Mailgun)
+      labelEn: Domain (Mailgun)
+      required: false
+      type: text
+    - default: "US"
+      edit: true
+      envKey: EMAIL_MAILGUN_REGION
+      labelZh: 区域 (Mailgun)
+      labelEn: Region (Mailgun)
+      required: false
+      type: text
+    - default: "us-east-1"
+      edit: true
+      envKey: EMAIL_AWSSES_REGION
+      labelZh: 区域 (AWS SES)
+      labelEn: Region (AWS SES)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: EMAIL_AWSSES_ACCESS_KEY_ID
+      labelZh: 授权 ID (AWS SES)
+      labelEn: Access Key ID (AWS SES)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: EMAIL_AWSSES_SECRET_ACCESS_KEY
+      labelZh: 授权密钥 (AWS SES)
+      labelEn: Access Key Secret (AWS SES)
+      required: false
+      type: text

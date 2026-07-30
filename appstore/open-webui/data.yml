@@ -1,0 +1,18 @@
+additionalProperties:
+  key: open-webui
+  name: Open Webui
+  tags:
+    - WebSite
+    - AI
+    - Local
+  shortDescZh: 用户友好的 AI 界面
+  shortDescEn: User-friendly AI interface
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://openwebui.com/
+  github: https://github.com/open-webui/open-webui/
+  document: https://docs.openwebui.com/
+  architectures:
+    - amd64
+    - arm64

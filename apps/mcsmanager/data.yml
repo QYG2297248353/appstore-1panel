@@ -1,0 +1,18 @@
+additionalProperties:
+  key: mcsmanager
+  name: MCSManager
+  tags:
+    - WebSite
+    - Middleware
+    - Local
+  shortDescZh: 开源，易用，分布式架构的游戏服务器管理面板（整合版）
+  shortDescEn: Open source, distributed, multi-user management panel for Minecraft and Steam game servers (All-in-one)
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://mcsmanager.com/
+  github: https://github.com/MCSManager/MCSManager
+  document: https://mcsmanager.com/
+  architectures:
+    - amd64
+    - arm64

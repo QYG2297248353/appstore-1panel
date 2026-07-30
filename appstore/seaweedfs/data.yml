@@ -1,0 +1,21 @@
+additionalProperties:
+  key: seaweedfs
+  name: SeaweedFS
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 分布式存储系统
+  shortDescEn: distributed storage system
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://seaweedfs.com/
+  github: https://github.com/seaweedfs/seaweedfs/
+  document: https://github.com/seaweedfs/seaweedfs/
+  architectures:
+    - '386'
+    - amd64
+    - arm
+    - arm64
+    - ppc64le
+    - s390x

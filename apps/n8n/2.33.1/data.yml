@@ -1,0 +1,161 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_POSTGRES_SERVICE
+        required: true
+        type: service
+      default: postgresql
+      envKey: PANEL_POSTGRES_TYPE
+      labelZh: Postgres 服务 (前置检查)
+      labelEn: Postgres Service (Pre-check)
+      required: false
+      type: apps
+      values:
+        - label: PostgreSQL
+          value: postgresql
+    - default: "/home/n8n"
+      edit: true
+      envKey: N8N_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 5678
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "http://127.0.0.1:5678"
+      edit: true
+      envKey: N8N_EDITOR_BASE_URL
+      labelZh: 编辑器基础URL
+      labelEn: Editor Base URL
+      required: true
+      type: text
+    - default: "postgresdb"
+      edit: true
+      envKey: DB_TYPE
+      labelZh: 数据库类型
+      labelEn: Database type
+      required: true
+      type: select
+      values:
+        - label: PostgreSQL
+          value: "postgresdb"
+        - label: Sqlite
+          value: "sqlite"
+    - default: "127.0.0.1"
+      edit: true
+      envKey: DB_POSTGRESDB_HOST
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: false
+      type: text
+    - default: 5432
+      edit: true
+      envKey: DB_POSTGRESDB_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: false
+      rule: paramPort
+      type: number
+    - default: "n8n"
+      edit: true
+      envKey: DB_POSTGRESDB_DATABASE
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: false
+      rule: paramCommon
+      type: text
+    - default: "n8n"
+      edit: true
+      envKey: DB_POSTGRESDB_USER
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: DB_POSTGRESDB_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      random: true
+      required: false
+      rule: paramComplexity
+      type: password
+    - default: "false"
+      edit: true
+      envKey: N8N_DISABLE_UI
+      labelZh: 禁用UI
+      labelEn: Disable UI
+      required: true
+      type: select
+      values:
+        - label: 禁用
+          value: "true"
+        - label: 启用
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: N8N_PREVIEW_MODE
+      labelZh: 预览模式
+      labelEn: Preview Mode
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: N8N_TEMPLATES_ENABLED
+      labelZh: 工作流模板
+      labelEn: Workflow Templates
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"
+    - default: "true"
+      edit: true
+      envKey: N8N_PERSONALIZATION_ENABLED
+      labelZh: 个性化问题询问
+      labelEn: Personalization Question
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: N8N_PUBLIC_API_SWAGGERUI_DISABLED
+      labelZh: 禁用API文档
+      labelEn: Disable API Documentation
+      required: true
+      type: select
+      values:
+        - label: 禁用
+          value: "true"
+        - label: 启用
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: N8N_PUBLIC_API_DISABLED
+      labelZh: 禁用公共API
+      labelEn: Disable Public API
+      required: true
+      type: select
+      values:
+        - label: 禁用
+          value: "true"
+        - label: 启用
+          value: "false"

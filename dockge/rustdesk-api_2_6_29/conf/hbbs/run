@@ -1,0 +1,6 @@
+#!/command/with-contenv sh
+sleep 2
+cd /data
+PARAMS=
+[ "${ENCRYPTED_ONLY}" = "1" ] && PARAMS="-k ${RUSTDESK_API_RUSTDESK_KEY}"
+/usr/bin/hbbs -r $RELAY $PARAMS

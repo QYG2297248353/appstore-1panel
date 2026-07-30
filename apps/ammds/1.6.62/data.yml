@@ -1,0 +1,118 @@
+additionalProperties:
+  formFields:
+    - default: "1panel-network"
+      edit: true
+      envKey: NETWORK_MODE
+      labelZh: 网络模式
+      labelEn: Network mode
+      required: true
+      type: select
+      values:
+        - label: 主机网络模式
+          value: "host"
+        - label: 桥接网络模式
+          value: "bridge"
+        - label: 无网络模式
+          value: "none"
+        - label: 1panel-network
+          value: "1panel-network"
+    - default: "/home/ammds"
+      edit: true
+      envKey: AMMDS_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 9523
+      edit: true
+      envKey: PANEL_APP_PORT_API
+      labelZh: API 端口
+      labelEn: API port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: AMMDS_METATUBE_URL
+      labelZh: MetaTube URL
+      labelEn: MetaTube URL
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AMMDS_METATUBE_TOKEN
+      labelZh: MetaTube 密钥
+      labelEn: MetaTube token
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AMMDS_PROWLARR_URL
+      labelZh: Prowlarr URL
+      labelEn: Prowlarr URL
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AMMDS_PROWLARR_TOKEN
+      labelZh: Prowlarr 密钥
+      labelEn: Prowlarr token
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AMMDS_IYUU_TOKEN
+      labelZh: IYUU 密钥
+      labelEn: IYUU token
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AMMDS_QBITTORRENT_URL
+      labelZh: qBittorrent URL
+      labelEn: qBittorrent URL
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AMMDS_QBITTORRENT_USERNAME
+      labelZh: qBittorrent 用户名
+      labelEn: qBittorrent Username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AMMDS_QBITTORRENT_PASSWORD
+      labelZh: qBittorrent 密码
+      labelEn: qBittorrent Password
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_1
+      labelEn: Custom mount directory 1
+      labelZh: 自定义挂载目录 1
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_2
+      labelEn: Custom mount directory 2
+      labelZh: 自定义挂载目录 2
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_3
+      labelEn: Custom mount directory 3
+      labelZh: 自定义挂载目录 3
+      required: false
+      type: text

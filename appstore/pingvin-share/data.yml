@@ -1,0 +1,17 @@
+additionalProperties:
+  key: pingvin-share
+  name: Pingvin Share
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 一个集轻盈与美观于一体的自托管文件共享平台
+  shortDescEn: A self-hosted file sharing platform that combines lightness and beauty
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/stonith404/pingvin-share/
+  github: https://github.com/stonith404/pingvin-share/
+  document: https://stonith404.github.io/pingvin-share/introduction/
+  architectures:
+    - amd64
+    - arm64

@@ -1,0 +1,14 @@
+global:
+  scrape_interval: 30s
+  scrape_timeout: 10s
+
+scrape_configs:
+  - job_name: services
+    metrics_path: /metrics
+    static_configs:
+      - targets:
+          - 'seaweedfs-prometheus:9090'
+          - 'seaweedfs-master:9324'
+          - 'seaweedfs-volume:9325'
+          - 'seaweedfs-filer:9326'
+          - 'seaweedfs-s3:9327'

@@ -1,0 +1,17 @@
+additionalProperties:
+  key: telegram-search
+  name: Telegram Search
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: Telegram 聊天搜索工具
+  shortDescEn: Telegram Chat Search Tool
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://search.lingogram.app/
+  github: https://github.com/groupultra/telegram-search/
+  document: https://github.com/groupultra/telegram-search/
+  architectures:
+    - amd64
+    - arm64

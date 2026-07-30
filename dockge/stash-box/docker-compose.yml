@@ -1,0 +1,32 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  stash-box:
+    container_name: stash-box
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - HTTPS_PROXY=${HTTP_PROXY}
+    - HTTP_PROXY=${HTTP_PROXY:-}
+    - NO_PROXY=${NO_PROXY:-}
+    image: stashapp/stash-box:development
+    labels:
+    - createdBy=Apps
+    - traefik.http.routers.stash-box.rule=Host(`<DOMAIN>`)
+    - traefik.http.routers.stash-box.tls=true
+    - traefik.http.routers.stash-box.tls.certresolver=stash-box
+    - traefik.port=9998
+    logging:
+      driver: json-file
+      options:
+        max-file: '10'
+        max-size: 2m
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
+    restart: always
+    volumes:
+    - ${STASH_BOX_ROOT_PATH}/data:/root/.stash-box

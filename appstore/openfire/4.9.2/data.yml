@@ -1,0 +1,41 @@
+additionalProperties:
+  formFields:
+    - default: "/home/openfire"
+      edit: true
+      envKey: OPENFIRE_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 9090
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口 (HTTP)
+      labelEn: WebUI port (HTTP)
+      required: true
+      rule: paramPort
+      type: number
+    - default: 9091
+      edit: true
+      envKey: PANEL_APP_PORT_HTTPS
+      labelZh: WebUI 端口 (HTTPS)
+      labelEn: WebUI port (HTTPS)
+      required: true
+      rule: paramPort
+      type: number
+    - default: 5222
+      edit: true
+      envKey: PANEL_APP_PORT_SERVER
+      labelZh: 服务端口
+      labelEn: Server port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 7777
+      edit: true
+      envKey: PANEL_APP_PORT_MESSAGE
+      labelZh: 消息服务端口
+      labelEn: Message service port
+      required: true
+      rule: paramPort
+      type: number

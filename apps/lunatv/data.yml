@@ -1,0 +1,17 @@
+additionalProperties:
+  key: lunatv
+  name: LunaTv (MoonTV)
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 跨平台的影视聚合播放站
+  shortDescEn: Cross-platform video aggregation station
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/MoonTechLab/LunaTV/
+  github: https://github.com/MoonTechLab/LunaTV/
+  document: https://github.com/MoonTechLab/LunaTV/
+  architectures:
+    - amd64
+    - arm64

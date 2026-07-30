@@ -1,0 +1,17 @@
+additionalProperties:
+  key: pixman
+  name: Pixman
+  tags:
+    - Media
+    - Local
+  shortDescZh: IPTV、M3U8 流媒体代理方案
+  shortDescEn: IPTV、M3U8 streaming media proxy solution
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://pixman.io/
+  github: https://pixman.io/
+  document: https://pixman.io/
+  architectures:
+    - amd64
+    - arm64

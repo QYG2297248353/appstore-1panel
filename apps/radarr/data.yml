@@ -1,0 +1,18 @@
+additionalProperties:
+  key: radarr
+  name: Radarr
+  tags:
+    - WebSite
+    - Storage
+    - Local
+  shortDescZh: 电影组织者/管理员，适用于 Usenet 和 torrent 用户
+  shortDescEn: Movie organizer and manager, suitable for Usenet and torrent users
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://radarr.video/
+  github: https://github.com/Radarr/Radarr/
+  document: https://wiki.servarr.com/radarr/
+  architectures:
+    - amd64
+    - arm64

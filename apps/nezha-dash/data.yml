@@ -1,0 +1,18 @@
+additionalProperties:
+  key: nezha-dash
+  name: NezhaDash
+  tags:
+    - WebSite
+    - Middleware
+    - Local
+  shortDescZh: 基于 Next.js 和 哪吒监控 的仪表盘
+  shortDescEn: Dashboard based on Next.js and Nezha Monitor
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://nezha-cf.buycoffee.top/
+  github: https://github.com/hamster1963/nezha-dash/
+  document: https://buycoffee.top/blog/tech/nezha-docker/
+  architectures:
+    - amd64
+    - arm64

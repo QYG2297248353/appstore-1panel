@@ -1,0 +1,27 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  metatube-server:
+    image: ghcr.io/metatube-community/metatube-server:1.4.0
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8080
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${METATUBE_ROOT_PATH}/data:/var/run
+    environment:
+      - HTTPS_PROXY=${HTTP_PROXY}
+      - DB_MAX_IDLE_CONNS=0
+      - DB_MAX_OPEN_CONNS=0
+      - DB_PREPARED_STMT=false
+      - DB_AUTO_MIGRATE=true
+    command: -dsn "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_NAME}" -port 8080 -db-auto-migrate -db-prepared-stmt

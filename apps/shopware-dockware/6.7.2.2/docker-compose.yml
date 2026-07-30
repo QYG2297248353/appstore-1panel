@@ -1,0 +1,28 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  dockware:
+    image: dockware/play:6.7.2.2
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:80
+    expose:
+      - 3306
+      - 9999
+      - 9998
+      - 8888
+      - 22
+      - 443
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    environment:
+      - TZ=Asia/Shanghai
+      - XDEBUG_ENABLED=0

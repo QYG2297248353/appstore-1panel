@@ -1,0 +1,19 @@
+additionalProperties:
+  key: watchyourlan
+  name: 路由设备监控
+  tags:
+    - WebSite
+    - Middleware
+    - Local
+  shortDescZh: 轻量级网络 IP 扫描器
+  shortDescEn: Lightweight network IP scanner
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/aceberg/WatchYourLAN/
+  github: https://github.com/aceberg/WatchYourLAN/
+  document: https://github.com/aceberg/WatchYourLAN/
+  architectures:
+    - amd64
+    - arm
+    - arm64

@@ -1,0 +1,17 @@
+additionalProperties:
+  key: nexus3
+  name: Nexus3
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: Sonatype Nexus存储库
+  shortDescEn: Sonatype Nexus Repository
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://sonatype.com/
+  github: https://github.com/sonatype/
+  document: https://help.sonatype.com/
+  architectures:
+    - amd64
+    - arm64

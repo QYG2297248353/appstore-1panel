@@ -1,0 +1,47 @@
+additionalProperties:
+  formFields:
+    - default: "/home/suwayomi-server"
+      edit: true
+      envKey: SUWAYOMI_SERVER_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 4567
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "none"
+      edit: true
+      envKey: AUTH_MODE
+      labelZh: 认证模式
+      labelEn: Auth Mode
+      required: true
+      type: select
+      values:
+        - label: 关闭认证
+          value: "none"
+        - label: 基本身份验证
+          value: "basic_auth"
+        - label: Cookie登录
+          value: "simple_login"
+        - label: Jwt登录
+          value: "ui_login"
+    - default: ""
+      edit: true
+      envKey: AUTH_USERNAME
+      labelZh: 管理员用户名
+      labelEn: Auth Username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: AUTH_PASSWORD
+      labelZh: 管理员密码
+      labelEn: Auth Password
+      required: false
+      type: password

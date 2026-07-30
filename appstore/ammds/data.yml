@@ -1,0 +1,17 @@
+additionalProperties:
+  key: ammds
+  name: AMMDS
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 个人影视数据管理平台
+  shortDescEn: Personal movie and TV data management platform
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://ammds.lifebus.top/
+  github: https://github.com/QYG2297248353/AMMDS-Docker/
+  document: https://ammds.lifebus.top/
+  architectures:
+    - amd64
+    - arm64

@@ -1,0 +1,63 @@
+networks:
+  1panel-network:
+    external: true
+  dujiao-net:
+    driver: bridge
+
+services:
+  dujiaonext-api:
+    image: dujiaonext/api:v1.4.1
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - dujiao-net
+    ports:
+      - ${PANEL_APP_PORT_API}:8080
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${DUJIAONEXT_ROOT_PATH}/config/config.yml:/app/config.yml:ro
+      - ${DUJIAONEXT_ROOT_PATH}/data/db:/app/db
+      - ${DUJIAONEXT_ROOT_PATH}/data/uploads:/app/uploads
+      - ${DUJIAONEXT_ROOT_PATH}/data/logs:/app/logs
+    environment:
+      - TZ=Asia/Shanghai
+      - QUEUE_HOST=${REDIS_HOST:-}
+      - QUEUE_PORT=${REDIS_PORT:-}
+      - QUEUE_PASSWORD=${REDIS_PASSWORD:-}
+    healthcheck:
+      test: [ "CMD", "wget", "-qO-", "http://127.0.0.1:8080/health" ]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+  dujiaonext-admin:
+    depends_on:
+      dujiaonext-api:
+        condition: service_healthy
+    image: dujiaonext/admin:v1.3.1
+    container_name: admin-${CONTAINER_NAME}
+    restart: always
+    networks:
+      - dujiao-net
+    ports:
+      - ${PANEL_APP_PORT_ADMIN}:80
+    environment:
+      - TZ=Asia/Shanghai
+
+  dujiaonext-user:
+    depends_on:
+      dujiaonext-api:
+        condition: service_healthy
+    image: dujiaonext/user:v1.3.1
+    container_name: user-${CONTAINER_NAME}
+    restart: always
+    networks:
+      - dujiao-net
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:80
+    environment:
+      - TZ=Asia/Shanghai

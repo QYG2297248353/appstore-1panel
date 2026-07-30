@@ -1,0 +1,18 @@
+additionalProperties:
+  key: termix
+  name: Termix
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 服务器管理平台
+  shortDescEn: Server management platform
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://docs.termix.site/
+  github: https://github.com/LukeGus/Termix/
+  document: https://docs.termix.site/
+  architectures:
+    - amd64
+    - arm
+    - arm64

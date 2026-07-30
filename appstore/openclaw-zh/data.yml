@@ -1,0 +1,17 @@
+additionalProperties:
+  key: openclaw-zh
+  name: OpenClaw 汉化发行版
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 您自己的个人AI助手。任何操作系统。任何平台。小龙虾计划。 🦞
+  shortDescEn: Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://openclaw.qt.cool/
+  github: https://github.com/1186258278/OpenClawChineseTranslation/
+  document: https://openclaw.qt.cool/
+  architectures:
+    - amd64
+    - arm64

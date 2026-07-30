@@ -1,0 +1,18 @@
+additionalProperties:
+  key: plex
+  name: Plex
+  tags:
+    - WebSite
+    - Media
+    - Local
+  shortDescZh: 媒体播放器及媒体服务器软件
+  shortDescEn: Media player and media server software
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.plex.tv/
+  github: https://github.com/plexinc/pms-docker/
+  document: https://www.plex.tv/
+  architectures:
+    - amd64
+    - arm64

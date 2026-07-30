@@ -1,0 +1,54 @@
+additionalProperties:
+  formFields:
+    - default: "/home/dpanel"
+      edit: true
+      envKey: DPANEL_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_ADMIN
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 80
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: HTTP 服务端口
+      labelEn: HTTP service port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 443
+      edit: true
+      envKey: PANEL_APP_PORT_HTTPS
+      labelZh: HTTPS 服务端口
+      labelEn: HTTPS service port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "admin"
+      edit: true
+      envKey: INSTALL_USERNAME
+      labelZh: 管理员 用户名
+      labelEn: Admin Username
+      required: true
+      type: text
+    - default: "admin"
+      edit: true
+      envKey: INSTALL_PASSWORD
+      labelZh: 管理员 密码
+      labelEn: Admin Password
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: HTTP_PROXY
+      labelZh: 网络代理
+      labelEn: Network Proxy
+      required: false
+      type: text

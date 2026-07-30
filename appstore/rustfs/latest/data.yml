@@ -1,0 +1,58 @@
+additionalProperties:
+  formFields:
+    - default: "/home/rustfs"
+      edit: true
+      envKey: RUSTFS_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 9001
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 9000
+      edit: true
+      envKey: PANEL_APP_PORT_API
+      labelZh: API 端口
+      labelEn: API port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "rustfsadmin"
+      edit: true
+      envKey: RUSTFS_ACCESS_KEY
+      labelZh: 管理员账号
+      labelEn: Access Key
+      required: true
+      type: text
+    - default: "rustfsadmin"
+      edit: true
+      envKey: RUSTFS_SECRET_KEY
+      labelZh: 管理员密码
+      labelEn: Secret Key
+      required: true
+      type: password
+    - default: "example.com"
+      edit: true
+      envKey: RUSTFS_SERVER_DOMAINS
+      labelZh: 域名
+      labelEn: Domains
+      required: false
+      type: text
+    - default: "true"
+      edit: true
+      envKey: RUSTFS_CONSOLE_ENABLE
+      labelZh: 启用控制台
+      labelEn: Enable Console
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"

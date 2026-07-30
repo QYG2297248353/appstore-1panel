@@ -1,0 +1,17 @@
+additionalProperties:
+  key: puff
+  name: Puff
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: 域名监控程序
+  shortDescEn: Domain monitoring program
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/BitAUR/Puff/
+  github: https://github.com/BitAUR/Puff/
+  document: https://github.com/BitAUR/Puff/
+  architectures:
+    - amd64

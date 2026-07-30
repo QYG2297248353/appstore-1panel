@@ -1,0 +1,17 @@
+additionalProperties:
+  key: kotatsu
+  name: Kotatsu
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 口袋里的漫画
+  shortDescEn: Manga in your pocket
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://kotatsu.app/
+  github: https://github.com/KotatsuApp/Kotatsu/
+  document: https://kotatsu.app/
+  architectures:
+    - amd64
+    - arm64

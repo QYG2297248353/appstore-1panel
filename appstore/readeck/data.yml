@@ -1,0 +1,17 @@
+additionalProperties:
+  key: readeck
+  name: Readeck
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 网页内容存档工具
+  shortDescEn: web content archiving tool
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://readeck.org/
+  github: https://codeberg.org/readeck/readeck/
+  document: https://readeck.org/
+  architectures:
+    - amd64
+    - arm64/v8

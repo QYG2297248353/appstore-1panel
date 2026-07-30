@@ -1,0 +1,19 @@
+additionalProperties:
+  key: jellyseerr
+  name: Jellyseerr
+  tags:
+    - WebSite
+    - Media
+    - Middleware
+    - Local
+  shortDescZh: 满足您所有媒体需求的一站式平台
+  shortDescEn: A one-stop platform to meet all your media needs
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://docs.jellyseerr.dev/
+  github: https://github.com/Fallenbagel/jellyseerr/
+  document: https://docs.jellyseerr.dev/
+  architectures:
+    - amd64
+    - arm64

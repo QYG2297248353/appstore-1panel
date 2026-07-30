@@ -1,0 +1,73 @@
+name: Process Apps and Commit Changes
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */3 * * *'
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.14'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+
+      - name: Run processing script
+        run: python process-apps.py
+
+      - name: Verify generated directories
+        run: |
+          ls -R appstore || echo "appstore not created"
+          ls -R dockge || echo "dockge not created"
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git fetch origin custom
+
+          git add .
+          git diff --cached --quiet || git commit -m "Processed apps directory via GitHub Actions"
+
+          git rebase origin/custom || { echo "Rebase failed, trying to resolve"; git rebase --abort; git pull --rebase origin custom; }
+
+          git push origin custom
+
+      - name: Clone DPanel repository
+        run: |
+          git clone https://github.com/QYG2297248353/appstore-dpanel.git target-repo
+
+      - name: Copy appstore to DPanel repository
+        run: |
+          if [ -d "target-repo/apps" ]; then
+            rm -rf target-repo/apps
+          fi
+          mkdir -p target-repo/apps
+          rsync -a appstore/ target-repo/apps/
+
+      - name: Commit and push to DPanel repository
+        working-directory: target-repo
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          
+          git add .
+          git diff --cached --quiet || git commit -m "Synced apps from source repository via GitHub Actions"
+          
+          git push https://x-access-token:${{ secrets.GITHUBTOKEN }}@github.com/QYG2297248353/appstore-dpanel.git master

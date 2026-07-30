@@ -1,0 +1,30 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  flaresolverr:
+    container_name: flaresolverr
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - LOG_LEVEL=info
+    - LOG_HTML=false
+    - CAPTCHA_SOLVER=none
+    - TZ=Asia/Shanghai
+    - LANG=none
+    - HEADLESS=true
+    - BROWSER_TIMEOUT=40000
+    - TEST_URL=https://www.google.com
+    - PORT=8191
+    - HOST=0.0.0.0
+    - PROMETHEUS_ENABLED=false
+    - PROMETHEUS_PORT=8192
+    image: flaresolverr/flaresolverr:v3.5.0
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8191
+    restart: always

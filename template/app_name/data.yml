@@ -1,0 +1,16 @@
+additionalProperties:
+  key: app_name
+  name: App Name
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 中文简介
+  shortDescEn: 英文简介
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://app.com/
+  github: https://app.com/
+  document: https://app.com/
+  architectures:
+    - amd64

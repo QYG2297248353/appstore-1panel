@@ -1,0 +1,67 @@
+additionalProperties:
+  formFields:
+    - default: "/home/archivebox"
+      edit: true
+      envKey: ARCHIVEBOX_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "archivebox"
+      edit: true
+      envKey: ADMIN_USERNAME
+      labelZh: 管理员用户名
+      labelEn: Admin Username
+      required: true
+      type: text
+    - default: "archivebox"
+      edit: true
+      envKey: ADMIN_PASSWORD
+      labelZh: 管理员密码
+      labelEn: Admin Password
+      required: true
+      type: password
+    - default: "True"
+      edit: true
+      envKey: PUBLIC_INDEX
+      labelZh: 是否公开快照列表
+      labelEn: Whether to make the snapshot list public
+      required: true
+      type: select
+      values:
+        - label: 公开
+          value: "True"
+        - label: 私密
+          value: "False"
+    - default: "True"
+      edit: true
+      envKey: PUBLIC_SNAPSHOTS
+      labelZh: 是否公开快照内容
+      labelEn: Whether to make snapshot content public
+      required: true
+      type: select
+      values:
+        - label: 公开
+          value: "True"
+        - label: 私密
+          value: "False"
+    - default: "False"
+      edit: true
+      envKey: PUBLIC_ADD_VIEW
+      labelZh: 是否允许匿名用户提交存档
+      labelEn: Whether to allow anonymous users to submit archives
+      required: true
+      type: select
+      values:
+        - label: 允许
+          value: "True"
+        - label: 禁止
+          value: "False"

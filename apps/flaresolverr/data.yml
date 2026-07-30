@@ -1,0 +1,19 @@
+additionalProperties:
+  key: flaresolverr
+  name: FlareSolverr
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 用于绕过Cloudflare保护的代理服务器
+  shortDescEn: Proxy server to bypass Cloudflare protection
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/FlareSolverr/FlareSolverr/
+  github: https://github.com/FlareSolverr/FlareSolverr/
+  document: https://github.com/FlareSolverr/FlareSolverr/
+  architectures:
+    - '386'
+    - amd64
+    - arm
+    - arm64

@@ -1,0 +1,134 @@
+additionalProperties:
+  formFields:
+    - default: "/home/seaweedfs"
+      edit: true
+      envKey: SEAWEEDFS_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8333
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 9327
+      edit: true
+      envKey: PANEL_APP_PORT_S3_METRICS
+      labelZh: S3 监控端口
+      labelEn: S3 Metrics port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 9333
+      edit: true
+      envKey: PANEL_APP_PORT_MASTER_SERVER
+      labelZh: 集群服务端口
+      labelEn: Cluster service port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 19333
+      edit: true
+      envKey: PANEL_APP_PORT_MASTER_API
+      labelZh: 集群通讯端口
+      labelEn: Cluster communication port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 9324
+      edit: true
+      envKey: PANEL_APP_PORT_MASTER_METRICS
+      labelZh: 集群监控端口
+      labelEn: Cluster Metrics port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_VOLUME_SERVER
+      labelZh: 存储服务端口
+      labelEn: Storage service port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 18080
+      edit: true
+      envKey: PANEL_APP_PORT_VOLUME_API
+      labelZh: 存储通讯端口
+      labelEn: Storage communication port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 9325
+      edit: true
+      envKey: PANEL_APP_PORT_VOLUME_METRICS
+      labelZh: 存储监控端口
+      labelEn: Storage Metrics port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 8888
+      edit: true
+      envKey: PANEL_APP_PORT_FILER_SERVER
+      labelZh: 索引服务端口
+      labelEn: Index service port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 18888
+      edit: true
+      envKey: PANEL_APP_PORT_FILER_API
+      labelZh: 索引通讯端口
+      labelEn: Index communication port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 9326
+      edit: true
+      envKey: PANEL_APP_PORT_FILER_METRICS
+      labelZh: 索引监控端口
+      labelEn: Index Metrics port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 7333
+      edit: true
+      envKey: PANEL_APP_PORT_WEBDAV
+      labelZh: WebDAV 端口
+      labelEn: WebDAV port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 9090
+      edit: true
+      envKey: PANEL_APP_PORT_METRICS
+      labelZh: Prometheus 端口
+      labelEn: Prometheus port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_1
+      labelEn: Custom mount directory 1
+      labelZh: 自定义挂载目录 1
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_2
+      labelEn: Custom mount directory 2
+      labelZh: 自定义挂载目录 2
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_3
+      labelEn: Custom mount directory 3
+      labelZh: 自定义挂载目录 3
+      required: false
+      type: text

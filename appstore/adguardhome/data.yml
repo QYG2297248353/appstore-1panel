@@ -1,0 +1,17 @@
+additionalProperties:
+  key: adguardhome
+  name: Adguard Home
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 广告卫士之家
+  shortDescEn: Adguard Home
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://adguard.com/
+  github: https://github.com/AdguardTeam/AdGuardHome/
+  document: https://adguard.com/
+  architectures:
+    - amd64
+    - arm64

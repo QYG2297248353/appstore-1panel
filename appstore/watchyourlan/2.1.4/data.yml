@@ -1,0 +1,108 @@
+additionalProperties:
+  formFields:
+    - default: "/home/watchyourlan"
+      edit: true
+      envKey: WATCHYOURLAN_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8840
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: 访问端口
+      labelEn: Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "sand"
+      edit: true
+      envKey: THEME
+      labelZh: 主题
+      labelEn: Theme
+      required: true
+      type: select
+      values:
+        - label: Sand
+          value: "sand"
+        - label: Emerald
+          value: "emerald"
+        - label: Grass
+          value: "grass"
+        - label: Grayscale
+          value: "grayscale"
+        - label: Ocean
+          value: "ocean"
+        - label: Wood
+          value: "wood"
+    - default: "dark"
+      edit: true
+      envKey: COLOR
+      labelZh: 颜色
+      labelEn: Color
+      required: true
+      type: select
+      values:
+        - label: 浅色
+          value: "light"
+        - label: 深色
+          value: "dark"
+    - default: ""
+      edit: true
+      envKey: SHOUTRRR_URL
+      labelZh: 通知地址
+      labelEn: Notification URL
+      required: false
+      type: text
+    - default: "enp2s0"
+      edit: true
+      envKey: IFACES
+      labelZh: 监听网卡 (多个用逗号分隔)
+      labelEn: Listening network card (separated by commas)
+      required: true
+      type: text
+    - default: 120
+      edit: true
+      envKey: TIMEOUT
+      labelZh: 超时时间 (秒)
+      labelEn: Timeout (seconds)
+      required: true
+      type: number
+    - default: 48
+      edit: true
+      envKey: TRIM_HIST
+      labelZh: 历史记录保留失效 (小时)
+      labelEn: Historical record retention invalid (hours)
+      required: true
+      type: number
+    - default: "false"
+      edit: true
+      envKey: HIST_IN_DB
+      labelZh: 历史记录存储方式
+      labelEn: Historical record storage method
+      required: true
+      type: select
+      values:
+        - label: 内存存储
+          value: "false"
+        - label: 数据库存储
+          value: "true"
+    - default: "sqlite"
+      edit: true
+      envKey: USE_DB
+      labelZh: 数据存储方式
+      labelEn: Data storage method
+      required: true
+      type: select
+      values:
+        - label: SQLite
+          value: "sqlite"
+        - label: PostgreSQL
+          value: "postgres"
+    - default: ""
+      edit: true
+      envKey: PG_CONNECT
+      labelZh: PostgreSQL 连接地址
+      labelEn: PostgreSQL connection address
+      required: false
+      type: text

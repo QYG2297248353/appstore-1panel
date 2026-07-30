@@ -1,0 +1,17 @@
+additionalProperties:
+  key: nodebb
+  name: NodeBB
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 一个更适合现代网络的社会平台
+  shortDescEn: A modern forum platform better suited for the modern web
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://nodebb.org/
+  github: https://github.com/NodeBB/NodeBB/
+  document: https://docs.nodebb.org/
+  architectures:
+    - amd64
+    - arm64

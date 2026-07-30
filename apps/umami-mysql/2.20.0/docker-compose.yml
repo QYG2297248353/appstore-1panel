@@ -1,0 +1,25 @@
+version: "3.8"
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  umami-mysql:
+    image: umamisoftware/umami:mysql-v2.20.0
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3000
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    environment:
+      - DISABLE_TELEMETRY=1
+      - REMOVE_TRAILING_SLASH=1
+      - DATABASE_TYPE=mysql
+      - DATABASE_URL=mysql://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOSTNAME}:${DB_PORT}/${DB_DATABASE_NAME}

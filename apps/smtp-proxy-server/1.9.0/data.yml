@@ -1,0 +1,25 @@
+additionalProperties:
+  formFields:
+    - default: 8025
+      edit: true
+      envKey: PANEL_APP_PORT_SMTP
+      labelZh: SMTP 端口
+      labelEn: SMTP port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 11143
+      edit: true
+      envKey: PANEL_APP_PORT_IMAP
+      labelZh: IMAP 端口
+      labelEn: IMAP port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: PROXY_URL
+      labelZh: 服务地址
+      labelEn: Server Address
+      required: true
+      type: text

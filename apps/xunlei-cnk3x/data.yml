@@ -1,0 +1,18 @@
+additionalProperties:
+  key: xunlei-cnk3x
+  name: 迅雷 NAS版
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: 迅雷远程下载服务 NAS移植版
+  shortDescEn: Thunder Remote Download Service NAS Port
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/cnk3x/xunlei/
+  github: https://github.com/cnk3x/xunlei/
+  document: https://github.com/cnk3x/xunlei/
+  architectures:
+    - amd64
+    - arm64

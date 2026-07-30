@@ -1,0 +1,18 @@
+additionalProperties:
+  key: acg-faka
+  name: 异次元店铺系统V3
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: 二次元发卡系统
+  shortDescEn: Secondary Card Issuing System
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://faka.wiki/
+  github: https://github.com/lizhipay/acg-faka/
+  document: https://faka.wiki/
+  architectures:
+    - amd64
+    - arm64

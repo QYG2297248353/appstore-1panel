@@ -1,0 +1,16 @@
+additionalProperties:
+  key: tangsengdaodao
+  name: 唐僧叨叨
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: 让企业轻松拥有自己的即时通讯
+  shortDescEn: Make it easy for businesses to have their own instant messaging
+  type: website
+  crossVersionUpdate: true
+  recommend: 0
+  website: https://tsdaodao.com/
+  github: https://github.com/TangSengDaoDao/TangSengDaoDaoServer/
+  document: https://tsdaodao.com/
+  architectures: []

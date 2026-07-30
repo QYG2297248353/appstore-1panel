@@ -1,0 +1,17 @@
+additionalProperties:
+  formFields:
+    - default: "/home/clouddrive2"
+      edit: true
+      envKey: CLOUDDRIVE2_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 19798
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number

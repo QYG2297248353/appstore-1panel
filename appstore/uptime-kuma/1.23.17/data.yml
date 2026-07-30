@@ -1,0 +1,36 @@
+additionalProperties:
+  formFields:
+    - default: "/home/uptime-kuma"
+      edit: true
+      envKey: UPTIME_KUMA_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3001
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: UPTIME_KUMA_CLOUDFLARED_TOKEN
+      labelZh: Cloudflared 隧道令牌
+      labelEn: Cloudflared tunnel token
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: UPTIME_KUMA_DISABLE_FRAME_SAMEORIGIN
+      labelZh: 禁用 Frame SameOrigin
+      labelEn: Disable Frame SameOrigin
+      required: true
+      type: select
+      values:
+        - label: 是
+          value: "true"
+        - label: 否
+          value: "false"

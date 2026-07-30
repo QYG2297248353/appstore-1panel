@@ -1,0 +1,19 @@
+additionalProperties:
+  key: garage-hq
+  name: Garage HQ
+  tags:
+    - Storage
+    - Local
+  shortDescZh: 专为自托管而定制的开源分布式对象存储服务
+  shortDescEn: An open-source distributed object storage service tailored for self-hosting
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://garagehq.deuxfleurs.fr/
+  github: https://git.deuxfleurs.fr/Deuxfleurs/garage/
+  document: https://garagehq.deuxfleurs.fr/
+  architectures:
+    - '386'
+    - amd64
+    - arm
+    - arm64

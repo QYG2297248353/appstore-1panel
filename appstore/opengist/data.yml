@@ -1,0 +1,17 @@
+additionalProperties:
+  key: opengist
+  name: Opengist
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 自托管的粘贴板，基于 Git，Github Gist 的开源替代品
+  shortDescEn: Self-hosted pastebin powered by Git, open-source alternative to Github Gist
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://opengist.io/
+  github: https://github.com/thomiceli/opengist
+  document: https://opengist.io/docs/
+  architectures:
+    - amd64
+    - arm64

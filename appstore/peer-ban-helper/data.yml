@@ -1,0 +1,18 @@
+additionalProperties:
+  key: peer-ban-helper
+  name: PeerBanHelper
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: BT 反吸血工具
+  shortDescEn: BT Anti-Siphon Tool
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/PBH-BTN/PeerBanHelper/
+  github: https://github.com/PBH-BTN/PeerBanHelper/
+  document: https://github.com/PBH-BTN/PeerBanHelper/
+  architectures:
+    - amd64
+    - arm64

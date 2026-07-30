@@ -1,0 +1,89 @@
+additionalProperties:
+  formFields:
+    - default: "/home/dujiaoka"
+      edit: true
+      envKey: DUJIAOKA_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 9000
+      edit: true
+      envKey: PANEL_APP_PORT_API
+      labelZh: API 端口
+      labelEn: API port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "独角数卡"
+      edit: true
+      envKey: APP_NAME
+      labelZh: 网站名称
+      labelEn: Website name
+      required: true
+      type: text
+    - default: "base64:sKDhhXG+bHhlnH8hAVX2MbETkYABNhWNXALo0FU8WH0="
+      edit: true
+      envKey: APP_KEY
+      labelZh: 应用密钥
+      labelEn: Application key
+      required: true
+      type: text
+    - default: "http://127.0.0.1:8080"
+      edit: true
+      envKey: APP_URL
+      labelZh: 网站域名
+      labelEn: Website domain
+      required: true
+      type: text
+    - default: "/admin"
+      edit: true
+      envKey: ADMIN_ROUTE_PREFIX
+      labelZh: 后台路径
+      labelEn: Admin path
+      required: true
+      type: text
+    - default: "redis"
+      edit: true
+      envKey: QUEUE_CONNECTION
+      labelZh: 异步消息队列模式
+      labelEn: Asynchronous message queue mode
+      required: true
+      type: select
+      values:
+        - label: 异步模式 (Redis)
+          value: "redis"
+        - label: 同步模式
+          value: "sync"
+    - default: "redis"
+      edit: true
+      envKey: CACHE_DRIVER
+      labelZh: 缓存驱动
+      labelEn: Cache driver
+      required: true
+      type: select
+      values:
+        - label: Redis 缓存
+          value: "redis"
+        - label: 文件缓存
+          value: "file"
+    - default: "false"
+      edit: true
+      envKey: ADMIN_HTTPS
+      labelZh: 启用后台 HTTPS
+      labelEn: Enable admin HTTPS
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"

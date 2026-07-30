@@ -1,0 +1,15 @@
+additionalProperties:
+  key: apifox-runner
+  name: Apifox Runner (组织版)
+  tags:
+    - Runtime
+    - Local
+  shortDescZh: 自动化测试定时任务、接口导入、Mock 服务
+  shortDescEn: Automated testing, scheduled tasks, interface import, Mock service
+  type: runtime
+  crossVersionUpdate: true
+  limit: 0
+  website: https://apifox.com/
+  github: https://apifox.com/
+  document: https://apifox.com/help/
+  architectures: []

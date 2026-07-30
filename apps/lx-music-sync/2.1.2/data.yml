@@ -1,0 +1,43 @@
+additionalProperties:
+  formFields:
+    - default: "/home/lx-music-sync"
+      edit: true
+      envKey: LX_MUSIC_SYNC_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 9527
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "落雪音乐"
+      edit: true
+      envKey: SERVER_NAME
+      labelZh: 服务名称
+      labelEn: Server Name
+      required: true
+      type: text
+    - default: "top"
+      edit: true
+      envKey: LIST_ADD_MUSIC_LOCATION_TYPE
+      labelZh: 添加歌曲位置
+      labelEn: Add Music Location
+      required: true
+      type: select
+      values:
+        - label: 顶部
+          value: "top"
+        - label: 尾部
+          value: "bottom"
+    - default: 3
+      edit: true
+      envKey: MAX_SNAPSHOT_NUM
+      labelZh: 最大快照数
+      labelEn: Max Snapshot Num
+      required: true
+      type: number

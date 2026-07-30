@@ -1,0 +1,25 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  bookstack:
+    image: linuxserver/bookstack:26.05.3
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:80
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${BOOKSTACK_ROOT_PATH}/config:/config
+    environment:
+      - TZ=Asia/Shanghai
+      - PUID=1000
+      - PGID=1000
+      - QUEUE_CONNECTION=database

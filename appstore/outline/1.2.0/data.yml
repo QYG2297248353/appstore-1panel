@@ -1,0 +1,274 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_REDIS_SERVICE
+        required: true
+        type: service
+      default: redis
+      envKey: PANEL_REDIS_TYPE
+      labelZh: Redis 服务 (前置检查)
+      labelEn: Redis Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: Redis
+          value: redis
+    - child:
+        default: ""
+        envKey: PANEL_POSTGRES_SERVICE
+        required: true
+        type: service
+      default: postgresql
+      envKey: PANEL_POSTGRES_TYPE
+      labelZh: Postgres 服务 (前置检查)
+      labelEn: Postgres Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: PostgreSQL
+          value: postgresql
+    - default: "/home/outline"
+      edit: true
+      envKey: OUTLINE_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "fbad4f5da794acbc10f060cdfcf8673300f3302d87f076d7f6e781d4840e9c3d"
+      edit: true
+      envKey: SECRET_KEY
+      labelZh: 加密密钥
+      labelEn: Secret Key
+      required: true
+      type: password
+    - default: "b2be1c54acbfe6d965bda01e63195cc815e4743a6fb5ba5f82eae916d98989b5"
+      edit: true
+      envKey: UTILS_SECRET
+      labelZh: 工具密钥
+      labelEn: Utils Secret
+      required: true
+      type: password
+    - default: "http://127.0.0.1:3000"
+      edit: true
+      envKey: URL
+      labelZh: 域名
+      labelEn: Domain
+      required: true
+      rule: paramExtUrl
+      type: text
+    - default: ""
+      edit: true
+      envKey: CDN_URL
+      labelZh: CDN 域名
+      labelEn: CDN Domain
+      required: false
+      type: text
+    - default: "https://iframe.ly/api/iframely"
+      edit: true
+      envKey: IFRAMELY_URL
+      labelZh: iFramely 地址
+      labelEn: iFramely URL
+      required: true
+      rule: paramExtUrl
+      type: text
+    - default: ""
+      edit: true
+      envKey: IFRAMELY_API_KEY
+      labelZh: iFramely 密钥
+      labelEn: iFramely API Key
+      required: false
+      type: text
+    - default: "127.0.0.1"
+      edit: true
+      envKey: DB_HOSTNAME
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: 5432
+      edit: true
+      envKey: DB_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "outline"
+      edit: true
+      envKey: DB_USERNAME
+      labelZh: 数据库 用户名
+      labelEn: Database User
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: DB_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: "outline"
+      edit: true
+      envKey: DB_DATABASE_NAME
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      type: text
+    - default: "redis://localhost:6379"
+      edit: true
+      envKey: REDIS_URL
+      labelZh: Redis 链接
+      labelEn: Redis URL
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: SLACK_CLIENT_ID
+      labelZh: Slack 客户端 ID (鉴权)
+      labelEn: Slack Client ID (Auth)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SLACK_CLIENT_SECRET
+      labelZh: Slack 客户端密钥 (鉴权)
+      labelEn: Slack Client Secret (Auth)
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: GOOGLE_CLIENT_ID
+      labelZh: Google 客户端 ID (鉴权)
+      labelEn: Google Client ID (Auth)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: GOOGLE_CLIENT_SECRET
+      labelZh: Google 客户端密钥 (鉴权)
+      labelEn: Google Client Secret (Auth)
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: DISCORD_CLIENT_ID
+      labelZh: Discord 客户端 ID (鉴权)
+      labelEn: Discord Client ID (Auth)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: DISCORD_CLIENT_SECRET
+      labelZh: Discord 客户端密钥 (鉴权)
+      labelEn: Discord Client Secret (Auth)
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: DISCORD_SERVER_ID
+      labelZh: Discord 服务端 ID (鉴权)
+      labelEn: Discord Server ID (Auth)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: DISCORD_SERVER_ROLES
+      labelZh: Discord 服务端角色 (鉴权)
+      labelEn: Discord Server Roles (Auth)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SMTP_HOST
+      labelZh: SMTP 主机
+      labelEn: SMTP Host
+      required: false
+      type: text
+    - default: 465
+      edit: true
+      envKey: SMTP_PORT
+      labelZh: SMTP 端口
+      labelEn: SMTP Port
+      required: false
+      type: number
+    - default: ""
+      edit: true
+      envKey: SMTP_USERNAME
+      labelZh: SMTP 用户名
+      labelEn: SMTP Username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SMTP_PASSWORD
+      labelZh: SMTP 密码
+      labelEn: SMTP Password
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: SMTP_FROM_EMAIL
+      labelZh: SMTP 发件人
+      labelEn: SMTP From Email
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SLACK_VERIFICATION_TOKEN
+      labelZh: Slack 验证令牌 (Slack 集成)
+      labelEn: Slack Verification Token (Slack Integration)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SLACK_APP_ID
+      labelZh: Slack 应用ID (Slack 集成)
+      labelEn: Slack App ID (Slack Integration)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: GITHUB_CLIENT_ID
+      labelZh: GitHub 客户端 ID (GitHub 集成)
+      labelEn: GitHub Client ID (GitHub Integration)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: GITHUB_CLIENT_SECRET
+      labelZh: GitHub 客户端密钥 (GitHub 集成)
+      labelEn: GitHub Client Secret (GitHub Integration)
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: GITHUB_APP_NAME
+      labelZh: GitHub 应用名称 (GitHub 集成)
+      labelEn: GitHub App Name (GitHub Integration)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: GITHUB_APP_ID
+      labelZh: GitHub 应用ID (GitHub 集成)
+      labelEn: GitHub App ID (GitHub Integration)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: GITHUB_APP_PRIVATE_KEY
+      labelZh: GitHub 应用私钥 (GitHub 集成)
+      labelEn: GitHub App Private Key (GitHub Integration)
+      required: false
+      type: password

@@ -1,0 +1,18 @@
+additionalProperties:
+  key: overseerr
+  name: overseerr
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 管理您的媒体库请求
+  shortDescEn: Manage your media library requests
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://docs.overseerr.dev/
+  github: https://github.com/sct/overseerr/
+  document: https://docs.overseerr.dev/
+  architectures:
+    - amd64
+    - arm
+    - arm64

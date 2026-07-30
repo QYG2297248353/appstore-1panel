@@ -1,0 +1,17 @@
+additionalProperties:
+  key: napcat
+  name: NapCat
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 基于 NTQQ 的现代协议端框架
+  shortDescEn: Modern protocol-side framework based on NTQQ
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://napneko.github.io/
+  github: https://github.com/NapNeko/NapCatQQ/
+  document: https://napneko.github.io/
+  architectures:
+    - amd64
+    - arm64

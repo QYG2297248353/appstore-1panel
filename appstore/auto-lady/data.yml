@@ -1,0 +1,17 @@
+﻿additionalProperties:
+  key: auto-lady
+  name: AutoLady [已下架]
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: 自动化订阅AV影片
+  shortDescEn: AutoLady is a tool for automatically subscribing to AV movies
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://catcat.blog/
+  github: https://catcat.blog/
+  document: https://catcat.blog/docker-autolady.html
+  architectures:
+    - amd64

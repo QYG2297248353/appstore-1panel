@@ -1,0 +1,196 @@
+additionalProperties:
+  formFields:
+    - default: "1panel-network"
+      edit: true
+      envKey: NETWORK_MODE
+      labelZh: 网络模式
+      labelEn: Network Mode
+      required: true
+      type: select
+      values:
+        - label: 主机网络模式
+          value: "host"
+        - label: 桥接网络模式
+          value: "bridge"
+        - label: 无网络模式
+          value: "none"
+        - label: 1panel-network
+          value: "1panel-network"
+    - default: "/home/movie-pilot"
+      edit: true
+      envKey: MOVIEPILOT_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 3001
+      edit: true
+      envKey: PANEL_APP_PORT_API
+      labelZh: API 端口
+      labelEn: API Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "admin"
+      edit: true
+      envKey: SUPERUSER
+      labelZh: 管理员用户名
+      labelEn: Superuser Username
+      required: true
+      type: text
+    - default: "admin"
+      edit: true
+      envKey: SUPERUSER_PASSWORD
+      labelZh: 管理员密码
+      labelEn: Superuser
+      required: true
+      type: text
+    - default: "moviepilot"
+      edit: true
+      envKey: API_TOKEN
+      labelZh: API 令牌
+      labelEn: API Token
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: PROXY_HOST
+      labelZh: 网络代理
+      labelEn: Proxy Host
+      required: false
+      rule: paramExtUrl
+      type: text
+    - default: "false"
+      edit: true
+      envKey: AUTO_UPDATE_RESOURCE
+      labelZh: 自动更新资源包
+      labelEn: Auto Update Resources
+      required: true
+      type: select
+      values:
+        - label: 开启
+          value: "true"
+        - label: 关闭
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: MOVIEPILOT_AUTO_UPDATE
+      labelZh: 自动更新
+      labelEn: Auto Update
+      required: true
+      type: select
+      values:
+        - label: 开启
+          value: "true"
+        - label: 发布版
+          value: "release"
+        - label: 测试版
+          value: "dev"
+        - label: 关闭
+          value: "false"
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_1
+      labelEn: Custom mount directory 1
+      labelZh: 自定义挂载目录 1
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_2
+      labelEn: Custom mount directory 2
+      labelZh: 自定义挂载目录 2
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_3
+      labelEn: Custom mount directory 3
+      labelZh: 自定义挂载目录 3
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: IYUU_SIGN
+      labelEn: IYUU Sign
+      labelZh: IYUU登录令牌
+      required: false
+      type: password
+    - default: "cachetools"
+      edit: true
+      envKey: CACHE_BACKEND_TYPE
+      labelZh: 缓存类型
+      labelEn: Cache Backend Type
+      required: true
+      type: select
+      values:
+        - label: 本地缓存
+          value: "cachetools"
+        - label: Redis
+          value: "redis"
+    - default: ""
+      edit: true
+      envKey: CACHE_BACKEND_URL
+      labelZh: 缓存连接地址
+      labelEn: Cache Backend URL
+      required: false
+      type: text
+    - default: "sqlite"
+      edit: true
+      envKey: DB_TYPE
+      labelZh: 数据库类型
+      labelEn: DataBase Type
+      required: true
+      type: select
+      values:
+        - label: SQLite
+          value: "sqlite"
+        - label: PostgreSQL
+          value: "postgresql"
+    - default: "127.0.0.1"
+      edit: true
+      envKey: DB_POSTGRESQL_HOST
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: false
+      type: text
+    - default: 5432
+      edit: true
+      envKey: DB_POSTGRESQL_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: false
+      rule: paramPort
+      type: number
+    - default: "moviepilot"
+      edit: true
+      envKey: DB_POSTGRESQL_DATABASE
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: false
+      rule: paramCommon
+      type: text
+    - default: "moviepilot"
+      edit: true
+      envKey: DB_POSTGRESQL_USERNAME
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: DB_POSTGRESQL_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      random: true
+      required: false
+      rule: paramComplexity
+      type: password

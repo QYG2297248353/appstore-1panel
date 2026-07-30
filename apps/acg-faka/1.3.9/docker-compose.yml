@@ -1,0 +1,20 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  acg-faka:
+    image: qyg2297248353/acg-faka:v1.3.9
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:80
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${ACG_FAKA_ROOT_PATH}/data:/var/www/html

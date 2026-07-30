@@ -1,0 +1,147 @@
+additionalProperties:
+  formFields:
+    - default: "host"
+      edit: true
+      envKey: NETWORK_MODE
+      labelEn: Drive path
+      labelZh: 网络模式
+      required: true
+      type: select
+      values:
+        - label: 主机网络模式
+          value: "host"
+        - label: 桥接网络模式
+          value: "bridge"
+        - label: 无网络模式
+          value: "none"
+        - label: 1panel-network
+          value: "1panel-network"
+    - default: "/home/aria2"
+      edit: true
+      envKey: ARIA2_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 6800
+      edit: true
+      envKey: PANEL_APP_PORT_RPC
+      labelZh: RPC 通讯端口
+      labelEn: RPC communication port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 32516
+      edit: true
+      envKey: PANEL_APP_PORT_BTPORT
+      labelZh: DHT 和 BT 通讯端口
+      labelEn: DHT and BT communication port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: SECRET
+      labelZh: 鉴权密钥
+      labelEn: Authentication key
+      required: true
+      type: password
+    - default: "1024M"
+      edit: true
+      envKey: CACHE
+      labelZh: 写入缓存大小
+      labelEn: Write cache size
+      required: true
+      type: text
+    - default: "https://cdn.jsdelivr.net/gh/XIU2/TrackersListCollection@master/best_aria2.txt"
+      edit: true
+      envKey: CTU
+      labelZh: 自定义 Trackes 地址
+      labelEn: Custom Trackes address
+      required: true
+      type: text
+    - default: "falloc"
+      edit: true
+      envKey: FA
+      labelZh: 下载预分配模式
+      labelEn: Download pre-allocation mode
+      required: true
+      type: select
+      values:
+        - label: 无
+          value: "none"
+        - label: 预分配
+          value: "falloc"
+        - label: 分片
+          value: "trunc"
+        - label: 预分配 + 分片
+          value: "prealloc"
+    - default: "2h"
+      edit: true
+      envKey: CRA2B
+      labelZh: 重启Aria2B时间
+      labelEn: Restart Aria2B time
+      required: true
+      type: select
+      values:
+        - label: 禁止重启
+          value: "false"
+        - label: 每1小时
+          value: "1h"
+        - label: 每2小时
+          value: "2h"
+        - label: 每3小时
+          value: "3h"
+        - label: 每4小时
+          value: "4h"
+        - label: 每5小时
+          value: "5h"
+        - label: 每6小时
+          value: "6h"
+        - label: 每8小时
+          value: "8h"
+        - label: 每10小时
+          value: "10h"
+        - label: 每12小时
+          value: "12h"
+    - default: "true"
+      edit: true
+      envKey: QUIET
+      labelZh: 静默下载
+      labelEn: Silent download
+      required: true
+      type: select
+      values:
+        - label: 禁用
+          value: "false"
+        - label: 开启
+          value: "true"
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_1
+      labelEn: Custom mount directory 1
+      labelZh: 自定义挂载目录 1
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_2
+      labelEn: Custom mount directory 2
+      labelZh: 自定义挂载目录 2
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_3
+      labelEn: Custom mount directory 3
+      labelZh: 自定义挂载目录 3
+      required: false
+      type: text

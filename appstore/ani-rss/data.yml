@@ -1,0 +1,18 @@
+additionalProperties:
+  key: ani-rss
+  name: ANI-RSS
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: 自动追番、订阅、下载 蜜柑RSS动漫
+  shortDescEn: Automatically subscribe to and download Mikan RSS anime
+  type: website
+  crossVersionUpdate: false
+  limit: 0
+  website: https://docs.wushuo.top/
+  github: https://github.com/wushuo894/ani-rss/
+  document: https://docs.wushuo.top/
+  architectures:
+    - amd64
+    - arm64

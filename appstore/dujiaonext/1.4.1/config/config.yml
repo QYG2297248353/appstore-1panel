@@ -1,0 +1,128 @@
+server:
+  host: 0.0.0.0
+  port: 8080
+  mode: debug
+
+log:
+  dir: ""
+  filename: app.log
+  max_size_mb: 100
+  max_backups: 7
+  max_age_days: 30
+  compress: true
+
+database:
+  driver: sqlite
+  dsn: ./db/dujiao.db?_busy_timeout=5000&_journal_mode=WAL&_synchronous=NORMAL
+  pool:
+    max_open_conns: 1
+    max_idle_conns: 1
+    conn_max_lifetime_seconds: 0
+    conn_max_idle_time_seconds: 0
+
+jwt:
+  secret: "dev-admin-jwt-secret-change-me-please-32chars"
+  expire_hours: 24
+
+user_jwt:
+  secret: "dev-user-jwt-secret-change-me-please-32chars"
+  expire_hours: 24
+  remember_me_expire_hours: 168
+
+bootstrap:
+  default_admin_username: ""
+  default_admin_password: ""
+
+redis:
+  enabled: true
+  host: 127.0.0.1
+  port: 6379
+  password: ""
+  db: 0
+  prefix: "dj"
+
+queue:
+  enabled: true
+  host: 127.0.0.1
+  port: 6379
+  password: ""
+  db: 1
+  concurrency: 10
+  queues:
+    default: 10
+    critical: 5
+
+upload:
+  max_size: 10485760
+  allowed_types:
+    - image/jpeg
+    - image/png
+    - image/gif
+    - image/webp
+  allowed_extensions:
+    - .jpg
+    - .jpeg
+    - .png
+    - .gif
+    - .webp
+  max_width: 4096
+  max_height: 4096
+
+cors:
+  allowed_origins:
+    - "*"
+  allowed_methods:
+    - GET
+    - POST
+    - PUT
+    - PATCH
+    - DELETE
+    - OPTIONS
+  allowed_headers:
+    - Content-Type
+    - Content-Length
+    - Accept-Encoding
+    - Authorization
+    - Cache-Control
+    - X-Requested-With
+    - X-CSRF-Token
+  allow_credentials: true
+  max_age: 600
+
+security:
+  login_rate_limit:
+    window_seconds: 300
+    max_attempts: 5
+    block_seconds: 900
+  password_policy:
+    min_length: 8
+    require_upper: true
+    require_lower: true
+    require_number: true
+    require_special: false
+
+telegram_auth:
+  enabled: false
+  bot_username: ""
+  bot_token: ""
+  login_expire_seconds: 300
+  replay_ttl_seconds: 300
+
+email:
+  enabled: true
+  host: smtp.xxx.com
+  port: 465
+  username: your-username
+  password: your-password
+  from: your-email
+  from_name: your-name
+  use_tls: false
+  use_ssl: true
+  verify_code:
+    expire_minutes: 10
+    send_interval_seconds: 60
+    max_attempts: 5
+    length: 6
+
+order:
+  payment_expire_minutes: 15

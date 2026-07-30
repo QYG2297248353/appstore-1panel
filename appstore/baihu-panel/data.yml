@@ -1,0 +1,17 @@
+additionalProperties:
+  key: baihu-panel
+  name: 白虎面板
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 轻量级定时任务管理系统
+  shortDescEn: Lightweight Timed Task Management System
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/engigu/baihu-panel/
+  github: https://github.com/engigu/baihu-panel/
+  document: https://github.com/engigu/baihu-panel/
+  architectures:
+    - amd64
+    - arm64

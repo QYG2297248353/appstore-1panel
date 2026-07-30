@@ -1,0 +1,23 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  lx-music-sync:
+    container_name: lx-music-sync
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - PORT=9527
+    - BIND_IP=0.0.0.0
+    image: lyswhut/lx-music-sync-server:v2.1.2
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:9527
+    restart: always
+    volumes:
+    - ${LX_MUSIC_SYNC_ROOT_PATH}/app:/app

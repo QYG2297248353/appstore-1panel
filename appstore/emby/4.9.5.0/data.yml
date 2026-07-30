@@ -1,0 +1,61 @@
+additionalProperties:
+  formFields:
+    - default: "host"
+      edit: true
+      envKey: NETWORK_MODE
+      labelZh: 网络模式
+      labelEn: Drive path
+      required: true
+      type: select
+      values:
+        - label: 主机网络模式
+          value: "host"
+        - label: 桥接网络模式
+          value: "bridge"
+        - label: 无网络模式
+          value: "none"
+        - label: 1panel-network
+          value: "1panel-network"
+    - default: 8096
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: 网页端口
+      labelEn: WebUI Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "/home/emby"
+      edit: true
+      envKey: EMBY_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: HTTP_SSL_PROXY
+      labelZh: HTTP(s) 网络代理
+      labelEn: HTTP(s) Proxy
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_1
+      labelEn: Custom mount directory 1
+      labelZh: 自定义挂载目录 1
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_2
+      labelEn: Custom mount directory 2
+      labelZh: 自定义挂载目录 2
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_3
+      labelEn: Custom mount directory 3
+      labelZh: 自定义挂载目录 3
+      required: false
+      type: text

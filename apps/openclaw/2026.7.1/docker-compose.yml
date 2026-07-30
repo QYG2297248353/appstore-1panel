@@ -1,0 +1,52 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  openclaw:
+    image: ghcr.io/openclaw/openclaw:2026.7.1
+    container_name: ${CONTAINER_NAME}
+    user: node:node
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    init: true
+    command:
+      [
+        "node",
+        "dist/index.js",
+        "gateway",
+        "--bind",
+        "${OPENCLAW_GATEWAY_BIND:-lan}",
+        "--port",
+        "18789",
+      ]
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:18789
+      - ${PANEL_APP_PORT_RPC}:18790
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${OPENCLAW_ROOT_PATH}/data/config:/home/node/.openclaw
+      - ${OPENCLAW_ROOT_PATH}/data/workspace:/home/node/.openclaw/workspace
+      - ${OPENCLAW_ROOT_PATH}/data/ms-playwright:/home/node/.cache/ms-playwright
+    environment:
+      - TZ=Asia/Shanghai
+      - HOME=/home/node
+      - TERM=xterm-256color
+      - PLAYWRIGHT_BROWSERS_PATH=/home/node/.cache/ms-playwright
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:18789/healthz').then((r)=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 20s

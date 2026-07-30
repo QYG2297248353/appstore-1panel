@@ -1,0 +1,24 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  nexusphp:
+    image: qyg2297248353/nexusphp:v1.8.16
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:80
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${NEXUSPHP_ROOT_PATH}/config/.env.example:/var/www/html/.env.example
+      - ${NEXUSPHP_ROOT_PATH}/data:/var/www/html
+      - ${NEXUSPHP_TORRENTS_ROOT_PATH}/torrents:/var/www/html/torrents
+      - ${NEXUSPHP_BITBUCKET_ROOT_PATH}/bitbucket:/var/www/html/bitbucket
+      - ${NEXUSPHP_ATTACHMENTS_ROOT_PATH}/attachments:/var/www/html/attachments

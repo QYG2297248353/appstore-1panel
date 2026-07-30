@@ -1,0 +1,31 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  flaresolverr:
+    image: flaresolverr/flaresolverr:v3.5.0
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8191
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    environment:
+      - LOG_LEVEL=info
+      - LOG_HTML=false
+      - CAPTCHA_SOLVER=none
+      - TZ=Asia/Shanghai
+      - LANG=none
+      - HEADLESS=true
+      - BROWSER_TIMEOUT=40000
+      - TEST_URL=https://www.google.com
+      - PORT=8191
+      - HOST=0.0.0.0
+      - PROMETHEUS_ENABLED=false
+      - PROMETHEUS_PORT=8192

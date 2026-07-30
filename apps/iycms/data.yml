@@ -1,0 +1,17 @@
+additionalProperties:
+  key: iycms
+  name: 爱影CMS
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 高性能高并发永久免费影视CMS
+  shortDescEn: High-performance high-concurrency permanent free video CMS
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.iycms.com/
+  github: https://www.iycms.com/
+  document: https://www.iycms.com/
+  architectures:
+    - amd64
+    - arm64

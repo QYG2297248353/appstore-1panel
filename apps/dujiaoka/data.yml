@@ -1,0 +1,18 @@
+﻿additionalProperties:
+  key: dujiaoka
+  name: 独角数卡
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: 独角数卡(自动售货系统)-开源站长自动化售货解决方案、高效、稳定、快速
+  shortDescEn: Dujiaoka (Automatic Vending System) - Open source webmaster automatic vending solution, efficient, stable, fast
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/assimon/dujiaoka/
+  github: https://github.com/assimon/dujiaoka/
+  document: https://github.com/assimon/dujiaoka/
+  architectures:
+    - amd64
+    - arm64

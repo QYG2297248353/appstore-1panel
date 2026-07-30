@@ -1,0 +1,36 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  teemii-frontend:
+    image: dokkaner/teemii-frontend:0.8.2
+    container_name: frontend-${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:80
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    environment:
+      - VITE_APP_PORT=80
+  teemii-backend:
+    image: dokkaner/teemii-backend:0.8.2
+    container_name: backend-${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${TEEMII_ROOT_PATH}/data:/data
+    environment:
+      - EXPRESS_PORT=3000
+      - SOCKET_IO_PORT=1555

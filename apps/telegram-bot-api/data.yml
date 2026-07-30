@@ -1,0 +1,21 @@
+additionalProperties:
+  key: telegram-bot-api
+  name: Telegram Bot Api
+  tags:
+    - Middleware
+    - Tool
+    - Local
+  shortDescZh: Telegram Bot API 服务器
+  shortDescEn: Telegram Bot API Server
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  website: https://telegram.org/
+  github: https://github.com/tdlib/telegram-bot-api/
+  document: https://core.telegram.org/bots/
+  architectures:
+    - '386'
+    - amd64
+    - arm
+    - arm64
+    - ppc64le

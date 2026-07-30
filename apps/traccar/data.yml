@@ -1,0 +1,18 @@
+additionalProperties:
+  key: traccar
+  name: Traccar 轨迹
+  tags:
+    - WebSite
+    - Middleware
+    - Local
+  shortDescZh: 现代 GPS 追踪系统
+  shortDescEn: Modern GPS tracking system
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.traccar.org/
+  github: https://github.com/traccar/traccar/
+  document: https://www.traccar.org/documentation/
+  architectures:
+    - amd64
+    - arm64

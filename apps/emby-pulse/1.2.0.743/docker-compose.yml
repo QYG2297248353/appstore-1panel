@@ -1,0 +1,25 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  emby-pulse:
+    image: zeyu8023/emby-stats:1.2.0.743
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:10307
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${EMBY_PULSE_ROOT_PATH}/config:/app/config
+      - ${EMBY_PULSE_ROOT_PATH}/data:/emby-data
+    environment:
+      - TZ=Asia/Shanghai
+      - DB_PATH=/emby-data/playback_reporting.db
+      - playback_data_mode=sqlite

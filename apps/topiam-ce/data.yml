@@ -1,0 +1,16 @@
+additionalProperties:
+  key: topiam-ce
+  name: TOPIAM
+  tags:
+    - WebSite
+    - Middleware
+    - Local
+  shortDescZh: IAM/IDaaS 身份管理平台
+  shortDescEn: IAM/IDaaS Identity Management Platform
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://topiam.cn/
+  github: https://github.com/topiam/eiam/
+  document: https://topiam.cn/docs/overview/introduction/
+  architectures: []

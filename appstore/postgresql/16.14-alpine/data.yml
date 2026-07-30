@@ -1,0 +1,40 @@
+additionalProperties:
+  formFields:
+    - default: "/home/postgres"
+      edit: true
+      envKey: POSTGRES_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: ""
+      edit: false
+      envKey: POSTGRES_PASSWORD
+      labelZh: Postgres 密码 (首次生效)
+      labelEn: Postgres Password (First Time)
+      required: true
+      random: true
+      rule: paramComplexity
+      type: password
+    - default: 5432
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: Postgres 端口
+      labelEn: Postgres Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "postgres"
+      edit: false
+      envKey: POSTGRES_USER
+      labelZh: Postgres 用户（不建议改动）
+      labelEn: Postgres User
+      required: false
+      type: text
+    - default: "postgres"
+      edit: false
+      envKey: POSTGRES_DB
+      labelZh: Postgres 数据库名称（不建议改动）
+      labelEn: Postgres Database Name
+      required: false
+      type: text

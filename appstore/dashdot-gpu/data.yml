@@ -1,0 +1,17 @@
+additionalProperties:
+  key: dashdot-gpu
+  name: Dash. (GPU支持)
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 现代服务器仪表板
+  shortDescEn: Modern server dashboard
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://getdashdot.com/
+  github: https://github.com/MauriceNino/dashdot/
+  document: https://getdashdot.com/
+  architectures:
+    - amd64
+    - arm64

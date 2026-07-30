@@ -1,0 +1,50 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  rustfs:
+    image: rustfs/rustfs:1.0.0-alpha.86
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    security_opt:
+      - "no-new-privileges:true"
+    ports:
+      - ${PANEL_APP_PORT_API}:9000
+      - ${PANEL_APP_PORT_HTTP}:9001
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${RUSTFS_ROOT_PATH}/logs:/app/logs
+      - ${RUSTFS_ROOT_PATH}/data/rustfs0:/data/rustfs0
+      - ${RUSTFS_ROOT_PATH}/data/rustfs1:/data/rustfs1
+      - ${RUSTFS_ROOT_PATH}/data/rustfs2:/data/rustfs2
+      - ${RUSTFS_ROOT_PATH}/data/rustfs3:/data/rustfs3
+    environment:
+      - TZ=Asia/Shanghai
+      - RUSTFS_VOLUMES=/data/rustfs{0...3}
+      - RUSTFS_ADDRESS=0.0.0.0:9000
+      - RUSTFS_CONSOLE_ADDRESS=0.0.0.0:9001
+      - RUSTFS_CONSOLE_ENABLE=true
+      - RUSTFS_CORS_ALLOWED_ORIGINS=*
+      - RUSTFS_CONSOLE_CORS_ALLOWED_ORIGINS=*
+      - RUSTFS_OBS_LOGGER_LEVEL=info
+      - RUSTFS_TLS_PATH=/opt/tls
+      - RUSTFS_OBJECT_CACHE_ENABLE=true
+      - RUSTFS_OBJECT_CACHE_TTL_SECS=300
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "sh", "-c",
+          "curl -f http://127.0.0.1:9000/health && curl -f http://127.0.0.1:9001/rustfs/console/health"
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

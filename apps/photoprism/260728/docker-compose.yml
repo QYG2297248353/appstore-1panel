@@ -1,0 +1,46 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  photoprism:
+    image: photoprism/photoprism:260728
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    stop_grace_period: 10s
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:2342
+    user: 1000:1000
+    working_dir: /photoprism
+    devices:
+      - /dev/dri:/dev/dri
+      # - /dev/nvidia0:/dev/nvidia0
+      # - /dev/nvidiactl:/dev/nvidiactl
+      # - /dev/nvidia-modeset:/dev/nvidia-modeset
+      # - /dev/nvidia-nvswitchctl:/dev/nvidia-nvswitchctl
+      # - /dev/nvidia-uvm:/dev/nvidia-uvm
+      # - /dev/nvidia-uvm-tools:/dev/nvidia-uvm-tools
+      # - /dev/video11:/dev/video11
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${APP_ENV_FILE:-/etc/1panel/envs/photoprism/photoprism.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${PHOTOPRISM_ROOT_PATH}/originals:/photoprism/originals
+      - ${PHOTOPRISM_ROOT_PATH}/storage:/photoprism/storage
+      - ${PHOTOPRISM_ROOT_PATH}/family:/photoprism/originals/family
+      - ${PHOTOPRISM_ROOT_PATH}/import:/photoprism/import
+    environment:
+      PHOTOPRISM_UID: 0
+      PHOTOPRISM_GID: 0
+      PHOTOPRISM_UMASK: 0022
+      PHOTOPRISM_PASSWORD_LENGTH: 8
+      PHOTOPRISM_ADMIN_USERNAME: ${PHOTOPRISM_ADMIN_USER}
+      PHOTOPRISM_DATABASE_DRIVER: "mysql"

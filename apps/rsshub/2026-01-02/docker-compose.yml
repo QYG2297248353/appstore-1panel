@@ -1,0 +1,61 @@
+
+networks:
+  1panel-network:
+    external: true
+
+services:
+  browserless:
+    image: browserless/chrome
+    container_name: browserless-${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ulimits:
+      core:
+        hard: 0
+        soft: 0
+    expose:
+      - 3000
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:3000/pressure" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+  rsshub:
+    image: diygod/rsshub:2026-01-02
+    container_name: rsshub-${CONTAINER_NAME}
+    depends_on:
+      - browserless
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:1200
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    environment:
+      - NODE_ENV=production
+      - PUPPETEER_WS_ENDPOINT=ws://browserless:3000
+      - PORT=1200
+      - LISTEN_INADDR_ANY=1
+      - REQUEST_RETRY=2
+      - REQUEST_TIMEOUT=3000
+      - ALLOW_ORIGIN=*
+      - CACHE_CONTENT_EXPIRE=360
+      - CACHE_EXPIRE=300
+      - MEMORY_MAX=256
+      - LOGGER_LEVEL=info
+      - NO_LOGFILES=false
+      - DISALLOW_ROBOT=true
+      - ENABLE_CLUSTER=false
+      - NODE_NAME=rsshub
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:1200/healthz?key=${ACCESS_KEY}" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3

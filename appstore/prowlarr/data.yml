@@ -1,0 +1,18 @@
+additionalProperties:
+  key: prowlarr
+  name: Prowlarr
+  tags:
+    - WebSite
+    - Storage
+    - Local
+  shortDescZh: 终极索引器管理器
+  shortDescEn: The ultimate indexer manager
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://prowlarr.com/
+  github: https://github.com/Prowlarr/Prowlarr/
+  document: https://wiki.servarr.com/prowlarr/
+  architectures:
+    - amd64
+    - arm64

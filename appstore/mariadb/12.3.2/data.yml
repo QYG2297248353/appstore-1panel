@@ -1,0 +1,24 @@
+additionalProperties:
+  formFields:
+    - default: "/home/mariadb"
+      edit: true
+      envKey: MARIADB_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3306
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: 连接端口
+      labelEn: Connection Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      envKey: MYSQL_ROOT_PASSWORD
+      labelZh: 管理员密码
+      labelEn: Admin Password
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password

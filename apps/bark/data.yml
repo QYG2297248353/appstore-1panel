@@ -1,0 +1,20 @@
+additionalProperties:
+  key: bark
+  name: Bark
+  tags:
+    - WebSite
+    - Middleware
+    - Tool
+    - Local
+  shortDescZh: 通知推送工具
+  shortDescEn: Notification push tool
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://bark.day.app/
+  github: https://github.com/finb/bark/
+  document: https://bark.day.app/
+  architectures:
+    - amd64
+    - arm
+    - arm64

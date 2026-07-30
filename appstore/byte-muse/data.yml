@@ -1,0 +1,18 @@
+additionalProperties:
+  key: byte-muse
+  name: Byte Muse
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: 自动化订阅AV影片
+  shortDescEn: Byte Muse is a tool for automatically subscribing to AV movies
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/envyafish/
+  github: https://github.com/envyafish/
+  document: https://github.com/envyafish/
+  architectures:
+    - amd64
+    - arm64

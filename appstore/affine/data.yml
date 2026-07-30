@@ -1,0 +1,18 @@
+additionalProperties:
+  key: affine
+  name: AFFiNE
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: AFFiNE是一个具有完全合并文档、白板和数据库的工作空间
+  shortDescEn: AFFiNE is a workspace with fully merged docs, whiteboards and databases.
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://affine.pro/
+  github: https://github.com/toeverything/AFFiNE/
+  document: https://docs.affine.pro/docs/code-of-conduct/
+  architectures:
+    - amd64
+    - arm
+    - arm64

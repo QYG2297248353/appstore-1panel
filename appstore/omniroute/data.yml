@@ -1,0 +1,17 @@
+additionalProperties:
+  key: omniroute
+  name: OmniRoute
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: AI 网关 永不停止编程
+  shortDescEn: AI Gateway Never Stop Programming
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://omniroute.online/
+  github: https://github.com/diegosouzapw/OmniRoute
+  document: https://github.com/diegosouzapw/OmniRoute
+  architectures:
+    - amd64
+    - arm64

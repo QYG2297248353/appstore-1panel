@@ -1,0 +1,38 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  photoprism:
+    container_name: photoprism
+    devices:
+    - /dev/dri:/dev/dri
+    env_file:
+    - ./envs/global.env
+    - ./envs/photoprism.env
+    - .env
+    environment:
+      PHOTOPRISM_ADMIN_USERNAME: ${PHOTOPRISM_ADMIN_USER}
+      PHOTOPRISM_DATABASE_DRIVER: mysql
+      PHOTOPRISM_GID: 0
+      PHOTOPRISM_PASSWORD_LENGTH: 8
+      PHOTOPRISM_UID: 0
+      PHOTOPRISM_UMASK: 18
+    image: photoprism/photoprism:260728
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:2342
+    restart: always
+    security_opt:
+    - seccomp:unconfined
+    - apparmor:unconfined
+    stop_grace_period: 10s
+    user: 1000:1000
+    volumes:
+    - ${PHOTOPRISM_ROOT_PATH}/originals:/photoprism/originals
+    - ${PHOTOPRISM_ROOT_PATH}/storage:/photoprism/storage
+    - ${PHOTOPRISM_ROOT_PATH}/family:/photoprism/originals/family
+    - ${PHOTOPRISM_ROOT_PATH}/import:/photoprism/import
+    working_dir: /photoprism

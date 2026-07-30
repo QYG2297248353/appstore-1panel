@@ -1,0 +1,18 @@
+additionalProperties:
+  key: synapse-admin
+  name: Synapse Admin
+  tags:
+    - WebSite
+    - Middleware
+    - Local
+  shortDescZh: 用于安全、分散通信的开放网络
+  shortDescEn: An open network for secure, decentralised communication
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://matrix.org/
+  github: https://github.com/Awesome-Technologies/synapse-admin/
+  document: https://matrix.org/
+  architectures:
+    - amd64
+    - arm64

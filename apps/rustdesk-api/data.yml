@@ -1,0 +1,18 @@
+additionalProperties:
+  key: rustdesk-api
+  name: RustDesk API
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: RustDesk 的 API 管理平台
+  shortDescEn: RustDesk API management platform
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://rustdesk.com/
+  github: https://github.com/lejianwen/rustdesk-api/
+  document: https://github.com/lejianwen/rustdesk-api/
+  architectures:
+    - amd64
+    - arm
+    - arm64

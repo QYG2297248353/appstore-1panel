@@ -1,0 +1,27 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  astrbot:
+    image: soulter/astrbot:v4.26.8
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:6185
+      - ${PANEL_APP_PORT_QQ_WH}:6199
+      - ${PANEL_APP_PORT_QQ_API}:6196
+      - ${PANEL_APP_PORT_WECOM}:6195
+      - ${PANEL_APP_PORT_WECHAT}:11451
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${ASTRBOT_ROOT_PATH}/data:/AstrBot/data
+    environment:
+      - TZ=Asia/Shanghai

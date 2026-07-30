@@ -1,0 +1,24 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  tissue:
+    container_name: tissue
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    image: chris2s/tissue:1.12.3
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:9193
+    restart: always
+    volumes:
+    - ${TISSUE_ROOT_PATH}/config:/app/config
+    - ${TISSUE_ROOT_PATH}/video:/data/video
+    - ${TISSUE_ROOT_PATH}/file:/data/file
+    - ${TISSUE_ROOT_PATH}/downloads:/downloads

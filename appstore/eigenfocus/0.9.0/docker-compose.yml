@@ -1,0 +1,21 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  eigenfocus:
+    container_name: eigenfocus
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    image: eigenfocus/eigenfocus:0.9.0
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:3000
+    restart: always
+    volumes:
+    - ${EIGENFOCUS_ROOT_PATH}/data:/eigenfocus-app/app-data

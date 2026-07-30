@@ -1,0 +1,123 @@
+additionalProperties:
+  formFields:
+    - default: "1panel-network"
+      edit: true
+      envKey: NETWORK_MODE
+      labelEn: Drive path
+      labelZh: 网络模式
+      required: true
+      type: select
+      values:
+        - label: 主机网络模式
+          value: "host"
+        - label: 桥接网络模式
+          value: "bridge"
+        - label: 无网络模式
+          value: "none"
+        - label: 1panel-network
+          value: "1panel-network"
+    - default: "/home/nacos"
+      edit: true
+      envKey: NACOS_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 8848
+      edit: true
+      envKey: PANEL_APP_PORT_API
+      labelZh: WebUI API 端口
+      labelEn: WebUI API port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 9848
+      edit: true
+      envKey: PANEL_APP_PORT_GRPC
+      labelZh: Nacos gRPC 端口
+      labelEn: Nacos gRPC port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "ip"
+      envKey: PREFER_HOST_MODE
+      labelZh: IP模式/域名模式
+      labelEn: IP mode/hostname mode
+      required: true
+      type: select
+      values:
+        - label: IP模式
+          value: "ip"
+        - label: 域名模式
+          value: "hostname"
+    - default: ""
+      edit: true
+      envKey: NACOS_SERVER_IP
+      labelZh: 服务IP
+      labelEn: Server IP
+      required: true
+      type: text
+    - default: "serverIdentity"
+      edit: true
+      envKey: NACOS_AUTH_IDENTITY_KEY
+      labelZh: Nacos身份验证密钥键
+      labelEn: Nacos auth identity key
+      required: true
+      type: text
+    - default: "security"
+      edit: true
+      envKey: NACOS_AUTH_IDENTITY_VALUE
+      labelZh: Nacos身份验证密钥值
+      labelEn: Nacos auth identity value
+      required: true
+      type: text
+    - default: "SecretKey012345678901234567890123456789012345678901234567890123456789"
+      edit: true
+      envKey: NACOS_AUTH_TOKEN
+      labelZh: Nacos身份验证令牌（至少32位字符的Base64编码）
+      labelEn: Nacos auth token
+      required: true
+      type: text
+    - default: "512m"
+      edit: true
+      envKey: JVM_XMS
+      labelZh: JVM_XMS (初始内存大小)
+      labelEn: JVM_XMS (Initial memory size)
+      required: true
+      type: text
+    - default: "2g"
+      edit: true
+      envKey: JVM_XMX
+      labelEn: JVM_XMX (Maximum memory size)
+      labelZh: JVM_XMX (最大内存大小)
+      required: true
+      type: text
+    - default: "128m"
+      edit: true
+      envKey: JVM_XMN
+      labelEn: JVM_XMN (New generation memory)
+      labelZh: JVM_XMN (新生代内存)
+      required: true
+      type: text
+    - default: "128m"
+      edit: true
+      envKey: JVM_MS
+      labelEn: JVM_MS (Initial metaspace)
+      labelZh: JVM_MS (初始元空间大小)
+      required: true
+      type: text
+    - default: "320m"
+      edit: true
+      envKey: JVM_MMS
+      labelEn: JVM_MMS (Maximum metaspace)
+      labelZh: JVM_MMS (最大元空间大小)
+      required: true
+      type: text

@@ -1,0 +1,16 @@
+additionalProperties:
+  key: stash-box
+  name: Stash Box
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 视频索引和感知哈希元数据API
+  shortDescEn: Video indexing and perceptual hash metadata API
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://stashapp.cc/
+  github: https://github.com/stashapp/stash/
+  document: https://docs.stashapp.cc/
+  architectures:
+    - amd64

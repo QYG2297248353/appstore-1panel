@@ -1,0 +1,18 @@
+additionalProperties:
+  key: metatube-server
+  name: MetaTube
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: 为 Jellyfin/Emby/Plex 开发的超级好用的成人元数据刮削插件
+  shortDescEn: A super easy-to-use adult metadata scraping plugin developed for Jellyfin/Emby/Plex
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/metatube-community/
+  github: https://github.com/metatube-community/
+  document: https://metatube-community.github.io/
+  architectures:
+    - amd64
+    - arm64

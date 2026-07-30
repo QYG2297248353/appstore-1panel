@@ -1,0 +1,16 @@
+additionalProperties:
+  key: yarr
+  name: Yarr
+  tags:
+    - Tool
+  shortDescZh: Rss 阅读器
+  shortDescEn: Rss Reader
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  recommend: 0
+  website: https://github.com/nkanaev/yarr/
+  github: https://github.com/nkanaev/yarr
+  document: https://github.com/nkanaev/yarr/
+  architectures:
+    - amd64

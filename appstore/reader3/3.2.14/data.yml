@@ -1,0 +1,119 @@
+additionalProperties:
+  formFields:
+    - default: "/home/reader3"
+      edit: true
+      envKey: READER3_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: READER_APP_SECUREKEY
+      labelZh: 管理员 密码
+      labelEn: Admin Password
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: READER_APP_INVITECODE
+      labelZh: 邀请码
+      labelEn: Invite Code
+      required: false
+      type: text
+    - default: "true"
+      edit: true
+      envKey: READER_APP_CACHECHAPTERCONTENT
+      labelZh: 缓存章节内容
+      labelEn: Cache Chapter Content
+      required: true
+      type: select
+      values:
+        - label: 开启
+          value: "true"
+        - label: 关闭
+          value: "false"
+    - default: 0
+      edit: true
+      envKey: READER_APP_AUTOCLEARINACTIVEUSER
+      labelZh: 自动清理不活跃用户 (天)
+      labelEn: Auto Clear Inactive User (Days)
+      required: true
+      type: number
+    - default: ""
+      edit: true
+      envKey: READER_APP_REMOTEWEBVIEWAPI
+      labelZh: 远程 WebView API 地址 (插件)
+      labelEn: Remote WebView API Address (Plugin)
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: READER_APP_DEFAULTUSERENABLEWEBDAV
+      labelZh: 新用户默认启用 WebDAV
+      labelEn: New User Default Enable WebDAV
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: READER_APP_DEFAULTUSERENABLELOCALSTORE
+      labelZh: 新用户默认启用 LocalStore
+      labelEn: New User Default Enable LocalStore
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: READER_APP_DEFAULTUSERENABLEBOOKSOURCE
+      labelZh: 允许新用户编辑书源
+      labelEn: Allow New User Edit Book Source
+      required: true
+      type: select
+      values:
+        - label: 允许
+          value: "true"
+        - label: 禁止
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: READER_APP_DEFAULTUSERENABLERSSSOURCE
+      labelZh: 允许新用户编辑 RSS 源
+      labelEn: Allow New User Edit RSS Source
+      required: true
+      type: select
+      values:
+        - label: 允许
+          value: "true"
+        - label: 禁止
+          value: "false"
+    - default: 200
+      edit: true
+      envKey: READER_APP_DEFAULTUSERBOOKSOURCELIMIT
+      labelZh: 新用户书源数量限制
+      labelEn: New User Book Source Limit
+      required: true
+      type: number
+    - default: 8
+      edit: true
+      envKey: READER_APP_minUserPasswordLength
+      labelZh: 用户密码最小长度
+      labelEn: User Password Min Length
+      required: true
+      type: number

@@ -1,0 +1,17 @@
+additionalProperties:
+  key: llonebot
+  name: LLTwoBot
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 一个使用 Nix 或 Docker 部署 LLOneBot 的安装。
+  shortDescEn: An installation that uses Nix or Docker to deploy LLOneBot.
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://llonebot.com/
+  github: https://github.com/llonebot/llonebot.nix/
+  document: https://llonebot.com/guide/getting-started/
+  architectures:
+    - amd64
+    - arm64

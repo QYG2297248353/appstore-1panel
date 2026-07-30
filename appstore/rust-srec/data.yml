@@ -1,0 +1,18 @@
+additionalProperties:
+  key: rust-srec
+  name: Rust Srec
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: 自动流媒体录制工具
+  shortDescEn: Automatic streaming record tool
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://hua0512.github.io/rust-srec/
+  github: https://github.com/hua0512/rust-srec
+  document: https://hua0512.github.io/rust-srec/
+  architectures:
+    - amd64
+    - arm64

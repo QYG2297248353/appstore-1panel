@@ -1,0 +1,28 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  reader3:
+    container_name: reader3
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - SPRING_PROFILES_ACTIVE=prod
+    - READER_SERVER_PORT=8080
+    - READER_SERVER_CONTEXTPATH=${READER_SERVER_CONTEXTPATH:-}
+    - READER_APP_USERLIMIT=50
+    - READER_APP_SECURE=true
+    - READER_APP_SHELFUPDATEINTEVAL=10
+    - READER_APP_REMOTEBOOKSOURCEUPDATEINTERVAL=720
+    image: hectorqin/reader:3.2.14
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8080
+    restart: always
+    volumes:
+    - ${READER3_ROOT_PATH}/logs:/logs
+    - ${READER3_ROOT_PATH}/storage:/storage

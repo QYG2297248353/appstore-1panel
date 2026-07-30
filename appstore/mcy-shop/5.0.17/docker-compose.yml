@@ -1,0 +1,19 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  mcy-shop:
+    container_name: mcy-shop
+    env_file:
+    - ./envs/global.env
+    - .env
+    image: qyg2297248353/mcy-shop:v5.0.17
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:80
+    restart: always
+    volumes:
+    - ${MCY_SHOP_ROOT_PATH}/data:/var/www/html

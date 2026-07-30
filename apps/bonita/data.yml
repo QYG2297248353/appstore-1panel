@@ -1,0 +1,17 @@
+additionalProperties:
+  key: bonita
+  name: Bonita (ikaros)
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 打通下载软件与媒体服务，安心享受影片
+  shortDescEn: Connect download software and media services, enjoy movies with peace of mind
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://bonita.starunits.net/
+  github: https://github.com/Suwmlee/bonita/
+  document: https://bonita.starunits.net/
+  architectures:
+    - amd64
+    - arm64

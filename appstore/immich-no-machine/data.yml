@@ -1,0 +1,19 @@
+additionalProperties:
+  key: immich-no-machine
+  name: Immich (无机器学习)
+  tags:
+    - WebSite
+    - Media
+    - Storage
+    - Local
+  shortDescZh: 高性能自托管照片和视频备份解决方案
+  shortDescEn: High performance self-hosted photo and video backup solution
+  type: website
+  crossVersionUpdate: false
+  limit: 0
+  website: https://immich.app/
+  github: https://github.com/immich-app/immich/
+  document: https://docs.immich.app/
+  architectures:
+    - amd64
+    - arm64

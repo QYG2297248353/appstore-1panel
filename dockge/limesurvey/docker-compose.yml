@@ -1,0 +1,22 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  limesurvey:
+    container_name: limesurvey
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - LISTEN_PORT=8080
+    - PUBLIC_URL=foobar.com
+    image: martialblog/limesurvey:6.6.5-240924-apache
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8080
+    restart: always
+    volumes:
+    - ${LIMESURVEY_ROOT_PATH}/surveys:/var/www/html/upload/surveys

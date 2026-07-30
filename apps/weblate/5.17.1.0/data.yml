@@ -1,0 +1,230 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_POSTGRES_SERVICE
+        required: true
+        type: service
+      default: postgresql
+      envKey: PANEL_POSTGRES_TYPE
+      labelZh: Postgres 服务 (前置检查)
+      labelEn: Postgres Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: PostgreSQL
+          value: postgresql
+    - child:
+        default: ""
+        envKey: PANEL_REDIS_SERVICE
+        required: true
+        type: service
+      default: redis
+      envKey: PANEL_REDIS_TYPE
+      labelZh: Redis 服务 (前置检查)
+      labelEn: Redis Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: Redis
+          value: redis
+    - default: "/home/weblate"
+      edit: true
+      envKey: WEBLATE_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "Weblate admin"
+      edit: true
+      envKey: WEBLATE_ADMIN_NAME
+      labelZh: 管理员名称
+      labelEn: Admin name
+      required: true
+      type: text
+    - default: "weblate@example.com"
+      edit: true
+      envKey: WEBLATE_ADMIN_EMAIL
+      labelZh: 管理员邮箱
+      labelEn: Admin email
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: WEBLATE_ADMIN_PASSWORD
+      labelZh: 管理员密码
+      labelEn: Admin password
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: WEBLATE_SITE_DOMAIN
+      labelZh: 站点域名
+      labelEn: Site domain
+      required: true
+      type: text
+    - default: "Weblate 翻译平台"
+      edit: true
+      envKey: WEBLATE_SITE_TITLE
+      labelZh: 站点标题
+      labelEn: Site title
+      required: true
+      type: text
+    - default: "1"
+      edit: true
+      envKey: WEBLATE_REGISTRATION_OPEN
+      labelZh: 是否开放注册
+      labelEn: Registration open
+      required: true
+      type: select
+      values:
+        - label: 允许注册
+          value: "1"
+        - label: 禁止注册
+          value: "0"
+    - default: "127.0.0.1"
+      edit: true
+      envKey: POSTGRES_HOST
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: 5432
+      edit: true
+      envKey: POSTGRES_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "weblate"
+      edit: true
+      envKey: POSTGRES_DB
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      rule: paramCommon
+      type: text
+    - default: "weblate"
+      edit: true
+      envKey: POSTGRES_USER
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: POSTGRES_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: "127.0.0.1"
+      edit: true
+      envKey: REDIS_HOST
+      labelZh: Redis 主机
+      labelEn: Redis Host
+      required: true
+      type: text
+    - default: 6379
+      edit: true
+      envKey: REDIS_PORT
+      labelZh: Redis 端口
+      labelEn: Redis Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 0
+      edit: true
+      envKey: REDIS_DB
+      labelZh: Redis 索引 (0-20)
+      labelEn: Redis Index (0-20)
+      required: true
+      type: number
+    - default: ""
+      edit: true
+      envKey: REDIS_PASSWORD
+      labelZh: Redis 密码
+      labelEn: Redis Password
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: WEBLATE_SERVER_EMAIL
+      labelZh: 错误信息通知邮箱
+      labelEn: Error notification email
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: WEBLATE_DEFAULT_FROM_EMAIL
+      labelZh: 默认发件邮箱
+      labelEn: Default sender email
+      required: true
+      type: text
+    - default: "smtp.gmail.com"
+      edit: true
+      envKey: WEBLATE_EMAIL_HOST
+      labelZh: 电子邮件服务器主机名
+      labelEn: Email server hostname
+      required: true
+      type: text
+    - default: 465
+      edit: true
+      envKey: WEBLATE_EMAIL_PORT
+      labelZh: 电子邮件服务器端口 (465/SSL 587/TLS)
+      labelEn: Email server port (465/SSL 587/TLS)
+      required: true
+      type: number
+    - default: ""
+      edit: true
+      envKey: WEBLATE_EMAIL_HOST_USER
+      labelZh: 电子邮件服务器用户名
+      labelEn: Email server username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: WEBLATE_EMAIL_HOST_PASSWORD
+      labelZh: 电子邮件服务器密码
+      labelEn: Email server password
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: GET_HELP_URL
+      labelZh: 帮助文档链接
+      labelEn: Help document link
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: STATUS_URL
+      labelZh: 服务状态链接
+      labelEn: Service status link
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: LEGAL_URL
+      labelZh: 法律声明链接
+      labelEn: Legal statement link
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: PRIVACY_URL
+      labelZh: 隐私政策链接
+      labelEn: Privacy policy link
+      required: false
+      type: text

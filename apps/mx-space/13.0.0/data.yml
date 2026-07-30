@@ -1,0 +1,92 @@
+additionalProperties:
+  formFields:
+    - default: "/home/mx-space"
+      edit: true
+      envKey: MX_SERVER_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 2333
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: JWT_SECRET
+      labelZh: JWT 密钥
+      labelEn: JWT Secret
+      required: true
+      type: text
+    - default: ",localhost"
+      edit: true
+      envKey: ALLOWED_ORIGINS
+      labelZh: 允许的访问来源
+      labelEn: 允许的访问来源
+      required: true
+      type: text
+    - default: "127.0.0.1"
+      edit: true
+      envKey: DB_HOST
+      labelZh: 数据库 主机地址 (MongoDB)
+      labelEn: Database Host (MongoDB)
+      required: true
+      type: text
+    - default: 27017
+      edit: true
+      envKey: DB_PORT
+      labelZh: 数据库 端口 (MongoDB)
+      labelEn: Database Port (MongoDB)
+      required: true
+      rule: paramPort
+      type: number
+    - default: "mx-space"
+      edit: true
+      envKey: DB_COLLECTION_NAME
+      labelZh: 数据库 名称 (MongoDB)
+      labelEn: Database Name (MongoDB)
+      required: true
+      rule: paramCommon
+      type: text
+    - default: "mx-space"
+      edit: true
+      envKey: DB_USER
+      labelZh: 数据库 用户名 (MongoDB)
+      labelEn: Database Username (MongoDB)
+      required: false
+      type: text
+    - default: "mx-space"
+      edit: true
+      envKey: DB_PASSWORD
+      labelZh: 数据库 密码 (MongoDB)
+      labelEn: Database Password (MongoDB)
+      random: true
+      required: false
+      rule: paramComplexity
+      type: password
+    - default: "127.0.0.1"
+      edit: true
+      envKey: REDIS_HOST
+      labelZh: Redis 主机
+      labelEn: Redis Host
+      required: true
+      type: text
+    - default: 6379
+      edit: true
+      envKey: REDIS_PORT
+      labelZh: Redis 端口
+      labelEn: Redis Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: REDIS_PASSWORD
+      labelZh: Redis 密码
+      labelEn: Redis Password
+      required: false
+      type: password

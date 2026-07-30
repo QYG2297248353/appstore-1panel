@@ -1,0 +1,18 @@
+additionalProperties:
+  key: sonarr
+  name: Sonarr
+  tags:
+    - WebSite
+    - Storage
+    - Local
+  shortDescZh: 智能 PVR 适用于新闻组和 BT 用户。
+  shortDescEn: Smart PVR for newsgroup and bittorrent users.
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://sonarr.tv/
+  github: https://github.com/Sonarr/Sonarr/
+  document: https://wiki.sonarr.tv/
+  architectures:
+    - amd64
+    - arm64

@@ -1,0 +1,20 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  certimate:
+    image: usual2970/certimate:v0.3.18
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8090
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${CERTIMATE_ROOT_PATH}/data:/app/pb_data

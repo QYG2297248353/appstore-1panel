@@ -1,0 +1,21 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  chronoframe:
+    container_name: chronoframe
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    image: hoshinosuzumi/chronoframe:0.14.1
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:3000
+    restart: always
+    volumes:
+    - ${CHRONOFRAME_ROOT_PATH}/data:/app/data

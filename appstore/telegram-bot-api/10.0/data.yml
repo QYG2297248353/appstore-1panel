@@ -1,0 +1,46 @@
+additionalProperties:
+  formFields:
+    - default: "/home/telegram-bot-api"
+      edit: true
+      envKey: TELEGRAM_BOT_API_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8082
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: API 端口
+      labelEn: API port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 8081
+      edit: true
+      envKey: PANEL_APP_PORT_HTTPS
+      labelZh: API 端口 (HTTPS)
+      labelEn: API port (HTTPS)
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: TELEGRAM_API_ID
+      labelZh: Telegram Bot 应用 ID
+      labelEn: Telegram Bot Application ID
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: TELEGRAM_API_HASH
+      labelZh: Telegram Bot 应用 Hash
+      labelEn: Telegram Bot Application Hash
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: TELEGRAM_PROXY
+      labelZh: 网络代理
+      labelEn: Network proxy
+      required: false
+      type: text

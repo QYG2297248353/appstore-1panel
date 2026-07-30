@@ -1,0 +1,17 @@
+additionalProperties:
+  key: weblate
+  name: Weblate
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 高度集成了版本控制功能的web-based翻译工具
+  shortDescEn: A highly integrated web-based translation tool with version control functions
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://weblate.org/
+  github: https://github.com/WeblateOrg/weblate/
+  document: https://docs.weblate.org/
+  architectures:
+    - amd64
+    - arm64

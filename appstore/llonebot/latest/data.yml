@@ -1,0 +1,48 @@
+additionalProperties:
+  formFields:
+    - default: "/home/llonebot"
+      edit: true
+      envKey: LLONEBOT_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: QUICK_LOGIN_QQ
+      labelZh: 快速登录QQ号码
+      labelEn: Quick login QQ number
+      required: true
+      type: text
+    - default: 3000
+      edit: true
+      envKey: PANEL_APP_PORT_ONEBOT_HTTP
+      labelZh: OneBot HTTP 端口
+      labelEn: OneBot HTTP port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 3001
+      edit: true
+      envKey: PANEL_APP_PORT_ONEBOT_WS
+      labelZh: OneBot WebSocket 端口
+      labelEn: OneBot WebSocket port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 5600
+      edit: true
+      envKey: PANEL_APP_PORT_SATORI
+      labelZh: Satori 端口
+      labelEn: Satori port
+      required: true
+      rule: paramPort
+      type: number

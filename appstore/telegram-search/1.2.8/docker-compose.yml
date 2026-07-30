@@ -1,0 +1,49 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  telegram_search:
+    container_name: telegram-search
+    depends_on:
+      telegram_search_pgvector:
+        condition: service_healthy
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - DATABASE_TYPE=postgres
+    - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@telegram_search_pgvector:5432/${POSTGRES_DATABASE}
+    image: ghcr.io/groupultra/telegram-search:1.2.8
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:3333
+    restart: always
+    volumes:
+    - ${TELEGRAM_SEARCH_ROOT_PATH}/data:/app/data
+  telegram_search_pgvector:
+    container_name: db-telegram-search
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - POSTGRES_USER=${POSTGRES_USER}
+    - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    - POSTGRES_DATABASE=${POSTGRES_DATABASE}
+    healthcheck:
+      interval: 10s
+      retries: 5
+      test:
+      - CMD-SHELL
+      - pg_isready -d postgres -U postgres
+      timeout: 5s
+    image: ghcr.io/tensorchord/pgvecto-rs:pg17-v0.4.0
+    networks:
+    - 1panel-network
+    restart: always
+    volumes:
+    - ./config/init.sql:/docker-entrypoint-initdb.d/init.sql
+    - ${TELEGRAM_SEARCH_ROOT_PATH}/db:/var/lib/postgresql/data

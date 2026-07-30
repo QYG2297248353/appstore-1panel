@@ -1,0 +1,17 @@
+additionalProperties:
+  key: reader3-webview
+  name: 阅读3 Webview插件
+  tags:
+    - Tool
+    - Local
+  shortDescZh: 阅读3服务器版，不需要手机
+  shortDescEn: Reader3 server version, no need for mobile phone
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/hectorqin/reader/
+  github: https://github.com/hectorqin/reader/
+  document: https://github.com/hectorqin/reader/
+  architectures:
+    - amd64
+    - arm64

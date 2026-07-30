@@ -1,0 +1,30 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  clouddrive2:
+    cap_add:
+    - SYS_ADMIN
+    container_name: clouddrive2
+    devices:
+    - /dev/fuse:/dev/fuse
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - CLOUDDRIVE_HOME=/Config
+    image: cloudnas/clouddrive2:1.0.13
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    pid: host
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:19798
+    privileged: true
+    restart: always
+    volumes:
+    - ${CLOUDDRIVE2_ROOT_PATH}/CloudNAS:/CloudNAS:shared
+    - ${CLOUDDRIVE2_ROOT_PATH}/Config:/Config
+    - ${CLOUDDRIVE2_ROOT_PATH}/media:/media:shared

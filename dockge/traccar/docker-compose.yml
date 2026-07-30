@@ -1,0 +1,27 @@
+networks:
+  traccar-network:
+    driver: bridge
+services:
+  traccar:
+    container_name: traccar
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - CONFIG_USE_ENVIRONMENT_VARIABLES=true
+    - WEB_URL=${WEB_URL:-http://127.0.0.1:8082}
+    - DATABASE_DRIVER=${DATABASE_DRIVER:-org.h2.Driver}
+    - DATABASE_URL=${DATABASE_URL:-jdbc:h2:./data/database}
+    - DATABASE_USER=${DATABASE_USER:-sa}
+    - DATABASE_PASSWORD=${DATABASE_PASSWORD:-}
+    image: traccar/traccar:6.14
+    labels:
+      createdBy: Apps
+    networks:
+    - traccar-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8082
+    restart: always
+    volumes:
+    - ${TRACCAR_ROOT_PATH}/logs:/opt/traccar/logs:rw
+    - ${TRACCAR_ROOT_PATH}/data:/opt/traccar/data:rw

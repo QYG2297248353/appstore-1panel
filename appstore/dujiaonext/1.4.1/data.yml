@@ -1,0 +1,96 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_REDIS_SERVICE
+        required: true
+        type: service
+      default: redis
+      envKey: PANEL_REDIS_TYPE
+      labelZh: Redis 服务 (前置检查)
+      labelEn: Redis Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: Redis
+          value: redis
+    - default: "/home/dujiaonext"
+      edit: true
+      envKey: DUJIAONEXT_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 8081
+      edit: true
+      envKey: PANEL_APP_PORT_ADMIN
+      labelZh: WebUI 后台端口
+      labelEn: WebUI Admin Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 8082
+      edit: true
+      envKey: PANEL_APP_PORT_API
+      labelZh: API 端口
+      labelEn: API Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "admin"
+      edit: true
+      envKey: DJ_DEFAULT_ADMIN_USERNAME
+      labelZh: 管理员用户名
+      labelEn: Admin Username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: DJ_DEFAULT_ADMIN_PASSWORD
+      labelZh: 管理员密码
+      labelEn: Admin Password
+      required: true
+      type: password
+    - default: "efd8bd2b3ecdca06dba6b6213bf46e7a16b9045bda6420828eeeb8f7e36c755f"
+      edit: true
+      envKey: JWT_SECRET
+      labelZh: JWT 密钥
+      labelEn: JWT Secret
+      required: true
+      type: text
+    - default: "d13e38a2b2d582a4f5bcfda44ae5aa9c4bd93643ff308f0e5b45833aec28af20"
+      edit: true
+      envKey: USER_JWT_SECRET
+      labelZh: 用户 JWT 密钥
+      labelEn: User JWT Secret
+      required: true
+      type: text
+    - default: "127.0.0.1"
+      edit: true
+      envKey: REDIS_HOST
+      labelZh: Redis 主机
+      labelEn: Redis Host
+      required: true
+      type: text
+    - default: 6379
+      edit: true
+      envKey: REDIS_PORT
+      labelZh: Redis 端口
+      labelEn: Redis Port
+      required: true
+      type: number
+    - default: ""
+      edit: true
+      envKey: REDIS_PASSWORD
+      labelZh: Redis 连接密码
+      labelEn: Redis Connection Password
+      required: false
+      type: password

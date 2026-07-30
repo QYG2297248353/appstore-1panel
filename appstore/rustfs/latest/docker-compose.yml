@@ -1,0 +1,44 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  rustfs:
+    container_name: rustfs
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - RUSTFS_ADDRESS=0.0.0.0:9000
+    - RUSTFS_CONSOLE_ADDRESS=0.0.0.0:9001
+    - RUSTFS_CONSOLE_ENABLE=true
+    - RUSTFS_CORS_ALLOWED_ORIGINS=*
+    - RUSTFS_CONSOLE_CORS_ALLOWED_ORIGINS=*
+    - RUSTFS_OBS_LOGGER_LEVEL=info
+    - RUSTFS_TLS_PATH=/opt/tls
+    - RUSTFS_OBJECT_CACHE_ENABLE=true
+    - RUSTFS_OBJECT_CACHE_TTL_SECS=300
+    healthcheck:
+      interval: 30s
+      retries: 3
+      start_period: 40s
+      test:
+      - CMD
+      - sh
+      - -c
+      - curl -f http://127.0.0.1:9000/health && curl -f http://127.0.0.1:9001/rustfs/console/health
+      timeout: 10s
+    image: rustfs/rustfs:latest
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_API}:9000
+    - ${PANEL_APP_PORT_HTTP}:9001
+    restart: always
+    security_opt:
+    - no-new-privileges:true
+    volumes:
+    - ${RUSTFS_ROOT_PATH}/logs:/app/logs
+    - ${RUSTFS_ROOT_PATH}/data:/data

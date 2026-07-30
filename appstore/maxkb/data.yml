@@ -1,0 +1,18 @@
+additionalProperties:
+  key: maxkb
+  name: MaxKB
+  tags:
+    - WebSite
+    - AI
+    - Local
+  shortDescZh: 基于 LLM 大语言模型的知识库问答系统
+  shortDescEn: A knowledge base question and answer system based on LLM large language model
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://maxkb.cn/
+  github: https://github.com/1Panel-dev/MaxKB/
+  document: https://maxkb.cn/docs/
+  architectures:
+    - amd64
+    - arm64

@@ -1,0 +1,22 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  kimai2:
+    container_name: kimai
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - DATABASE_URL=mysql://${DB_USER}:${DB_USER_PASSWORD}@${DB_HOSTNAME}:${DB_PORT}/${DB_NAME}?charset=utf8mb4
+    image: kimai/kimai2:apache-2.23.0
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8001
+    restart: always
+    volumes:
+    - ${KIMAI2_ROOT_PATH}/data:/opt/kimai/var/data
+    - ${KIMAI2_ROOT_PATH}/plugins:/opt/kimai/var/plugins

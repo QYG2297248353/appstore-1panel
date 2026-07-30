@@ -1,0 +1,17 @@
+additionalProperties:
+  key: element-web
+  name: Element Web
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 一个用于Web的光泽Matrix协作客户端
+  shortDescEn: A glossy Matrix collaboration client for the web.
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://element.io/
+  github: https://github.com/element-hq/element-web/
+  document: https://element.io/user-guide/
+  architectures:
+    - amd64
+    - arm64

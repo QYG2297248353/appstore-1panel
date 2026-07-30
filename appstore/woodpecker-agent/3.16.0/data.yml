@@ -1,0 +1,30 @@
+additionalProperties:
+  formFields:
+    - default: "/home/woodpecker"
+      edit: true
+      envKey: WOODPECKER_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: "localhost:9000"
+      edit: true
+      envKey: WOODPECKER_SERVER
+      labelZh: Woodpecker GRPC 服务地址
+      labelEn: Woodpecker server GRPC address
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: WOODPECKER_AGENT_SECRET
+      labelZh: 密钥
+      labelEn: Secret
+      required: true
+      type: text
+    - default: 4
+      edit: true
+      envKey: WOODPECKER_MAX_WORKFLOWS
+      labelZh: 最大任务数
+      labelEn: Maximum number of tasks
+      required: true
+      type: number

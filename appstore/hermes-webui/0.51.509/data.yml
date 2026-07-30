@@ -1,0 +1,38 @@
+additionalProperties:
+  formFields:
+    - default: "/home/hermes-webui"
+      edit: true
+      envKey: HERMES_WEBUI_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8787
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: HERMES_WEBUI_PASSWORD
+      labelZh: 访问密码
+      labelEn: Access Password
+      required: true
+      type: password
+    - default: 1000
+      edit: true
+      envKey: UID
+      labelZh: 用户ID
+      labelEn: UID
+      required: true
+      type: number
+    - default: 1000
+      edit: true
+      envKey: GID
+      labelZh: 组ID
+      labelEn: GID
+      required: true
+      type: number

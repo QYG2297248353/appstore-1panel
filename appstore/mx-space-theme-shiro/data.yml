@@ -1,0 +1,16 @@
+additionalProperties:
+  key: mx-space-theme-shiro
+  name: MixSpace (主题-Shiro)
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 前后端分离个人空间解决方案
+  shortDescEn: A frontend-backend separation personal space solution
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://mx-space.js.org/
+  github: https://github.com/mx-space/
+  document: https://mx-space.js.org/
+  architectures:
+    - amd64

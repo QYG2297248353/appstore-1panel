@@ -1,0 +1,222 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_DB_HOST
+        required: true
+        type: service
+      default: mysql
+      edit: true
+      envKey: PANEL_DB_TYPE
+      labelZh: MySQL 服务 (前置检查)
+      labelEn: Database Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: MySQL
+          value: mysql
+        - label: MariaDB
+          value: mariadb
+        - label: Percona
+          value: percona
+    - child:
+        default: ""
+        envKey: PANEL_REDIS_SERVICE
+        required: true
+        type: service
+      default: redis
+      envKey: PANEL_REDIS_TYPE
+      labelZh: Redis 服务 (前置检查)
+      labelEn: Redis Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: Redis
+          value: redis
+    - default: "/home/tangsengdaodao"
+      edit: true
+      envKey: TANGSENGDAODAO_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 5100
+      edit: true
+      envKey: PANEL_APP_PORT_WK_TCP
+      labelZh: TCP 通讯端口
+      labelEn: TCP communication port
+      required: true
+      type: number
+    - default: 5200
+      edit: true
+      envKey: PANEL_APP_PORT_WK_WS
+      labelZh: WebSocket 通讯端口
+      labelEn: WebSocket communication port
+      required: true
+      type: number
+    - default: 5300
+      edit: true
+      envKey: PANEL_APP_PORT_WK_WEB_SERVER
+      labelZh: 悟空IM 后台监控端口
+      labelEn: WuKongIM background monitoring port
+      required: true
+      type: number
+    - default: 8090
+      edit: true
+      envKey: PANEL_APP_PORT_TS_APP_HTTP
+      labelZh: 唐僧叨叨 API 端口
+      labelEn: TangSengDaoDao API port
+      required: true
+      type: number
+    - default: 80
+      edit: true
+      envKey: PANEL_APP_PORT_TS_APP_WEB
+      labelZh: 唐僧叨叨 WEB端口
+      labelEn: TangSengDaoDao WEB port
+      required: true
+      type: number
+    - default: 80
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: 唐僧叨叨 后台管理端口
+      labelEn: TangSengDaoDao Management background port
+      required: true
+      type: number
+    - default: ""
+      edit: true
+      envKey: WK_EXTERNAL_IP
+      labelEn: External IP
+      labelZh: 外部访问IP
+      required: true
+      type: text
+    - default: "admin"
+      edit: true
+      envKey: TS_ADMIN
+      labelZh: 超级管理员 账户
+      labelEn: Super administrator account
+      required: true
+      type: text
+    - default: "tsdd@123456"
+      edit: true
+      envKey: TS_ADMINPWD
+      labelZh: 超级管理员 密码
+      labelEn: Super administrator password
+      required: true
+      type: password
+    - default: "123456"
+      edit: true
+      envKey: TS_SMSCODE
+      labelZh: 默认注册验证码
+      labelEn: Default registration verification code
+      required: true
+      type: number
+    - default: "127.0.0.1"
+      edit: true
+      envKey: DB_HOST
+      labelZh: 数据库 主机
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: "3306"
+      edit: true
+      envKey: DB_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      type: number
+    - default: "tsdd"
+      edit: true
+      envKey: DB_USERNAME
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: true
+      type: text
+    - default: "tsdd"
+      edit: true
+      envKey: DB_PASSWORD
+      labelEn: Password
+      labelZh: 数据库 密码
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: "tsdd"
+      edit: true
+      envKey: DB_NAME
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      type: text
+    - default: "127.0.0.1"
+      edit: true
+      envKey: REDIS_HOST
+      labelZh: Redis 主机
+      labelEn: Redis Host
+      required: true
+      type: text
+    - default: 6379
+      edit: true
+      envKey: REDIS_PORT
+      labelZh: Redis 端口
+      labelEn: Redis Port
+      required: true
+      type: number
+    - default: ""
+      edit: true
+      envKey: REDIS_PASSWORD
+      labelZh: Redis 连接密码
+      labelEn: Redis Connection Password
+      required: false
+      type: password
+    - default: "https://api.multiavatar.com/{avatar}.png"
+      edit: true
+      envKey: TS_AVATAR_DEFAULTBASEURL
+      labelZh: 默认头像提供地址
+      labelEn: Default avatar provider address
+      required: true
+      type: text
+    - default: "唐僧叨叨"
+      edit: true
+      envKey: TS_APPNAME
+      labelZh: 应用名称
+      labelEn: Application Name
+      required: true
+      type: text
+    - default: "欢迎使用{{appName}}"
+      edit: true
+      envKey: TS_WELCOMEMESSAGE
+      labelZh: 欢迎消息
+      labelEn: Welcome message
+      required: true
+      type: text
+    - default: "true"
+      edit: true
+      envKey: TS_PHONESEARCHOFF
+      labelZh: 手机号搜索功能
+      labelEn: Phone number search function
+      required: true
+      type: select
+      values:
+        - label: 开启
+          value: "false"
+        - label: 关闭
+          value: "true"
+    - default: "true"
+      edit: true
+      envKey: TS_ONLINESTATUSON
+      labelZh: 在线状态功能
+      labelEn: Online status function
+      required: true
+      type: select
+      values:
+        - label: 开启
+          value: "true"
+        - label: 关闭
+          value: "false"
+    - default: 1000
+      edit: true
+      envKey: TS_GROUPUPGRADEWHENMEMBERCOUNT
+      labelZh: 自动升级超级群组临界值
+      labelEn: Automatic upgrade super group critical value
+      required: true
+      type: number

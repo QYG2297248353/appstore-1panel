@@ -1,0 +1,186 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_REDIS_SERVICE
+        required: false
+        type: service
+      default: redis
+      envKey: PANEL_REDIS_TYPE
+      labelZh: Redis 服务 (前置检查)
+      labelEn: Redis Service (Pre-check)
+      required: false
+      type: apps
+      values:
+        - label: Redis
+          value: redis
+        - label: Kvrocks
+          value: kvrocks
+    - default: 3000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: USERNAME
+      labelZh: 管理员用户名
+      labelEn: Admin Username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: PASSWORD
+      labelZh: 管理员密码
+      labelEn: Admin Password
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: SITE_BASE
+      labelZh: 站点URL
+      labelEn: Site Url
+      required: false
+      type: text
+    - default: "MoonTV"
+      edit: true
+      envKey: NEXT_PUBLIC_SITE_NAME
+      labelZh: 站点名称
+      labelEn: Site Name
+      required: true
+      type: text
+    - default: "本网站仅提供影视信息搜索服务，所有内容均来自第三方网站。本站不存储任何视频资源，不对任何内容的准确性、合法性、完整性负责。"
+      edit: true
+      envKey: ANNOUNCEMENT
+      labelZh: 站点公告
+      labelEn: Site Announcement
+      required: true
+      type: text
+    - default: "redis"
+      edit: true
+      envKey: NEXT_PUBLIC_STORAGE_TYPE
+      labelZh: 数据存储类型
+      labelEn: Storage Type
+      required: true
+      type: select
+      values:
+        - label: Upstash
+          value: "upstash"
+        - label: Redis
+          value: "redis"
+        - label: Kvrocks
+          value: "kvrocks"
+    - default: "redis://127.0.0.1:6379"
+      edit: true
+      envKey: REDIS_URL
+      labelZh: Redis 地址 (Redis 存储)
+      labelEn: Redis Address (Redis Storage)
+      required: false
+      type: text
+    - default: "redis://127.0.0.1:6666"
+      edit: true
+      envKey: KVROCKS_URL
+      labelZh: Kvrocks 地址 (Kvrocks 存储)
+      labelEn: Kvrocks Address (Kvrocks Storage)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: UPSTASH_URL
+      labelZh: Upstash 地址 (Upstash 存储)
+      labelEn: Upstash Address (Upstash Storage)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: UPSTASH_TOKEN
+      labelZh: Upstash 授权码 (Upstash 存储)
+      labelEn: Upstash Token (Upstash Storage)
+      required: false
+      type: password
+    - default: 5
+      edit: true
+      envKey: NEXT_PUBLIC_SEARCH_MAX_PAGE
+      labelZh: 搜索结果最大页数
+      labelEn: Search result maximum number of pages
+      required: true
+      type: number
+    - default: "direct"
+      edit: true
+      envKey: NEXT_PUBLIC_DOUBAN_PROXY_TYPE
+      labelZh: 豆瓣数据源请求方式
+      labelEn: Douban data source request method
+      required: true
+      type: select
+      values:
+        - label: 直连
+          value: "direct"
+        - label: cors-proxy-zwei
+          value: "cors-proxy-zwei"
+        - label: cmliussss-cdn-tencent
+          value: "cmliussss-cdn-tencent"
+        - label: cmliussss-cdn-ali
+          value: "cmliussss-cdn-ali"
+        - label: 自定义
+          value: "custom"
+    - default: ""
+      edit: true
+      envKey: NEXT_PUBLIC_DOUBAN_PROXY
+      labelZh: 自定义豆瓣数据代理 URL
+      labelEn: Customize Douban data proxy URL
+      required: false
+      type: text
+    - default: "direct"
+      edit: true
+      envKey: NEXT_PUBLIC_DOUBAN_IMAGE_PROXY_TYPE
+      labelZh: 豆瓣图片代理类型
+      labelEn: Douban picture agent type
+      required: true
+      type: select
+      values:
+        - label: 直连
+          value: "direct"
+        - label: 服务端代理
+          value: "server"
+        - label: 豆瓣官方的精品 cdn（阿里云）
+          value: "img3"
+        - label: cmliussss-cdn-tencent
+          value: "cmliussss-cdn-tencent"
+        - label: cmliussss-cdn-ali
+          value: "cmliussss-cdn-ali"
+        - label: 自定义
+          value: "custom"
+    - default: ""
+      edit: true
+      envKey: NEXT_PUBLIC_DOUBAN_IMAGE_PROXY
+      labelZh: 自定义豆瓣图片代理 URL
+      labelEn: Customize Douban image proxy URL
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: NEXT_PUBLIC_DISABLE_YELLOW_FILTER
+      labelZh: 关闭色情内容过滤
+      labelEn: Disable Yellow Filter
+      required: true
+      type: select
+      values:
+        - label: 开启过滤
+          value: "true"
+        - label: 禁用过滤
+          value: "false"
+    - default: "true"
+      edit: true
+      envKey: NEXT_PUBLIC_FLUID_SEARCH
+      labelZh: 流式输出功能
+      labelEn: Streaming output function
+      required: true
+      type: select
+      values:
+        - label: 开启流式输出
+          value: "true"
+        - label: 禁用流式输出
+          value: "false"

@@ -1,0 +1,19 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  deeplx:
+    container_name: deeplx
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - PORT=1188
+    image: qyg2297248353/deeplx:v1.1.0.1
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:1188
+    restart: always

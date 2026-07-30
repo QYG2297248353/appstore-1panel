@@ -1,0 +1,24 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  glance:
+    container_name: glance
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    image: glanceapp/glance:v0.8.5
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8080
+    restart: always
+    volumes:
+    - ${GLANCE_ROOT_PATH}/app/glance.yml:/app/glance.yml
+    - ${GLANCE_ROOT_PATH}/app/assets:/app/assets
+    - /etc/timezone:/etc/timezone:ro
+    - /etc/localtime:/etc/localtime:ro

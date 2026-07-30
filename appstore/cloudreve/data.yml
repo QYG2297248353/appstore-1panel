@@ -1,0 +1,17 @@
+additionalProperties:
+  key: cloudreve
+  name: Cloudreve
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 公私兼备的网盘系统
+  shortDescEn: A private and public cloud storage system
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://cloudreve.org/
+  github: https://github.com/cloudreve/Cloudreve/
+  document: https://docs.cloudreve.org/
+  architectures:
+    - amd64
+    - arm64

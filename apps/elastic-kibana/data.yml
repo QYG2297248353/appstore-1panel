@@ -1,0 +1,19 @@
+additionalProperties:
+  key: elastic-kibana
+  name: Kibana
+  tags:
+    - WebSite
+    - Middleware
+    - Tool
+    - Local
+  shortDescZh: 基于浏览器的 Elasticsearch 分析和搜索仪表盘
+  shortDescEn: Browser-based Elasticsearch analytics and search dashboard
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.elastic.co/
+  github: https://github.com/elastic/kibana/
+  document: https://www.elastic.co/docs/
+  architectures:
+    - amd64
+    - arm64

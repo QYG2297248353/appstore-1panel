@@ -1,0 +1,18 @@
+additionalProperties:
+  key: slink
+  name: Slink
+  tags:
+    - WebSite
+    - Middleware
+    - Local
+  shortDescZh: 图片分享平台
+  shortDescEn: Image sharing platform
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/andrii-kryvoviaz/slink/
+  github: https://github.com/andrii-kryvoviaz/slink/
+  document: https://github.com/andrii-kryvoviaz/slink/
+  architectures:
+    - amd64
+    - arm64

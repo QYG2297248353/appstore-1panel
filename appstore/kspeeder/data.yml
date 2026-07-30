@@ -1,0 +1,18 @@
+additionalProperties:
+  key: kspeeder
+  name: KSpeeder
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: Docker镜像加速专家
+  shortDescEn: Docker Image Accelerator Expert
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://kspeeder.istoreos.com/
+  github: https://github.com/linkease/docker_kspeeder/
+  document: https://kspeeder.istoreos.com/
+  architectures:
+    - amd64
+    - arm
+    - arm64

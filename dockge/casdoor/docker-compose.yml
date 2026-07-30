@@ -1,0 +1,26 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  casdoor:
+    container_name: casdoor
+    env_file:
+    - ./envs/global.env
+    - ./envs/casdoor.env
+    - .env
+    environment:
+    - driverName=${DB_TYPE}
+    - dbName=${DB_NAME}
+    - verificationCodeTimeout=10
+    - appname=casdoor
+    - authState=casdoor
+    image: casbin/casdoor:3.0.1
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8000
+    restart: always
+    volumes:
+    - ${CASDOOR_ROOT_PATH}/files:/files

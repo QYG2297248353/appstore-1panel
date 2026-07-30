@@ -1,0 +1,22 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  pixman:
+    container_name: pixman
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - http_proxy=${NETWORK_PROXY:-}
+    - https_proxy=${NETWORK_PROXY:-}
+    image: pixman/pixman:v1.8.2
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:5000
+    restart: always
+    volumes:
+    - ${PIXMAN_ROOT_PATH}/m3u:/app/app/data/m3u

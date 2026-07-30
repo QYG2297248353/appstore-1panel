@@ -1,0 +1,18 @@
+additionalProperties:
+  key: stash
+  name: Stash
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 组织和刮削你的色情内容
+  shortDescEn: Organize and scrape your adult content
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://stashapp.cc/
+  github: https://github.com/stashapp/stash/
+  document: https://docs.stashapp.cc/
+  architectures:
+    - amd64
+    - arm
+    - arm64

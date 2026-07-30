@@ -1,0 +1,111 @@
+additionalProperties:
+  formFields:
+    - default: "/home/pihole"
+      edit: true
+      envKey: PIHOLE_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: WEBPASSWORD
+      labelZh: WebUI 密码
+      labelEn: WebUI password
+      required: true
+      type: text
+    - default: "all"
+      edit: true
+      envKey: DNSMASQ_LISTENING
+      labelZh: 监听地址
+      labelEn: Listening address
+      required: true
+      type: select
+      values:
+        - label: all
+          value: "all"
+        - label: local
+          value: "local"
+        - label: single
+          value: "single"
+    - default: "127.0.0.1"
+      edit: true
+      envKey: FTLCONF_LOCAL_IPV4
+      labelZh: 本地 IPv4 地址
+      labelEn: Local IPv4 address
+      required: true
+      type: text
+    - default: "1.1.1.1;8.8.8.8;114.114.114.114;"
+      edit: true
+      envKey: PIHOLE_DNS_
+      labelZh: 上游 DNS 服务器
+      labelEn: Upstream DNS server
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: DHCP_START
+      labelZh: DHCP 起始地址
+      labelEn: DHCP start address
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: DHCP_END
+      labelZh: DHCP 结束地址
+      labelEn: DHCP end address
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: DHCP_ROUTER
+      labelZh: DHCP 路由/网关 IP
+      labelEn: DHCP router/gateway IP
+      required: true
+      type: text
+    - default: 24
+      edit: true
+      envKey: DHCP_LEASETIME
+      labelZh: DHCP 租约时间
+      labelEn: DHCP lease time
+      required: true
+      type: number
+    - default: "lan"
+      edit: true
+      envKey: PIHOLE_DOMAIN
+      labelZh: DHCP 域名
+      labelEn: DHCP domain
+      required: true
+      type: text
+    - default: "true"
+      edit: true
+      envKey: IPv6
+      labelZh: IPv6 支持
+      labelEn: IPv6 support
+      required: true
+      type: select
+      values:
+        - label: 开启 IPV6
+          value: "true"
+        - label: 关闭 IPV6
+          value: "false"
+    - default: "true"
+      edit: true
+      envKey: DHCP_IPv6
+      labelZh: DHCP IPv6 支持
+      labelEn: DHCP IPv6 support
+      required: true
+      type: select
+      values:
+        - label: 开启 DHCP IPV6
+          value: "true"
+        - label: 关闭 DHCP IPV6
+          value: "false"

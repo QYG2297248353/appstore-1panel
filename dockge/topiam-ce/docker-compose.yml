@@ -1,0 +1,27 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  topiam-ce:
+    container_name: topiam-ce
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - spring.datasource.url=jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+    - spring.datasource.username=${DB_USER}
+    - spring.datasource.password=${DB_USER_PASSWORD}
+    - spring.data.redis.host=${REDIS_HOSTNAME}
+    - spring.data.redis.port=${REDIS_PORT}
+    - spring.data.redis.password=${REDIS_PASSWORD}
+    - spring.data.redis.database=${REDIS_DBINDEX}
+    image: registry.cn-hangzhou.aliyuncs.com/topiam/topiam-ce:2.0.0
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:1898
+    restart: always
+    volumes:
+    - ${TOPIAM_CE_ROOT_PATH}/logs:/opt/topiam/logs

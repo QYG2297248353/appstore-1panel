@@ -1,0 +1,25 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  v2raya:
+    container_name: v2raya
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - V2RAYA_ADDRESS=0.0.0.0:2017
+    - V2RAYA_PLUGINLISTENPORT=32346
+    - V2RAYA_V2RAY_BIN=/usr/local/bin/v2ray
+    image: mzz2017/v2raya:v2.2.7.5
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:2017
+    - 20170-20172:20170-20172
+    privileged: true
+    restart: always
+    volumes:
+    - ${V2RAYA_ROOT_PATH}/v2raya:/etc/v2raya

@@ -1,0 +1,17 @@
+additionalProperties:
+  key: libretranslate
+  name: LibreTranslate
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 机器翻译 API
+  shortDescEn: Machine translation API
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://libretranslate.com/
+  github: https://github.com/LibreTranslate/LibreTranslate/
+  document: https://libretranslate.com/
+  architectures:
+    - amd64
+    - arm64

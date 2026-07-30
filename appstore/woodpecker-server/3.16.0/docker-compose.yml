@@ -1,0 +1,25 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  woodpecker-server:
+    container_name: woodpecker-server
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
+    - HTTPS_PROXY=${HTTP_PROXY}
+    - NO_PROXY=127.0.0.1,localhost,.local,woodpecker-server,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
+    image: woodpeckerci/woodpecker-server:v3.16.0
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8000
+    - ${PANEL_APP_PORT_GRPC}:9000
+    restart: always
+    volumes:
+    - ${WOODPECKER_ROOT_PATH}/server:/var/lib/woodpecker/

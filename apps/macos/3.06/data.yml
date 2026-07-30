@@ -1,0 +1,64 @@
+additionalProperties:
+  formFields:
+    - default: "/home/macos"
+      edit: true
+      envKey: MACOS_STORAGE_ROOT_PATH
+      labelZh: MacOS 存储目录
+      labelEn: MacOS Storage Path
+      required: true
+      type: text
+    - default: 8006
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 5900
+      edit: true
+      envKey: PANEL_APP_PORT_REMOTE
+      labelZh: Mac 远程桌面 端口
+      labelEn: Mac Remote Desktop Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "15"
+      edit: true
+      envKey: VERSION
+      labelZh: MacOS 版本
+      labelEn: MacOS Version
+      required: true
+      type: select
+      values:
+        - label: macOS 15 (Sequoia)
+          value: "15"
+        - label: macOS 14 (Sonoma)
+          value: "14"
+        - label: macOS 13 (Ventura)
+          value: "13"
+        - label: macOS 12 (Monterey)
+          value: "12"
+        - label: macOS 11 (Big Sur)
+          value: "11"
+    - default: "8G"
+      edit: true
+      envKey: RAM_SIZE
+      labelZh: 内存大小
+      labelEn: RAM Size
+      required: true
+      type: text
+    - default: "64G"
+      edit: true
+      envKey: DISK_SIZE
+      labelZh: 硬盘大小
+      labelEn: Disk Size
+      required: true
+      type: text
+    - default: 4
+      edit: true
+      envKey: CPU_CORES
+      labelZh: CPU 核心数
+      labelEn: CPU Cores
+      required: true
+      type: number

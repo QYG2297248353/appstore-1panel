@@ -1,0 +1,67 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  browserless:
+    container_name: browserless-rsshub
+    expose:
+    - 3000
+    healthcheck:
+      interval: 30s
+      retries: 3
+      test:
+      - CMD
+      - curl
+      - -f
+      - http://localhost:3000/pressure
+      timeout: 10s
+    image: browserless/chrome
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    restart: always
+    ulimits:
+      core:
+        hard: 0
+        soft: 0
+  rsshub:
+    container_name: rsshub-rsshub
+    depends_on:
+    - browserless
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - NODE_ENV=production
+    - PUPPETEER_WS_ENDPOINT=ws://browserless:3000
+    - PORT=1200
+    - LISTEN_INADDR_ANY=1
+    - REQUEST_RETRY=2
+    - REQUEST_TIMEOUT=3000
+    - ALLOW_ORIGIN=*
+    - CACHE_CONTENT_EXPIRE=360
+    - CACHE_EXPIRE=300
+    - MEMORY_MAX=256
+    - LOGGER_LEVEL=info
+    - NO_LOGFILES=false
+    - DISALLOW_ROBOT=true
+    - ENABLE_CLUSTER=false
+    - NODE_NAME=rsshub
+    healthcheck:
+      interval: 30s
+      retries: 3
+      test:
+      - CMD
+      - curl
+      - -f
+      - http://localhost:1200/healthz?key=${ACCESS_KEY}
+      timeout: 10s
+    image: diygod/rsshub:2026-01-02
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:1200
+    restart: always

@@ -1,0 +1,18 @@
+﻿additionalProperties:
+  key: openfire
+  name: OpenFire
+  tags:
+    - WebSite
+    - Middleware
+    - Tool
+    - Local
+  shortDescZh: OpenFire 是一个实时协作服务器。它使用了唯一被广泛采用的即时通讯开放协议 XMPP（也叫 Jabber）
+  shortDescEn: OpenFire is a real-time collaboration server. It uses the only widely adopted open protocol for instant messaging, XMPP (also called Jabber)
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://igniterealtime.org/
+  github: https://github.com/igniterealtime/Openfire/
+  document: https://igniterealtime.org/projects/openfire/
+  architectures:
+    - amd64

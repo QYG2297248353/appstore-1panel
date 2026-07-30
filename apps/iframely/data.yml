@@ -1,0 +1,18 @@
+additionalProperties:
+  key: iframely
+  name: Iframely
+  tags:
+    - Tool
+    - Middleware
+    - Local
+  shortDescZh: 响应式 Web 嵌入和 URL 元的 Iframely API
+  shortDescEn: Responsive Web Embeds and URL Meta with Iframely API
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  website: https://iframely.com/
+  github: https://github.com/itteco/iframely/
+  document: https://iframely.com/docs/
+  architectures:
+    - amd64
+    - arm64

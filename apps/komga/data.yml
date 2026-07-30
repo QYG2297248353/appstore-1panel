@@ -1,0 +1,18 @@
+additionalProperties:
+  key: komga
+  name: Komga
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 漫画、漫画、蓝光光盘、杂志和电子书的媒体服务器
+  shortDescEn: A media server for comics, manga, magazines and electronic books
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://komga.org/
+  github: https://github.com/gotson/komga/
+  document: https://komga.org/docs/introduction/
+  architectures:
+    - amd64
+    - arm
+    - arm64

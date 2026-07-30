@@ -1,0 +1,19 @@
+additionalProperties:
+  key: s-ui
+  name: S-UI (Xray UI)
+  tags:
+    - Tool
+    - Local
+  shortDescZh: 高级 Web 面板 • 专为 SagerNet/Sing-Box 打造
+  shortDescEn: Advanced Web Panel • Built for SagerNet/Sing-Box
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/alireza0/s-ui/
+  github: https://github.com/alireza0/s-ui/
+  document: https://github.com/alireza0/s-ui/
+  architectures:
+    - '386'
+    - amd64
+    - arm
+    - arm64

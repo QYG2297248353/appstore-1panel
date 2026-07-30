@@ -1,0 +1,18 @@
+additionalProperties:
+  key: rsshub
+  name: RssHub
+  tags:
+    - WebSite
+    - Middleware
+    - Tool
+    - Local
+  shortDescZh: 从任何内容生成 RSS/Atom/JSON 订阅源
+  shortDescEn: Generate RSS/Atom/JSON feeds from any content
+  type: website
+  crossVersionUpdate: true
+  website: https://rsshub.app/
+  github: https://github.com/DIYgod/RSSHub/
+  document: https://docs.rsshub.app/
+  architectures:
+    - amd64
+    - arm64

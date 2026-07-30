@@ -1,0 +1,24 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  overseerr:
+    image: sctx/overseerr:c2d4c61fae2053157052f96e5de1cdb490ea704e
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:5055
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${OVERSEERR_ROOT_PATH}/config:/app/config
+    environment:
+      - PORT=5055
+      - TZ=Asia/Shanghai
+      - LOG_LEVEL=debug

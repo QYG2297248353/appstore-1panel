@@ -1,0 +1,130 @@
+networks:
+  1panel-network:
+    external: true
+  glean-network:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: ${CONTAINER_NAME}-postgres
+    restart: always
+    volumes:
+      - ${GLEAN_ROOT_PATH}/postgres:/var/lib/postgresql/data
+    networks:
+      - glean-network
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-glean}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-glean}
+      POSTGRES_USER: ${POSTGRES_USER:-glean}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-glean}
+
+  redis:
+    image: redis:7-alpine
+    container_name: ${CONTAINER_NAME}-redis
+    command: redis-server --appendonly yes
+    restart: always
+    volumes:
+      - ${GLEAN_ROOT_PATH}/redis:/data
+    networks:
+      - glean-network
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    image: ghcr.io/leslieleung/glean-backend:0.2.7
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    environment:
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-glean}:${POSTGRES_PASSWORD:-glean}@postgres:5432/${POSTGRES_DB:-glean}
+      REDIS_URL: redis://redis:6379/0
+      SECRET_KEY: ${SECRET_KEY:-change-me-in-production-use-a-long-random-string}
+      CORS_ORIGINS: '["http://localhost", "http://localhost:3000", "http://localhost:3001"]'
+      DEBUG: ${DEBUG:-false}
+      RUN_MIGRATIONS: "true"
+      CREATE_ADMIN: ${CREATE_ADMIN:-true}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      ADMIN_ROLE: ${ADMIN_ROLE:-super_admin}
+    restart: always
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8000/api/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - glean-network
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    command: [ "uv", "run", "--no-sync", "uvicorn", "glean_api.main:app", "--host", "0.0.0.0", "--port", "8000" ]
+
+  worker:
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      backend:
+        condition: service_healthy
+    image: ghcr.io/leslieleung/glean-backend:0.2.7
+    container_name: ${CONTAINER_NAME}-worker
+    environment:
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-glean}:${POSTGRES_PASSWORD:-glean}@postgres:5432/${POSTGRES_DB:-glean}
+      REDIS_URL: redis://redis:6379/0
+      SECRET_KEY: ${SECRET_KEY:-}
+    networks:
+      - glean-network
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    restart: always
+    command: [ "uv", "run", "--no-sync", "arq", "glean_worker.main.WorkerSettings" ]
+
+  web:
+    depends_on:
+      - backend
+    image: ghcr.io/leslieleung/glean-web:0.2.7
+    container_name: ${CONTAINER_NAME}-web
+    ports:
+      - "${PANEL_APP_PORT_HTTP:-80}:80"
+    networks:
+      - glean-network
+    restart: always
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+
+  admin:
+    depends_on:
+      - backend
+    image: ghcr.io/leslieleung/glean-admin:0.2.0
+    container_name: ${CONTAINER_NAME}-admin
+    ports:
+      - "${PANEL_APP_PORT_ADMIN:-3001}:80"
+    networks:
+      - glean-network
+    restart: always
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}

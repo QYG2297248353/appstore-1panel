@@ -1,0 +1,18 @@
+additionalProperties:
+  key: speedtest-tracker-sqlite
+  name: SpeedTest Tracker SQLite版
+  tags:
+    - WebSite
+    - Middleware
+    - Local
+  shortDescZh: 托管互联网性能跟踪应用程序
+  shortDescEn: Hosted internet performance tracking application
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://docs.speedtest-tracker.dev/
+  github: https://github.com/alexjustesen/speedtest-tracker
+  document: https://docs.speedtest-tracker.dev/
+  architectures:
+    - amd64
+    - arm64

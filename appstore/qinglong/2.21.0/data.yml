@@ -1,0 +1,24 @@
+additionalProperties:
+  formFields:
+    - default: "/home/qinglong"
+      edit: true
+      envKey: QINGLONG_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 5700
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "/"
+      edit: true
+      envKey: QINGLONG_BASE_URL
+      labelZh: 部署路径
+      labelEn: Deployment path
+      required: false
+      type: text

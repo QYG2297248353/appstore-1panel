@@ -1,0 +1,137 @@
+networks:
+  1panel-network:
+    external: true
+  seaweedfs-network: null
+services:
+  seaweedfs-filer:
+    command: filer -master="seaweedfs-master:9333" -ip.bind=0.0.0.0 -metricsPort=9326
+    container_name: seaweedfs-filer
+    depends_on:
+    - seaweedfs-master
+    - seaweedfs-volume
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    image: chrislusf/seaweedfs:4.40
+    networks:
+    - seaweedfs-network
+    ports:
+    - ${PANEL_APP_PORT_FILER_SERVER}:8888
+    - ${PANEL_APP_PORT_FILER_API}:18888
+    - ${PANEL_APP_PORT_FILER_METRICS}:9326
+    restart: always
+    stdin_open: true
+    tty: true
+    volumes:
+    - ${CUSTOM_MOUNT_DIRECTORY_1:-./default_mount_1}:${CUSTOM_MOUNT_DIRECTORY_1:-/default_mount_1}
+    - ${CUSTOM_MOUNT_DIRECTORY_2:-./default_mount_2}:${CUSTOM_MOUNT_DIRECTORY_2:-/default_mount_2}
+    - ${CUSTOM_MOUNT_DIRECTORY_3:-./default_mount_3}:${CUSTOM_MOUNT_DIRECTORY_3:-/default_mount_3}
+  seaweedfs-master:
+    command: master -ip=master -ip.bind=0.0.0.0 -metricsPort=9324
+    container_name: seaweedfs-master
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    image: chrislusf/seaweedfs:4.40
+    networks:
+    - seaweedfs-network
+    ports:
+    - ${PANEL_APP_PORT_MASTER_SERVER}:9333
+    - ${PANEL_APP_PORT_MASTER_API}:19333
+    - ${PANEL_APP_PORT_MASTER_METRICS}:9324
+    restart: always
+    volumes:
+    - ${CUSTOM_MOUNT_DIRECTORY_1:-./default_mount_1}:${CUSTOM_MOUNT_DIRECTORY_1:-/default_mount_1}
+    - ${CUSTOM_MOUNT_DIRECTORY_2:-./default_mount_2}:${CUSTOM_MOUNT_DIRECTORY_2:-/default_mount_2}
+    - ${CUSTOM_MOUNT_DIRECTORY_3:-./default_mount_3}:${CUSTOM_MOUNT_DIRECTORY_3:-/default_mount_3}
+  seaweedfs-prometheus:
+    command: --web.enable-lifecycle  --config.file=/etc/prometheus/prometheus.yml
+    container_name: seaweedfs-prometheus
+    depends_on:
+    - seaweedfs-s3
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    image: prom/prometheus:v2.21.0
+    networks:
+    - seaweedfs-network
+    ports:
+    - ${PANEL_APP_PORT_METRICS}:9090
+    restart: always
+    volumes:
+    - ${SEAWEEDFS_ROOT_PATH}/prometheus:/etc/prometheus
+  seaweedfs-s3:
+    command: s3 -filer="seaweedfs-filer:8888" -ip.bind=0.0.0.0 -metricsPort=9327
+    container_name: seaweedfs
+    depends_on:
+    - seaweedfs-master
+    - seaweedfs-volume
+    - seaweedfs-filer
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    image: chrislusf/seaweedfs:4.40
+    labels:
+      createdBy: Apps
+    networks:
+    - seaweedfs-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8333
+    - ${PANEL_APP_PORT_S3_METRICS}:9327
+    restart: always
+    volumes:
+    - ${CUSTOM_MOUNT_DIRECTORY_1:-./default_mount_1}:${CUSTOM_MOUNT_DIRECTORY_1:-/default_mount_1}
+    - ${CUSTOM_MOUNT_DIRECTORY_2:-./default_mount_2}:${CUSTOM_MOUNT_DIRECTORY_2:-/default_mount_2}
+    - ${CUSTOM_MOUNT_DIRECTORY_3:-./default_mount_3}:${CUSTOM_MOUNT_DIRECTORY_3:-/default_mount_3}
+  seaweedfs-volume:
+    command: volume -mserver="seaweedfs-master:9333" -ip.bind=0.0.0.0 -port=8080  -metricsPort=9325
+    container_name: seaweedfs-volume
+    depends_on:
+    - seaweedfs-master
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    image: chrislusf/seaweedfs:4.40
+    networks:
+    - seaweedfs-network
+    ports:
+    - ${PANEL_APP_PORT_VOLUME_SERVER}:8080
+    - ${PANEL_APP_PORT_VOLUME_API}:18080
+    - ${PANEL_APP_PORT_VOLUME_METRICS}:9325
+    restart: always
+    volumes:
+    - ${CUSTOM_MOUNT_DIRECTORY_1:-./default_mount_1}:${CUSTOM_MOUNT_DIRECTORY_1:-/default_mount_1}
+    - ${CUSTOM_MOUNT_DIRECTORY_2:-./default_mount_2}:${CUSTOM_MOUNT_DIRECTORY_2:-/default_mount_2}
+    - ${CUSTOM_MOUNT_DIRECTORY_3:-./default_mount_3}:${CUSTOM_MOUNT_DIRECTORY_3:-/default_mount_3}
+  seaweedfs-webdav:
+    command: webdav -filer="seaweedfs-filer:8888"
+    container_name: seaweedfs-webdav
+    depends_on:
+    - seaweedfs-master
+    - seaweedfs-volume
+    - seaweedfs-filer
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    image: chrislusf/seaweedfs:4.40
+    networks:
+    - seaweedfs-network
+    ports:
+    - ${PANEL_APP_PORT_WEBDAV}:7333
+    restart: always
+    volumes:
+    - ${CUSTOM_MOUNT_DIRECTORY_1:-./default_mount_1}:${CUSTOM_MOUNT_DIRECTORY_1:-/default_mount_1}
+    - ${CUSTOM_MOUNT_DIRECTORY_2:-./default_mount_2}:${CUSTOM_MOUNT_DIRECTORY_2:-/default_mount_2}
+    - ${CUSTOM_MOUNT_DIRECTORY_3:-./default_mount_3}:${CUSTOM_MOUNT_DIRECTORY_3:-/default_mount_3}

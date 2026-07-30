@@ -1,0 +1,29 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  zerotier-planet:
+    image: xubiaolin/zerotier-planet:1.14.2
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    network_mode: ${NETWORK_MODE}
+    ports:
+      - ${PANEL_APP_PORT_ZT}:${PANEL_APP_PORT_ZT}/tcp
+      - ${PANEL_APP_PORT_ZT}:${PANEL_APP_PORT_ZT}/udp
+      - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
+      - ${PANEL_APP_PORT_FILE}:${PANEL_APP_PORT_FILE}
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${ZEROTIER_PLANET_ROOT_PATH}/file:/app/dist
+      - ${ZEROTIER_PLANET_ROOT_PATH}/ztncui:/app/ztncui
+      - ${ZEROTIER_PLANET_ROOT_PATH}/zerotier-one:/var/lib/zerotier-one
+      - ${ZEROTIER_PLANET_ROOT_PATH}/config:/app/config
+    environment:
+      - ZT_PORT=${PANEL_APP_PORT_ZT}
+      - API_PORT=${PANEL_APP_PORT_HTTP}
+      - FILE_SERVER_PORT=${PANEL_APP_PORT_FILE}

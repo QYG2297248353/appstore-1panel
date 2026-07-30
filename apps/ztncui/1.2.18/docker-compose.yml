@@ -1,0 +1,28 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  ztncui:
+    image: keynetworks/ztncui:1.2.18
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    network_mode: ${NETWORK_MODE}
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
+      - ${PANEL_APP_PORT_API}:${PANEL_APP_PORT_API}/tcp
+      - ${PANEL_APP_PORT_API}:${PANEL_APP_PORT_API}/udp
+      - ${PANEL_APP_PORT_FILE}:3180
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${ZTNCUI_ROOT_PATH}/ztncui:/opt/key-networks/ztncui/etc
+      - ${ZTNCUI_ROOT_PATH}/zerotier-one:/var/lib/zerotier-one
+    environment:
+      - NODE_ENV=production
+      - HTTP_PORT=${PANEL_APP_PORT_HTTP}
+      - ZT_ADDR=localhost:${PANEL_APP_PORT_API}
+      - HTTP_ALL_INTERFACES=yes

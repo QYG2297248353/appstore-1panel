@@ -1,0 +1,19 @@
+additionalProperties:
+  key: nginx-ui
+  name: Nginx UI
+  tags:
+    - WebSite
+    - Middleware
+    - Local
+  shortDescZh: 全新的 Nginx 网络管理界面，旨在简化 Nginx 服务器的管理和配置
+  shortDescEn: A new Nginx network management interface designed to simplify the management and configuration of Nginx servers
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://nginxui.com/
+  github: https://github.com/0xJacky/nginx-ui/
+  document: https://nginxui.com/zh_CN/guide/about.html
+  architectures:
+    - amd64
+    - arm
+    - arm64

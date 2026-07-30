@@ -1,0 +1,17 @@
+additionalProperties:
+  key: eigenfocus
+  name: Eigenfocus
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 看板、时间跟踪与专注工具
+  shortDescEn: Dashboard, Time Tracking and Focus Tool
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://eigenfocus.com/
+  github: https://github.com/Eigenfocus/eigenfocus/
+  document: https://eigenfocus.com/
+  architectures:
+    - amd64
+    - arm64

@@ -1,0 +1,17 @@
+additionalProperties:
+  key: lx-music-sync
+  name: 落雪音乐同步
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 一个免费&开源的音乐查找工具
+  shortDescEn: A free and open source music search tool
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://lxmusic.toside.cn/
+  github: https://github.com/lyswhut/lx-music-desktop/
+  document: https://lxmusic.toside.cn/
+  architectures:
+    - amd64
+    - arm64

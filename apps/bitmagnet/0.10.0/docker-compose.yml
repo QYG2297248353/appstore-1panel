@@ -1,0 +1,37 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  bitmagnet:
+    image: ghcr.io/bitmagnet-io/bitmagnet:v0.10.0
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    dns:
+      - 1.1.1.1
+      - 114.114.114.114
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3333
+      - ${PANEL_APP_PORT_BT}:3334/tcp
+      - ${PANEL_APP_PORT_BT}:3334/udp
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${BITMAGNET_ROOT_PATH}/config:/root/.config/bitmagnet
+      - ${BITMAGNET_ROOT_PATH}/bitmagnet:/root/.local/share/bitmagnet
+    environment:
+      - LOG_FILE_ROTATOR_ENABLED=true
+      - LOG_LEVEL=info
+      - LOG_DEVELOPMENT=false
+      - LOG_JSON=false
+      - DHT_CRAWLER_SAVE_FILES_THRESHOLD=100
+      - PROCESSOR_CONCURRENCY=1
+    command:
+      - worker
+      - run
+      - --all

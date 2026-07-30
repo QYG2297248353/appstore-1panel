@@ -1,0 +1,159 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_DB_HOST
+        required: true
+        type: service
+      default: postgresql
+      edit: true
+      envKey: PANEL_DB_TYPE
+      labelZh: 数据库 服务 (前置检查)
+      labelEn: Database Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: PostgreSQL
+          value: postgresql
+        - label: MySQL
+          value: mysql
+        - label: MariaDB
+          value: mariadb
+        - label: Percona
+          value: percona
+    - default: "/home/nocodb"
+      edit: true
+      envKey: NOCODB_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: NC_ADMIN_EMAIL
+      labelZh: 管理员邮箱
+      labelEn: Administrator email
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: NC_ADMIN_PASSWORD
+      labelZh: 管理员密码
+      labelEn: Administrator password
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: ""
+      edit: true
+      envKey: NC_AUTH_JWT_SECRET
+      labelZh: 数据加密密钥
+      labelEn: Data encryption key
+      required: true
+      type: password
+    - default: pg
+      edit: true
+      envKey: DB_TYPE
+      labelZh: 数据库 类型
+      labelEn: Database Type
+      required: true
+      type: select
+      values:
+        - label: PostgreSQL
+          value: pg
+        - label: MySQL (MariaDB, Percona)
+          value: mysql2
+    - default: "127.0.0.1"
+      edit: true
+      envKey: DB_HOSTNAME
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: 5432
+      edit: true
+      envKey: DB_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "nocodb"
+      edit: true
+      envKey: DB_USER
+      labelZh: 数据库 用户名
+      labelEn: Database User
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: DB_PASSWD
+      labelEn: Database Password
+      labelZh: 数据库 密码
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: "nocodb"
+      edit: true
+      envKey: DB_NAME
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: NC_REDIS_URL
+      labelZh: Redis 缓存地址
+      labelEn: Redis Cache Address
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: NC_PUBLIC_URL
+      labelZh: 域名
+      labelEn: Domain Name
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: NC_SMTP_HOST
+      labelZh: 邮件服务器地址
+      labelEn: Mailer Server Address
+      required: false
+      type: text
+    - default: 465
+      edit: true
+      envKey: NC_SMTP_PORT
+      labelZh: 邮件服务器端口
+      labelEn: Mailer Server Port
+      required: false
+      type: number
+    - default: ""
+      edit: true
+      envKey: NC_SMTP_USERNAME
+      labelZh: 邮件服务用户名
+      labelEn: Mailer Username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: NC_SMTP_PASSWORD
+      labelZh: 邮件服务密码
+      labelEn: Mailer Password
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: NC_SMTP_FROM
+      labelZh: 邮件服务发件人
+      labelEn: Mailer From
+      required: false
+      type: text

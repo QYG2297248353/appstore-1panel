@@ -1,0 +1,29 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  nocodb:
+    image: nocodb/nocodb:0.301.5
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8080
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${NOCODB_ROOT_PATH}/data:/usr/app/data
+    environment:
+      - PORT=8080
+      - NC_ALLOW_LOCAL_HOOKS=false
+      - NC_DISABLE_CACHE=false
+      - NC_DISABLE_TELE=true
+      - NC_DASHBOARD_URL=/dashboard
+      - NUXT_PUBLIC_NC_BACKEND_URL=http://localhost:8080
+      - NC_SMTP_SECURE=true
+      - NC_SMTP_IGNORE_TLS=false
+      - NC_DB=${DB_TYPE}://${DB_HOSTNAME}:${DB_PORT}?u=${DB_USER}&p=${DB_PASSWD}&d=${DB_NAME}

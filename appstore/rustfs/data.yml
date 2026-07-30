@@ -1,0 +1,18 @@
+additionalProperties:
+  key: rustfs
+  name: RustFS
+  tags:
+    - WebSite
+    - Storage
+    - Local
+  shortDescZh: 分布式存储系统
+  shortDescEn: Distributed Storage System
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://rustfs.com/
+  github: https://github.com/rustfs/rustfs/
+  document: https://rustfs.com/
+  architectures:
+    - amd64
+    - arm64

@@ -1,0 +1,45 @@
+additionalProperties:
+  formFields:
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "56000-56100"
+      edit: true
+      envKey: PANEL_APP_PORT_WEBRTC_EPR
+      labelZh: WebRTC 端口范围
+      labelEn: WebRTC port range
+      required: true
+      type: text
+    - default: "admin"
+      edit: true
+      envKey: NEKO_MEMBER_MULTIUSER_ADMIN_PASSWORD
+      labelZh: 管理员密码
+      labelEn: 管理员密码
+      required: true
+      type: password
+    - default: "neko"
+      edit: true
+      envKey: NEKO_MEMBER_MULTIUSER_USER_PASSWORD
+      labelZh: 用户密码
+      labelEn: 用户密码
+      required: true
+      type: password
+    - default: "1920x1080@30"
+      edit: true
+      envKey: NEKO_DESKTOP_SCREEN
+      labelZh: 桌面分辨率
+      labelEn: Desktop Resolution
+      required: true
+      type: text
+    - default: "127.0.0.1"
+      edit: true
+      envKey: NEKO_WEBRTC_NAT1TO1
+      labelZh: 访问主机 (NAT1TO1)
+      labelEn: Access Host (NAT1TO1)
+      required: true
+      type: text

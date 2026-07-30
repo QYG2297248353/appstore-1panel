@@ -1,0 +1,47 @@
+additionalProperties:
+  formFields:
+    - default: "1panel-network"
+      edit: true
+      envKey: NETWORK_MODE
+      labelZh: 网络模式
+      labelEn: Network mode
+      required: true
+      type: select
+      values:
+        - label: 主机网络模式
+          value: "host"
+        - label: 桥接网络模式
+          value: "bridge"
+        - label: 无网络模式
+          value: "none"
+        - label: 1panel-network
+          value: "1panel-network"
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: TOKEN
+      labelZh: 访问令牌
+      labelEn: Access Token
+      required: true
+      type: password
+    - default: "1m"
+      edit: true
+      envKey: REQUEST_TIMEOUT
+      labelZh: 请求超时时间
+      labelEn: Request Timeout
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: HTTP_PROXY
+      labelZh: 网络代理 (HTTP/Socket5)
+      labelEn: Network Proxy (HTTP/Socket5)
+      required: false
+      type: text

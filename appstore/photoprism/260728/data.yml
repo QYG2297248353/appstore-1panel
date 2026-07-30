@@ -1,0 +1,180 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_DB_HOST
+        required: true
+        type: service
+      default: mariadb
+      edit: true
+      envKey: PANEL_DB_TYPE
+      labelZh: MySQL 服务 (前置检查)
+      labelEn: Database Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: MySQL
+          value: mysql
+        - label: MariaDB
+          value: mariadb
+        - label: Percona
+          value: percona
+    - default: "/home/photoprism"
+      edit: true
+      envKey: PHOTOPRISM_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 2342
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "admin"
+      edit: true
+      envKey: PHOTOPRISM_ADMIN_USER
+      labelZh: 管理员用户名
+      labelEn: Admin username
+      required: true
+      type: text
+    - default: "password_random"
+      edit: true
+      envKey: PHOTOPRISM_ADMIN_PASSWORD
+      labelZh: 管理员密码 (8-72 字符)
+      labelEn: Admin password
+      required: true
+      rule: paramComplexity
+      random: true
+      type: password
+    - default: "password"
+      edit: true
+      envKey: PHOTOPRISM_AUTH_MODE
+      labelZh: 认证模式
+      labelEn: Authentication mode
+      required: true
+      type: select
+      values:
+        - label: 密码
+          value: "password"
+        - label: 公开
+          value: "public"
+    - default: "http://127.0.0.1:2342"
+      edit: true
+      envKey: PHOTOPRISM_SITE_URL
+      labelZh: 网站 URL
+      labelEn: Site URL
+      required: true
+      type: text
+    - default: "AI-Powered Photos App"
+      edit: true
+      envKey: PHOTOPRISM_SITE_CAPTION
+      labelZh: 网站标题
+      labelEn: Site caption
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: PHOTOPRISM_SITE_DESCRIPTION
+      labelZh: 网站描述
+      labelEn: Site description
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: PHOTOPRISM_SITE_AUTHOR
+      labelZh: 网站作者
+      labelEn: Site author
+      required: false
+      type: text
+    - default: "127.0.0.1:3306"
+      edit: true
+      envKey: PHOTOPRISM_DATABASE_SERVER
+      labelZh: 数据库 地址
+      labelEn: Database Server
+      required: true
+      type: text
+    - default: "photoprism"
+      edit: true
+      envKey: PHOTOPRISM_DATABASE_USER
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: PHOTOPRISM_DATABASE_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      required: true
+      type: password
+    - default: "photoprism"
+      edit: true
+      envKey: PHOTOPRISM_DATABASE_NAME
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      type: text
+    - default: 5000
+      edit: true
+      envKey: PHOTOPRISM_ORIGINALS_LIMIT
+      labelZh: 原始文件限制最大值 (MB)
+      labelEn: Originals limit max value (MB)
+      required: true
+      type: number
+    - default: "true"
+      edit: true
+      envKey: PHOTOPRISM_BACKUP_DATABASE
+      labelZh: 开启定时备份计划
+      labelEn: Enable scheduled backup plan
+      required: true
+      type: select
+      values:
+        - label:
+          value: "true"
+        - label:
+          value: "false"
+    - default: "daily"
+      edit: true
+      envKey: PHOTOPRISM_BACKUP_SCHEDULE
+      labelZh: 定时备份计划周期 (daily, weekly, cron)
+      labelEn: Scheduled backup plan cycle (daily, weekly, cron format)
+      required: true
+      type: text
+    - default: "software"
+      edit: true
+      envKey: PHOTOPRISM_FFMPEG_ENCODER
+      labelZh: 视频编码器
+      labelEn: Video encoder
+      required: true
+      type: select
+      values:
+        - label: 软解
+          value: "software"
+        - label: 硬解 (Intel)
+          value: "intel"
+        - label: 硬解 (nvidia)
+          value: "nvidia"
+        - label: 硬解 (apple)
+          value: "apple"
+        - label: 硬解 (raspberry)
+          value: "raspberry"
+        - label: 硬解 (vaapi)
+          value: "vaapi"
+    - default: "1920"
+      edit: true
+      envKey: PHOTOPRISM_FFMPEG_SIZE
+      labelZh: 视频分辨率限制
+      labelEn: Video resolution limit
+      required: true
+      type: text
+    - default: "32"
+      edit: true
+      envKey: PHOTOPRISM_FFMPEG_BITRATE
+      labelZh: 视频比特率限制
+      labelEn: Video bitrate limit
+      required: true
+      type: text

@@ -1,0 +1,19 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  kotatsu-syncserver:
+    container_name: kotatsu
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    image: qyg2297248353/kotatsu-syncserver:v20250725
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8080
+    restart: always

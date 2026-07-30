@@ -1,0 +1,147 @@
+networks:
+  1panel-network:
+    external: true
+  glean-network:
+    driver: bridge
+services:
+  admin:
+    container_name: glean-admin
+    depends_on:
+    - backend
+    env_file:
+    - ./envs/global.env
+    - .env
+    image: ghcr.io/leslieleung/glean-admin:0.2.0
+    networks:
+    - glean-network
+    ports:
+    - ${PANEL_APP_PORT_ADMIN:-3001}:80
+    restart: always
+  backend:
+    command:
+    - uv
+    - run
+    - --no-sync
+    - uvicorn
+    - glean_api.main:app
+    - --host
+    - 0.0.0.0
+    - --port
+    - '8000'
+    container_name: glean
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      ADMIN_ROLE: ${ADMIN_ROLE:-super_admin}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      CORS_ORIGINS: '["http://localhost", "http://localhost:3000", "http://localhost:3001"]'
+      CREATE_ADMIN: ${CREATE_ADMIN:-true}
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-glean}:${POSTGRES_PASSWORD:-glean}@postgres:5432/${POSTGRES_DB:-glean}
+      DEBUG: ${DEBUG:-false}
+      REDIS_URL: redis://redis:6379/0
+      RUN_MIGRATIONS: 'true'
+      SECRET_KEY: ${SECRET_KEY:-change-me-in-production-use-a-long-random-string}
+    healthcheck:
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      test:
+      - CMD
+      - curl
+      - -f
+      - http://localhost:8000/api/health
+      timeout: 5s
+    image: ghcr.io/leslieleung/glean-backend:0.2.7
+    labels:
+      createdBy: Apps
+    networks:
+    - glean-network
+    restart: always
+  postgres:
+    container_name: glean-postgres
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-glean}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-glean}
+      POSTGRES_USER: ${POSTGRES_USER:-glean}
+    healthcheck:
+      interval: 10s
+      retries: 5
+      test:
+      - CMD-SHELL
+      - pg_isready -U ${POSTGRES_USER:-glean}
+      timeout: 5s
+    image: postgres:16-alpine
+    networks:
+    - glean-network
+    restart: always
+    volumes:
+    - ${GLEAN_ROOT_PATH}/postgres:/var/lib/postgresql/data
+  redis:
+    command: redis-server --appendonly yes
+    container_name: glean-redis
+    env_file:
+    - ./envs/global.env
+    - .env
+    healthcheck:
+      interval: 10s
+      retries: 5
+      test:
+      - CMD
+      - redis-cli
+      - ping
+      timeout: 5s
+    image: redis:7-alpine
+    networks:
+    - glean-network
+    restart: always
+    volumes:
+    - ${GLEAN_ROOT_PATH}/redis:/data
+  web:
+    container_name: glean-web
+    depends_on:
+    - backend
+    env_file:
+    - ./envs/global.env
+    - .env
+    image: ghcr.io/leslieleung/glean-web:0.2.7
+    networks:
+    - glean-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP:-80}:80
+    restart: always
+  worker:
+    command:
+    - uv
+    - run
+    - --no-sync
+    - arq
+    - glean_worker.main.WorkerSettings
+    container_name: glean-worker
+    depends_on:
+      backend:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-glean}:${POSTGRES_PASSWORD:-glean}@postgres:5432/${POSTGRES_DB:-glean}
+      REDIS_URL: redis://redis:6379/0
+      SECRET_KEY: ${SECRET_KEY:-}
+    image: ghcr.io/leslieleung/glean-backend:0.2.7
+    networks:
+    - glean-network
+    restart: always

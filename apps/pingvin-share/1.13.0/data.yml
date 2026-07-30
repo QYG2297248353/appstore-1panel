@@ -1,0 +1,29 @@
+additionalProperties:
+  formFields:
+    - default: "/home/pingvin-share"
+      edit: true
+      envKey: PINGVIN_SHARE_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3333
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: 访问端口
+      labelEn: Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "false"
+      edit: true
+      envKey: TRUST_PROXY
+      labelZh: 是否信任代理
+      labelEn: Trust proxy
+      required: true
+      type: select
+      values:
+        - label: 信任代理
+          value: "true"
+        - label: 不信任代理
+          value: "false"

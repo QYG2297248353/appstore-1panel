@@ -1,0 +1,17 @@
+additionalProperties:
+  formFields:
+    - default: "/home/kvrocks"
+      edit: true
+      envKey: KVROCKS_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 6666
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: 服务端口
+      labelEn: Service port
+      required: true
+      rule: paramPort
+      type: number

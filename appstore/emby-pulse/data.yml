@@ -1,0 +1,17 @@
+additionalProperties:
+  key: emby-pulse
+  name: Emby Pulse
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: Emby 服务器的高级伴侣
+  shortDescEn: Advanced companion for Emby server
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/zeyu8023/emby-pulse/
+  github: https://github.com/zeyu8023/emby-pulse/
+  document: https://github.com/zeyu8023/emby-pulse/
+  architectures:
+    - amd64
+    - arm64

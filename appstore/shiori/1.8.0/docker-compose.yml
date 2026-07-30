@@ -1,0 +1,33 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  shiori:
+    container_name: shiori
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - SHIORI_DIR=/srv/shiori
+    - SHIORI_DEVELOPMENT=False
+    - SHIORI_HTTP_ENABLED=True
+    - SHIORI_HTTP_PORT=8080
+    - SHIORI_HTTP_ROOT_PATH=/
+    - SHIORI_HTTP_ACCESS_LOG=True
+    - SHIORI_HTTP_BODY_LIMIT=1024
+    - SHIORI_HTTP_READ_TIMEOUT=10s
+    - SHIORI_HTTP_WRITE_TIMEOUT=10s
+    - SHIORI_HTTP_IDLE_TIMEOUT=10s
+    - SHIORI_HTTP_DISABLE_KEEP_ALIVE=true
+    - SHIORI_HTTP_DISABLE_PARSE_MULTIPART_FORM=true
+    image: ghcr.io/go-shiori/shiori:v1.8.0
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8080
+    restart: always
+    volumes:
+    - ${SHIORI_ROOT_PATH}/dev-data:/srv/shiori
+    - ${SHIORI_ROOT_PATH}/data:/src/shiori

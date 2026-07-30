@@ -1,0 +1,16 @@
+additionalProperties:
+  key: macos
+  name: Mac OS
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: Docker 容器内的 Mac OS
+  shortDescEn: Mac OS in Docker container
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.apple.com/
+  github: https://github.com/dockur/macos/
+  document: https://www.apple.com/
+  architectures:
+    - amd64

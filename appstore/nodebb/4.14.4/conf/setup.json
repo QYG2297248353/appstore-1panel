@@ -1,0 +1,11 @@
+{
+  "defaults": {
+    "$NODEBB_DB": {
+      "host": "$NODEBB_DB_HOST",
+      "port": $NODEBB_DB_PORT,
+      "database": "$NODEBB_DB_NAME",
+      "username": "$NODEBB_DB_USER",
+      "password": "$NODEBB_DB_PASSWORD"
+    }
+  }
+}

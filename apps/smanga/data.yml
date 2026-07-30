@@ -1,0 +1,17 @@
+additionalProperties:
+  key: smanga
+  name: Smanga
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 漫画浏览器
+  shortDescEn: manga browser
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/lkw199711/smanga/
+  github: https://github.com/lkw199711/smanga/
+  document: https://github.com/lkw199711/smanga/
+  architectures:
+    - amd64
+    - arm64

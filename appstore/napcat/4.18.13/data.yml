@@ -1,0 +1,47 @@
+additionalProperties:
+  formFields:
+    - default: "/home/napcat"
+      edit: true
+      envKey: NAPCAT_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 6099
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 3000
+      edit: true
+      envKey: PANEL_APP_PORT_ONEBOT_HTTP
+      labelZh: OneBot HTTP 端口
+      labelEn: OneBot HTTP port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 3001
+      edit: true
+      envKey: PANEL_APP_PORT_ONEBOT_WS
+      labelZh: OneBot WebSocket 端口
+      labelEn: OneBot WebSocket port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 0
+      edit: true
+      envKey: NAPCAT_UID
+      labelZh: UID
+      labelEn: UID
+      required: true
+      type: number
+    - default: 0
+      edit: true
+      envKey: NAPCAT_GID
+      labelZh: GID
+      labelEn: GID
+      required: true
+      type: number

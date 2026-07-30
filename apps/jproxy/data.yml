@@ -1,0 +1,17 @@
+﻿additionalProperties:
+  key: jproxy
+  name: JProxy
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 介于 Sonarr / Radarr 和 Jackett / Prowlarr 之间的代理，主要用于优化查询和提升识别率
+  shortDescEn: A proxy between Sonarr/Radarr and Jackett/Prowlarr, mainly used to optimize queries and improve recognition rate
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/LuckyPuppy514/jproxy/
+  github: https://github.com/LuckyPuppy514/jproxy/
+  document: https://github.com/LuckyPuppy514/jproxy/
+  architectures:
+    - amd64
+    - arm64

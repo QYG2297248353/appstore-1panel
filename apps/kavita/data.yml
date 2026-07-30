@@ -1,0 +1,18 @@
+additionalProperties:
+  key: kavita
+  name: Kavita
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 自托管数字图书馆
+  shortDescEn: Self-hosted digital library
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.kavitareader.com/
+  github: https://github.com/Kareadita/Kavita/
+  document: https://wiki.kavitareader.com/getting-started/
+  architectures:
+    - amd64
+    - arm
+    - arm64

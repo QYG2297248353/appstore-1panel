@@ -1,0 +1,24 @@
+additionalProperties:
+  formFields:
+    - default: "/home/immich-machine-learning"
+      edit: true
+      envKey: IMMICH_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3003
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: API 端口
+      labelEn: API port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "https://hf-mirror.com"
+      edit: true
+      envKey: HF_ENDPOINT
+      labelZh: Hugging Face 加速服务地址
+      labelEn: Hugging Face Endpoint
+      required: false
+      type: text

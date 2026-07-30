@@ -1,0 +1,49 @@
+additionalProperties:
+  formFields:
+    - default: "1panel-network"
+      edit: true
+      envKey: NETWORK_MODE
+      labelEn: Drive path
+      labelZh: 网络模式
+      required: true
+      type: select
+      values:
+        - label: 主机网络模式
+          value: "host"
+        - label: 桥接网络模式
+          value: "bridge"
+        - label: 无网络模式
+          value: "none"
+        - label: 1panel-network
+          value: "1panel-network"
+    - default: "/home/openresty-manager"
+      edit: true
+      envKey: OPENRESTY_MANAGER_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 34567
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 80
+      edit: true
+      envKey: PANEL_APP_PORT_NGINX_HTTP
+      labelZh: Nginx 端口
+      labelEn: Nginx port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 443
+      edit: true
+      envKey: PANEL_APP_PORT_NGINX_HTTPS
+      labelZh: Nginx SSL 端口
+      labelEn: Nginx SSL port
+      required: true
+      rule: paramPort
+      type: number

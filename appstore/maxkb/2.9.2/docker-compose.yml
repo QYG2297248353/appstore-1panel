@@ -1,0 +1,21 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  maxkb:
+    container_name: maxkb
+    env_file:
+    - ./envs/global.env
+    - .env
+    image: 1panel/maxkb:v2.9.2
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8080
+    restart: always
+    volumes:
+    - ${MAXKB_ROOT_PATH}/data:/var/lib/postgresql/data
+    - ${MAXKB_ROOT_PATH}/python-packages:/opt/maxkb/app/sandbox/python-packages
+    - ${MAXKB_ROOT_PATH}/local_embedding:/opt/maxkb/model/local_embedding

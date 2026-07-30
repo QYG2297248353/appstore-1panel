@@ -1,0 +1,36 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  readeck:
+    container_name: readeck-pg
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - READECK_LOG_LEVEL=info
+    - READECK_SERVER_HOST=0.0.0.0
+    - READECK_SERVER_PORT=${PANEL_APP_PORT_HTTP}
+    - READECK_DATABASE_SOURCE=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_NAME}
+    - HTTPS_PROXY=${HTTP_PROXY:-}
+    healthcheck:
+      interval: 30s
+      retries: 3
+      test:
+      - CMD
+      - /bin/readeck
+      - healthcheck
+      - -config
+      - config.toml
+      timeout: 2s
+    image: codeberg.org/readeck/readeck:0.22.3
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
+    restart: always
+    volumes:
+    - ${READECK_ROOT_PATH}/data:/readeck

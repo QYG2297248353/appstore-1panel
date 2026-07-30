@@ -1,0 +1,24 @@
+additionalProperties:
+  formFields:
+    - default: "/home/traccar"
+      edit: true
+      envKey: TRACCAR_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8082
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "http://127.0.0.1:8082"
+      edit: true
+      envKey: WEB_URL
+      labelZh: WebUI 地址
+      labelEn: WebUI URL
+      required: true
+      type: text

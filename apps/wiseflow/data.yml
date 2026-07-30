@@ -1,0 +1,18 @@
+additionalProperties:
+  key: wiseflow
+  name: Wiseflow
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: Wiseflow 首席情报官
+  shortDescEn: Wiseflow Chief Intelligence Officer
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/TeamWiseFlow/wiseflow/
+  github: https://github.com/TeamWiseFlow/wiseflow/
+  document: https://github.com/TeamWiseFlow/wiseflow/
+  architectures:
+    - amd64
+    - arm64

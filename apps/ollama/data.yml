@@ -1,0 +1,17 @@
+additionalProperties:
+  key: ollama
+  name: Ollama
+  tags:
+    - AI
+  shortDescZh: 一站式大模型部署平台
+  shortDescEn: Get up and running with large language models
+  type: tool
+  crossVersionUpdate: true
+  limit: 1
+  website: https://ollama.com/
+  github: https://github.com/ollama/ollama/
+  document: https://ollama.com/
+  gpuSupport: true
+  architectures:
+    - amd64
+    - arm64

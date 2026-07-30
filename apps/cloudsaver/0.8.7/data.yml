@@ -1,0 +1,24 @@
+additionalProperties:
+  formFields:
+    - default: "/home/cloudsaver"
+      edit: true
+      envKey: CLOUDSAVER_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8008
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: JWT_SECRET
+      labelZh: JWT 密钥
+      labelEn: JWT secret
+      required: true
+      type: text

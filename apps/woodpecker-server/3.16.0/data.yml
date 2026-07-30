@@ -1,0 +1,237 @@
+additionalProperties:
+  formFields:
+    - default: "/home/woodpecker"
+      edit: true
+      envKey: WOODPECKER_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 9000
+      edit: true
+      envKey: PANEL_APP_PORT_GRPC
+      labelZh: GRPC 端口
+      labelEn: GRPC port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: WOODPECKER_AGENT_SECRET
+      labelZh: 密钥
+      labelEn: Secret
+      required: true
+      type: text
+    - default: "http://localhost:8000"
+      edit: true
+      envKey: WOODPECKER_HOST
+      labelZh: 访问地址
+      labelEn: Host Address
+      required: true
+      type: text
+    - default: "false"
+      edit: true
+      envKey: WOODPECKER_OPEN
+      labelZh: 是否允许注册
+      labelEn: Allow registration
+      required: true
+      type: select
+      values:
+        - label: 允许
+          value: "true"
+        - label: 禁止
+          value: "false"
+    - default: ""
+      edit: true
+      envKey: WOODPECKER_ADMIN
+      labelZh: 管理员账户列表
+      labelEn: Administrator account list
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: WOODPECKER_ORGS
+      labelZh: 组织列表
+      labelEn: Organization list
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: WOODPECKER_PLUGINS_PRIVILEGED
+      labelZh: 特权插件
+      labelEn: Privileged plugins
+      required: false
+      type: text
+    - default: "72h"
+      edit: true
+      envKey: WOODPECKER_SESSION_EXPIRES
+      labelZh: 登录过期时间
+      labelEn: Login expiration time
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: HTTP_PROXY
+      labelZh: HTTP 代理
+      labelEn: HTTP proxy
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: WOODPECKER_GITHUB
+      labelZh: GitHub 集成
+      labelEn: GitHub Forges
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"
+    - default: ""
+      edit: true
+      envKey: WOODPECKER_GITHUB_CLIENT
+      labelZh: GitHub 客户端 ID
+      labelEn: GitHub client ID
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: WOODPECKER_GITHUB_SECRET
+      labelZh: GitHub 客户端密钥
+      labelEn: GitHub client secret
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: WOODPECKER_GITEA
+      labelZh: Gitea 集成
+      labelEn: Gitea Forges
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"
+    - default: ""
+      edit: true
+      envKey: WOODPECKER_GITEA_URL
+      labelZh: Gitea 地址
+      labelEn: Gitea URL
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: WOODPECKER_GITEA_CLIENT
+      labelZh: Gitea 客户端 ID
+      labelEn: Gitea client ID
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: WOODPECKER_GITEA_SECRET
+      labelZh: Gitea 客户端密钥
+      labelEn: Gitea client secret
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: WOODPECKER_FORGEJO
+      labelZh: Forgejo 集成
+      labelEn: Forgejo Forges
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"
+    - default: ""
+      edit: true
+      envKey: WOODPECKER_FORGEJO_URL
+      labelZh: Forgejo 地址
+      labelEn: Forgejo URL
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: WOODPECKER_FORGEJO_CLIENT
+      labelZh: Forgejo 客户端 ID
+      labelEn: Forgejo client ID
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: WOODPECKER_FORGEJO_SECRET
+      labelZh: Forgejo 客户端密钥
+      labelEn: Forgejo client secret
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: WOODPECKER_GITLAB
+      labelZh: GitLab 集成
+      labelEn: GitLab Forges
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"
+    - default: ""
+      edit: true
+      envKey: WOODPECKER_GITLAB_URL
+      labelZh: GitLab 地址
+      labelEn: GitLab URL
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: WOODPECKER_GITLAB_CLIENT
+      labelZh: GitLab 客户端 ID
+      labelEn: GitLab client ID
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: WOODPECKER_GITLAB_SECRET
+      labelZh: GitLab 客户端密钥
+      labelEn: GitLab client secret
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: WOODPECKER_BITBUCKET
+      labelZh: Bitbucket 集成
+      labelEn: Bitbucket Forges
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"
+    - default: ""
+      edit: true
+      envKey: WOODPECKER_BITBUCKET_CLIENT
+      labelZh: Bitbucket 客户端 ID
+      labelEn: Bitbucket client ID
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: WOODPECKER_BITBUCKET_SECRET
+      labelZh: Bitbucket 客户端密钥
+      labelEn: Bitbucket client secret
+      required: false
+      type: text

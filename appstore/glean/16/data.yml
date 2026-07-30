@@ -1,0 +1,53 @@
+additionalProperties:
+  formFields:
+    - default: "/home/glean"
+      edit: true
+      envKey: GLEAN_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 3001
+      edit: true
+      envKey: PANEL_APP_PORT_ADMIN
+      labelZh: WebUI 后台端口
+      labelEn: WebUI Admin Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "admin"
+      edit: true
+      envKey: ADMIN_USERNAME
+      labelZh: 管理员用户名
+      labelEn: Admin username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: ADMIN_PASSWORD
+      labelZh: 管理员密码
+      labelEn: Admin password
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: SECRET_KEY
+      labelZh: 签名密钥
+      labelEn: Signature key
+      required: true
+      type: password
+    - default: "glean"
+      edit: true
+      envKey: POSTGRES_PASSWORD
+      labelZh: 数据库密码
+      labelEn: Postgres password
+      required: true
+      type: password

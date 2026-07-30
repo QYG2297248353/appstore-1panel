@@ -1,0 +1,26 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  s-ui:
+    container_name: s-ui
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - SUI_LOG_LEVEL=info
+    - SUI_DEBUG=false
+    image: alireza7/s-ui:v1.5.4
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:2095
+    - ${PANEL_APP_PORT_API}:2096
+    restart: always
+    tty: true
+    volumes:
+    - ${S_UI_ROOT_PATH}/db:/app/db
+    - ${S_UI_ROOT_PATH}/cert:/app/cert

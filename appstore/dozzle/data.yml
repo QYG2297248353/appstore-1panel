@@ -1,0 +1,20 @@
+additionalProperties:
+  key: dozzle
+  name: Dozzle
+  tags:
+    - WebSite
+    - Middleware
+    - Tool
+    - Local
+  shortDescZh: 一个轻量级的小应用程序，有一个基于web的界面来监控Docker日志
+  shortDescEn: web-based interface to monitor Docker logs
+  type: website
+  crossVersionUpdate: true
+  recommend: 0
+  website: https://dozzle.dev/
+  github: https://github.com/amir20/dozzle/
+  document: https://dozzle.dev/
+  architectures:
+    - amd64
+    - arm
+    - arm64

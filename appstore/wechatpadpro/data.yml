@@ -1,0 +1,16 @@
+additionalProperties:
+  key: wechatpadpro
+  name: WeChatPadPro
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 基于 WeChat Pad 的高级微信管理工具
+  shortDescEn: A high-level WeChat management tool based on WeChat Pad
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/WeChatPadPro/WeChatPadPro/
+  github: https://github.com/WeChatPadPro/WeChatPadPro/
+  document: https://github.com/WeChatPadPro/WeChatPadPro/
+  architectures:
+    - amd64

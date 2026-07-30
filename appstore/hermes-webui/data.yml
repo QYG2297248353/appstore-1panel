@@ -1,0 +1,17 @@
+additionalProperties:
+  key: hermes-webui
+  name: Hermes Webui
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 与你一起成长的代理人
+  shortDescEn: The agent that grows with you
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://hermes-agent.nousresearch.com/
+  github: https://github.com/nesquena/hermes-webui
+  document: https://hermes-agent.nousresearch.com/docs
+  architectures:
+    - amd64
+    - arm64

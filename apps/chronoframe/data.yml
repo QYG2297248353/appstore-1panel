@@ -1,0 +1,17 @@
+additionalProperties:
+  key: chronoframe
+  name: ChronoFrame
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 照片展示和管理应用
+  shortDescEn: Photo display and management application
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://chronoframe.bh8.ga/
+  github: https://github.com/HoshinoSuzumi/chronoframe/
+  document: https://github.com/HoshinoSuzumi/chronoframe/
+  architectures:
+    - amd64
+    - arm64

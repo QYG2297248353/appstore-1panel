@@ -1,0 +1,24 @@
+additionalProperties:
+  formFields:
+    - default: 8061
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: HTTP_PROXY
+      labelZh: HTTP 代理
+      labelEn: HTTP Proxy
+      required: false
+      type: text
+    - default: 4
+      edit: true
+      envKey: MAX_REDIRECTS
+      labelZh: 最大重定向次数
+      labelEn: Max Redirects
+      required: false
+      type: number

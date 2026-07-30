@@ -1,0 +1,32 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  cloudsaver:
+    container_name: cloudsaver
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    healthcheck:
+      interval: 30s
+      retries: 3
+      start_period: 5s
+      test: 'node -e "require(''http'').get(''http://localhost:8008/health'', res
+        => { const allowed = [200, 204, 301, 302, 304]; process.exit(allowed.includes(res.statusCode)
+        ? 0 : 1); }).on(''error'', () => process.exit(0));"
+
+        '
+      timeout: 3s
+    image: jiangrui1994/cloudsaver:0.8.7
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8008
+    restart: always
+    volumes:
+    - ${CLOUDSAVER_ROOT_PATH}/data:/app/data
+    - ${CLOUDSAVER_ROOT_PATH}/config:/app/config

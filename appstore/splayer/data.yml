@@ -1,0 +1,17 @@
+additionalProperties:
+  key: splayer
+  name: SPlayer
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 一个简约的音乐播放器
+  shortDescEn: A minimalist music player
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/imsyy/SPlayer/
+  github: https://github.com/imsyy/SPlayer/
+  document: https://github.com/imsyy/SPlayer/
+  architectures:
+    - amd64
+    - arm64

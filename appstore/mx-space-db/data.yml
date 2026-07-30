@@ -1,0 +1,22 @@
+additionalProperties:
+  key: mx-space-db
+  name: MixSpace (内置MongoDB)
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 前后端分离个人空间解决方案
+  shortDescEn: A frontend-backend separation personal space solution
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://mx-space.js.org/
+  github: https://github.com/mx-space/
+  document: https://mx-space.js.org/
+  architectures:
+    - '386'
+    - amd64
+    - arm
+    - arm64
+    - ppc64le
+    - riscv64
+    - s390x

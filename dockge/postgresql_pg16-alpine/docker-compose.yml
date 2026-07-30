@@ -1,0 +1,24 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  postgresql:
+    container_name: pg16-alpine-postgresql
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-postgres}
+      POSTGRES_INITDB_ARGS: --data-checksums
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+    image: postgres:16-alpine
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:5432
+    restart: always
+    volumes:
+    - ${POSTGRES_ROOT_PATH}/data:/var/lib/postgresql/data

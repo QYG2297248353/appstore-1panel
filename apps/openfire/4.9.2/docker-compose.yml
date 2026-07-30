@@ -1,0 +1,24 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  openfire:
+    image: nasqueron/openfire:4.9.2
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:9090
+      - ${PANEL_APP_PORT_WSS}:9091
+      - ${PANEL_APP_PORT_SERVER}:5222
+      - ${PANEL_APP_PORT_MESSAGE}:7777
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${OPENFIRE_ROOT_PATH}/data:/var/lib/openfire
+      - ${OPENFIRE_ROOT_PATH}/logs:/var/log/openfire

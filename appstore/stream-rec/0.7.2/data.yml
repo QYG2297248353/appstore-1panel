@@ -1,0 +1,69 @@
+additionalProperties:
+  formFields:
+    - default: "/home/stream-rec"
+      edit: true
+      envKey: STREAM_REC_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 15275
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 12555
+      edit: true
+      envKey: PANEL_APP_PORT_API
+      labelZh: API 端口
+      labelEn: API port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "stream-rec"
+      disabled: true
+      envKey: LOGIN_USERNAME
+      labelZh: 默认用户名
+      labelEn: Default Username
+      required: true
+      type: text
+    - default: "stream-rec"
+      edit: false
+      envKey: LOGIN_SECRET
+      labelZh: 登录密码 (初始化)
+      labelEn: Login Password (Initialization)
+      required: true
+      random: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: AUTH_SECRET
+      labelZh: 加密密钥
+      labelEn: Encryption Key
+      required: true
+      random: true
+      type: text
+    - default: "http://127.0.0.1:15275"
+      edit: true
+      envKey: NEXT_PUBLIC_BASE_URL
+      labelZh: 访问域名
+      labelEn: Access Domain
+      required: true
+      type: text
+    - default: "ws://127.0.0.1:12555/live/update"
+      edit: true
+      envKey: WS_API_URL
+      labelZh: WebSocket API 地址
+      labelEn: WebSocket API URL
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: HTTP_PROXY
+      labelZh: 网络代理
+      labelEn: Network Proxy
+      required: false
+      type: text

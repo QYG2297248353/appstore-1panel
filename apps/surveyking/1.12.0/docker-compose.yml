@@ -1,0 +1,24 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  surveyking:
+    image: surveyking/surveyking:v1.12.0
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:1991
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${SURVEYKING_ROOT_PATH}/files:/app/files
+      - ${SURVEYKING_ROOT_PATH}/logs:/app/logs
+    environment:
+      - PROFILE=mysql
+      - DB_URL=jdbc:mysql://${DB_HOSTNAME}:${DB_PORT}/${DB_NAME}

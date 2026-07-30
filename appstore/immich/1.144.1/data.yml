@@ -1,0 +1,156 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_REDIS_SERVICE
+        required: true
+        type: service
+      default: redis
+      envKey: PANEL_REDIS_TYPE
+      labelZh: Redis 服务 (前置检查)
+      labelEn: Redis Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: Redis
+          value: redis
+    - default: "/home/immich-app"
+      edit: true
+      envKey: IMMICH_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 2283
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 3003
+      edit: true
+      envKey: PANEL_APP_PORT_MACHINE_LEARNING
+      labelZh: 机器学习端口
+      labelEn: Machine Learning port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: DB_PASSWORD
+      labelEn: Database Password
+      labelZh: 数据库连接密码
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: 5432
+      edit: true
+      envKey: PANEL_APP_PORT_DB
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "immich-pg14-vectors"
+      disabled: true
+      envKey: DB_HOSTNAME
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: "postgres"
+      disabled: true
+      envKey: DB_USERNAME
+      labelZh: 数据库 用户名
+      labelEn: Database User
+      required: true
+      type: text
+    - default: "immich"
+      disabled: true
+      envKey: DB_DATABASE_NAME
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      type: text
+    - default: "127.0.0.1"
+      edit: true
+      envKey: REDIS_HOSTNAME
+      labelZh: Redis 主机
+      labelEn: Redis Host
+      required: true
+      type: text
+    - default: 6379
+      edit: true
+      envKey: REDIS_PORT
+      labelZh: Redis 端口
+      labelEn: Redis Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 0
+      edit: true
+      envKey: REDIS_DBINDEX
+      labelZh: Redis 索引
+      labelEn: Redis Index
+      required: true
+      type: number
+    - default: ""
+      edit: true
+      envKey: REDIS_USERNAME
+      labelZh: Redis 用户名
+      labelEn: Redis Username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: REDIS_PASSWORD
+      labelZh: Redis 密码
+      labelEn: Redis Password
+      required: false
+      type: password
+    - default: "XLM-Roberta-Large-Vit-B-16Plus"
+      edit: true
+      envKey: MACHINE_LEARNING_PRELOAD__CLIP
+      labelEn: Machine Learning Preload Model
+      labelZh: 机器学习 预加载模型
+      required: false
+      type: text
+    - default: "buffalo_l"
+      edit: true
+      envKey: MACHINE_LEARNING_PRELOAD__FACIAL_RECOGNITION
+      labelEn: Machine Learning Preload Model
+      labelZh: 人脸识别 预加载模型
+      required: false
+      type: select
+      values:
+        - label: antelopev2
+          value: "antelopev2"
+        - label: buffalo_l
+          value: "buffalo_l"
+        - label: buffalo_m
+          value: "buffalo_m"
+        - label: buffalo_s
+          value: "buffalo_s"
+    - default: "https://hf-mirror.com"
+      edit: true
+      envKey: HF_ENDPOINT
+      labelZh: Hugging Face 服务地址
+      labelEn: Hugging Face Endpoint
+      rule: paramExtUrl
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: IMMICH_IGNORE_MOUNT_CHECK_ERRORS
+      labelZh: 是否跳过目录检查
+      labelEn: Skip Mount Check
+      required: false
+      type: select
+      values:
+        - label: 跳过检查
+          value: "true"
+        - label: 不跳过检查
+          value: "false"

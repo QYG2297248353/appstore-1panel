@@ -1,0 +1,17 @@
+additionalProperties:
+  key: archivebox
+  name: ArchiveBox
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 开源自托管网页存档
+  shortDescEn: Self-hosted web page archiving
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://archivebox.io/
+  github: https://github.com/ArchiveBox/ArchiveBox/
+  document: https://github.com/ArchiveBox/ArchiveBox/
+  architectures:
+    - amd64
+    - arm64

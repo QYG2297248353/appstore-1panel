@@ -1,0 +1,17 @@
+﻿additionalProperties:
+  key: feedback
+  name: 问题反馈平台
+  tags:
+    - WebSite
+    - Middleware
+    - Local
+  shortDescZh: 问题反馈平台 (替兔小巢)
+  shortDescEn: Feedback platform (replace Tu Xiaochao)
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://gitcode.com/q23163677431/feedback-docker/
+  github: https://gitcode.com/q23163677431/feedback-docker/
+  document: https://gitcode.com/q23163677431/feedback-docker/
+  architectures:
+    - amd64

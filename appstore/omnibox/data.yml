@@ -1,0 +1,17 @@
+additionalProperties:
+  key: omnibox
+  name: OmniBox
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 影视站
+  shortDescEn: Video site
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://omnibox-doc.pages.dev/
+  github: https://hub.docker.com/r/lampon/omnibox/
+  document: https://hub.docker.com/r/lampon/omnibox/
+  architectures:
+    - amd64
+    - arm64

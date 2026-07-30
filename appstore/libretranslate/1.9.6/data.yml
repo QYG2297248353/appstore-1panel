@@ -1,0 +1,38 @@
+additionalProperties:
+  formFields:
+    - default: "/home/libretranslate"
+      edit: true
+      envKey: LIBRETRANSLATE_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 5000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "en,zh,ja,ko"
+      edit: true
+      envKey: LT_LOAD_ONLY
+      labelZh: 加载语言
+      labelEn: Load language
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: HTTP_PROXY
+      labelZh: HTTP 代理
+      labelEn: HTTP proxy
+      required: false
+      type: text
+    - default: "localhost,127.0.0.1,::1,192.168.0.0/16,10.0.0.0/8,*.local"
+      edit: true
+      envKey: NO_PROXY
+      labelZh: 跳过代理地址
+      labelEn: Skip proxy address
+      required: false
+      type: text

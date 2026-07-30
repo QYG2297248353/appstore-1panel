@@ -1,0 +1,18 @@
+additionalProperties:
+  key: limesurvey
+  name: 问卷星
+  tags:
+    - WebSite
+    - Middleware
+    - Local
+  shortDescZh: 在线问卷调查程序
+  shortDescEn: Online survey software
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.limesurvey.org/
+  github: https://github.com/LimeSurvey/LimeSurvey/
+  document: https://www.limesurvey.org/manual/LimeSurvey_Manual/
+  architectures:
+    - amd64
+    - arm64

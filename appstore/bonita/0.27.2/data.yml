@@ -1,0 +1,38 @@
+additionalProperties:
+  formFields:
+    - default: "/home/bonita"
+      edit: true
+      envKey: BONITA_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 12346
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: FIRST_SUPERUSER_EMAIL
+      labelZh: 初始管理员邮箱
+      labelEn: Initial administrator email
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: FIRST_SUPERUSER_PASSWORD
+      labelZh: 初始管理员密码
+      labelEn: Initial administrator password
+      required: true
+      type: password
+    - default: 5
+      edit: true
+      envKey: MAX_CONCURRENCY
+      labelZh: Celery并发处理任务数
+      labelEn: Celery concurrency
+      required: true
+      type: number

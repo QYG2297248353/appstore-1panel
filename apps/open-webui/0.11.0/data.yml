@@ -1,0 +1,78 @@
+additionalProperties:
+  formFields:
+    - default: "/home/open-webui"
+      edit: true
+      envKey: OPEN_WEBUI_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "http://127.0.0.1:11434"
+      edit: true
+      envKey: OLLAMA_BASE_URL
+      labelZh: Ollama 服务地址
+      labelEn: Ollama service address
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: OLLAMA_BASE_URLS
+      labelZh: Ollama 负载均衡服务列表
+      labelEn: Ollama load balancing service list
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: WEBUI_SECRET_KEY
+      labelZh: 访问令牌密钥
+      labelEn: Access token key
+      required: false
+      type: text
+    - default: "Open WebUI"
+      edit: true
+      envKey: WEBUI_NAME
+      labelZh: 应用名称
+      labelEn: Application name
+      required: true
+      type: text
+    - default: "http://localhost:8080"
+      edit: true
+      envKey: WEBUI_URL
+      labelZh: 应用服务地址
+      labelEn: Application service address
+      required: true
+      type: text
+    - default: "0"
+      edit: true
+      envKey: HF_HUB_OFFLINE
+      labelZh: 离线模式
+      labelEn: Offline mode
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "1"
+        - label: 禁用
+          value: "0"
+    - default: ""
+      edit: true
+      envKey: http_proxy
+      labelZh: 网络代理
+      labelEn: Network proxy
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: no_proxy
+      labelZh: 忽略代理
+      labelEn: Ignore proxy
+      required: false
+      type: text

@@ -1,0 +1,35 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  nginx-ui:
+    container_name: nginx-ui
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - NGINX_UI_SERVER_HTTP_HOST=0.0.0.0
+    - NGINX_UI_SERVER_HTTP_PORT=9000
+    - NGINX_UI_SERVER_RUN_MODE=release
+    - NGINX_UI_SERVER_HTTP_CHALLENGE_PORT=9180
+    - NGINX_UI_SERVER_DATABASE=database
+    - NGINX_UI_SERVER_START_CMD=login
+    - NGINX_UI_SERVER_START_CMD=database
+    - NGINX_UI_SERVER_PAGE_SIZE=10
+    - NGINX_UI_SERVER_CERT_RENEWAL_INTERVAL=7
+    - NGINX_UI_SERVER_SKIP_INSTALLATION=true
+    image: uozi/nginx-ui:v2.0.0-beta.39
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:80
+    - ${PANEL_APP_PORT_HTTPS}:443
+    restart: always
+    stdin_open: true
+    volumes:
+    - ${NGINX_UI_ROOT_PATH}/nginx:/etc/nginx
+    - ${NGINX_UI_ROOT_PATH}/nginx-ui:/etc/nginx-ui
+    - ${NGINX_UI_ROOT_PATH}/www:/var/www

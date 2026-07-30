@@ -1,0 +1,112 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_POSTGRES_SERVICE
+        required: true
+        type: service
+      default: postgresql
+      envKey: PANEL_POSTGRES_TYPE
+      labelZh: Postgres 服务 (前置检查)
+      labelEn: Postgres Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: PostgreSQL
+          value: postgresql
+    - default: "/home/policr-mini"
+      edit: true
+      envKey: POLICR_MINI_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "http://127.0.0.1:8080"
+      edit: true
+      envKey: POLICR_MINI_SERVER_ROOT_URL
+      labelZh: 服务地址 URL
+      labelEn: Service address URL
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: POLICR_MINI_SERVER_SECRET_KEY_BASE
+      labelZh: 服务密钥
+      labelEn: Service secret key
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: POLICR_MINI_BOT_TOKEN
+      labelZh: 机器人 Token
+      labelEn: Bot Token
+      required: true
+      type: text
+    - default: "Policr Mini"
+      edit: true
+      envKey: POLICR_MINI_BOT_NAME
+      labelZh: 机器人名称
+      labelEn: Bot name
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: POLICR_MINI_BOT_OWNER_ID
+      labelZh: 机器人所有者 ID
+      labelEn: Bot owner ID
+      required: true
+      type: text
+    - default: "127.0.0.1"
+      edit: true
+      envKey: POSTGRES_HOST
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: 5432
+      edit: true
+      envKey: POSTGRES_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "policr_mini_prod"
+      edit: true
+      envKey: POSTGRES_DATABSE
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      rule: paramCommon
+      type: text
+    - default: "policr_mini_prod"
+      edit: true
+      envKey: POSTGRES_USERNAME
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: POSTGRES_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: ""
+      edit: true
+      envKey: POLICR_MINI_OPTS
+      labelZh: 配置参数
+      labelEn: Configuration parameters
+      required: false
+      type: text

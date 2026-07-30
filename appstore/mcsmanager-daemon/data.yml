@@ -1,0 +1,18 @@
+additionalProperties:
+  key: mcsmanager-daemon
+  name: MCSManager 节点
+  tags:
+    - WebSite
+    - Middleware
+    - Local
+  shortDescZh: MCSManager 分布式节点组件，需配合 Web 面板使用
+  shortDescEn: MCSManager distributed daemon node, requires web panel to manage game servers
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://mcsmanager.com/
+  github: https://github.com/MCSManager/MCSManager
+  document: https://mcsmanager.com/
+  architectures:
+    - amd64
+    - arm64

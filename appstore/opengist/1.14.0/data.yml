@@ -1,0 +1,66 @@
+additionalProperties:
+  formFields:
+    - default: "/home/opengist"
+      edit: true
+      envKey: OPENGIST_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 6157
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: OG_EXTERNAL_URL
+      labelZh: 外部访问地址
+      labelEn: External access URL
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: OG_GITHUB_CLIENT_KEY
+      labelZh: GitHub 客户端密钥
+      labelEn: GitHub Client Key
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: OG_GITHUB_SECRET
+      labelZh: GitHub 密钥
+      labelEn: GitHub Secret
+      required: false
+      type: text
+    - default: "https://gitea.com/"
+      edit: true
+      envKey: OG_GITEA_URL
+      labelZh: Gitea 地址
+      labelEn: Gitea URL
+      required: false
+      type: text
+    - default: "Gitea"
+      edit: true
+      envKey: OG_GITEA_NAME
+      labelZh: Gitea 名称
+      labelEn: Gitea Name
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: OG_GITEA_CLIENT_KEY
+      labelZh: Gitea 客户端密钥
+      labelEn: Gitea Client Key
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: OG_GITEA_SECRET
+      labelZh: Gitea 密钥
+      labelEn: Gitea Secret
+      required: false
+      type: text

@@ -1,0 +1,22 @@
+additionalProperties:
+  key: bitmagnet
+  name: Bitmagnet
+  tags:
+    - WebSite
+    - Middleware
+    - Local
+  shortDescZh: 自托管的 BitTorrent 索引器
+  shortDescEn: Self-hosted BitTorrent indexer
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://bitmagnet.io/
+  github: https://github.com/bitmagnet-io/bitmagnet/
+  document: https://bitmagnet.io/
+  architectures:
+    - '386'
+    - amd64
+    - arm
+    - arm64
+    - ppc64le
+    - s390x

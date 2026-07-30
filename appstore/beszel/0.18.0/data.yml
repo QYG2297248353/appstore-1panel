@@ -1,0 +1,41 @@
+additionalProperties:
+  formFields:
+    - default: "/home/beszel"
+      edit: true
+      envKey: BESZEL_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8090
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "false"
+      edit: true
+      envKey: DISABLE_PASSWORD_AUTH
+      labelZh: 密码验证功能
+      labelEn: Disable password authentication
+      required: true
+      type: select
+      values:
+        - label: 禁用
+          value: "true"
+        - label: 启用
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: USER_CREATION
+      labelZh: 第三方用户注册功能
+      labelEn: Third-party user registration
+      required: true
+      type: select
+      values:
+        - label: 禁用
+          value: "true"
+        - label: 启用
+          value: "false"

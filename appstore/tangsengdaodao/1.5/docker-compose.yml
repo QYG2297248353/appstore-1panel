@@ -1,0 +1,93 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  tsdd-manager:
+    container_name: tangsengdaodao-manager
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - API_URL=http://${WK_EXTERNAL_IP}:${PANEL_APP_PORT_TS_APP_HTTP}/
+    image: registry.cn-shanghai.aliyuncs.com/wukongim/tangsengdaodaomanager:latest
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:80
+    restart: always
+  tsdd-server:
+    command: api
+    container_name: tangsengdaodao-server
+    depends_on:
+    - tsdd-wukongim
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TS_MODE=release
+    - TS_WUKONGIM_APIURL=http://tsdd-wukongim:5001
+    - TS_DB_MYSQLADDR=${DB_USERNAME}:${DB_PASSWORD}@tcp(${DB_HOST}:${DB_PORT})/${DB_NAME}?charset=utf8mb4&parseTime=true&loc=Local
+    - TS_DB_REDISADDR=${REDIS_HOST}:${REDIS_PORT}
+    - TS_DB_REDISPASS=${REDIS_PASSWORD}
+    - TS_EXTERNAL_IP=${WK_EXTERNAL_IP}
+    - TS_FILESERVICE=minio
+    - TS_MINIO_URL=http://${MINIO_HOST}:${MINIO_PORT}
+    - TS_MINIO_ACCESSKEYID=${MINIO_USERNAME}
+    - TS_MINIO_SECRETACCESSKEY=${MINIO_PASSWORD}
+    healthcheck:
+      interval: 10s
+      retries: 3
+      test: wget -q -Y off -O /dev/null http://localhost:8090/v1/ping > /dev/null
+        2>&1
+      timeout: 10s
+    image: registry.cn-shanghai.aliyuncs.com/wukongim/tangsengdaodaoserver:v1.5
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_TS_APP_HTTP}:8090
+    restart: always
+    volumes:
+    - ${TANGSENGDAODAO_ROOT_PATH}/tsdd:/home/tsdddata
+  tsdd-web:
+    container_name: tangsengdaodao-web
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - API_URL=http://${WK_EXTERNAL_IP}:${PANEL_APP_PORT_TS_APP_HTTP}/
+    image: registry.cn-shanghai.aliyuncs.com/wukongim/tangsengdaodaoweb:latest
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_TS_APP_WEB}:80
+    restart: always
+  tsdd-wukongim:
+    container_name: tangsengdaodao
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - WK_MODE=release
+    - WK_CONVERSATION_ON=true
+    - WK_WEBHOOK_GRPCADDR=tsdd-server:6979
+    - WK_DATASOURCE_ADDR=http://tsdd-server:8090/v1/datasource
+    - WK_DATASOURCE_CHANNELINFOON=true
+    - WK_TOKENAUTHON=true
+    image: registry.cn-shanghai.aliyuncs.com/wukongim/wukongim:v1.2
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_WK_TCP}:5100
+    - ${PANEL_APP_PORT_WK_WS}:5200
+    - ${PANEL_APP_PORT_WK_WEB_SERVER}:5300
+    restart: always
+    volumes:
+    - ${TANGSENGDAODAO_ROOT_PATH}/wukongim:/root/wukongim

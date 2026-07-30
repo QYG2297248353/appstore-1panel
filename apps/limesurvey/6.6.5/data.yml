@@ -1,0 +1,123 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_DB_HOST
+        required: true
+        type: service
+      default: postgresql
+      envKey: PANEL_DB_TYPE
+      labelZh: 数据库服务 (前置检查)
+      labelEn: Database Service
+      required: true
+      type: apps
+      values:
+        - label: PostgreSQL
+          value: postgresql
+        - label: MySQL
+          value: mysql
+        - label: MariaDB
+          value: mariadb
+        - label: Percona
+          value: percona
+    - default: "/home/limesurvey"
+      edit: true
+      envKey: LIMESURVEY_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: 访问端口
+      labelEn: Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "Admin"
+      edit: true
+      envKey: ADMIN_NAME
+      labelZh: 管理员 昵称
+      labelEn: Admin Name
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: ADMIN_EMAIL
+      labelZh: 管理员 邮箱
+      labelEn: Admin Email
+      required: true
+      type: text
+    - default: "admin"
+      edit: true
+      envKey: ADMIN_USER
+      labelZh: 管理员 用户名
+      labelEn: Admin Username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: ADMIN_PASSWORD
+      labelZh: 管理员 密码
+      labelEn: Admin Password
+      required: true
+      type: password
+    - default: "pgsql"
+      edit: true
+      envKey: DB_TYPE
+      labelZh: 数据库 类型
+      labelEn: Database Type
+      required: true
+      type: select
+      values:
+        - label: PostgreSQL
+          value: "pgsql"
+        - label: MySQL (MariaDB, Percona)
+          value: "mysql"
+    - default: "127.0.0.1"
+      edit: true
+      envKey: DB_HOST
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: 5432
+      edit: true
+      envKey: DB_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "limesurvey"
+      edit: true
+      envKey: DB_NAME
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      rule: paramCommon
+      type: text
+    - default: "limesurvey"
+      edit: true
+      envKey: DB_USERNAME
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: DB_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: "127.0.0.1:8080"
+      edit: true
+      envKey: PUBLIC_URL
+      labelZh: 公网域名
+      labelEn: Public URL
+      required: true
+      type: text

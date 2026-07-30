@@ -1,0 +1,32 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  dozzle:
+    container_name: dozzle
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - DOZZLE_ADDR=:8080
+    - DOZZLE_BASE=/
+    - DOZZLE_LEVEL=info
+    healthcheck:
+      interval: 3s
+      retries: 5
+      start_period: 30s
+      test:
+      - CMD
+      - /dozzle
+      - healthcheck
+      timeout: 30s
+    image: amir20/dozzle:v10.0.0
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8080
+    restart: always
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock

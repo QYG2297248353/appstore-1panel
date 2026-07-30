@@ -1,0 +1,24 @@
+additionalProperties:
+  formFields:
+    - default: "/home/teemii"
+      edit: true
+      envKey: TEEMII_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: 访问端口
+      labelEn: Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "Teemii"
+      edit: true
+      envKey: VITE_APP_TITLE
+      labelZh: 网站标题
+      labelEn: Website Title
+      required: true
+      type: text

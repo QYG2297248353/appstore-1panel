@@ -1,0 +1,17 @@
+additionalProperties:
+  formFields:
+    - default: "/home/certimate"
+      edit: true
+      envKey: CERTIMATE_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8090
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: Web UI 端口
+      labelEn: Web UI port
+      required: true
+      rule: paramPort
+      type: number

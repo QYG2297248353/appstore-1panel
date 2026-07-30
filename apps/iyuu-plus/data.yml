@@ -1,0 +1,21 @@
+additionalProperties:
+  key: iyuu-plus
+  name: IYUU-Plus
+  tags:
+    - WebSite
+    - Tool
+    - Runtime
+    - Local
+  shortDescZh: 自动辅种工具
+  shortDescEn: Auto Reseed Tool
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://iyuu.cn/
+  github: https://github.com/ledccn/iyuuplus-dev
+  document: https://doc.iyuu.cn/
+  architectures:
+    - '386'
+    - amd64
+    - arm
+    - arm64

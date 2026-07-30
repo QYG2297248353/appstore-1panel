@@ -1,0 +1,63 @@
+additionalProperties:
+  formFields:
+    - default: "/home/ztncui"
+      edit: true
+      envKey: ZTNCUI_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: "host"
+      edit: true
+      envKey: NETWORK_MODE
+      labelEn: Drive path
+      labelZh: 网络模式
+      required: true
+      type: select
+      values:
+        - label: 主机网络模式
+          value: "host"
+        - label: 桥接网络模式
+          value: "bridge"
+        - label: 无网络模式
+          value: "none"
+        - label: 1panel-network
+          value: "1panel-network"
+    - default: 3000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 9993
+      edit: true
+      envKey: PANEL_APP_PORT_API
+      labelZh: API 端口
+      labelEn: API Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 3180
+      edit: true
+      envKey: PANEL_APP_PORT_FILE
+      labelZh: 文件传输端口
+      labelEn: File transfer port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: ZTNCUI_PASSWD
+      labelZh: 面板管理员 密码
+      labelEn: Admin Password
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: MYADDR
+      labelZh: 服务器域名(IP)
+      labelEn: Server Domain(IP)
+      required: true
+      type: text

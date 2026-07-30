@@ -1,0 +1,18 @@
+additionalProperties:
+  key: nacos-derby
+  name: Nacos Derby版
+  tags:
+    - WebSite
+    - Middleware
+    - Local
+  shortDescZh: 动态服务发现、配置管理和服务管理平台
+  shortDescEn: Dynamic service discovery, configuration and service management platform
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://nacos.io/
+  github: https://github.com/alibaba/nacos/
+  document: https://nacos.io/docs/latest/what-is-nacos/
+  architectures:
+    - amd64
+    - arm64

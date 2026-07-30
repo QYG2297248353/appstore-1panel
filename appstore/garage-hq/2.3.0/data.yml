@@ -1,0 +1,41 @@
+additionalProperties:
+  formFields:
+    - default: "/home/garage"
+      edit: true
+      envKey: GARAGE_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3902
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 3900
+      edit: true
+      envKey: PANEL_APP_PORT_S3_API
+      labelZh: S3 API 接口
+      labelEn: S3 API
+      required: true
+      rule: paramPort
+      type: number
+    - default: 3901
+      edit: true
+      envKey: PANEL_APP_PORT_RPC
+      labelZh: RPC 通信
+      labelEn: RPC Communication
+      required: true
+      rule: paramPort
+      type: number
+    - default: 3903
+      edit: true
+      envKey: PANEL_APP_PORT_API
+      labelZh: 管理 API
+      labelEn: Manage API
+      required: true
+      rule: paramPort
+      type: number

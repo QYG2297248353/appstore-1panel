@@ -1,0 +1,17 @@
+additionalProperties:
+  key: mediacms
+  name: Media CMS
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 现代、功能齐全的开源视频和媒体内容管理系统
+  shortDescEn: Modern, fully featured open source video and media CMS
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://mediacms.io/
+  github: https://github.com/mediacms-io/mediacms/
+  document: https://github.com/mediacms-io/mediacms/
+  architectures:
+    - amd64
+    - arm64

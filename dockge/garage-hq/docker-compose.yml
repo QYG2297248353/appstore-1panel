@@ -1,0 +1,26 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  garage:
+    container_name: garage-hq
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    image: dxflrs/garage:v2.3.0
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_S3_API}:3900
+    - ${PANEL_APP_PORT_RPC}:3901
+    - ${PANEL_APP_PORT_HTTP}:3902
+    - ${PANEL_APP_PORT_API}:3903
+    restart: always
+    volumes:
+    - ${GARAGE_ROOT_PATH}/config/garage.toml:/etc/garage.toml
+    - ${GARAGE_ROOT_PATH}/meta:/var/lib/garage/meta
+    - ${GARAGE_ROOT_PATH}/data:/var/lib/garage/data

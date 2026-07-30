@@ -1,0 +1,17 @@
+additionalProperties:
+  key: homarr
+  name: Homarr
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 一个时尚、现代化的仪表板
+  shortDescEn: A stylish, modern dashboard
+  type: website
+  crossVersionUpdate: false
+  limit: 0
+  website: https://homarr.dev/
+  github: https://github.com/ajnart/homarr/
+  document: https://homarr.dev/
+  architectures:
+    - amd64
+    - arm64

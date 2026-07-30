@@ -1,0 +1,25 @@
+additionalProperties:
+  formFields:
+    - default: "/home/halo"
+      edit: true
+      envKey: HALO_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8090
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: 访问端口
+      labelEn: Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "http://127.0.0.1:8090"
+      edit: true
+      envKey: HALO_EXTERNAL_URL
+      labelZh: 公网访问地址
+      labelEn: External URL
+      required: true
+      rule: paramExtUrl
+      type: text

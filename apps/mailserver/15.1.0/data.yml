@@ -1,0 +1,205 @@
+additionalProperties:
+  formFields:
+    - default: "/home/mailserver"
+      edit: true
+      envKey: MAILSERVER_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 25
+      edit: true
+      envKey: PANEL_APP_PORT_SMTP
+      labelZh: SMTP 端口 (保持默认)
+      labelEn: SMTP Port (keep default)
+      required: true
+      rule: paramPort
+      type: number
+    - default: 143
+      edit: true
+      envKey: PANEL_APP_PORT_IMAP
+      labelZh: IMAP 端口 (保持默认)
+      labelEn: IMAP Port (keep default)
+      required: true
+      rule: paramPort
+      type: number
+    - default: 465
+      edit: true
+      envKey: PANEL_APP_PORT_SMTPS
+      labelZh: SMTP SSL 端口 (保持默认)
+      labelEn: SMTP SSL Port (keep default)
+      required: true
+      rule: paramPort
+      type: number
+    - default: 587
+      edit: true
+      envKey: PANEL_APP_PORT_ESMTP
+      labelZh: SMTP 提交端口 (保持默认)
+      labelEn: SMTP Submission Port (keep default)
+      required: true
+      rule: paramPort
+      type: number
+    - default: 993
+      edit: true
+      envKey: PANEL_APP_PORT_IPAPS
+      labelZh: IMAP SSL 端口 (保持默认)
+      labelEn: IMAP SSL Port (keep default)
+      required: true
+      rule: paramPort
+      type: number
+    - default: 4190
+      edit: true
+      envKey: PANEL_APP_PORT_MANAGESIEVE
+      labelZh: ManageSieve 端口 (保持默认)
+      labelEn: ManageSieve Port (keep default)
+      required: true
+      rule: paramPort
+      type: number
+    - default: "0"
+      edit: true
+      envKey: ENABLE_POP3
+      labelZh: 启用 POP3
+      labelEn: Enable POP3
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "1"
+        - label: 禁用
+          value: "0"
+    - default: 110
+      edit: true
+      envKey: PANEL_APP_PORT_POP
+      labelZh: POP3 端口 (保持默认)
+      labelEn: POP3 Port (keep default)
+      required: false
+      rule: paramPort
+      type: number
+    - default: 995
+      edit: true
+      envKey: PANEL_APP_PORT_POPS
+      labelZh: POP3 SSL 端口 (保持默认)
+      labelEn: POP3 SSL Port (keep default)
+      required: false
+      rule: paramPort
+      type: number
+    - default: "domain.com"
+      edit: true
+      envKey: HOSTNAME_FQDN
+      labelZh: 邮件服务器域名
+      labelEn: Mail server domain name
+      required: true
+      type: text
+    - default: "postmaster@domain.com"
+      edit: true
+      envKey: POSTMASTER_ADDRESS
+      labelZh: 管理员邮箱地址
+      labelEn: Postmaster email address
+      required: true
+      type: text
+    - default: "0"
+      edit: true
+      envKey: ENABLE_AMAVIS
+      labelZh: 内容过滤器 (Amavis支持)
+      labelEn: Content filter (Amavis support)
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "1"
+        - label: 禁用
+          value: "0"
+    - default: "0"
+      edit: true
+      envKey: ENABLE_CLAMAV
+      labelZh: 邮件病毒扫描 (ClamAV支持)
+      labelEn: Mail virus scanning (ClamAV support)
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "1"
+        - label: 禁用
+          value: "0"
+    - default: "manual"
+      edit: true
+      envKey: SSL_TYPE
+      labelZh: SSL 证书类型
+      labelEn: SSL certificate type
+      required: true
+      type: select
+      values:
+        - label: Let's Encrypt
+          value: "letsencrypt"
+        - label: 本地证书
+          value: "manual"
+    - default: "public.crt"
+      edit: true
+      envKey: CERTS_PUBLIC_CRT
+      labelZh: SSL Public 证书文件名
+      labelEn: SSL Public certificate file name
+      required: false
+      type: text
+    - default: "private.key"
+      edit: true
+      envKey: CERTS_PRIVATE_KEY
+      labelZh: SSL Private 证书文件名
+      labelEn: SSL Private certificate file name
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: RELAY_HOST
+      labelZh: SMTP 中继主机
+      labelEn: SMTP relay host
+      required: false
+      type: text
+    - default: 587
+      edit: true
+      envKey: RELAY_PORT
+      labelZh: SMTP 中继端口
+      labelEn: SMTP relay port
+      required: false
+      type: number
+    - default: ""
+      edit: true
+      envKey: RELAY_USER
+      labelZh: SMTP 中继用户名
+      labelEn: SMTP relay username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: RELAY_PASSWORD
+      labelZh: SMTP 中继密码
+      labelEn: SMTP relay password
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: HTTP_PROXY
+      labelZh: 网络代理
+      labelEn: Network proxy
+      required: false
+      type: text
+    - default: "localhost:127.0.0.1"
+      edit: true
+      envKey: DOMAIN_HOSTS1
+      labelZh: 固定域名解析
+      labelEn: Domain resolution
+      required: true
+      type: text
+    - default: "1.1.1.1"
+      edit: true
+      envKey: DNS1
+      labelZh: 域名解析 (DNS)
+      labelEn: Domain resolution (DNS)
+      required: true
+      type: text
+    - default: "114.114.114.114"
+      edit: true
+      envKey: DNS2
+      labelZh: 域名解析 (备用 DNS)
+      labelEn: Domain resolution (Backup DNS)
+      required: true
+      type: text

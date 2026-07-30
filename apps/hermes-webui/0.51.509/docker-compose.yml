@@ -1,0 +1,29 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  hermes-webui:
+    image: ghcr.io/nesquena/hermes-webui:0.51.509
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP:-8787}:${PANEL_APP_PORT_HTTP:-8787}
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${HERMES_WEBUI_ROOT_PATH}/hermes:/home/hermeswebui/.hermes
+      - ${HERMES_WEBUI_ROOT_PATH}/workspace:/workspace
+    environment:
+      - TZ=Asia/Shanghai
+      - WANTED_UID=${UID:-1000}
+      - WANTED_GID=${GID:-1000}
+      - HERMES_WEBUI_HOST=0.0.0.0
+      - HERMES_WEBUI_PORT=${PANEL_APP_PORT_HTTP:-8787}
+      - HERMES_WEBUI_STATE_DIR=/home/hermeswebui/.hermes/webui
+      - HERMES_WEBUI_DEFAULT_WORKSPACE=/workspace

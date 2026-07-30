@@ -1,0 +1,46 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  mx-mongo:
+    container_name: mongo-mx-space-db
+    image: mongo
+    networks:
+    - 1panel-network
+    restart: always
+    volumes:
+    - ${MX_SERVER_ROOT_PATH}/db:/data/db
+  mx-redis:
+    container_name: redis-mx-space-db
+    image: redis:alpine
+    networks:
+    - 1panel-network
+    restart: always
+    volumes:
+    - ${MX_SERVER_ROOT_PATH}/redis:/data
+  mx-server:
+    container_name: mx-space-db
+    depends_on:
+    - mx-mongo
+    - mx-redis
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - PORT=2333
+    - DEMO=false
+    - NODE_ENV=production
+    - ENCRYPT_ENABLE=false
+    - DB_HOST=mx-mongo
+    - REDIS_HOST=mx-redis
+    image: innei/mx-server:13.0.0
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:2333
+    restart: always
+    volumes:
+    - ${MX_SERVER_ROOT_PATH}/data:/root/.mx-space

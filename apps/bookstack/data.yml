@@ -1,0 +1,17 @@
+additionalProperties:
+  key: bookstack
+  name: BookStack
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 一个用于存储和组织信息及文档的平台
+  shortDescEn: A platform for storing and organising information and documentation
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.bookstackapp.com/
+  github: https://github.com/BookStackApp/BookStack/
+  document: https://www.bookstackapp.com/docs/
+  architectures:
+    - amd64
+    - arm64

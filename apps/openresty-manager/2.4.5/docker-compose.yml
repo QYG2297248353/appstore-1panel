@@ -1,0 +1,28 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  openresty-manager:
+    image: uusec/openresty-manager:2.4.5
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    network_mode: ${NETWORK_MODE}
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:34567
+      - ${PANEL_APP_PORT_NGINX_HTTP}:80
+      - ${PANEL_APP_PORT_NGINX_HTTPS}:443
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/resolv.conf:/etc/resolv.conf:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${OPENRESTY_MANAGER_ROOT_PATH}/acme:/opt/om/acme
+      - ${OPENRESTY_MANAGER_ROOT_PATH}/data:/opt/om/data
+      - ${OPENRESTY_MANAGER_ROOT_PATH}/conf:/opt/om/nginx/conf
+    environment:
+      - TZ=Asia/Shanghai

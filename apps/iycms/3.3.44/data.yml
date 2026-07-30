@@ -1,0 +1,25 @@
+additionalProperties:
+  formFields:
+    - default: "/home/iycms"
+      edit: true
+      envKey: IYCMS_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 80
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 21007
+      edit: true
+      envKey: PANEL_APP_PORT_ADMIN
+      labelZh: 管理端口
+      labelEn: Admin port
+      required: true
+      rule: paramPort
+      type: number

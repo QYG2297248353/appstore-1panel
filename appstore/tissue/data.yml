@@ -1,0 +1,17 @@
+additionalProperties:
+  key: tissue
+  name: Tissue
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 老师教材刮削工具，提供海报下载、元数据匹配等功能
+  shortDescEn: A scraping tool for teachers' teaching materials, providing functions such as poster download and metadata matching
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/chris-2s/tissue/
+  github: https://github.com/chris-2s/tissue/
+  document: https://github.com/chris-2s/tissue/
+  architectures:
+    - amd64
+    - arm64

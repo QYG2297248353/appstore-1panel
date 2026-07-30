@@ -1,0 +1,24 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  excalidraw:
+    image: excalidraw/excalidraw:latest
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    stdin_open: true
+    healthcheck:
+      disable: true
+      test: [ "CMD", "curl", "-f", "http://localhost" ]
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:80
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    environment:
+      - TZ=Asia/Shanghai

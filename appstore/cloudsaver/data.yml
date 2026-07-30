@@ -1,0 +1,17 @@
+additionalProperties:
+  key: cloudsaver
+  name: CloudSaver
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 网盘资源搜索与转存工具
+  shortDescEn: Network disk resource search and transfer tool
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/jiangrui1994/CloudSaver/
+  github: https://github.com/jiangrui1994/CloudSaver/
+  document: https://github.com/jiangrui1994/CloudSaver/
+  architectures:
+    - amd64
+    - arm64

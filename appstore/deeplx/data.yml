@@ -1,0 +1,18 @@
+additionalProperties:
+  key: deeplx
+  name: DeepLX
+  tags:
+    - Tool
+    - Middleware
+    - Local
+  shortDescZh: DeepL 免费API
+  shortDescEn: DeepL Free API
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.deepl.com/
+  github: https://github.com/OwO-Network/DeepLX
+  document: https://deeplx.owo.network/
+  architectures:
+    - amd64
+    - arm64

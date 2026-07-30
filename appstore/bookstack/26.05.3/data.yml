@@ -1,0 +1,86 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_DB_HOST
+        required: true
+        type: service
+      default: mysql
+      edit: true
+      envKey: PANEL_DB_TYPE
+      labelZh: MySQL 服务 (前置检查)
+      labelEn: Database Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: MySQL
+          value: mysql
+        - label: MariaDB
+          value: mariadb
+        - label: Percona
+          value: percona
+    - default: "/home/bookstack"
+      edit: true
+      envKey: BOOKSTACK_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: APP_KEY
+      labelZh: 应用密钥
+      labelEn: Application key
+      required: true
+      type: text
+    - default: "http://127.0.0.1:8080"
+      edit: true
+      envKey: APP_URL
+      labelZh: 应用 URL
+      labelEn: Application URL
+      required: true
+      type: text
+    - default: "127.0.0.1"
+      edit: true
+      envKey: DB_HOST
+      labelZh: 数据库 主机
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: 3306
+      edit: true
+      envKey: DB_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "bookstack"
+      edit: true
+      envKey: DB_DATABASE
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      type: text
+    - default: "bookstack"
+      edit: true
+      envKey: DB_USERNAME
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: DB_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      required: true
+      type: password

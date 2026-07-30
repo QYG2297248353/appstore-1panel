@@ -1,0 +1,54 @@
+networks:
+  1panel-network:
+    external: true
+  omniroute-network:
+    driver: bridge
+
+services:
+  omniroute:
+    depends_on:
+      - omniroute-redis
+    image: diegosouzapw/omniroute:3.8.49
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - omniroute-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:20128
+      - ${PANEL_APP_PORT_API}:20129
+      - ${PANEL_APP_PORT_WS}:20132
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${OMNIROUTE_ROOT_PATH}/omniroute:/data/omniroute
+    environment:
+      - TZ=Asia/Shanghai
+      - DATA_DIR=/data/omniroute
+      - REDIS_URL=redis://omniroute-redis:6379
+      - API_HOST=0.0.0.0
+      - API_PORT=20129
+      - LIVE_WS_HOST=0.0.0.0
+      - LIVE_WS_PORT=20132
+
+  omniroute-redis:
+    image: redis:7-alpine
+    container_name: ${CONTAINER_NAME}-redis
+    restart: always
+    networks:
+      - omniroute-network
+    volumes:
+      - ${OMNIROUTE_ROOT_PATH}/redis:/data
+    command:
+      redis-server
+      --save 60 1
+      --loglevel warning
+    environment:
+      - TZ=Asia/Shanghai
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3

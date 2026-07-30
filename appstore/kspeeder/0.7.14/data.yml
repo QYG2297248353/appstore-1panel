@@ -1,0 +1,25 @@
+additionalProperties:
+  formFields:
+    - default: "/home/kspeeder"
+      edit: true
+      envKey: KSPEEDER_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 5003
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 管理监控
+      labelEn: WebUI Manage Monitoring
+      required: true
+      rule: paramPort
+      type: number
+    - default: 5443
+      edit: true
+      envKey: PANEL_APP_PORT_API
+      labelZh: 主服务端口
+      labelEn: Primary Service Port
+      required: true
+      rule: paramPort
+      type: number

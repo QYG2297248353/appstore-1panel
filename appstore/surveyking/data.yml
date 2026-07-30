@@ -1,0 +1,17 @@
+additionalProperties:
+  key: surveyking
+  name: 卷王
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 卷王问卷考试系统
+  shortDescEn: SurveyKing is a survey and exam system
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://surveyking.cn/
+  github: https://github.com/javahuang/surveyking/
+  document: https://surveyking.cn/help/quickstart/
+  architectures:
+    - amd64
+    - arm64

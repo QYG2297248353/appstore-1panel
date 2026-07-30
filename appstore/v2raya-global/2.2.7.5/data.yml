@@ -1,0 +1,25 @@
+additionalProperties:
+  formFields:
+    - default: "/home/v2raya"
+      edit: true
+      envKey: V2RAYA_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 2017
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 32346
+      edit: true
+      envKey: PANEL_APP_PORT_PLUGIN
+      labelZh: 插件监听端口
+      labelEn: Plugin listening port
+      required: true
+      rule: paramPort
+      type: number

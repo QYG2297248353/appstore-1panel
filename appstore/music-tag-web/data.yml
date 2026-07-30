@@ -1,0 +1,17 @@
+additionalProperties:
+  key: music-tag-web
+  name: Music Tag Web
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 音乐标签
+  shortDescEn: Music Tag
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://xiers-organization.gitbook.io/music-tag-web-v2/
+  github: https://github.com/xhongc/music-tag-web/
+  document: https://xiers-organization.gitbook.io/music-tag-web-v2/
+  architectures:
+    - amd64
+    - arm64

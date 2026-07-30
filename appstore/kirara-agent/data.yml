@@ -1,0 +1,17 @@
+additionalProperties:
+  key: kirara-agent
+  name: Kirara Agent
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 一款支持主流大语言模型、主流聊天平台的聊天的机器人
+  shortDescEn: A chatbot that supports mainstream large language models and mainstream chat platforms
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://kirara-docs.app.lss233.com/
+  github: https://github.com/lss233/kirara-ai/
+  document: https://kirara-docs.app.lss233.com/guide/
+  architectures:
+    - amd64
+    - arm64

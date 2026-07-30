@@ -1,0 +1,29 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  telegram-bot-api:
+    image: aiogram/telegram-bot-api:10.0
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTPS}:8081
+      - ${PANEL_APP_PORT_HTTP}:8082
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${TELEGRAM_BOT_API_ROOT_PATH}/data:/var/lib/telegram-bot-api
+      - ${TELEGRAM_BOT_API_ROOT_PATH}/logs:/var/log/telegram-bot-api
+    environment:
+      - TELEGRAM_STAT=1
+      - TELEGRAM_LOCAL=1
+      - TELEGRAM_VERBOSITY=1
+      - TELEGRAM_MAX_WEBHOOK_CONNECTIONS=100000
+      - TELEGRAM_LOG_FILE=/var/log/telegram-bot-api/telegram-bot-api.log
+      - TELEGRAM_MAX_CONNECTIONS=1024

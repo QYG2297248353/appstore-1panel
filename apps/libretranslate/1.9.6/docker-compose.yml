@@ -1,0 +1,33 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  libretranslate:
+    image: libretranslate/libretranslate:v1.9.6
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    tty: true
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:5000
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${LIBRETRANSLATE_ROOT_PATH}/db:/app/db:rw
+      - ${LIBRETRANSLATE_ROOT_PATH}/models:/home/libretranslate/.local:rw
+    environment:
+      - TZ=Asia/Shanghai
+      - LT_API_KEYS=true
+      - HTTPS_PROXY=${HTTPS_PROXY:-}
+      - NO_PROXY=${NO_PROXY:-}
+    healthcheck:
+      test: [ 'CMD-SHELL', './venv/bin/python scripts/healthcheck.py' ]
+      interval: 10s
+      timeout: 4s
+      retries: 4
+      start_period: 5s

@@ -1,0 +1,23 @@
+additionalProperties:
+  formFields:
+    - default: "/home/redis"
+      envKey: REDIS_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 6379
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: 端口
+      labelEn: Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      envKey: REDIS_ROOT_PASSWORD
+      labelZh: 密码
+      labelEn: Password
+      random: true
+      required: false
+      rule: paramComplexity
+      type: password

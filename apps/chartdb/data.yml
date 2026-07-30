@@ -1,0 +1,17 @@
+additionalProperties:
+  key: chartdb
+  name: ChartDB
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 数据库可视化工具
+  shortDescEn: database visualization tool
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://chartdb.io/
+  github: https://github.com/chartdb/chartdb/
+  document: https://docs.chartdb.io/
+  architectures:
+    - amd64
+    - arm64

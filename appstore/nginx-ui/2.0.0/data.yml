@@ -1,0 +1,74 @@
+additionalProperties:
+  formFields:
+    - default: "/home/nginx-ui"
+      edit: true
+      envKey: NGINX_UI_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 80
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: Web UI 端口
+      labelEn: Web UI Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 443
+      edit: true
+      envKey: PANEL_APP_PORT_HTTPS
+      labelZh: Web UI 端口 (HTTPS)
+      labelEn: Web UI Port (HTTPS)
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: ADMINMAIL
+      labelZh: 管理员邮箱
+      labelEn: Admin Email
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: ADMINPASS
+      labelZh: 管理员密码
+      labelEn: Admin Password
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: NGINX_UI_SERVER_JWT_SECRET
+      labelZh: JWT 密钥盐
+      labelEn: JWT Secret Salt
+      required: true
+      type: password
+    - default: "https://mirror.ghproxy.com/"
+      edit: true
+      envKey: NGINX_UI_SERVER_GITHUB_PROXY
+      labelZh: GitHub 代理地址
+      labelEn: GitHub Proxy
+      required: false
+      type: text
+    - default: "Nginx UI"
+      edit: true
+      envKey: NGINX_UI_SERVER_NAME
+      labelZh: Nginx UI 显示标题
+      labelEn: Nginx UI Display Title
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: NGINX_UI_PREDEFINED_USER_NAME
+      labelZh: 预设用户名
+      labelEn: Predefined Username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: NGINX_UI_PREDEFINED_USER_PASSWORD
+      labelZh: 预设密码
+      labelEn: Predefined Password
+      required: false
+      type: text

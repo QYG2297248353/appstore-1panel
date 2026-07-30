@@ -1,0 +1,23 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  kspeeder:
+    container_name: kspeeder
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    image: linkease/kspeeder:0.7.14
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:5003
+    - ${PANEL_APP_PORT_API}:5443
+    restart: always
+    volumes:
+    - ${KSPEEDER_ROOT_PATH}/data:/kspeeder-data
+    - ${KSPEEDER_ROOT_PATH}/config:/kspeeder-config

@@ -1,0 +1,18 @@
+additionalProperties:
+  key: beszel
+  name: Beszel Hub
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 轻量级的服务器监控平台，包含 Docker 统计信息、历史数据和警报功能
+  shortDescEn: A lightweight server monitoring platform with Docker statistics, historical data, and alerting capabilities
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://beszel.dev/
+  github: https://github.com/henrygd/beszel/
+  document: https://beszel.dev/
+  architectures:
+    - amd64
+    - arm
+    - arm64

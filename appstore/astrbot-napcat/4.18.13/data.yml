@@ -1,0 +1,78 @@
+additionalProperties:
+  formFields:
+    - default: "/home/astrbot-napcat"
+      edit: true
+      envKey: ASTRBOT_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 6185
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 6195
+      edit: true
+      envKey: PANEL_APP_PORT_WECOM
+      labelZh: 企业微信 WebHook
+      labelEn: WeCom WebHook
+      required: true
+      rule: paramPort
+      type: number
+    - default: 11451
+      edit: true
+      envKey: PANEL_APP_PORT_WECHAT
+      labelZh: 个人微信 WebHook
+      labelEn: WeChat WebHook
+      required: true
+      rule: paramPort
+      type: number
+    - default: 6199
+      edit: true
+      envKey: PANEL_APP_PORT_QQ_WH
+      labelZh: QQ WebHook
+      labelEn: QQ WebHook
+      required: true
+      rule: paramPort
+      type: number
+    - default: 6196
+      edit: true
+      envKey: PANEL_APP_PORT_QQ_API
+      labelZh: QQ API
+      labelEn: QQ API
+      required: true
+      rule: paramPort
+      type: number
+    - default: 6099
+      edit: true
+      envKey: PANEL_APP_PORT_NAPCAT
+      labelZh: NapCat 端口
+      labelEn: NapCat port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "02:42:ac:11:00:02"
+      edit: true
+      envKey: NAPCAT_MAC_ADDRESS
+      labelZh: NapCat 容器 MAC 地址
+      labelEn: NapCat container MAC address
+      required: true
+      type: text
+    - default: 1000
+      edit: true
+      envKey: NAPCAT_UID
+      labelZh: NapCat 容器 UID
+      labelEn: NapCat container UID
+      required: true
+      type: number
+    - default: 1000
+      edit: true
+      envKey: NAPCAT_GID
+      labelZh: NapCat 容器 GID
+      labelEn: NapCat container GID
+      required: true
+      type: number

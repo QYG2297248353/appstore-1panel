@@ -1,0 +1,106 @@
+additionalProperties:
+  formFields:
+    - default: 1200
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: ACCESS_KEY
+      labelZh: 访问密钥
+      labelEn: Access key
+      required: false
+      type: password
+    - default: "memory"
+      edit: true
+      envKey: CACHE_TYPE
+      labelZh: 缓存类型
+      labelEn: Cache type
+      required: true
+      type: select
+      values:
+        - label: 内存
+          value: "memory"
+        - label: Redis
+          value: "redis"
+    - default: "redis://127.0.0.1:6379/"
+      edit: true
+      envKey: REDIS_URL
+      labelZh: Redis URL 地址 (仅当缓存类型为 Redis 时)
+      labelEn: Redis URL address (only when the cache type is Redis)
+      required: false
+      type: text
+    - default: 256
+      edit: true
+      envKey: MEMORY_MAX
+      labelZh: 最大缓存数量 (仅当缓存类型为内存时)
+      labelEn: Maximum number of caches (only when the cache type is memory)
+      required: false
+      type: number
+    - default: 300
+      edit: true
+      envKey: CACHE_EXPIRE
+      labelZh: 路由缓存过期时间 (秒)
+      labelEn: Route cache expiration time (seconds)
+      required: true
+      type: number
+    - default: 300
+      edit: true
+      envKey: CACHE_CONTENT_EXPIRE
+      labelZh: 内容缓存过期时间 (秒)
+      labelEn: Content cache expiration time (seconds)
+      required: true
+      type: number
+    - default: ""
+      edit: true
+      envKey: PROXY_URI
+      labelZh: 代理 URL 地址
+      labelEn: Proxy URL address
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: PROXY_AUTH
+      labelZh: 代理认证 (仅支持 Basic 认证)
+      labelEn: Proxy authentication (only supports Basic authentication)
+      required: false
+      type: text
+    - default: ".*"
+      edit: true
+      envKey: PROXY_URL_REGEX
+      labelZh: 代理 URL 正则表达式
+      labelEn: Proxy URL regular expression
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: FOLLOW_OWNER_USER_ID
+      labelZh: 用户 ID
+      labelEn: User id
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: FOLLOW_DESCRIPTION
+      labelZh: 服务描述
+      labelEn: Service description
+      required: false
+      type: text
+    - default: 100
+      edit: true
+      envKey: FOLLOW_PRICE
+      labelZh: 月度价格
+      labelEn: Service price
+      required: true
+      type: number
+    - default: 100
+      edit: true
+      envKey: FOLLOW_USER_LIMIT
+      labelZh: 用户限制
+      labelEn: User limit
+      required: true
+      type: number

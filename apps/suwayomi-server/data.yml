@@ -1,0 +1,17 @@
+additionalProperties:
+  key: suwayomi-server
+  name: Suwayomi Server
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 漫画阅读器服务器
+  shortDescEn: Comic Reader Server
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/Suwayomi/Suwayomi-Server/
+  github: https://github.com/Suwayomi/Suwayomi-Server/
+  document: https://github.com/Suwayomi/Suwayomi-Server/
+  architectures:
+    - amd64
+    - arm64

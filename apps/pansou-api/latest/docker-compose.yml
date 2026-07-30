@@ -1,0 +1,39 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  pansou:
+    image: ghcr.io/fish2018/pansou:latest
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8888
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${PANSOU_ROOT_PATH}/cache:/app/data/cache
+    environment:
+      - TZ=Asia/Shanghai
+      - PORT=8888
+      - CACHE_ENABLED=true
+      - CACHE_PATH=/app/data/cache
+      - CACHE_MAX_SIZE=100
+      - CACHE_TTL=60
+      - ASYNC_PLUGIN_ENABLED=true
+      - ASYNC_RESPONSE_TIMEOUT=4
+      - ASYNC_MAX_BACKGROUND_WORKERS=20
+      - ASYNC_MAX_BACKGROUND_TASKS=100
+      - ASYNC_CACHE_TTL_HOURS=1
+      - HTTPS_PROXY=${HTTP_PROXY:-}
+    healthcheck:
+      test: [ "CMD", "wget", "-q", "--spider", "http://localhost:8888/api/health" ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s

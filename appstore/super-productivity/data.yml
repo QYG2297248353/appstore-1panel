@@ -1,0 +1,18 @@
+additionalProperties:
+  key: super-productivity
+  name: Super Productivity
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 一个高级TODO列表应用程序，具有时间框和时间跟踪功能，该应用程序支持您的日历，JIRA，GITHUB等导入任务
+  shortDescEn: An advanced TODO list application with time boxing and time tracking features that supports importing tasks from your calendar, JIRA, GITHUB, etc.
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://super-productivity.com/
+  github: https://github.com/johannesjo/super-productivity/
+  document: https://super-productivity.com/
+  architectures:
+    - amd64
+    - arm
+    - arm64

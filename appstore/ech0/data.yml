@@ -1,0 +1,17 @@
+additionalProperties:
+  key: ech0
+  name: Ech0
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 专注思想流动的轻量级发布平台
+  shortDescEn: A lightweight publishing platform focused on the flow of ideas
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://memo.vaaat.com/
+  github: https://github.com/lin-snow/Ech0/
+  document: https://github.com/lin-snow/Ech0/
+  architectures:
+    - amd64
+    - arm64

@@ -1,0 +1,34 @@
+additionalProperties:
+  formFields:
+    - default: "/home/xunlei"
+      edit: true
+      envKey: XUNLEI_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 2345
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "xunlei"
+      edit: true
+      envKey: XL_DASHBOARD_USERNAME
+      labelZh: Web访问 用户名
+      labelEn: Username
+      required: true
+      rule: paramCommon
+      type: text
+    - default: "xunlei-"
+      edit: true
+      envKey: XL_DASHBOARD_PASSWORD
+      labelZh: Web访问 密码
+      labelEn: Password
+      required: true
+      rule: paramComplexity
+      random: true
+      type: password

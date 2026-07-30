@@ -1,0 +1,71 @@
+additionalProperties:
+  formFields:
+    - default: 25884
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "103.135.240.77"
+      edit: true
+      envKey: NETEASE_SERVER_IP
+      labelZh: 网易云音乐服务器IP
+      labelEn: Netease Music Server IP
+      required: false
+      type: text
+    - default: "kugou bodian migu ytdlp bilibili qq kuwo joox youtube youtubedl bilivideo pyncmd"
+      edit: true
+      envKey: UNBLOCK_SOURCES
+      labelZh: 启用音源
+      labelEn: Enable Music Sources
+      required: true
+      type: text
+    - default: "true"
+      edit: true
+      envKey: ENABLE_FLAC
+      labelZh: 启用无损音源
+      labelEn: Enable FLAC
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"
+    - default: ""
+      edit: true
+      envKey: JOOX_COOKIE
+      labelZh: Joox 音源 Cookie
+      labelEn: Joox Cookie
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: MIGU_COOKIE
+      labelZh: 咪咕音源 Cookie
+      labelEn: Migu Cookie
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: QQ_COOKIE
+      labelZh: QQ 音源 Cookie
+      labelEn: QQ Music Cookie
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: YOUTUBE_KEY
+      labelZh: YouTube 音源 API Key
+      labelEn: YouTube API Key
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: NETEASE_COOKIE
+      labelZh: 网易云音乐音源 Cookie
+      labelEn: Netease Music Cookie
+      required: false
+      type: text

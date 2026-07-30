@@ -1,0 +1,18 @@
+additionalProperties:
+  key: mdc-ng
+  name: MDC-NG
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: 成人电影数据采集工具
+  shortDescEn: Yet another Movie Data Capture tool
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/mdc-ng/mdc-ng/
+  github: https://github.com/mdc-ng/mdc-ng/
+  document: https://github.com/mdc-ng/mdc-ng/
+  architectures:
+    - amd64
+    - arm64

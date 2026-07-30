@@ -1,0 +1,18 @@
+additionalProperties:
+  key: shiori
+  name: Shiori
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 简单书签管理器，旨在作为 Pocket 的简单克隆
+  shortDescEn: Simple bookmark manager, aiming to be a simple clone of Pocket
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/go-shiori/shiori/
+  github: https://github.com/go-shiori/shiori/
+  document: https://github.com/go-shiori/shiori/
+  architectures:
+    - amd64
+    - arm
+    - arm64

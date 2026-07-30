@@ -1,0 +1,17 @@
+additionalProperties:
+  key: smtp-proxy-server
+  name: 临时邮箱 (代理服务)
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 搭建 CloudFlare 免费收发 临时域名邮箱
+  shortDescEn: Build CloudFlare to send and receive temporary domain name emails for free
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://temp-mail-docs.awsl.uk/
+  github: https://github.com/dreamhunter2333/cloudflare_temp_email/
+  document: https://temp-mail-docs.awsl.uk/
+  architectures:
+    - amd64
+    - arm64

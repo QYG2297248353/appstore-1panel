@@ -1,0 +1,19 @@
+additionalProperties:
+  key: aria2-superng6
+  name: Aria2 Superng6版
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: Docker Aria2的最佳实践
+  shortDescEn: Docker Aria2's best practice
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/SuperNG6/docker-aria2/
+  github: https://github.com/aria2/aria2/
+  document: https://github.com/SuperNG6/docker-aria2/
+  architectures:
+    - amd64
+    - arm
+    - arm64

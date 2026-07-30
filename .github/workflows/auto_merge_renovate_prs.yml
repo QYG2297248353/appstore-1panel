@@ -1,0 +1,258 @@
+name: Auto Process Renovate PRs
+
+on:
+  pull_request:
+    types: [ opened, synchronize, reopened, ready_for_review ]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  process-renovate-prs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Process Renovate PRs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python << 'EOF'
+          import os
+          import re
+          import time
+          import requests
+          from typing import Optional, Dict, Any
+
+          GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
+          REPOSITORY = os.getenv('GITHUB_REPOSITORY')
+          HEADERS = {
+              'Authorization': f'Bearer {GITHUB_TOKEN}',
+              'Accept': 'application/vnd.github.v3+json',
+              'X-GitHub-Api-Version': '2022-11-28'
+          }
+
+          def get_prs() -> list:
+              """获取所有打开的PR列表"""
+              url = f'https://api.github.com/repos/{REPOSITORY}/pulls?state=open'
+              response = requests.get(url, headers=HEADERS)
+              response.raise_for_status()
+              return response.json()
+
+          def is_renovate_pr(pr: Dict[str, Any]) -> bool:
+              """检查PR是否来自Renovate"""
+              author = pr.get('user', {}).get('login', '').lower()
+              return 'renovate' in author or 'mend' in author
+
+          def parse_version_update(pr_body: str) -> Optional[str]:
+              """解析PR正文，确定更新类型"""
+              lines = pr_body.split('\n')
+              in_table = False
+
+              for line in lines:
+                  if re.search(r'^\s*\|.*Package.*Update.*Change.*\|\s*$', line, re.IGNORECASE):
+                      in_table = True
+                      continue
+
+                  if in_table and re.search(r'^\s*\|[-:|]+\|\s*$', line):
+                      continue
+
+                  if in_table and line.strip().startswith('|'):
+                      cells = [cell.strip() for cell in line.split('|') if cell.strip()]
+
+                      if len(cells) >= 3:
+                          update_type = cells[1].lower()
+
+                          if update_type == 'major':
+                              return 'major'
+                          elif update_type in ['minor', 'patch']:
+                              return update_type
+
+                          change_cell = cells[2]
+                          version_pattern = r'(\d+\.\d+\.\d+|\d+\.\d+|\d+)'
+                          versions = re.findall(version_pattern, change_cell)
+
+                          if len(versions) >= 2:
+                              old_parts = versions[0].split('.')
+                              new_parts = versions[1].split('.')
+
+                              if old_parts[0] != new_parts[0]:
+                                  return 'major'
+                              elif len(old_parts) > 1 and len(new_parts) > 1 and old_parts[1] != new_parts[1]:
+                                  return 'minor'
+                              else:
+                                  return 'patch'
+                  elif in_table and not line.strip().startswith('|'):
+                      break
+
+              return None
+
+          def is_rebase_checkbox_unchecked(pr_body: str) -> bool:
+              """
+              检查 PR body 中的 rebase checkbox 是否存在且未勾选。
+              Renovate 在 PR body 中插入如下格式的行：
+                - [ ] <!-- rebase-check --> If you want to rebase/retry this PR, check this box.
+              勾选后变为：
+                - [x] <!-- rebase-check --> If you want to rebase/retry this PR, check this box.
+              """
+              # 匹配未勾选状态
+              unchecked_pattern = r'-\s*\[\s*\]\s*<!--\s*rebase-check\s*-->'
+              return bool(re.search(unchecked_pattern, pr_body, re.IGNORECASE))
+
+          def trigger_renovate_rebase(pr_number: int, pr_body: str) -> bool:
+              """
+              通过将 PR body 中的 rebase checkbox 从未勾选改为勾选，
+              触发 Renovate 自动 rebase/retry。
+              返回是否成功更新。
+              """
+              unchecked_pattern = r'(-\s*\[)\s*(\]\s*<!--\s*rebase-check\s*-->)'
+              new_body = re.sub(
+                  unchecked_pattern,
+                  r'\1x\2',
+                  pr_body,
+                  flags=re.IGNORECASE
+              )
+
+              if new_body == pr_body:
+                  print(f"PR #{pr_number} 未找到可勾选的 rebase checkbox，无法触发 rebase")
+                  return False
+
+              url = f'https://api.github.com/repos/{REPOSITORY}/pulls/{pr_number}'
+              data = {'body': new_body}
+              response = requests.patch(url, headers=HEADERS, json=data)
+
+              if response.status_code == 200:
+                  print(f"PR #{pr_number} 已勾选 rebase checkbox，Renovate 将自动触发 rebase/retry")
+                  return True
+              else:
+                  print(f"PR #{pr_number} 更新 body 失败: {response.status_code} {response.text}")
+                  return False
+
+          def is_pr_mergeable(pr_number: int) -> bool:
+              """检查PR是否可以合并"""
+              url = f'https://api.github.com/repos/{REPOSITORY}/pulls/{pr_number}'
+              response = requests.get(url, headers=HEADERS)
+              response.raise_for_status()
+              pr_data = response.json()
+              return pr_data.get('mergeable', False) and pr_data.get('mergeable_state', '') == 'clean'
+
+          def wait_for_checks(pr_number: int, max_wait: int = 600) -> bool:
+              """等待检查通过，最多等待max_wait秒"""
+              start_time = time.time()
+
+              while time.time() - start_time < max_wait:
+                  if is_pr_mergeable(pr_number):
+                      return True
+                  time.sleep(30)
+
+              return False
+
+          def merge_pr(pr_number: int) -> bool:
+              """合并PR"""
+              url = f'https://api.github.com/repos/{REPOSITORY}/pulls/{pr_number}/merge'
+              data = {'merge_method': 'merge'}
+              response = requests.put(url, headers=HEADERS, json=data)
+
+              if response.status_code == 200:
+                  print(f"成功合并PR #{pr_number}")
+                  return True
+              else:
+                  print(f"合并PR #{pr_number} 失败: {response.json().get('message', '未知错误')}")
+                  return False
+
+          def add_comment(pr_number: int, comment: str):
+              """在PR上添加评论"""
+              url = f'https://api.github.com/repos/{REPOSITORY}/issues/{pr_number}/comments'
+              data = {'body': comment}
+              response = requests.post(url, headers=HEADERS, json=data)
+              response.raise_for_status()
+
+          def process_pr(pr: Dict[str, Any]):
+              """处理单个PR"""
+              pr_number = pr['number']
+              pr_author = pr['user']['login']
+              pr_title = pr['title']
+              pr_body = pr.get('body', '') or ''
+
+              print(f"处理PR #{pr_number} 来自 {pr_author}: {pr_title}")
+
+              update_type = parse_version_update(pr_body)
+
+              if not update_type:
+                  print(f"无法确定PR #{pr_number} 的更新类型，跳过")
+                  add_comment(pr_number, "⚠️ 自动处理失败: 无法确定更新类型")
+                  return
+
+              print(f"PR #{pr_number} 更新类型: {update_type}")
+
+              if update_type == 'major':
+                  print(f"PR #{pr_number} 是大版本更新，跳过")
+                  add_comment(pr_number, "⏭️ 自动跳过: 大版本更新需要手动审核")
+                  return
+
+              if not wait_for_checks(pr_number):
+                  print(f"PR #{pr_number} 在等待时间内未通过检查")
+
+                  # 判断 rebase checkbox 是否存在且未勾选
+                  if is_rebase_checkbox_unchecked(pr_body):
+                      print(f"PR #{pr_number} 检测到未勾选的 rebase checkbox，尝试触发 rebase...")
+                      triggered = trigger_renovate_rebase(pr_number, pr_body)
+                      if triggered:
+                          add_comment(
+                              pr_number,
+                              "🔄 自动触发 Rebase: 检查超时，已自动勾选 rebase checkbox，"
+                              "Renovate 将重新触发 rebase/retry，下次调度时将再次尝试合并。"
+                          )
+                      else:
+                          add_comment(
+                              pr_number,
+                              "⏰ 自动跳过: 在等待时间内未通过所有检查，且无法触发 rebase，请手动处理。"
+                          )
+                  else:
+                      # checkbox 不存在或已经勾选过（Renovate 还在处理中）
+                      add_comment(
+                          pr_number,
+                          "⏰ 自动跳过: 在等待时间内未通过所有检查，"
+                          "rebase checkbox 不存在或已触发，请稍后等待 Renovate 处理或手动介入。"
+                      )
+                  return
+
+              if merge_pr(pr_number):
+                  add_comment(pr_number, "✅ 自动合并: 小版本更新已自动合并")
+              else:
+                  add_comment(pr_number, "❌ 自动合并失败: 请手动处理")
+
+          def main():
+              """主函数"""
+              try:
+                  prs = get_prs()
+                  print(f"找到 {len(prs)} 个打开的PR")
+
+                  renovate_prs = [pr for pr in prs if is_renovate_pr(pr)]
+                  print(f"找到 {len(renovate_prs)} 个Renovate/Mend的PR")
+
+                  for pr in renovate_prs:
+                      try:
+                          process_pr(pr)
+                      except Exception as e:
+                          print(f"处理PR #{pr['number']} 时出错: {str(e)}")
+
+              except Exception as e:
+                  print(f"处理PR时发生错误: {str(e)}")
+                  raise
+
+          if __name__ == '__main__':
+              main()
+          EOF

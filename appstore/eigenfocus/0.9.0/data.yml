@@ -1,0 +1,24 @@
+additionalProperties:
+  formFields:
+    - default: "/home/eigenfocus"
+      edit: true
+      envKey: EIGENFOCUS_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "http://127.0.0.1:3000"
+      edit: true
+      envKey: DEFAULT_HOST_URL
+      labelZh: 服务地址
+      labelEn: Server Url
+      required: true
+      type: text

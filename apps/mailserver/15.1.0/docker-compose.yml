@@ -1,0 +1,53 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  mailserver:
+    image: mailserver/docker-mailserver:15.1.0
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    stop_grace_period: 1m
+    dns:
+      - ${DNS1:-223.5.5.5}
+      - ${DNS2:-119.29.29.29}
+    extra_hosts:
+      - ${DOMAIN_HOSTS1:-localhost:127.0.0.1}
+    hostname: ${HOSTNAME_FQDN}
+    ports:
+      - ${PANEL_APP_PORT_SMTP}:25
+      - ${PANEL_APP_PORT_IMAP}:143
+      - ${PANEL_APP_PORT_SMTPS}:465
+      - ${PANEL_APP_PORT_ESMTP}:587
+      - ${PANEL_APP_PORT_IPAPS}:993
+      - ${PANEL_APP_PORT_POP}:110
+      - ${PANEL_APP_PORT_POPS}:995
+      - ${PANEL_APP_PORT_MANAGESIEVE}:4190
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${APP_ENV_FILE:-/etc/1panel/envs/mailserver/mailserver.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${MAILSERVER_ROOT_PATH}/dms/mail-data/:/var/mail/
+      - ${MAILSERVER_ROOT_PATH}/dms/mail-state/:/var/mail-state/
+      - ${MAILSERVER_ROOT_PATH}/dms/mail-logs/:/var/log/mail/
+      - ${MAILSERVER_ROOT_PATH}/dms/config/:/tmp/docker-mailserver/
+      - ${MAILSERVER_ROOT_PATH}/certs/:/tmp/dms/certs/
+      - ${MAILSERVER_ROOT_PATH}/dms-backups/:/backup/
+    environment:
+      - LOG_LEVEL=info
+      - SUPERVISOR_LOGLEVEL=info
+      - ACCOUNT_PROVISIONER=FILE
+      - SSL_CERT_PATH=/tmp/dms/certs/${CERTS_PUBLIC_CRT:-public.crt}
+      - SSL_KEY_PATH=/tmp/dms/certs/${CERTS_PRIVATE_KEY:-private.key}
+      - SPOOF_PROTECTION=1
+      - HTTPS_PROXY=${HTTP_PROXY:-}
+    healthcheck:
+      test: "ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1"
+      timeout: 3s
+      retries: 0

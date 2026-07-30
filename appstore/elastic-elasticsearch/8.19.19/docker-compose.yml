@@ -1,0 +1,34 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  elasticsearch:
+    container_name: elastic-elasticsearch
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - LICENSE=basic
+    - ES_SETTING_BOOTSTRAP_MEMORY__LOCK=true
+    - ES_SETTING_PATH_REPO=/usr/share/elasticsearch/backup
+    image: elasticsearch:8.19.19
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTPS}:9200
+    - ${PANEL_APP_PORT_CLUSTER}:9300
+    restart: always
+    tty: true
+    ulimits:
+      memlock:
+        hard: -1
+        soft: -1
+      nofile:
+        hard: 65536
+        soft: 65536
+    volumes:
+    - ${ELASTICSEARCH_ROOT_PATH}/data:/usr/share/elasticsearch/data
+    - ${ELASTICSEARCH_ROOT_PATH}/backup:/usr/share/elasticsearch/backup
+    - ${ELASTICSEARCH_ROOT_PATH}/plugins:/usr/share/elasticsearch/plugins

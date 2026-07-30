@@ -1,0 +1,48 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  telegram_search:
+    image: ghcr.io/groupultra/telegram-search:1.2.8
+    depends_on:
+      telegram_search_pgvector:
+        condition: service_healthy
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3333
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${TELEGRAM_SEARCH_ROOT_PATH}/data:/app/data
+    environment:
+      - TZ=Asia/Shanghai
+      - DATABASE_TYPE=postgres
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@telegram_search_pgvector:5432/${POSTGRES_DATABASE}
+  telegram_search_pgvector:
+    image: ghcr.io/tensorchord/pgvecto-rs:pg17-v0.4.0
+    container_name: db-${CONTAINER_NAME}
+    restart: always
+    networks:
+      - 1panel-network
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ./config/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ${TELEGRAM_SEARCH_ROOT_PATH}/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DATABASE=${POSTGRES_DATABASE}
+    healthcheck:
+      test: [ CMD-SHELL, pg_isready -d postgres -U postgres ]
+      interval: 10s
+      timeout: 5s
+      retries: 5

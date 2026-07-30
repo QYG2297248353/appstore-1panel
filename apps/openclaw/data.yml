@@ -1,0 +1,17 @@
+additionalProperties:
+  key: openclaw
+  name: OpenClaw
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 您自己的个人AI助手。任何操作系统。任何平台。小龙虾计划。 🦞
+  shortDescEn: Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://openclaw.ai/
+  github: https://github.com/openclaw/openclaw/
+  document: https://docs.openclaw.ai/
+  architectures:
+    - amd64
+    - arm64

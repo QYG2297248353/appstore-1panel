@@ -1,0 +1,38 @@
+additionalProperties:
+  formFields:
+    - default: "/home/emby-pulse"
+      edit: true
+      envKey: EMBY_PULSE_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 10307
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "http://127.0.0.1:8096"
+      edit: true
+      envKey: emby_host
+      labelZh: Emby 主机地址
+      labelEn: Emby host address
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: emby_api_key
+      labelZh: Emby API 密钥
+      labelEn: Emby API key
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: webhook_token
+      labelZh: Webhook 令牌
+      labelEn: Webhook token
+      required: false
+      type: text

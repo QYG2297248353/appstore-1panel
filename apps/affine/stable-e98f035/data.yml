@@ -1,0 +1,183 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_POSTGRES_SERVICE
+        required: true
+        type: service
+      default: postgresql
+      envKey: PANEL_POSTGRES_TYPE
+      labelZh: Postgres 服务 (前置检查)
+      labelEn: Postgres Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: PostgreSQL
+          value: postgresql
+    - child:
+        default: ""
+        envKey: PANEL_REDIS_SERVICE
+        required: true
+        type: service
+      default: redis
+      envKey: PANEL_REDIS_TYPE
+      labelZh: Redis 服务 (前置检查)
+      labelEn: Redis Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: Redis
+          value: redis
+    - default: "/home/affine"
+      edit: true
+      envKey: AFFINE_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3010
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 5555
+      edit: true
+      envKey: PANEL_APP_PORT_COMMUNICATION
+      labelZh: 通讯端口
+      labelEn: Communication port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "http://127.0.0.1:3010"
+      edit: true
+      envKey: AFFINE_SERVER_EXTERNAL_URL
+      labelZh: 服务外部地址
+      labelEn: Service external address
+      required: true
+      type: text
+    - default: "false"
+      edit: true
+      envKey: AFFINE_SERVER_HTTPS
+      labelZh: 是否启用 HTTPS
+      labelEn: Enable HTTPS
+      required: true
+      type: select
+      values:
+        - label: 已开启
+          value: "true"
+        - label: 未开启
+          value: "false"
+    - default: "smtp.163.com"
+      edit: true
+      envKey: MAILER_HOST
+      labelZh: SMTP 服务器地址
+      labelEn: SMTP server address
+      required: true
+      type: text
+    - default: 465
+      edit: true
+      envKey: MAILER_PORT
+      labelZh: SMTP 服务器端口
+      labelEn: SMTP server port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: MAILER_SENDER
+      labelZh: 邮件发送者
+      labelEn: Email sender
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: MAILER_USER
+      labelZh: SMTP 用户名
+      labelEn: SMTP username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: MAILER_PASSWORD
+      labelZh: SMTP 密码
+      labelEn: SMTP password
+      required: true
+      type: password
+    - default: "127.0.0.1"
+      edit: true
+      envKey: POSTGRES_HOST
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: 5432
+      edit: true
+      envKey: POSTGRES_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "affine"
+      edit: true
+      envKey: POSTGRES_NAME
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      rule: paramCommon
+      type: text
+    - default: "affine"
+      edit: true
+      envKey: POSTGRES_USER
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: POSTGRES_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: "127.0.0.1"
+      edit: true
+      envKey: REDIS_SERVER_HOST
+      labelZh: Redis 主机
+      labelEn: Redis Host
+      required: true
+      type: text
+    - default: 6379
+      edit: true
+      envKey: REDIS_SERVER_PORT
+      labelZh: Redis 端口
+      labelEn: Redis Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 0
+      edit: true
+      envKey: REDIS_SERVER_DATABASE
+      labelZh: Redis 索引 (0-20)
+      labelEn: Redis Index (0-20)
+      required: true
+      type: number
+    - default: ""
+      edit: true
+      envKey: REDIS_SERVER_USER
+      labelZh: Redis 用户
+      labelEn: Redis User
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: REDIS_SERVER_PASSWORD
+      labelZh: Redis 密码
+      labelEn: Redis Password
+      required: false
+      type: password

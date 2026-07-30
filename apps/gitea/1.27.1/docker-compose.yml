@@ -1,0 +1,44 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  gitea:
+    image: gitea/gitea:1.27.1
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3000
+      - ${PANEL_APP_PORT_SSH}:22
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${APP_ENV_FILE:-/etc/1panel/envs/gitea/gitea.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${GITEA_ROOT_PATH}/data:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - DISABLE_SSH=false
+      - GITEA__api__ENABLE_SWAGGER=false
+      - DB_HOST=${DB_HOSTNAME}:${DB_PORT}
+      - GITEA__mailer__ENABLED=${MAILER_ENABLED}
+      - GITEA__mailer__SMTP_ADDR=${MAILER_SMTP_ADDR}
+      - GITEA__mailer__SMTP_PORT=${MAILER_SMTP_PORT}
+      - GITEA__mailer__USER=${MAILER_USER}
+      - GITEA__mailer__PASSWD=${MAILER_PASSWD}
+      - GITEA__mailer__FROM=${MAILER_FROM}
+      - GITEA__mailer__SUBJECT_PREFIX=${MAILER_SUBJECT_PREFIX}
+      - GITEA__proxy__PROXY_ENABLED=${PROXY_ENABLED}
+      - GITEA__proxy__PROXY_URL=${PROXY_URL}
+      - GITEA__proxy__PROXY_HOSTS=${PROXY_HOSTS}
+      - GITEA__webhook__PROXY_URL=${PROXY_URL}
+      - GITEA__webhook__PROXY_HOSTS=${PROXY_HOSTS}
+      - GITEA__git.config__http.proxy=${PROXY_URL}
+      - GITEA__git.config__https.proxy=${PROXY_URL}

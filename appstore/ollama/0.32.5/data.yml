@@ -1,0 +1,71 @@
+additionalProperties:
+  formFields:
+    - default: "/home/ollama"
+      edit: true
+      envKey: OLLAMA_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 11434
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 1
+      edit: true
+      envKey: OLLAMA_MAX_LOADED_MODELS
+      labelZh: 最大加载模型数量
+      labelEn: Maximum number of loaded models
+      required: true
+      rule: paramPort
+      type: number
+    - default: 512
+      edit: true
+      envKey: OLLAMA_MAX_QUEUE
+      labelZh: 最大队列长度
+      labelEn: Maximum queue length
+      required: true
+      rule: paramPort
+      type: number
+    - default: "1"
+      edit: true
+      envKey: OLLAMA_NUM_PARALLEL
+      labelZh: 并行推理数量
+      labelEn: Number of parallel inferences
+      required: true
+      type: select
+      values:
+        - label: "1"
+          value: "1"
+        - label: "4"
+          value: "4"
+    - default: "f16"
+      edit: true
+      envKey: OLLAMA_KV_CACHE_TYPE
+      labelZh: 缓存类型
+      labelEn: Cache type
+      required: true
+      type: select
+      values:
+        - label: "f16"
+          value: "f16"
+        - label: "q8_0"
+          value: "q8_0"
+        - label: "q4_0"
+          value: "q4_0"
+    - default: "0"
+      edit: true
+      envKey: OLLAMA_FLASH_ATTENTION
+      labelZh: 启用 Flash Attention
+      labelEn: Enable Flash Attention
+      required: true
+      type: select
+      values:
+        - label: "启用"
+          value: "1"
+        - label: "禁用"
+          value: "0"

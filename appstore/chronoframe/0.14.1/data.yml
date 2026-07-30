@@ -1,0 +1,83 @@
+additionalProperties:
+  formFields:
+    - default: "/home/chronoframe"
+      edit: true
+      envKey: CHRONOFRAME_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "admin@chronoframe.com"
+      edit: true
+      envKey: CFRAME_ADMIN_EMAIL
+      labelZh: 管理员邮箱
+      labelEn: Admin Email
+      required: true
+      type: text
+    - default: "Chronoframe"
+      edit: true
+      envKey: CFRAME_ADMIN_NAME
+      labelZh: 管理员用户名
+      labelEn: Admin Username
+      required: true
+      type: text
+    - default: "CF1234@!"
+      edit: true
+      envKey: CFRAME_ADMIN_PASSWORD
+      labelZh: 管理员密码
+      labelEn: Admin Password
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: NUXT_SESSION_PASSWORD
+      labelZh: 会话密码 (32 字符字符串)
+      labelEn: Session Password (32 character string)
+      required: true
+      type: text
+    - default: "false"
+      edit: true
+      envKey: NUXT_ALLOW_INSECURE_COOKIE
+      labelZh: 允许不安全的 Cookie
+      labelEn: Allow Insecure Cookie
+      required: true
+      type: select
+      values:
+        - label: 允许IP访问
+          value: "true"
+        - label: 禁止IP访问
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: NUXT_UPLOAD_DUPLICATE_CHECK_ENABLED
+      labelZh: 重复文件检查
+      labelEn: Duplicate File Check
+      required: true
+      type: select
+      values:
+        - label: 开启重复文件检查
+          value: "true"
+        - label: 禁止重复文件检查
+          value: "false"
+    - default: "skip"
+      edit: true
+      envKey: NUXT_UPLOAD_DUPLICATE_CHECK_MODE
+      labelZh: 重复文件检查模式
+      labelEn: Duplicate File Check Mode
+      required: true
+      type: select
+      values:
+        - label: 跳过模式
+          value: "skip"
+        - label: 警告模式
+          value: "warn"
+        - label: 阻止模式
+          value: "block"

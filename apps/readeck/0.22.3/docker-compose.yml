@@ -1,0 +1,31 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  readeck:
+    image: codeberg.org/readeck/readeck:0.22.3
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    healthcheck:
+      test: [ "CMD", "/bin/readeck", "healthcheck", "-config", "config.toml" ]
+      interval: 30s
+      timeout: 2s
+      retries: 3
+    volumes:
+      - ${READECK_ROOT_PATH}/data:/readeck
+    environment:
+      - TZ=Asia/Shanghai
+      - READECK_LOG_LEVEL=info
+      - READECK_SERVER_HOST=0.0.0.0
+      - READECK_SERVER_PORT=${PANEL_APP_PORT_HTTP}
+      - HTTPS_PROXY=${HTTP_PROXY:-}

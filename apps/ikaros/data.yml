@@ -1,0 +1,17 @@
+additionalProperties:
+  key: ikaros
+  name: ikaros
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 打通下载软件与媒体服务，安心享受影片
+  shortDescEn: Connect download software and media services, enjoy movies with peace of mind
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/Suwmlee/ikaros/
+  github: https://github.com/Suwmlee/ikaros/
+  document: https://github.com/Suwmlee/ikaros/
+  architectures:
+    - amd64
+    - arm64

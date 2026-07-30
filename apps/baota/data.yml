@@ -1,0 +1,18 @@
+additionalProperties:
+  key: baota
+  name: 宝塔
+  tags:
+    - WebSite
+    - Middleware
+    - Local
+  shortDescZh: 宝塔,安全高效的服务器运维面板
+  shortDescEn: Baota, a secure and efficient server operation and maintenance panel
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.bt.cn/
+  github: https://www.bt.cn/
+  document: https://www.bt.cn/
+  architectures:
+    - amd64
+    - arm64

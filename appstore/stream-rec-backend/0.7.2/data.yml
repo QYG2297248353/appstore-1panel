@@ -1,0 +1,32 @@
+additionalProperties:
+  formFields:
+    - default: "/home/stream-rec"
+      edit: true
+      envKey: STREAM_REC_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 12555
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: API 端口
+      labelEn: API port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "stream-rec"
+      edit: false
+      envKey: LOGIN_SECRET
+      labelZh: 登录密码 (初始化)
+      labelEn: Login Password (Initialization)
+      required: true
+      random: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: HTTP_PROXY
+      labelZh: 网络代理
+      labelEn: Network Proxy
+      required: false
+      type: text

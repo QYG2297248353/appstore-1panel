@@ -1,0 +1,24 @@
+additionalProperties:
+  formFields:
+    - default: "/home/kibana"
+      edit: true
+      envKey: KIBANA_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 5601
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "https://127.0.0.1:9200"
+      edit: true
+      envKey: elasticsearch_hosts
+      labelZh: Elasticsearch 地址
+      labelEn: Elasticsearch address
+      required: true
+      type: text

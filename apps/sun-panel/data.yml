@@ -1,0 +1,18 @@
+additionalProperties:
+  key: sun-panel
+  name: Sun Panel
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 一个服务器、NAS导航面板、Homepage、浏览器首页
+  shortDescEn: A server, NAS navigation panel, Homepage, Browser homepage
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://doc.sun-panel.top/
+  github: https://github.com/hslr-s/sun-panel/
+  document: https://doc.sun-panel.top/
+  architectures:
+    - amd64
+    - arm
+    - arm64

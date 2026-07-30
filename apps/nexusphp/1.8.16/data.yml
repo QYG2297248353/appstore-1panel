@@ -1,0 +1,45 @@
+additionalProperties:
+  formFields:
+    - default: "/home/nexusphp"
+      edit: true
+      envKey: NEXUSPHP_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: "/home/nexusphp"
+      edit: true
+      envKey: NEXUSPHP_TORRENTS_ROOT_PATH
+      labelZh: 种子目录
+      labelEn: Torrent persistence path
+      required: true
+      type: text
+    - default: "/home/nexusphp"
+      edit: true
+      envKey: NEXUSPHP_BITBUCKET_ROOT_PATH
+      labelZh: 上传器目录
+      labelEn: Uploader persistence path
+      required: true
+      type: text
+    - default: "/home/nexusphp"
+      edit: true
+      envKey: NEXUSPHP_ATTACHMENTS_ROOT_PATH
+      labelZh: 附件目录
+      labelEn: Attachment persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: 访问端口
+      labelEn: Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "base64:WUbN2wa2kl3E1VDW4iKaH3RBHw3hKY7BK0hWEkBZmGg="
+      edit: true
+      envKey: APP_KEY
+      labelZh: 应用密钥
+      labelEn: Application Key
+      required: true
+      type: text

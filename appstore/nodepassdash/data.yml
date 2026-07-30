@@ -1,0 +1,17 @@
+additionalProperties:
+  key: nodepassdash
+  name: NodePassDash
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 现代化的 NodePass 管理界面
+  shortDescEn: NodePass Dashboard
+  type: website
+  crossVersionUpdate: false
+  limit: 0
+  website: https://github.com/NodePassProject/NodePassDash/
+  github: https://github.com/NodePassProject/NodePassDash/
+  document: https://github.com/NodePassProject/NodePassDash/
+  architectures:
+    - amd64
+    - arm64

@@ -1,0 +1,19 @@
+additionalProperties:
+  key: v2raya-global
+  name: v2rayA (全局透明代理)
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 一个易用而强大的，跨平台的 V2Ray 客户端
+  shortDescEn: An easy-to-use and powerful cross-platform V2Ray client
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://v2raya.org/
+  github: https://github.com/v2rayA/v2rayA/
+  document: https://v2raya.org/
+  architectures:
+    - amd64
+    - arm
+    - arm64
+    - riscv64

@@ -1,0 +1,17 @@
+additionalProperties:
+  key: fider
+  name: Fider
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 简单而优雅的功能投票工具
+  shortDescEn: The simple and elegant feature voting tool
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://fider.io/
+  github: https://github.com/getfider/fider/
+  document: https://fider.io/docs/hosting-instance
+  architectures:
+    - amd64
+    - arm64

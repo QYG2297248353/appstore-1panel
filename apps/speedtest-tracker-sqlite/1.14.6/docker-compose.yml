@@ -1,0 +1,26 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  speedtest-tracker:
+    image: linuxserver/speedtest-tracker:1.14.6
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    network_mode: ${NETWORK_MODE}
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:80
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${SPEEDTEST_TRACKER_ROOT_PATH}/config:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Shanghai
+      - DISPLAY_TIMEZONE=Asia/Shanghai
+      - DB_CONNECTION=sqlite
+      - MAIL_MAILER=sqlite

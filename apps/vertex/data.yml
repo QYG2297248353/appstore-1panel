@@ -1,0 +1,17 @@
+additionalProperties:
+  key: vertex
+  name: Vertex
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 追剧刷流一体化综合管理工具
+  shortDescEn: A comprehensive management tool for chasing dramas and brushing streams
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/vertex-app/vertex/
+  github: https://github.com/vertex-app/vertex/
+  document: https://wiki.vertex-app.top/
+  architectures:
+    - amd64
+    - arm64

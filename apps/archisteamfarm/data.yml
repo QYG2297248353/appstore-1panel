@@ -1,0 +1,18 @@
+additionalProperties:
+  key: archisteamfarm
+  name: ArchiSteamFarm
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: Steam 挂卡与自动化工具
+  shortDescEn: Steam card farming and automation tool
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/JustArchiNET/ArchiSteamFarm/
+  github: https://github.com/JustArchiNET/ArchiSteamFarm/
+  document: https://github.com/JustArchiNET/ArchiSteamFarm/
+  architectures:
+    - amd64
+    - arm64
+    - arm/v7

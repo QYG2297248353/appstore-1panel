@@ -1,0 +1,21 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  nexus3:
+    container_name: nexus3
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    image: sonatype/nexus3:3.94.1
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8081
+    restart: always
+    volumes:
+    - ${NEXUS3_ROOT_PATH}/data:/nexus-data

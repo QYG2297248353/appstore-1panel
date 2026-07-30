@@ -1,0 +1,98 @@
+additionalProperties:
+  formFields:
+    - default: "/home/nodebb"
+      edit: true
+      envKey: NODEBB_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 4567
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "http://127.0.0.1:4567"
+      edit: true
+      envKey: NODEBB_URL
+      labelZh: 服务地址
+      labelEn: Service address
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: NODEBB_ADMIN_USERNAME
+      labelZh: 管理员用户名
+      labelEn: Admin Username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: NODEBB_ADMIN_PASSWORD
+      labelZh: 管理员密码
+      labelEn: Admin Password
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: NODEBB_ADMIN_EMAIL
+      labelZh: 管理员邮箱
+      labelEn: Admin Email
+      required: true
+      type: text
+    - default: "postgres"
+      edit: true
+      envKey: NODEBB_DB
+      labelZh: 数据库类型
+      labelEn: Database type
+      required: true
+      type: select
+      values:
+        - label: PostgreSQL
+          value: "postgres"
+        - label: Redis
+          value: "redis"
+        - label: MongoDB
+          value: "mongo"
+    - default: "127.0.0.1"
+      edit: true
+      envKey: NODEBB_DB_HOST
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: 5432
+      edit: true
+      envKey: NODEBB_DB_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "nodebb"
+      edit: true
+      envKey: NODEBB_DB_NAME
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      rule: paramCommon
+      type: text
+    - default: "nodebb"
+      edit: true
+      envKey: NODEBB_DB_USER
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: NODEBB_DB_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      random: true
+      required: false
+      rule: paramComplexity
+      type: password

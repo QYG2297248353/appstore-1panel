@@ -1,0 +1,19 @@
+additionalProperties:
+  key: casdoor
+  name: Casdoor
+  tags:
+    - WebSite
+    - Middleware
+    - Tool
+    - Local
+  shortDescZh: 身份和访问管理(IAM)/单点登录(SSO)平台
+  shortDescEn: Identity and Access Management (IAM)/Single Sign-On (SSO) platform
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://casdoor.org/
+  github: https://github.com/casdoor/casdoor/
+  document: https://casdoor.org/zh/docs/overview/
+  architectures:
+    - amd64
+    - arm64

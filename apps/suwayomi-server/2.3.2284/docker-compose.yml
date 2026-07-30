@@ -1,0 +1,23 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  suwayomi-server:
+    image: ghcr.io/suwayomi/suwayomi-server:v2.3.2284
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:4567
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${SUWAYOMI_SERVER_ROOT_PATH}/data:/home/suwayomi/.local/share/Tachidesk
+      - ${SUWAYOMI_SERVER_ROOT_PATH}/webUI:/tmp/Tachidesk/webUI-serve
+    environment:
+      - TZ=Asia/Shanghai

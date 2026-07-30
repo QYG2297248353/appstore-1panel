@@ -1,0 +1,78 @@
+additionalProperties:
+  formFields:
+    - default: "/home/pansou"
+      edit: true
+      envKey: PANSOU_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "tgsearchers4,Aliyun_4K_Movies,bdbdndn11,yunpanx,bsbdbfjfjff,yp123pan,sbsbsnsqq,yunpanxunlei,tianyifc,BaiduCloudDisk,txtyzy,peccxinpd,gotopan,PanjClub,kkxlzy,baicaoZY,MCPH01,MCPH02,MCPH03,bdwpzhpd,ysxb48,jdjdn1111,yggpan,MCPH086,zaihuayun,Q66Share,ucwpzy,shareAliyun,alyp_1,dianyingshare,Quark_Movies,XiangxiuNBB,ydypzyfx,ucquark,xx123pan,yingshifenxiang123,zyfb123,tyypzhpd,tianyirigeng,cloudtianyi,hdhhd21,Lsp115,oneonefivewpfx,qixingzhenren,taoxgzy,Channel_Shares_115,tyysypzypd,vip115hot,wp123zy,yunpan139,yunpan189,yunpanuc,yydf_hzl,leoziyuan,pikpakpan,Q_dongman,yoyokuakeduanju,TG654TG,WFYSFX02,QukanMovie,yeqingjie_GJG666,movielover8888_film3,Baidu_netdisk,D_wusun,FLMdongtianfudi,KaiPanshare,QQZYDAPP,rjyxfx,PikPak_Share_Channel,btzhi,newproductsourcing,cctv1211,duan_ju,QuarkFree,yunpanNB,kkdj001,xxzlzn,pxyunpanxunlei,jxwpzy,kuakedongman,liangxingzhinan,xiangnikanj,solidsexydoll,guoman4K,zdqxm,kduanju,cilidianying,CBduanju,SharePanFilms,dzsgx,BooksRealm,Oscar_4Kmovies,douerpan,baidu_yppan,Q_jilupian,Netdisk_Movies,yunpanquark,ammmziyuan,ciliziyuanku,cili8888,jzmm_123pan"
+      edit: true
+      envKey: CHANNELS
+      labelZh: Telegram搜索频道
+      labelEn: Telegram search channel
+      required: true
+      type: text
+    - default: "labi,zhizhen,shandian,duoduo,muou,wanou,hunhepan,jikepan,panwiki,pansearch,panta,qupansou,hdr4k,pan666,susu,thepiratebay,xuexizhinan,panyq,ouge,huban,cyg,erxiao,miaoso,fox4k,pianku,clmao,wuji,cldi,xiaozhang,libvio,leijing,xb6v,xys,ddys,hdmoli,yuhuage,u3c3,javdb,clxiong,jutoushe,sdso,xiaoji,xdyh,haisou,bixin,djgou,nyaa,xinjuc,aikanzy,qupanshe,xdpan,discourse,yunsou,qqpd,ahhhhfs,nsgame,gying,quark4k,quarksoo,sousou,ash"
+      edit: true
+      envKey: ENABLED_PLUGINS
+      labelZh: 启用插件
+      labelEn: Enable plugins
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: PROXY
+      labelZh: Sock5代理
+      labelEn: Sock5 proxy
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: HTTP_PROXY
+      labelZh: HTTP代理
+      labelEn: HTTP proxy
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: AUTH_ENABLED
+      labelZh: 启用认证
+      labelEn: Enable authentication
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"
+    - default: "admin:pass,user:pass"
+      edit: true
+      envKey: AUTH_USERS
+      labelZh: 账户配置
+      labelEn: Account configuration
+      required: true
+      type: text
+    - default: 24
+      edit: true
+      envKey: AUTH_TOKEN_EXPIRY
+      labelZh: 认证有效期 (小时)
+      labelEn: Authentication validity period (hours)
+      required: true
+      type: number
+    - default: ""
+      edit: true
+      envKey: AUTH_JWT_SECRET
+      labelZh: JWT密钥
+      labelEn: JWT secret
+      required: false
+      type: text

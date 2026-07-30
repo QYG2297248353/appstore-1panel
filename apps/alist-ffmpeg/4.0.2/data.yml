@@ -1,0 +1,74 @@
+additionalProperties:
+  formFields:
+    - default: "/home/openlist"
+      edit: true
+      envKey: OPENLIST_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 5244
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: JWT_SECRET
+      labelZh: 加密密钥
+      labelEn: Encryption key
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: SITE_URL
+      labelZh: 站点 URL
+      labelEn: Site URL
+      required: false
+      rule: paramExtUrl
+      type: text
+    - default: 48
+      edit: true
+      envKey: TOKEN_EXPIRES_IN
+      labelZh: 登录过期时间 (小时)
+      labelEn: Login expiration time (hours)
+      required: true
+      type: number
+    - default: 0
+      edit: true
+      envKey: DELAYED_START
+      labelZh: 延时启动 (秒)
+      labelEn: Delayed start (seconds)
+      required: true
+      type: number
+    - default: 0
+      edit: true
+      envKey: max_connections
+      labelZh: 最大连接数
+      labelEn: Maximum connections
+      required: true
+      type: number
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_1
+      labelEn: Custom mount directory 1
+      labelZh: 自定义挂载目录 1
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_2
+      labelEn: Custom mount directory 2
+      labelZh: 自定义挂载目录 2
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CUSTOM_MOUNT_DIRECTORY_3
+      labelEn: Custom mount directory 3
+      labelZh: 自定义挂载目录 3
+      required: false
+      type: text

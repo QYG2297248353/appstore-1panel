@@ -1,0 +1,21 @@
+additionalProperties:
+  key: reader3
+  name: 阅读3
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 阅读3服务器版，不需要手机
+  shortDescEn: Reader3 server version, no need for mobile phone
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/hectorqin/reader/
+  github: https://github.com/hectorqin/reader/
+  document: https://github.com/hectorqin/reader/
+  architectures:
+    - '386'
+    - amd64
+    - arm
+    - arm64
+    - ppc64le
+    - s390x

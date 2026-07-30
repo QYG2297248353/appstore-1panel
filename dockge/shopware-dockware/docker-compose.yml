@@ -1,0 +1,27 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  dockware:
+    container_name: shopware-dockware
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - XDEBUG_ENABLED=0
+    expose:
+    - 3306
+    - 9999
+    - 9998
+    - 8888
+    - 22
+    - 443
+    image: dockware/play:6.7.2.2
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:80
+    restart: always

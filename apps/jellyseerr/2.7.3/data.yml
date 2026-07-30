@@ -1,0 +1,36 @@
+additionalProperties:
+  formFields:
+    - default: "/home/jellyseerr"
+      edit: true
+      envKey: JELLYSEERR_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 5055
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "jellyfin"
+      edit: true
+      envKey: JELLYFIN_TYPE
+      labelZh: 播放媒体服务器类型
+      labelEn: Play media server type
+      required: true
+      type: select
+      values:
+        - label: JellyFin
+          value: "jellyfin"
+        - label: Emby
+          value: "emby"
+    - default: ""
+      edit: true
+      envKey: http_proxy
+      labelZh: HTTP(s) 网络代理
+      labelEn: HTTP(s) Proxy
+      required: false
+      type: text

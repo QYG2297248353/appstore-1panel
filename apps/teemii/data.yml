@@ -1,0 +1,18 @@
+additionalProperties:
+  key: teemii
+  name: Teemii
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 漫画阅读器和管理器
+  shortDescEn: Comic reader and manager
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.teemii.io/
+  github: https://github.com/dokkaner/teemii/
+  document: https://docs.teemii.io/
+  architectures:
+    - amd64
+    - arm
+    - arm64

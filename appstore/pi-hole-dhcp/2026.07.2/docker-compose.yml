@@ -1,0 +1,28 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  pihole:
+    cap_add:
+    - NET_ADMIN
+    container_name: pi-hole-dhcp
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - WEB_PORT=${PANEL_APP_PORT_HTTP}
+    - TZ=Asia/Shanghai
+    - DHCP_ACTIVE=true
+    expose:
+    - 67/udp
+    - 53
+    - 53/udp
+    - ${PANEL_APP_PORT_HTTP}
+    image: pihole/pihole:2026.07.2
+    labels:
+      createdBy: Apps
+    network_mode: host
+    restart: always
+    volumes:
+    - ${PIHOLE_ROOT_PATH}/pihole:/etc/pihole
+    - ${PIHOLE_ROOT_PATH}/dnsmasq.d:/etc/dnsmasq.d

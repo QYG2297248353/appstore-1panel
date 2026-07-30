@@ -1,0 +1,50 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  wechatpadpro:
+    image: wechatpadpro/wechatpadpro:v18.6
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
+      - ${PANEL_APP_PORT_WECHAT}:${PANEL_APP_PORT_WECHAT}
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${WECHATPADPRO_ROOT_PATH}/.env:/app/.env
+      - ${WECHATPADPRO_ROOT_PATH}/config:/app/config
+    environment:
+      - TZ=Asia/Shanghai
+      - WECHAT_PORT=${PANEL_APP_PORT_WECHAT}
+      - PORT=${PANEL_APP_PORT_HTTP}
+      - DEBUG=false
+      - HOST=0.0.0.0
+      - MCP_PORT=8099
+      - REDIS_MAX_IDLE=30
+      - REDIS_MAX_ACTIVE=100
+      - REDIS_IDLE_TIMEOUT=5000
+      - REDIS_MAX_CONN_LIFETIME=3600
+      - REDIS_CONNECT_TIMEOUT=5000
+      - REDIS_READ_TIMEOUT=10000
+      - REDIS_WRITE_TIMEOUT=10000
+      - WORKER_POOL_SIZE=500
+      - MAX_WORKER_TASK_LEN=1000
+      - WEB_DOMAIN=localhost:1238
+      - WEB_TASK_NAME=
+      - WEB_TASK_APP_NUMBER=
+      - NEWS_SYN_WXID=true
+      - DT=true
+      - MYSQL_HOST=${DB_HOST}
+      - MYSQL_PORT=${DB_PORT}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_CONNECT_STR=${DB_USERNAME}:${DB_PASSWORD}@tcp(${DB_HOST}:${DB_PORT})/${DB_DATABASE}?charset=utf8mb4&parseTime=true&loc=Local
+      - REDIS_PASS=${REDIS_PASSWORD}

@@ -1,0 +1,32 @@
+additionalProperties:
+  formFields:
+    - default: "/home/openclaw"
+      edit: true
+      envKey: OPENCLAW_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 18789
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 18790
+      edit: true
+      envKey: PANEL_APP_PORT_RPC
+      labelZh: RPC 端口
+      labelEn: RPC port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: false
+      envKey: OPENCLAW_GATEWAY_TOKEN
+      labelZh: 网关 token
+      labelEn: Gateway token
+      required: true
+      type: password

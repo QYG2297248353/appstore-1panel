@@ -1,0 +1,26 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  slink:
+    image: anirdev/slink:v1.12.3
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3000
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${SLINK_ROOT_PATH}/data:/app/var/data
+      - ${SLINK_ROOT_PATH}/images:/app/slink/images
+    environment:
+      - USER_PASSWORD_MIN_LENGTH=8
+      - USER_PASSWORD_REQUIREMENTS=15
+      - IMAGE_MAX_SIZE=15M
+      - STORAGE_PROVIDER=local

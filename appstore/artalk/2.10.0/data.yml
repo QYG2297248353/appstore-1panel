@@ -1,0 +1,187 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_DB_HOST
+        required: true
+        type: service
+      default: postgresql
+      envKey: PANEL_DB_TYPE
+      labelZh: 数据库服务 (前置检查)
+      labelEn: Database Service
+      required: true
+      type: apps
+      values:
+        - label: PostgreSQL
+          value: postgresql
+        - label: MySQL
+          value: mysql
+        - label: MariaDB
+          value: mariadb
+        - label: Percona
+          value: percona
+    - default: "/home/artalk"
+      edit: true
+      envKey: ARTALK_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 23366
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: API 端口
+      labelEn: API Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: ATK_APP_KEY
+      labelZh: 应用密钥
+      labelEn: App key
+      required: true
+      type: password
+    - default: "admin"
+      edit: true
+      envKey: ATK_ADMIN_USERS_0_NAME
+      labelZh: 管理员用户名
+      labelEn: Admin username
+      required: true
+      type: text
+    - default: "admin@admin.com"
+      edit: true
+      envKey: ATK_ADMIN_USERS_0_EMAIL
+      labelZh: 管理员邮箱
+      labelEn: Admin email
+      required: true
+      type: text
+    - default: "(bcrypt)$2y$10$ti4vZYIrxVN8rLcYXVgXCO.GJND0dyI49r7IoF3xqIx8bBRmIBZRm"
+      edit: true
+      envKey: ATK_ADMIN_USERS_0_PASSWORD
+      labelZh: 管理员密码
+      labelEn: Admin password
+      required: true
+      type: text
+    - default: "管理员"
+      edit: true
+      envKey: ATK_ADMIN_USERS_0_BADGE_NAME
+      labelZh: 管理员徽章名称
+      labelEn: Admin badge name
+      required: true
+      type: text
+    - default: "#0083FF"
+      edit: true
+      envKey: ATK_ADMIN_USERS_0_BADGE_COLOR
+      labelZh: 管理员徽章颜色
+      labelEn: Admin badge color
+      required: true
+      type: text
+    - default: "Artalk 的博客"
+      edit: true
+      envKey: ATK_SITE_DEFAULT
+      labelZh: 站点名称
+      labelEn: Site name
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: ATK_TRUSTED_DOMAINS
+      labelZh: 受信任的域名 (多个域名用空格分隔)
+      labelEn: Trusted domains (separated by spaces)
+      required: true
+      type: text
+    - default: 259200
+      edit: true
+      envKey: ATK_LOGIN_TIMEOUT
+      labelZh: 登录超时时间 (秒)
+      labelEn: Login timeout (seconds)
+      required: true
+      type: number
+    - default: "zh-CN"
+      edit: true
+      envKey: ATK_LOCALE
+      labelZh: 站点语言
+      labelEn: Site language
+      required: true
+      type: select
+      values:
+        - label: 简体中文
+          value: "zh-CN"
+        - label: English
+          value: "en"
+        - label: 繁体中文
+          value: "zh-TW"
+        - label: 日本語
+          value: "ja"
+        - label: Français
+          value: "fr"
+        - label: Deutsch
+          value: "ko"
+        - label: Русский
+          value: "ru"
+    - default: "province"
+      edit: true
+      envKey: ATK_IP_REGION_PRECISION
+      labelZh: IP 地址精度
+      labelEn: IP address precision
+      required: true
+      type: select
+      values:
+        - label: 国家
+          value: "country"
+        - label: 省份
+          value: "province"
+        - label: 城市
+          value: "city"
+    - default: "pgsql"
+      edit: true
+      envKey: ATK_DB_TYPE
+      labelZh: 数据库 类型
+      labelEn: Database Type
+      required: true
+      type: select
+      values:
+        - label: PostgreSQL
+          value: "pgsql"
+        - label: MySQL (MariaDB, Percona)
+          value: "mysql"
+    - default: "127.0.0.1"
+      edit: true
+      envKey: ATK_DB_HOST
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: 5432
+      edit: true
+      envKey: ATK_DB_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "artalk"
+      edit: true
+      envKey: ATK_DB_NAME
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      rule: paramCommon
+      type: text
+    - default: "artalk"
+      edit: true
+      envKey: ATK_DB_USER
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: ATK_DB_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password

@@ -1,0 +1,29 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  nezha-dash:
+    container_name: nezha-dash
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - DefaultLocale=zh
+    - ForceShowAllServers=false
+    - NEXT_PUBLIC_NezhaFetchInterval=5000
+    - NEXT_PUBLIC_ShowFlag=true
+    - NEXT_PUBLIC_DisableCartoon=false
+    - NEXT_PUBLIC_ShowTag=true
+    - NEXT_PUBLIC_ShowNetTransfer=false
+    - NEXT_PUBLIC_ForceUseSvgFlag=false
+    - NEXT_PUBLIC_CustomLogo=https://nezha-cf.buycoffee.top/apple-touch-icon.png
+    - NEXT_PUBLIC_CustomTitle=NezhaDash
+    - NEXT_PUBLIC_CustomDescription=NezhaDash is a dashboard for Nezha.
+    image: hamster1963/nezha-dash:v3.1.12
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:3000
+    restart: always

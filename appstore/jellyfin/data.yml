@@ -1,0 +1,19 @@
+additionalProperties:
+  key: jellyfin
+  name: JellyFin
+  tags:
+    - WebSite
+    - Media
+    - Local
+  shortDescZh: 多媒体应用程序软件套装
+  shortDescEn: A multimedia application software suite
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://jellyfin.org/
+  github: https://github.com/jellyfin/jellyfin
+  document: https://jellyfin.org/docs/
+  architectures:
+    - amd64
+    - arm
+    - arm64

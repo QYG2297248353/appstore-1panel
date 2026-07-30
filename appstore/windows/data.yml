@@ -1,0 +1,17 @@
+additionalProperties:
+  key: windows
+  name: Windows 系统
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: Docker 容器内的 Windows
+  shortDescEn: Windows in Docker container
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.microsoft.com/
+  github: https://github.com/dockur/windows/
+  document: https://www.microsoft.com/
+  architectures:
+    - amd64
+    - arm64

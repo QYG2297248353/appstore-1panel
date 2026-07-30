@@ -1,0 +1,17 @@
+additionalProperties:
+  formFields:
+    - default: 7070
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: Port
+      labelZh: 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: "/home/yarr"
+      edit: true
+      envKey: YARR_ROOT_PATH
+      labelEn: Root Path
+      labelZh: 数据持久化 根路径
+      required: true
+      type: text

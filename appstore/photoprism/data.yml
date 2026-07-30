@@ -1,0 +1,18 @@
+additionalProperties:
+  key: photoprism
+  name: PhotoPrism
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: 面向去中心化网络的人工智能照片应用程序
+  shortDescEn: 面向去中心化网络的人工智能照片应用程序
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.photoprism.app/
+  github: https://github.com/photoprism/photoprism/
+  document: https://docs.photoprism.app/
+  architectures:
+    - amd64
+    - arm64

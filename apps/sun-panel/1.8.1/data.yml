@@ -1,0 +1,17 @@
+additionalProperties:
+  formFields:
+    - default: "/home/sun-panel"
+      edit: true
+      envKey: SUN_PANEL_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3002
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: 访问端口
+      labelEn: Port
+      required: true
+      rule: paramPort
+      type: number

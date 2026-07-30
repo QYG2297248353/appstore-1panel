@@ -1,0 +1,70 @@
+networks:
+  1panel-network:
+    external: true
+  paopao-network:
+    driver: bridge
+
+services:
+  paopao-db:
+    image: mysql:${MYSQL_TAG:-8.0}
+    networks:
+      - paopao-network
+    container_name: db-${CONTAINER_NAME}
+    expose:
+      - 3306
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-paopao}
+      MYSQL_USER: ${MYSQL_USER:-paopao}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-paopao}
+      MYSQL_RANDOM_ROOT_PASSWORD: ${MYSQL_RANDOM_ROOT_PASSWORD:-yes}
+    volumes:
+      - ${PAOPAO_CE_ROOT_PATH}/scripts/paopao-mysql.sql:/docker-entrypoint-initdb.d/paopao.sql
+      - ${PAOPAO_CE_ROOT_PATH}/mysql:/var/lib/mysql
+
+  paopao-redis:
+    image: redis/redis-stack:${REDIS_STACK_TAG:-7.2.0-v6}
+    networks:
+      - paopao-network
+    container_name: redis-${CONTAINER_NAME}
+    expose:
+      - 6379
+      - 8001
+    restart: always
+    environment:
+      REDISEARCH_ARGS: "MAXSEARCHRESULTS 5"
+
+  paopao-meili:
+    image: getmeili/meilisearch:${MEILI_TAG:-v1.5}
+    networks:
+      - paopao-network
+    container_name: meili-${CONTAINER_NAME}
+    expose:
+      - 7700
+    restart: always
+    volumes:
+      - ${PAOPAO_CE_ROOT_PATH}/meili_data:/meili_data
+    environment:
+      - MEILI_MASTER_KEY=${MEILI_MASTER_KEY:-paopao-meilisearch}
+
+  paopao-ce:
+    image: bitbus/paopao-ce:0.5.2
+    container_name: ${CONTAINER_NAME}
+    depends_on:
+      - paopao-db
+      - paopao-redis
+      - paopao-meili
+    labels:
+      createdBy: "Apps"
+    networks:
+      - 1panel-network
+      - paopao-network
+    restart: always
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8008
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${PAOPAO_CE_ROOT_PATH}/config/config.yaml:/app/paopao-ce/config.yaml
+      - ${PAOPAO_CE_ROOT_PATH}/custom:/app/paopao-ce/custom

@@ -1,0 +1,29 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  splayer:
+    container_name: splayer
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - ENABLE_HTTPDNS=false
+    - BLOCK_ADS=true
+    - DISABLE_UPGRADE_CHECK=false
+    - DEVELOPMENT=false
+    - FOLLOW_SOURCE_ORDER=true
+    - JSON_LOG=false
+    - NO_CACHE=false
+    - SELECT_MAX_BR=true
+    - LOG_LEVEL=info
+    - SEARCH_ALBUM=true
+    image: imsyy/splayer:latest
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:25884
+    restart: always

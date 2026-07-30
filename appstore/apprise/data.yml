@@ -1,0 +1,17 @@
+additionalProperties:
+  key: apprise
+  name: Apprise
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 适用于几乎所有平台的推送通知
+  shortDescEn: Push Notifications that work with just about every platform
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://appriseit.com/
+  github: https://github.com/caronc/apprise
+  document: https://appriseit.com/
+  architectures:
+    - amd64
+    - arm64

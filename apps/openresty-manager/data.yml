@@ -1,0 +1,17 @@
+additionalProperties:
+  key: openresty-manager
+  name: OpenResty 管理器
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 主机管理面板
+  shortDescEn: Host management panel
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://om.uusec.com/
+  github: https://github.com/Safe3/openresty-manager/
+  document: https://om.uusec.com/
+  architectures:
+    - amd64
+    - arm64

@@ -1,0 +1,21 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  surveyking:
+    container_name: surveyking-h2
+    env_file:
+    - ./envs/global.env
+    - .env
+    image: surveyking/surveyking:v1.12.0
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:1991
+    restart: always
+    volumes:
+    - ${SURVEYKING_ROOT_PATH}/db:/app/db
+    - ${SURVEYKING_ROOT_PATH}/files:/app/files
+    - ${SURVEYKING_ROOT_PATH}/logs:/app/logs

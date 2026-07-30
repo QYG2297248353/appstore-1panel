@@ -1,0 +1,67 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  archivebox:
+    image: archivebox/archivebox:0.8.5rc9
+    depends_on:
+      - archivebox-init
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8000
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${ARCHIVEBOX_ROOT_PATH}/data:/data
+    environment:
+      - TZ=Asia/Shanghai
+      - ALLOWED_HOSTS=*
+      - CSRF_TRUSTED_ORIGINS=http://localhost:8000
+      - SEARCH_BACKEND_ENGINE=sonic
+      - SEARCH_BACKEND_HOST_NAME=archivebox-sonic
+      - SEARCH_BACKEND_PASSWORD=${ADMIN_PASSWORD:-}
+
+  archivebox-init:
+    image: archivebox/archivebox:0.8.5rc9
+    container_name: init-${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    networks:
+      - 1panel-network
+    command: archivebox init
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${ARCHIVEBOX_ROOT_PATH}/data:/data
+    environment:
+      - TZ=Asia/Shanghai
+      - ALLOWED_HOSTS=*
+      - CSRF_TRUSTED_ORIGINS=http://localhost:8000
+      - SEARCH_BACKEND_ENGINE=sonic
+      - SEARCH_BACKEND_HOST_NAME=archivebox-sonic
+      - SEARCH_BACKEND_PASSWORD=${ADMIN_PASSWORD:-}
+
+  archivebox-sonic:
+    image: archivebox/sonic:latest
+    container_name: sonic-${CONTAINER_NAME}
+    restart: always
+    networks:
+      - 1panel-network
+    expose:
+      - 1491
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${ARCHIVEBOX_ROOT_PATH}/sonic:/var/lib/sonic/store
+    environment:
+      - TZ=Asia/Shanghai
+      - SEARCH_BACKEND_PASSWORD=${ADMIN_PASSWORD:-}

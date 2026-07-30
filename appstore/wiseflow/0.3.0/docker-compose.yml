@@ -1,0 +1,28 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  wiseflow:
+    container_name: wiseflow
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - LANG=zh_CN.UTF-8
+    - LC_ALL=zh_CN.UTF-8
+    - WS_LOG=verbose
+    image: qyg2297248353/wiseflow:v0.3.0
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8090
+    - ${PANEL_APP_PORT_BACKEND}:8077
+    restart: always
+    stdin_open: true
+    tty: true
+    volumes:
+    - ${WISEFLOW_ROOT_PATH}/pb_data:/app/pb/pb_data
+    - ${WISEFLOW_ROOT_PATH}/data:/app/works_data

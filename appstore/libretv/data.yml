@@ -1,0 +1,18 @@
+additionalProperties:
+  key: libretv
+  name: LibreTV
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 免费在线视频搜索与观看平台
+  shortDescEn: Free online video search and viewing platform
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://libretv.is-an.org/
+  github: https://github.com/LibreSpark/LibreTV/
+  document: https://libretv.is-an.org/
+  architectures:
+    - amd64
+    - arm
+    - arm64

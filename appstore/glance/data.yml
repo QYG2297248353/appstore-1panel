@@ -1,0 +1,18 @@
+additionalProperties:
+  key: glance
+  name: Glance
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 一个自托管的仪表板，将所有您的订阅源放在一个地方
+  shortDescEn: A self-hosted dashboard that puts all your feeds in one place
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/glanceapp/glance/
+  github: https://github.com/glanceapp/glance/
+  document: https://github.com/glanceapp/glance/
+  architectures:
+    - amd64
+    - arm
+    - arm64

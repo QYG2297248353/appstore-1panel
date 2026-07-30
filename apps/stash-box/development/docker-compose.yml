@@ -1,0 +1,33 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  stash-box:
+    image: stashapp/stash-box:development
+    container_name: ${CONTAINER_NAME}
+    labels:
+      - createdBy=Apps
+      - traefik.http.routers.stash-box.rule=Host(`<DOMAIN>`)
+      - traefik.http.routers.stash-box.tls=true
+      - traefik.http.routers.stash-box.tls.certresolver=stash-box
+      - traefik.port=9998
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "10"
+        max-size: "2m"
+    volumes:
+      - ${STASH_BOX_ROOT_PATH}/data:/root/.stash-box
+    environment:
+      - HTTPS_PROXY=${HTTP_PROXY}
+      - HTTP_PROXY=${HTTP_PROXY:-}
+      - NO_PROXY=${NO_PROXY:-}

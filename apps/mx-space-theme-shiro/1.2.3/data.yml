@@ -1,0 +1,45 @@
+additionalProperties:
+  formFields:
+    - default: "/home/mx-space-shiro"
+      edit: true
+      envKey: MX_SERVER_SHIRO_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 2323
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "http://127.0.0.1:2333/api/v2"
+      edit: true
+      envKey: NEXT_PUBLIC_API_URL
+      labelZh: API 地址
+      labelEn: API URL
+      required: true
+      type: text
+    - default: "http://127.0.0.1:2333/"
+      edit: true
+      envKey: NEXT_PUBLIC_GATEWAY_URL
+      labelZh: 网关地址
+      labelEn: Gateway URL
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: TMDB_API_KEY
+      labelZh: TMDB API KEY
+      labelEn: TMDB API KEY
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: GH_TOKEN
+      labelZh: Github Token
+      labelEn: Github Token
+      required: false
+      type: text

@@ -1,0 +1,171 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_POSTGRES_SERVICE
+        required: true
+        type: service
+      default: postgresql
+      envKey: PANEL_POSTGRES_TYPE
+      labelZh: Postgres 服务 (前置检查)
+      labelEn: Postgres Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: PostgreSQL
+          value: postgresql
+    - default: "/home/readeck"
+      edit: true
+      envKey: READECK_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "127.0.0.1"
+      edit: true
+      envKey: POSTGRES_HOST
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: 5432
+      edit: true
+      envKey: POSTGRES_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "readeck"
+      edit: true
+      envKey: POSTGRES_NAME
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      rule: paramCommon
+      type: text
+    - default: "readeck"
+      edit: true
+      envKey: POSTGRES_USER
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: POSTGRES_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: "/"
+      edit: true
+      envKey: READECK_SERVER_PREFIX
+      labelZh: 前缀路径
+      labelEn: Prefix path
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: READECK_ALLOWED_HOSTS
+      labelZh: HTTP 请求中允许的主机名列表
+      labelEn: HTTP request allowed host name list
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: READECK_SERVER_BASE_URL
+      labelZh: 绑定域名
+      labelEn: Binding domain
+      required: false
+      type: text
+    - default: 24
+      edit: true
+      envKey: READECK_PUBLIC_SHARE_TTL
+      labelZh: 分享有效期
+      labelEn: Share validity period
+      required: true
+      type: number
+    - default: "smtp.qq.com"
+      edit: true
+      envKey: READECK_MAIL_HOST
+      labelZh: 邮件服务器
+      labelEn: Mail Server
+      required: false
+      type: text
+    - default: 465
+      edit: true
+      envKey: READECK_MAIL_PORT
+      labelZh: 邮件服务器 端口
+      labelEn: Mail Server Port
+      required: false
+      type: number
+    - default: ""
+      edit: true
+      envKey: READECK_MAIL_USERNAME
+      labelZh: 邮件鉴权 用户名
+      labelEn: Mail Username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: READECK_MAIL_PASSWORD
+      labelZh: 邮件鉴权 密码
+      labelEn: Mail Password
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: READECK_MAIL_FROM
+      labelZh: 邮件发送者
+      labelEn: Mail Sender
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: READECK_MAIL_FROMNOREPLY
+      labelZh: 邮件发送者 (无回复)
+      labelEn: Mail Sender (No Reply)
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: READECK_MAIL_INSECURE
+      labelZh: 服务器证书验证
+      labelEn: Server certificate verification
+      required: false
+      type: select
+      values:
+        - label: 不验证
+          value: "true"
+        - label: 验证
+          value: "false"
+    - default: ""
+      edit: true
+      envKey: READECK_MAIL_ENCRYPTION
+      labelZh: SMTP 主机 加密方式
+      labelEn: SMTP Host Encryption Method
+      required: false
+      type: select
+      values:
+        - label: StartTLS
+          value: "starttls"
+        - label: SSL/TLS
+          value: "ssltls"
+    - default: ""
+      edit: true
+      envKey: HTTP_PROXY
+      labelZh: 网络代理
+      labelEn: Network proxy
+      required: false
+      type: text

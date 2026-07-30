@@ -1,0 +1,18 @@
+additionalProperties:
+  key: kimai
+  name: Kimai
+  tags:
+    - WebSite
+    - Middleware
+    - Local
+  shortDescZh: 基于网络的多用户时间追踪应用
+  shortDescEn: Web-based multi-user time tracking application
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.kimai.org/
+  github: https://github.com/kimai/kimai/
+  document: https://www.kimai.org/documentation/
+  architectures:
+    - amd64
+    - arm64

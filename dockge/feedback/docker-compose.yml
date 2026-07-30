@@ -1,0 +1,21 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  feedback:
+    container_name: feedback
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - MYSQL_URL=jdbc:mariadb://${DB_HOSTNAME}:${DB_PORT}/${DB_NAME}?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    image: q2316367743/feedback:1.0.5
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8080
+    restart: always
+    volumes:
+    - ${FEEDBACK_ROOT_PATH}/data:/app/public/data

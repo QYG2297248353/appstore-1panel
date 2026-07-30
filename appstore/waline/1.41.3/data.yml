@@ -1,0 +1,121 @@
+additionalProperties:
+  formFields:
+    - default: "/home/waline"
+      edit: true
+      envKey: WALINE_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8360
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "mail@example.com"
+      edit: true
+      envKey: AUTHOR_EMAIL
+      labelZh: 站长邮箱
+      labelEn: Author email
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: JWT_TOKEN
+      labelZh: JWT 令牌
+      labelEn: JWT token
+      required: true
+      type: text
+    - default: "Waline"
+      edit: true
+      envKey: SITE_NAME
+      labelZh: 网站名称
+      labelEn: Site name
+      required: true
+      type: text
+    - default: "http://127.0.0.1:8360"
+      edit: true
+      envKey: SITE_URL
+      labelZh: 网站地址
+      labelEn: Site URL
+      required: true
+      type: text
+    - default: "https://avatar.75cdn.workers.dev"
+      edit: true
+      envKey: AVATAR_PROXY
+      labelZh: 头像代理
+      labelEn: Avatar proxy
+      required: true
+      type: text
+    - default: "https://seccdn.libravatar.org/avatar/{{mail|md5}}"
+      edit: true
+      envKey: GRAVATAR_STR
+      labelZh: Gravatar 地址模板
+      labelEn: Gravatar address template
+      required: true
+      type: text
+    - default: "0,10,20,50,100,200"
+      edit: true
+      envKey: LEVELS
+      labelZh: 等级标签
+      labelEn: Level tags
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: DISABLE_USERAGENT
+      labelZh: 隐藏 UserAgent
+      labelEn: Hide UserAgent
+      required: true
+      type: select
+      values:
+        - label: 是
+          value: "true"
+        - label: 否
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: DISABLE_REGION
+      labelZh: 隐藏 归属地
+      labelEn: Hide Region
+      required: true
+      type: select
+      values:
+        - label: 是
+          value: "true"
+        - label: 否
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: DISABLE_AUTHOR_NOTIFY
+      labelZh: 关闭新评论通知
+      labelEn: Disable new comment notification
+      required: true
+      type: select
+      values:
+        - label: 是
+          value: "true"
+        - label: 否
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: COMMENT_AUDIT
+      labelZh: 评论审核
+      labelEn: Comment audit
+      required: true
+      type: select
+      values:
+        - label: 是
+          value: "true"
+        - label: 否
+          value: "false"
+    - default: 60
+      edit: true
+      envKey: IPQPS
+      labelZh: 评论频率限制 (基于IP)
+      labelEn: Comment frequency limit (based on IP)
+      required: true
+      type: number

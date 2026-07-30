@@ -1,0 +1,19 @@
+additionalProperties:
+  key: excalidraw
+  name: Excalidraw
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: 用于绘制手绘图表的虚拟白板
+  shortDescEn: Virtual whiteboard for sketching hand-drawn like diagrams
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://excalidraw.com/
+  github: https://github.com/excalidraw/excalidraw/
+  document: https://excalidraw.com/
+  architectures:
+    - amd64
+    - arm
+    - arm64

@@ -1,0 +1,168 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_POSTGRES_SERVICE
+        required: true
+        type: service
+      default: postgresql
+      envKey: PANEL_POSTGRES_TYPE
+      labelZh: Postgres 服务 (前置检查)
+      labelEn: Postgres Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: PostgreSQL
+          value: postgresql
+    - default: "/home/linkding"
+      edit: true
+      envKey: LINKDING_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 9090
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: LD_SUPERUSER_NAME
+      labelZh: 管理员 用户名
+      labelEn: Superuser name
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: LD_SUPERUSER_PASSWORD
+      labelZh: 管理员 密码
+      labelEn: Superuser password
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: "False"
+      edit: true
+      envKey: LD_DISABLE_BACKGROUND_TASKS
+      labelZh: 禁用后台任务
+      labelEn: Disable background tasks
+      required: true
+      type: select
+      values:
+        - label: 禁用
+          value: "False"
+        - label: 启用
+          value: "True"
+    - default: "False"
+      edit: true
+      envKey: LD_DISABLE_URL_VALIDATION
+      labelZh: 禁用 URL 验证
+      labelEn: Disable URL validation
+      required: true
+      type: select
+      values:
+        - label: 禁用
+          value: "False"
+        - label: 启用
+          value: "True"
+    - default: 60
+      edit: true
+      envKey: LD_REQUEST_TIMEOUT
+      labelZh: 请求超时时间 (秒)
+      labelEn: Request timeout (seconds)
+      required: true
+      type: number
+    - default: ""
+      edit: true
+      envKey: LD_CONTEXT_PATH
+      labelZh: 网站路径
+      labelEn: Context path
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: LD_LOG_X_FORWARDED_FOR
+      labelZh: 记录真实 IP
+      labelEn: Log real IP
+      required: true
+      type: select
+      values:
+        - label: 禁用
+          value: "false"
+        - label: 启用
+          value: "true"
+    - default: "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url={url}&size=32"
+      edit: true
+      envKey: LD_FAVICON_PROVIDER
+      labelZh: 网站图标提供商
+      labelEn: Favicon provider
+      required: true
+      type: text
+    - default: "localhost"
+      edit: true
+      envKey: LD_DB_HOST
+      labelZh: 数据库 主机
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: 5432
+      edit: true
+      envKey: LD_DB_PORT
+      labelEn: Database Port
+      labelZh: 数据库 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: "linkding"
+      edit: true
+      envKey: LD_DB_USER
+      labelZh: 数据库 用户名
+      labelEn: Database User
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: LD_DB_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      required: true
+      type: password
+    - default: "linkding"
+      edit: true
+      envKey: LD_DB_DATABASE
+      labelZh: 数据库名称
+      labelEn: Database Name
+      required: true
+      type: text
+    - default: "{}"
+      edit: true
+      envKey: LD_DB_OPTIONS
+      labelZh: 数据库选项 (JSON)
+      labelEn: Database Options (JSON)
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: LD_CSRF_TRUSTED_ORIGINS
+      labelZh: CSRF 可信来源
+      labelEn: CSRF trusted origins
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: ALL_PROXY
+      labelZh: 代理地址
+      labelEn: Proxy address
+      required: false
+      rule: paramExtUrl
+      type: text
+    - default: "localhost,127.0.0.1,::1"
+      edit: true
+      envKey: NO_PROXY
+      labelZh: 代理白名单
+      labelEn: Proxy whitelist
+      required: false
+      type: text

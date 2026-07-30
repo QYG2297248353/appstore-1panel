@@ -1,0 +1,30 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  xunlei-cnk3x:
+    container_name: xunlei-cnk3x
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - XL_UID=0
+    - XL_GID=0
+    - XL_DASHBOARD_PORT=2345
+    - XL_DASHBOARD_IP=0.0.0.0
+    - XL_DIR_DOWNLOAD=/xunlei/downloads
+    - XL_DIR_DATA=/xunlei/data
+    - XL_PREVENT_UPDATE=true
+    - XL_DEBUG=false
+    image: cnk3x/xunlei:v3.20.2
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:2345
+    privileged: true
+    restart: always
+    volumes:
+    - ${XUNLEI_ROOT_PATH}/data:/xunlei/data
+    - ${XUNLEI_ROOT_PATH}/downloads:/xunlei/downloads

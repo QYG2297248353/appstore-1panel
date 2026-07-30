@@ -1,0 +1,17 @@
+additionalProperties:
+  key: dujiaonext
+  name: 独角Dujiao-Next
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 拥抱现代化开源数字商品销售系统
+  shortDescEn: Embrace the Modern Open-Source Digital Goods Sales System
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://dujiao-next.com/
+  github: https://github.com/dujiao-next/
+  document: https://dujiao-next.com/
+  architectures:
+    - amd64
+    - arm64

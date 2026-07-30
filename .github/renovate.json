@@ -1,0 +1,404 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "forkProcessing": "enabled",
+  "rebaseWhen": "never",
+  "prConcurrentLimit": 30,
+  "enabledManagers": [
+    "docker-compose",
+    "github-actions"
+  ],
+  "gitIgnoredAuthors": [
+    "githubaction@githubaction.com"
+  ],
+  "ignorePaths": [
+    "appstore/**",
+    "dockge/**",
+    "**/tangsengdaodao/**",
+    "**/apifox-runner/**",
+    "**/topiam-ce/**",
+    "**/dify/**",
+    "**/auto-lady/**",
+    "**/alist/**",
+    "**/alist-aria2/**",
+    "**/alist-ffmpeg/**",
+    "**/homarr/0.15.10/**",
+    "**/minio/2025-04-22/**",
+    "**/transmission/2.94/**",
+    "**/rustfs/1.0.0-alpha.86/**"
+  ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "patch",
+        "minor"
+      ],
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true,
+      "automergeStrategy": "squash",
+      "prCreation": "immediate"
+    },
+    {
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "automerge": false
+    },
+    {
+      "matchFileNames": [
+        "apps/postgresql/pg*/*.yml"
+      ],
+      "allowedVersions": "/^pg(12|13|14|15|16)*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/postgresql-postgis/16-*/*.yml"
+      ],
+      "allowedVersions": "/^16-*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/postgresql-postgis/17-*/*.yml"
+      ],
+      "allowedVersions": "/^17-*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/postgresql/16.*/*.yml"
+      ],
+      "allowedVersions": "/^16.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/postgresql/17.*/*.yml"
+      ],
+      "allowedVersions": "/^17.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/redis/6.*/*.yml"
+      ],
+      "allowedVersions": "/^6.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/redis/7.*/*.yml"
+      ],
+      "allowedVersions": "/^7.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/mysql/5.6.*/*.yml"
+      ],
+      "allowedVersions": "/^5.6.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/mysql/5.7.*/*.yml"
+      ],
+      "allowedVersions": "/^5.7.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/mysql/8.0.*/*.yml"
+      ],
+      "allowedVersions": "/^8.0.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/mysql/8.4.*/*.yml"
+      ],
+      "allowedVersions": "/^8.4.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/movie-pilot/2.7.3/*.yml"
+      ],
+      "allowedVersions": "/^2.7.3/"
+    },
+    {
+      "matchFileNames": [
+        "apps/movie-pilot/2.7.9/*.yml"
+      ],
+      "allowedVersions": "/^2.7.9/"
+    },
+    {
+      "matchFileNames": [
+        "apps/qbittorrent/4.*.*/*.yml"
+      ],
+      "allowedVersions": "/^4.*.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/qbittorrent/5.*.*/*.yml"
+      ],
+      "allowedVersions": "/^5.*.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/transmission/4.*.*/*.yml"
+      ],
+      "allowedVersions": "/^4.*.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/baota/9.*/*.yml"
+      ],
+      "allowedVersions": "/^9.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/emby/4.8.*/*.yml"
+      ],
+      "allowedVersions": "/^4\\.8\\.\\d+\\.\\d+$/"
+    },
+    {
+      "matchFileNames": [
+        "apps/emby/4.9.*/*.yml"
+      ],
+      "allowedVersions": "/^4\\.9\\.\\d+\\.\\d+$/"
+    },
+    {
+      "matchFileNames": [
+        "apps/emby-amilys/4.8.*/*.yml"
+      ],
+      "allowedVersions": "/^4\\.8\\.\\d+\\.\\d+$/"
+    },
+    {
+      "matchFileNames": [
+        "apps/emby-amilys/4.9.*/*.yml"
+      ],
+      "allowedVersions": "/^4\\.9\\.\\d+\\.\\d+$/"
+    },
+    {
+      "matchPackageNames": [
+        "photoprism/photoprism"
+      ],
+      "versioning": "regex:^(?<major>\\d{2})(?<minor>\\d{2})(?<patch>\\d{2})$"
+    },
+    {
+      "matchPackageNames": [
+        "btpanel/baota"
+      ],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)"
+    },
+    {
+      "versioning": "regex:^RELEASE\\.(?<major>\\d{4})-(?<minor>\\d{2})-(?<patch>\\d{2}).*Z$",
+      "matchPackageNames": [
+        "/^minio/"
+      ]
+    },
+    {
+      "versioning": "regex:^(?<major>\\d{4})-(?<minor>\\d{2})-(?<patch>\\d{2})$",
+      "matchPackageNames": [
+        "/^diygod/rsshub/"
+      ]
+    },
+    {
+      "matchFileNames": [
+        "apps/jellyfin/10.9.*/*.yml"
+      ],
+      "allowedVersions": "<10.10"
+    },
+    {
+      "matchFileNames": [
+        "apps/jellyfin/10.10.*/*.yml"
+      ],
+      "allowedVersions": ">=10.10"
+    },
+    {
+      "matchFileNames": [
+        "apps/uptime-kuma/1.*/*.yml"
+      ],
+      "allowedVersions": "<2.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/uptime-kuma/2.*/*.yml"
+      ],
+      "allowedVersions": ">=2.0"
+    },
+    {
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d{1,2})$",
+      "matchPackageNames": [
+        "linuxserver/bookstack"
+      ]
+    },
+    {
+      "matchFileNames": [
+        "apps/nacos/2.4.*/*.yml"
+      ],
+      "allowedVersions": "<2.5"
+    },
+    {
+      "matchFileNames": [
+        "apps/nacos/2.5.*/*.yml"
+      ],
+      "allowedVersions": "<3.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/nacos/3.*.*/*.yml"
+      ],
+      "allowedVersions": ">=3.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/nodepassdash/2.*.*/*.yml"
+      ],
+      "allowedVersions": "/^2.*.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/immich*/1.*.*/*.yml"
+      ],
+      "allowedVersions": "<2.0.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/immich*/2.*.*/*.yml"
+      ],
+      "allowedVersions": "<3.0.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/umami/2.16.0/*.yml"
+      ],
+      "allowedVersions": "<=2.16.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/umami/2.20.0/*.yml"
+      ],
+      "allowedVersions": "<=2.20.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/umami-mysql/2.16.0/*.yml"
+      ],
+      "allowedVersions": "<=2.16.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/umami-mysql/2.20.0/*.yml"
+      ],
+      "allowedVersions": "<=2.20.0"
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "enabled": false,
+      "matchPackageNames": [
+        "ghcr.io/immich-app/postgres{/,}**"
+      ]
+    },
+    {
+      "matchFileNames": [
+        "apps/elastic*/8.*.*/*.yml"
+      ],
+      "allowedVersions": "<9.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/elastic*/9.*.*/*.yml"
+      ],
+      "allowedVersions": ">=9.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/ani-rss/1.*.*/*.yml"
+      ],
+      "allowedVersions": "<2.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/ani-rss/2.*.*/*.yml"
+      ],
+      "allowedVersions": "<4.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/ani-rss/3.*.*/*.yml"
+      ],
+      "allowedVersions": "<4.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/maxkb/1.*.*/*.yml"
+      ],
+      "allowedVersions": "<2.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/maxkb/2.*.*/*.yml"
+      ],
+      "allowedVersions": ">=2.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/homarr/0.*.*/*.yml"
+      ],
+      "allowedVersions": "<1.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/homarr/1.*.*/*.yml"
+      ],
+      "allowedVersions": ">=1.0"
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "prom/prometheus"
+      ],
+      "matchCurrentVersion": "v2.21.0",
+      "matchFileNames": [
+        "apps/seaweedfs/**/docker-compose.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "matchFileNames": [
+        "apps/mediacms/4.*.*/*.yml"
+      ],
+      "allowedVersions": "/^4.*.*/"
+    },
+    {
+      "matchFileNames": [
+        "apps/lucky/2.20.*/*.yml"
+      ],
+      "allowedVersions": "<2.23.1"
+    },
+    {
+      "matchFileNames": [
+        "apps/outline/1.2.*/*.yml"
+      ],
+      "allowedVersions": "<1.3.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/lucky/2.*.*/*.yml"
+      ],
+      "allowedVersions": "<3.0.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/ech0/3.*.*/*.yml"
+      ],
+      "allowedVersions": "<4.0.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/omnibox/1.*.*/*.yml"
+      ],
+      "allowedVersions": "<2.0.0"
+    }
+  ],
+  "prCreation": "immediate"
+}

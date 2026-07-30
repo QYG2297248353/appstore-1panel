@@ -1,0 +1,33 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  weblate:
+    container_name: weblate
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - WEBLATE_TIME_ZONE=Asia/Shanghai
+    - WEBLATE_WORKERS=2
+    - WEBLATE_DEBUG=0
+    - WEBLATE_LOGLEVEL=INFO
+    - WEBLATE_ALLOWED_HOSTS=*
+    - POSTGRES_DATABASE=weblate
+    - CLIENT_MAX_BODY_SIZE=200M
+    image: weblate/weblate:5.17.1.0
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8080
+    read_only: true
+    restart: always
+    tmpfs:
+    - /run
+    - /tmp
+    volumes:
+    - ${WEBLATE_ROOT_PATH}/data:/app/data
+    - ${WEBLATE_ROOT_PATH}/cache:/app/cache

@@ -1,0 +1,17 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  cyberchef:
+    container_name: cyberchef
+    env_file:
+    - ./envs/global.env
+    - .env
+    image: ghcr.io/gchq/cyberchef:11.3.0
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:80
+    restart: always

@@ -1,0 +1,24 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  ikaros:
+    container_name: ikaros
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - PUID=0
+    - PGID=0
+    - TZ=Asia/Shanghai
+    image: suwmlee/ikaros:2.6.1
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:12346
+    restart: always
+    volumes:
+    - ${IKAROS_ROOT_PATH}/media:/media
+    - ${IKAROS_ROOT_PATH}/data:/app/data

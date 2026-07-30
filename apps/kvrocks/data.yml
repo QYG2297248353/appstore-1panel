@@ -1,0 +1,19 @@
+additionalProperties:
+  key: kvrocks
+  name: Kvrocks
+  tags:
+    - Database
+    - Runtime
+    - Storage
+    - Local
+  shortDescZh: 分布式键值 NoSQL 数据库
+  shortDescEn: Distributed key-value NoSQL database
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://kvrocks.apache.org/
+  github: https://github.com/apache/kvrocks/
+  document: https://kvrocks.apache.org/
+  architectures:
+    - amd64
+    - arm64

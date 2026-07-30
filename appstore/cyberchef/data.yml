@@ -1,0 +1,15 @@
+additionalProperties:
+  key: cyberchef
+  name: CyberChef
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 一个用于加密、编码、压缩和数据分析的网页应用程序
+  shortDescEn: a web app for encryption, encoding, compression and data analysis
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/gchq/CyberChef/
+  github: https://github.com/gchq/CyberChef/
+  document: https://github.com/gchq/CyberChef/
+  architectures: []

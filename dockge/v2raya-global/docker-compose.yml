@@ -1,0 +1,28 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  v2raya:
+    container_name: v2raya-global
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - V2RAYA_ADDRESS=0.0.0.0:${PANEL_APP_PORT_HTTP}
+    - V2RAYA_PLUGINLISTENPORT=${PANEL_APP_PORT_PLUGIN}
+    - IPTABLES_MODE=legacy
+    - V2RAYA_NFTABLES_SUPPORT=off
+    - V2RAYA_V2RAY_BIN=/usr/local/bin/v2ray
+    image: mzz2017/v2raya:v2.2.7.5
+    labels:
+      createdBy: Apps
+    network_mode: host
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
+    - 20170-20172:20170-20172
+    privileged: true
+    restart: always
+    volumes:
+    - ${V2RAYA_ROOT_PATH}/v2raya:/etc/v2raya
+    - /etc/resolv.conf:/etc/resolv.conf
+    - /lib/modules:/lib/modules:ro

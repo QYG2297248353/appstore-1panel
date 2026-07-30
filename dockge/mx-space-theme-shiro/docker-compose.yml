@@ -1,0 +1,22 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  mx-server-shiro:
+    container_name: mx-space-theme-shiro
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - NEXT_SHARP_PATH=/usr/local/lib/node_modules/sharp
+    image: innei/shiro:1.2.3
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:2323
+    restart: always
+    volumes:
+    - ${MX_SERVER_SHIRO_ROOT_PATH}/public:/app/public

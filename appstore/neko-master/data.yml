@@ -1,0 +1,17 @@
+additionalProperties:
+  key: neko-master
+  name: Neko Master
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 实时监控 流量审计 多网关管理
+  shortDescEn: Real-time monitoring traffic audit multi-gateway management
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/foru17/neko-master/
+  github: https://github.com/foru17/neko-master/
+  document: https://github.com/foru17/neko-master/
+  architectures:
+    - amd64
+    - arm64

@@ -1,0 +1,16 @@
+﻿additionalProperties:
+  key: paopao-ce
+  name: 泡泡(PaoPao)
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 清新文艺微社区
+  shortDescEn: An artistic "twitter like" community
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.paopao.info/
+  github: https://github.com/rocboss/paopao-ce/
+  document: https://github.com/rocboss/paopao-ce/
+  architectures:
+    - amd64

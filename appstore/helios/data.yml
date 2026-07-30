@@ -1,0 +1,17 @@
+additionalProperties:
+  key: helios
+  name: Helios (MoonTV API)
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 跨平台的影视聚合播放站
+  shortDescEn: Cross-platform video aggregation station
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/MoonTechLab/Helios/
+  github: https://github.com/MoonTechLab/Helios/
+  document: https://github.com/MoonTechLab/Helios/
+  architectures:
+    - amd64
+    - arm64

@@ -1,0 +1,19 @@
+additionalProperties:
+  key: dpanel
+  name: DPanel
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: Docker可视化管理面板
+  shortDescEn: Docker visual management panel
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://dpanel.cc/
+  github: https://github.com/donknap/dpanel/
+  document: https://dpanel.cc/
+  architectures:
+    - amd64
+    - arm
+    - arm64

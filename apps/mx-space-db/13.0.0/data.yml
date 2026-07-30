@@ -1,0 +1,31 @@
+additionalProperties:
+  formFields:
+    - default: "/home/mx-space"
+      edit: true
+      envKey: MX_SERVER_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 2333
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: JWT_SECRET
+      labelZh: JWT 密钥
+      labelEn: JWT Secret
+      required: true
+      type: text
+    - default: ",localhost"
+      edit: true
+      envKey: ALLOWED_ORIGINS
+      labelZh: 允许的访问来源
+      labelEn: 允许的访问来源
+      required: true
+      type: text

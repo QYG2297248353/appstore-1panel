@@ -1,0 +1,27 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  logto:
+    image: svhd/logto:1.42.0
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_API}:3001
+      - ${PANEL_APP_PORT_HTTP}:3002
+    entrypoint: [ "sh", "-c", "npm run cli db seed -- --swe && npm start" ]
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - ADMIN_PORT=3002
+      - TRUST_PROXY_HEADER=true
+      - CASE_SENSITIVE_USERNAME=true
+      - DB_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_NAME}

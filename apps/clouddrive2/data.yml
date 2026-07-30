@@ -1,0 +1,18 @@
+additionalProperties:
+  key: clouddrive2
+  name: CloudDrive
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 多云盘管理工具
+  shortDescEn: Multi-cloud drive management tool
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://www.clouddrive2.com/
+  github: https://www.clouddrive2.com/
+  document: https://www.clouddrive2.com/
+  architectures:
+    - amd64
+    - arm
+    - arm64

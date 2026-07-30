@@ -1,0 +1,132 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_DB_HOST
+        required: false
+        type: service
+      default: postgresql
+      envKey: PANEL_DB_TYPE
+      labelZh: 数据库服务 (前置检查)
+      labelEn: Database Service
+      required: false
+      type: apps
+      values:
+        - label: PostgreSQL
+          value: postgresql
+        - label: MySQL
+          value: mysql
+        - label: MariaDB
+          value: mariadb
+        - label: Percona
+          value: percona
+    - child:
+        default: ""
+        envKey: PANEL_REDIS_SERVICE
+        required: false
+        type: service
+      default: redis
+      envKey: PANEL_REDIS_TYPE
+      labelZh: Redis 服务 (前置检查)
+      labelEn: Redis Service (Pre-check)
+      required: false
+      type: apps
+      values:
+        - label: Redis
+          value: redis
+    - default: "/home/cloudreve"
+      edit: true
+      envKey: CLOUDREVE_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 5212
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "sqlite"
+      edit: true
+      envKey: CR_CONF_Database.Type
+      labelZh: 数据库 类型
+      labelEn: Database Type
+      required: true
+      type: select
+      values:
+        - label: PostgreSQL
+          value: postgres
+        - label: MySQL (MariaDB, Percona)
+          value: mysql
+        - label: sqlite
+          value: sqlite
+    - default: "127.0.0.1"
+      edit: true
+      envKey: CR_CONF_Database.Host
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: false
+      type: text
+    - default: 5432
+      edit: true
+      envKey: CR_CONF_Database.Port
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: false
+      rule: paramPort
+      type: number
+    - default: "cloudreve"
+      edit: true
+      envKey: CR_CONF_Database.Name
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: false
+      rule: paramCommon
+      type: text
+    - default: "cloudreve"
+      edit: true
+      envKey: CR_CONF_Database.User
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CR_CONF_Database.Password
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      random: true
+      required: false
+      rule: paramComplexity
+      type: password
+    - default: "127.0.0.1:6379"
+      edit: true
+      envKey: CR_CONF_Redis.Server
+      labelZh: Redis 地址
+      labelEn: Redis Address
+      required: false
+      type: text
+    - default: 0
+      edit: true
+      envKey: CR_CONF_Redis.DB
+      labelZh: Redis 索引 (0-20)
+      labelEn: Redis Index (0-20)
+      required: false
+      type: number
+    - default: ""
+      edit: true
+      envKey: CR_CONF_Redis.User
+      labelZh: Redis 用户
+      labelEn: Redis User
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: CR_CONF_Redis.Password
+      labelZh: Redis 密码
+      labelEn: Redis Password
+      required: false
+      type: password

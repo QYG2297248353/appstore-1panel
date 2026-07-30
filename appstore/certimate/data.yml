@@ -1,0 +1,19 @@
+additionalProperties:
+  key: certimate
+  name: Certimate
+  tags:
+    - WebSite
+    - Tool
+    - Middleware
+    - Local
+  shortDescZh: SSL证书管理工具
+  shortDescEn: SSL Certificate Management Tool
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://docs.certimate.me/
+  github: https://github.com/usual2970/certimate/
+  document: https://docs.certimate.me/docs/intro/
+  architectures:
+    - amd64
+    - arm64

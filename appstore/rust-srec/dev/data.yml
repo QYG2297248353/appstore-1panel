@@ -1,0 +1,60 @@
+additionalProperties:
+  formFields:
+    - default: "/home/rust-rec"
+      edit: true
+      envKey: RUST_REC_ROOT_PATH
+      labelZh: 应用持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: "/home/rust-rec"
+      edit: true
+      envKey: RUST_REC_DATA_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8088
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_API
+      labelZh: API 端口
+      labelEn: API port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: JWT_SECRET
+      labelZh: JWT 签名密钥
+      labelEn: JWT Secret
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: SESSION_SECRET
+      labelZh: 会话密钥
+      labelEn: Session Secret
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: HTTP_PROXY
+      labelZh: 网络代理
+      labelEn: Network Proxy
+      required: false
+      type: text
+    - default: "localhost,127.0.0.1,rust-srec-backend"
+      edit: true
+      envKey: NO_PROXY
+      labelZh: 忽略代理
+      labelEn: Ignore Proxy
+      required: true
+      type: text

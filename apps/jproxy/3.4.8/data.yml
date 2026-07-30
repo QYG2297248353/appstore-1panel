@@ -1,0 +1,70 @@
+additionalProperties:
+  formFields:
+    - default: "/home/jproxy"
+      edit: true
+      envKey: JPROXY_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8117
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "-Xms512m -Xmx512m"
+      edit: true
+      envKey: JAVA_OPTS
+      labelZh: 运行参数
+      labelEn: Run parameters
+      required: true
+      type: text
+    - default: 4320
+      edit: true
+      envKey: CACHE_EXPIRES
+      labelZh: 缓存过期时间 (分钟)
+      labelEn: Cache expiration time (minutes)
+      required: true
+      type: number
+    - default: 10080
+      edit: true
+      envKey: TOKEN_EXPIRES
+      labelZh: 登录过期时间 (分钟)
+      labelEn: Login expiration time (minutes)
+      required: true
+      type: number
+    - default: 3
+      edit: true
+      envKey: SYNC_INTERVAL
+      labelZh: 同步间隔 (分钟)
+      labelEn: Synchronization interval (minutes)
+      required: true
+      type: number
+    - default: "true"
+      edit: true
+      envKey: RENAME_FILE
+      labelZh: 允许文件重命名
+      labelEn: Allow file renaming
+      required: true
+      type: select
+      values:
+        - label: 允许
+          value: "true"
+        - label: 禁止
+          value: "false"
+    - default: 6
+      edit: true
+      envKey: MIN_COUNT
+      labelZh: 追加语言标题 (结果小于设定值)
+      labelEn: Append language title (result is less than the set value)
+      required: true
+      type: number
+    - default: 15
+      edit: true
+      envKey: INDEXER_RESULT_CACHE_EXPIRES
+      labelZh: 索引器结果缓存过期时间 (分钟)
+      labelEn: Indexer result cache expiration time (minutes)
+      required: true
+      type: number

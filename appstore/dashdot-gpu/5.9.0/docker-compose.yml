@@ -1,0 +1,30 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  dashdot:
+    container_name: dashdot-gpu
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - capabilities:
+            - gpu
+    devices:
+    - /dev/dri:/dev/dri
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - DASHDOT_WIDGET_LIST=os,cpu,storage,ram,network,gpu
+    image: mauricenino/dashdot:nvidia-5.9.0
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:3001
+    privileged: true
+    restart: always
+    volumes:
+    - /:/mnt/host:ro

@@ -1,0 +1,61 @@
+additionalProperties:
+  formFields:
+    - default: "/home/omniroute"
+      edit: true
+      envKey: OMNIROUTE_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 20128
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 20129
+      edit: true
+      envKey: PANEL_APP_PORT_API
+      labelZh: API端口
+      labelEn: API port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 20132
+      edit: true
+      envKey: PANEL_APP_PORT_WS
+      labelZh: WebSocket端口
+      labelEn: WebSocket port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: INITIAL_PASSWORD
+      labelZh: 管理员初始密码
+      labelEn: Initial admin password
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: JWT_SECRET
+      labelZh: JWT签名密钥
+      labelEn: JWT secret
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: API_KEY_SECRET
+      labelZh: API密钥加密密钥
+      labelEn: API key encryption secret
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: OMNIROUTE_WS_BRIDGE_SECRET
+      labelZh: WebSocket桥接密钥
+      labelEn: WebSocket bridge secret
+      required: true
+      type: password

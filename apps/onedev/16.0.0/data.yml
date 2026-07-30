@@ -1,0 +1,64 @@
+additionalProperties:
+  formFields:
+    - default: "/home/onedev"
+      edit: true
+      envKey: ONEDEV_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 6610
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 6611
+      edit: true
+      envKey: PANEL_APP_PORT_SSH
+      labelZh: SSH 端口
+      labelEn: SSH Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "root"
+      edit: true
+      envKey: INITIAL_USER
+      labelZh: 管理员帐户
+      labelEn: Admin Username
+      required: false
+      rule: paramCommon
+      type: text
+    - default: ""
+      edit: true
+      envKey: INITIAL_PASSWORD
+      labelZh: 管理员密码
+      labelEn: Admin Password
+      required: false
+      random: true
+      rule: paramComplexity
+      type: password
+    - default: ""
+      edit: true
+      envKey: INITIAL_EMAIL
+      labelZh: 管理员电子邮件
+      labelEn: Admin Email
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: INITIAL_SERVER_URL
+      labelZh: 服务端地址
+      labelEn: Server URL
+      required: false
+      rule: paramExtUrl
+      type: text
+    - default: ""
+      edit: true
+      envKey: INITIAL_SSH_ROOT_URL
+      labelZh: SSH 服务端地址
+      labelEn: SSH Server URL
+      required: false
+      type: text

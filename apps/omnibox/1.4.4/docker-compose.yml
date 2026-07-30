@@ -1,0 +1,22 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  omnibox:
+    image: lampon/omnibox:v1.4.4
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:7023
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${OMNIBOX_ROOT_PATH}/data:/app/data
+    environment:
+      - TZ=Asia/Shanghai

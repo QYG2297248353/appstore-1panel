@@ -1,0 +1,16 @@
+additionalProperties:
+  key: jackett
+  name: Jackett
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: API支持您最喜爱的种子追踪器
+  shortDescEn: API Support for your favorite torrent trackers
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/Jackett/Jackett/
+  github: https://github.com/Jackett/Jackett/
+  document: https://github.com/Jackett/Jackett/
+  architectures:
+    - amd64

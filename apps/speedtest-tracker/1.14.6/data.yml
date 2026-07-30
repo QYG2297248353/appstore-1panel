@@ -1,0 +1,221 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_DB_HOST
+        required: true
+        type: service
+      default: postgresql
+      edit: true
+      envKey: PANEL_DB_TYPE
+      labelZh: 数据库 服务 (前置检查)
+      labelEn: Database Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: PostgreSQL
+          value: postgresql
+        - label: MySQL
+          value: mysql
+        - label: MariaDB
+          value: mariadb
+        - label: Percona
+          value: percona
+    - default: "/home/speedtest-tracker"
+      edit: true
+      envKey: SPEEDTEST_TRACKER_ROOT_PATH
+      labelEn: Data persistence root path
+      labelZh: 数据持久化 根路径
+      required: true
+      type: text
+    - default: "host"
+      edit: true
+      envKey: NETWORK_MODE
+      labelEn: Drive path
+      labelZh: 网络模式
+      required: true
+      type: select
+      values:
+        - label: 主机网络模式
+          value: "host"
+        - label: 桥接网络模式
+          value: "bridge"
+        - label: 无网络模式
+          value: "none"
+        - label: 1panel-network
+          value: "1panel-network"
+    - default: 8080
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: Server port
+      labelZh: Web 服务端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: "base64:f0Ivk1nHd3QwXtR55WKC4fcc7QjrxxTnkiB02ipdl60="
+      edit: true
+      envKey: APP_KEY
+      labelZh: 应用密钥 (官网获取)
+      labelEn: App key (Get from official website)
+      required: true
+      type: text
+    - default: "SpeedTest Tracker"
+      edit: true
+      envKey: APP_NAME
+      labelZh: 应用名称
+      labelEn: App Name
+      required: true
+      type: text
+    - default: "http://127.0.0.1:8080"
+      edit: true
+      envKey: APP_URL
+      labelZh: 应用访问地址
+      labelEn: App URL
+      required: true
+      type: text
+    - default: postgres
+      edit: true
+      envKey: DB_CONNECTION
+      labelZh: 数据库 类型
+      labelEn: Database Type
+      required: true
+      type: select
+      values:
+        - label: PostgreSQL
+          value: postgres
+        - label: MySQL (MariaDB, Percona)
+          value: mysql
+    - default: "127.0.0.1"
+      edit: true
+      envKey: DB_HOST
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: 5432
+      edit: true
+      envKey: DB_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "speedtest-tracker"
+      edit: true
+      envKey: DB_USERNAME
+      labelZh: 数据库 用户名
+      labelEn: Database User
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: DB_PASSWORD
+      labelEn: Database Password
+      labelZh: 数据库 密码
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: "speedtest-tracker"
+      edit: true
+      envKey: DB_DATABASE
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      type: text
+    - default: 0
+      edit: true
+      envKey: PRUNE_RESULTS_OLDER_THAN
+      labelZh: 测试结果保留天数
+      labelEn: Prune results older than
+      required: true
+      type: text
+    - default: "0 */6 * * *"
+      edit: true
+      envKey: SPEEDTEST_SCHEDULE
+      labelZh: 测试计划任务
+      labelEn: Speedtest schedule
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SPEEDTEST_SERVERS
+      labelZh: 指定测试服务器
+      labelEn: Specify servers
+      required: false
+      type: text
+    - default: "smtp"
+      edit: true
+      envKey: MAIL_MAILER
+      labelZh: 邮件 协议
+      labelEn: Mail mailer
+      required: true
+      type: text
+    - default: "smtp.gmail.com"
+      edit: true
+      envKey: MAIL_HOST
+      labelZh: 邮件 主机地址
+      labelEn: Mail host
+      required: true
+      type: text
+    - default: 465
+      edit: true
+      envKey: MAIL_PORT
+      labelZh: 邮件 主机端口
+      labelEn: Mail port
+      required: true
+      type: number
+    - default: ""
+      edit: true
+      envKey: MAIL_USERNAME
+      labelZh: 邮件 鉴权用户名
+      labelEn: Mail username
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: MAIL_PASSWORD
+      labelZh: 邮件 鉴权密码
+      labelEn: Mail password
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: MAIL_FROM_ADDRESS
+      labelZh: 邮件 发件地址
+      labelEn: Mail from address
+      required: false
+      type: text
+    - default: "Speedtest Tracker"
+      edit: true
+      envKey: MAIL_FROM_NAME
+      labelZh: 邮件 发件名称
+      labelEn: Mail from name
+      required: true
+      type: text
+    - default: "tls"
+      edit: true
+      envKey: MAIL_ENCRYPTION
+      labelZh: 邮件 加密方式
+      labelEn: Mail encryption
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: TELEGRAM_BOT_TOKEN
+      labelZh: Telegram 机器人令牌
+      labelEn: Telegram bot token
+      required: false
+      type: text
+    - default: "file"
+      edit: true
+      envKey: CACHE_DRIVER
+      labelZh: 缓存 驱动
+      labelEn: Cache driver
+      required: true
+      type: select
+      values:
+        - label: 文件缓存
+          value: "file"
+        - label: 数据库缓存
+          value: "database"

@@ -1,0 +1,45 @@
+additionalProperties:
+  formFields:
+    - default: "/home/apifox-runner"
+      edit: true
+      envKey: APIFOX_RUNNER_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 4524
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "https://api.apifox.cn"
+      edit: true
+      envKey: SERVER_APP_BASE_URL
+      labelZh: 应用服务地址
+      labelEn: App Server address
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: ACCESS_TOKEN
+      labelZh: 访问令牌
+      labelEn: Access Token
+      required: true
+      type: text
+    - default: 0
+      edit: true
+      envKey: TEAM_ID
+      labelZh: 团队 ID
+      labelEn: Team ID
+      required: true
+      type: number
+    - default: 0
+      edit: true
+      envKey: RUNNER_ID
+      labelZh: Runner ID
+      labelEn: Runner ID
+      required: true
+      type: number

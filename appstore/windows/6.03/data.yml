@@ -1,0 +1,204 @@
+additionalProperties:
+  formFields:
+    - default: "/home/windows"
+      edit: true
+      envKey: WINDOWS_STORAGE_ROOT_PATH
+      labelZh: Windows 存储目录
+      labelEn: Windows Storage Path
+      required: true
+      type: text
+    - default: "/home/windows"
+      edit: true
+      envKey: WINDOWS_SHARE_ROOT_PATH
+      labelZh: Windows 网上邻居共享目录
+      labelEn: Windows Share Path
+      required: true
+      type: text
+    - default: "/home/windows"
+      edit: true
+      envKey: WINDOWS_OEM_ROOT_PATH
+      labelZh: Windows OEM 目录
+      labelEn: Windows OEM Path
+      required: true
+      type: text
+    - default: 8006
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 3389
+      edit: true
+      envKey: PANEL_APP_PORT_REMOTE
+      labelZh: Windows 远程桌面 端口
+      labelEn: Windows Remote Desktop Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "win11"
+      edit: true
+      envKey: VERSION
+      labelZh: Windows 版本
+      labelEn: Windows Version
+      required: true
+      type: select
+      values:
+        - label: Windows 11 Pro (5.4GB)
+          value: "win11"
+        - label: Windows 11 LTSC (4.2GB)
+          value: "ltsc11"
+        - label: Windows 11 Enterprise (5.8GB)
+          value: "win11e"
+        - label: Windows 10 Pro (5.7GB)
+          value: "win10"
+        - label: Windows 10 LTSC (4.6GB)
+          value: "ltsc10"
+        - label: Windows 10 Enterprise (5.2GB)
+          value: "win10e"
+        - label: Windows 8.1 Pro (4.0GB)
+          value: "win8"
+        - label: Windows 8.1 Enterprise (3.7GB)
+          value: "win8e"
+        - label: Windows 7 Enterprise (3.0GB)
+          value: "win7"
+        - label: Windows Vista Enterprise (3.0GB)
+          value: "vista"
+        - label: Windows XP Professional (0.6GB)
+          value: "winxp"
+        - label: Windows Server 2025 (5.0GB)
+          value: "2025"
+        - label: Windows Server 2022 (4.7GB)
+          value: "2022"
+        - label: Windows Server 2019 (5.3GB)
+          value: "2019"
+        - label: Windows Server 2016 (6.5GB)
+          value: "2016"
+        - label: Windows Server 2012 (4.3GB)
+          value: "2012"
+        - label: Windows Server 2008 (3.0GB)
+          value: "2008"
+        - label: Windows Server 2003 (0.6GB)
+          value: "2003"
+    - default: "Administrator"
+      edit: true
+      envKey: USERNAME
+      labelZh: 用户名
+      labelEn: Username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: PASSWORD
+      labelZh: 密码
+      labelEn: Password
+      required: true
+      type: password
+    - default: "N"
+      edit: true
+      envKey: MANUAL
+      labelZh: 安装模式选择
+      labelEn: Manual Mode
+      required: true
+      type: select
+      values:
+        - label: 自动化安装
+          value: "N"
+        - label: 手动安装
+          value: "Y"
+    - default: "8G"
+      edit: true
+      envKey: RAM_SIZE
+      labelZh: 内存大小
+      labelEn: RAM Size
+      required: true
+      type: text
+    - default: "64GB"
+      edit: true
+      envKey: DISK_SIZE
+      labelZh: 硬盘大小
+      labelEn: Disk Size
+      required: true
+      type: text
+    - default: 4
+      edit: true
+      envKey: CPU_CORES
+      labelZh: CPU 核心数
+      labelEn: CPU Cores
+      required: true
+      type: number
+    - default: "CN"
+      edit: true
+      envKey: LANGUAGE
+      labelZh: Windows 语言
+      labelEn: Windows Language
+      required: true
+      type: select
+      values:
+        - label: 阿拉伯语
+          value: "AE"
+        - label: 保加利亚语
+          value: "BG"
+        - label: 简体中文
+          value: "CN"
+        - label: 克罗地亚语
+          value: "HR"
+        - label: 捷克语
+          value: "CZ"
+        - label: 丹麦语
+          value: "DK"
+        - label: 荷兰语
+          value: "NL"
+        - label: 英语
+          value: "GB"
+        - label: 爱沙尼亚语
+          value: "EE"
+        - label: 芬兰语
+          value: "FI"
+        - label: 法语
+          value: "FR"
+        - label: 德语
+          value: "DE"
+        - label: 希腊语
+          value: "GR"
+        - label: 希伯来语
+          value: "IL"
+        - label: 匈牙利语
+          value: "HU"
+        - label: 意大利语
+          value: "IT"
+        - label: 日语
+          value: "JP"
+        - label: 韩语
+          value: "KR"
+        - label: 拉脱维亚语
+          value: "LV"
+        - label: 立陶宛语
+          value: "LT"
+        - label: 挪威语
+          value: "NO"
+        - label: 波兰语
+          value: "PL"
+        - label: 葡萄牙语
+          value: "PT"
+        - label: 罗马尼亚语
+          value: "RO"
+        - label: 俄语
+          value: "RU"
+        - label: 塞尔维亚语
+          value: "RS"
+        - label: 斯洛伐克语
+          value: "SK"
+        - label: 斯洛文尼亚语
+          value: "SI"
+        - label: 西班牙语
+          value: "ES"
+        - label: 瑞典语
+          value: "SE"
+        - label: 泰语
+          value: "TH"
+        - label: 土耳其语
+          value: "TR"
+        - label: 乌克兰语
+          value: "UA"

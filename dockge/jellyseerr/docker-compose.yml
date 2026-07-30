@@ -1,0 +1,24 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  jellyseerr:
+    container_name: jellyseerr
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - PORT=5055
+    - LOG_LEVEL=debug
+    - TZ=Asia/Shanghai
+    - https_proxy=${http_proxy:-}
+    image: fallenbagel/jellyseerr:2.7.3
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:5055
+    restart: always
+    volumes:
+    - ${JELLYSEERR_ROOT_PATH}/config:/app/config

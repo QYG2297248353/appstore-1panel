@@ -1,0 +1,17 @@
+additionalProperties:
+  key: pansou-api
+  name: 盘搜 API (PanSou API)
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 高性能的网盘资源搜索API服务
+  shortDescEn: High-performance web disk resource search API service
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://so.252035.xyz/
+  github: https://github.com/fish2018/pansou/
+  document: https://github.com/fish2018/pansou/
+  architectures:
+    - amd64
+    - arm64

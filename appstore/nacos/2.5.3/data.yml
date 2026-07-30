@@ -1,0 +1,185 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_DB_HOST
+        required: true
+        type: service
+      default: mysql
+      edit: true
+      envKey: PANEL_DB_TYPE
+      labelZh: MySQL 服务 (前置检查)
+      labelEn: Database Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: MySQL
+          value: mysql
+        - label: MariaDB
+          value: mariadb
+        - label: Percona
+          value: percona
+    - default: "host"
+      edit: true
+      envKey: NETWORK_MODE
+      labelEn: Drive path
+      labelZh: 网络模式
+      required: true
+      type: select
+      values:
+        - label: 主机网络模式
+          value: "host"
+        - label: 桥接网络模式
+          value: "bridge"
+        - label: 无网络模式
+          value: "none"
+        - label: 1panel-network
+          value: "1panel-network"
+    - default: "/home/nacos"
+      edit: true
+      envKey: NACOS_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8848
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 9848
+      edit: true
+      envKey: PANEL_APP_PORT_GRPC_CLIENT
+      labelZh: Nacos gRPC 客户端端口
+      labelEn: Nacos gRPC client port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 9849
+      edit: true
+      envKey: PANEL_APP_PORT_GRPC_SERVER
+      labelZh: Nacos gRPC 服务端端口
+      labelEn: Nacos gRPC server port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "ip"
+      envKey: PREFER_HOST_MODE
+      labelZh: IP模式/域名模式
+      labelEn: IP mode/hostname mode
+      required: true
+      type: select
+      values:
+        - label: IP模式
+          value: "ip"
+        - label: 域名模式
+          value: "hostname"
+    - default: ""
+      edit: true
+      envKey: NACOS_SERVER_IP
+      labelZh: 服务IP
+      labelEn: Server IP
+      required: true
+      type: text
+    - default: "serverIdentity"
+      edit: true
+      envKey: NACOS_AUTH_IDENTITY_KEY
+      labelZh: Nacos身份验证密钥键
+      labelEn: Nacos auth identity key
+      required: true
+      type: text
+    - default: "security"
+      edit: true
+      envKey: NACOS_AUTH_IDENTITY_VALUE
+      labelZh: Nacos身份验证密钥值
+      labelEn: Nacos auth identity value
+      required: true
+      type: text
+    - default: "SecretKey012345678901234567890123456789012345678901234567890123456789"
+      edit: true
+      envKey: NACOS_AUTH_TOKEN
+      labelZh: Nacos身份验证令牌（至少32位字符的Base64编码）
+      labelEn: Nacos auth token
+      required: true
+      type: text
+    - default: "512m"
+      edit: true
+      envKey: JVM_XMS
+      labelZh: JVM_XMS (初始内存大小)
+      labelEn: JVM_XMS (Initial memory size)
+      required: true
+      type: text
+    - default: "2g"
+      edit: true
+      envKey: JVM_XMX
+      labelEn: JVM_XMX (Maximum memory size)
+      labelZh: JVM_XMX (最大内存大小)
+      required: true
+      type: text
+    - default: "128m"
+      edit: true
+      envKey: JVM_XMN
+      labelEn: JVM_XMN (New generation memory)
+      labelZh: JVM_XMN (新生代内存)
+      required: true
+      type: text
+    - default: "128m"
+      edit: true
+      envKey: JVM_MS
+      labelEn: JVM_MS (Initial metaspace)
+      labelZh: JVM_MS (初始元空间大小)
+      required: true
+      type: text
+    - default: "320m"
+      edit: true
+      envKey: JVM_MMS
+      labelEn: JVM_MMS (Maximum metaspace)
+      labelZh: JVM_MMS (最大元空间大小)
+      required: true
+      type: text
+    - default: "127.0.0.1"
+      edit: true
+      envKey: MYSQL_SERVICE_HOST
+      labelZh: 数据库 主机
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: 3306
+      edit: true
+      envKey: MYSQL_SERVICE_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "nacos"
+      edit: true
+      envKey: MYSQL_SERVICE_USER
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: MYSQL_SERVICE_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      required: true
+      type: password
+    - default: "nacos"
+      edit: true
+      envKey: MYSQL_SERVICE_DB_NAME
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      type: text
+    - default: "characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true"
+      edit: true
+      envKey: MYSQL_SERVICE_DB_PARAM
+      labelZh: 数据库 连接参数
+      labelEn: Database Connection Parameters
+      required: true
+      type: text

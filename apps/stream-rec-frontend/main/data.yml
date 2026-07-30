@@ -1,0 +1,46 @@
+additionalProperties:
+  formFields:
+    - default: "/home/stream-rec"
+      edit: true
+      envKey: STREAM_REC_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 15275
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: NEXTAUTH_SECRET
+      labelZh: NextAuth 加密密钥
+      labelEn: NextAuth Secret
+      required: true
+      random: true
+      type: text
+    - default: "http://stream-rec-backend:12555/api"
+      edit: true
+      envKey: API_URL
+      labelZh: API 地址
+      labelEn: API URL
+      required: true
+      type: text
+    - default: "ws://stream-rec-backend:12555/live/update"
+      edit: true
+      envKey: WS_API_URL
+      labelZh: WebSocket API 地址
+      labelEn: WebSocket API URL
+      required: true
+      type: text
+    - default: "http://localhost:15275/"
+      edit: true
+      envKey: NEXTAUTH_URL
+      labelZh: NextAuth 服务器地址
+      labelEn: NextAuth Server URL
+      required: true
+      type: text

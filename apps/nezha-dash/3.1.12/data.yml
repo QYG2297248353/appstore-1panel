@@ -1,0 +1,24 @@
+additionalProperties:
+  formFields:
+    - default: 3000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: NezhaBaseUrl
+      labelZh: 哪吒服务地址
+      labelEn: Nezha service address
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: NezhaAuth
+      labelZh: 哪吒 API Token
+      labelEn: Nezha API Token
+      required: true
+      type: text

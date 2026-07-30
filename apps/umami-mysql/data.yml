@@ -1,0 +1,19 @@
+﻿additionalProperties:
+  key: umami-mysql
+  name: Umami MySQL版
+  tags:
+    - WebSite
+    - Database
+    - Middleware
+    - Runtime
+    - Local
+  shortDescZh: 为速度和效率而构建的网站分析
+  shortDescEn: A website analytics tool that is built for speed and efficiency
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://umami.is/
+  github: https://github.com/umami-software/umami/
+  document: https://umami.is/docs/
+  architectures:
+    - amd64

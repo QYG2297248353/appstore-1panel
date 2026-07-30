@@ -1,0 +1,59 @@
+additionalProperties:
+  formFields:
+    - default: "/home/telegram-search"
+      edit: true
+      envKey: TELEGRAM_SEARCH_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3333
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "telegram_search"
+      edit: true
+      envKey: POSTGRES_DATABASE
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      type: text
+    - default: "telegram_search"
+      edit: true
+      envKey: POSTGRES_USER
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: true
+      type: text
+    - default: "telegram_search"
+      edit: true
+      envKey: POSTGRES_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: TELEGRAM_API_ID
+      labelZh: Telegram 应用程序 ID
+      labelEn: Telegram APPID
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: TELEGRAM_API_HASH
+      labelZh: Telegram 应用程序 哈希
+      labelEn: Telegram APP HASH
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: PROXY_URL
+      labelZh: 代理地址
+      labelEn: Proxy Url
+      required: false
+      type: text

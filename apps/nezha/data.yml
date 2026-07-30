@@ -1,0 +1,19 @@
+﻿additionalProperties:
+  key: nezha
+  name: 哪吒监控
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: 开源、轻量、易用的服务器监控、运维工具
+  shortDescEn: Open source, lightweight, easy-to-use server monitoring and operation and maintenance tools
+  type: website
+  crossVersionUpdate: false
+  limit: 0
+  website: https://nezha.wiki/
+  github: https://github.com/naiba/nezha/
+  document: https://nezha.wiki/guide/dashboard.html
+  architectures:
+    - amd64
+    - arm64
+    - s390x

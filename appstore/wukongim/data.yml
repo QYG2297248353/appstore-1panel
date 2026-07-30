@@ -1,0 +1,18 @@
+additionalProperties:
+  key: wukongim
+  name: 悟空IM
+  tags:
+    - WebSite
+    - Tool
+    - Local
+  shortDescZh: 让信息传递更简单
+  shortDescEn: Make messaging easier
+  type: website
+  crossVersionUpdate: true
+  recommend: 0
+  website: https://githubim.com/
+  github: https://github.com/TangSengDaoDao/TangSengDaoDaoServer/
+  document: https://githubim.com/
+  architectures:
+    - amd64
+    - arm64
