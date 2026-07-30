@@ -23,7 +23,7 @@ services:
     environment:
       - TZ=Asia/Shanghai
       - LT_API_KEYS=true
-      - HTTPS_PROXY=${HTTPS_PROXY:-}
+      - HTTPS_PROXY=${HTTP_PROXY:-}
       - NO_PROXY=${NO_PROXY:-}
     healthcheck:
       test: [ 'CMD-SHELL', './venv/bin/python scripts/healthcheck.py' ]

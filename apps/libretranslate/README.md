@@ -17,6 +17,36 @@ Argos Translate 库作为翻译引擎。
 
 [Supported Languages](https://docs.libretranslate.com/guides/supported_languages/#_top)
 
+## 手动管理语言模型
+
+### 下载模型
+
+[Manual Download Models](https://www.argosopentech.com/argospm/index/)
+
+将下载的模型文件扩展名由 `.argospm` 改为 `.argospm.zip`。便于解压和管理。
+
+### 模型路径
+
+语言模型的安装目录：
+
+#### 当前部署方式
+
+```
+<持久化目录>/models/share/argos-translate/packages
+```
+
+#### Windows 系统
+
+```
+C:\Users\<用户名>\.local\share\argos-translate\packages
+```
+
+#### 其他系统：
+
+```
+~/.local/share/argos-translate/packages
+```
+
 ---
 
 ![Ms Studio](https://file.lifebus.top/imgs/ms_blank_001.png)
