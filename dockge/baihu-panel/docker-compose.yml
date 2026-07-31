@@ -15,7 +15,7 @@ services:
     - BH_DB_PATH=/app/data/baihu.db
     - BH_DB_TABLE_PREFIX=baihu_
     - BH_DB_NAME=baihu
-    image: ghcr.io/engigu/baihu:1.1.23
+    image: ghcr.io/engigu/baihu:1.1.24
     labels:
       createdBy: Apps
     logging:
