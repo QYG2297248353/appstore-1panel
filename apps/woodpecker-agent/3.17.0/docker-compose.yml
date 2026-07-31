@@ -4,7 +4,7 @@ networks:
 
 services:
   woodpecker-agent:
-    image: woodpeckerci/woodpecker-agent:v3.16.0
+    image: woodpeckerci/woodpecker-agent:v3.17.0
     container_name: ${CONTAINER_NAME}
     command: agent
     restart: always
