@@ -14,7 +14,7 @@ services:
     - TZ=Asia/Shanghai
     - BACKEND_URL=${BACKEND_URL:-http://rust-srec-backend:8080}
     - COOKIE_SECURE=${COOKIE_SECURE:-}
-    image: ghcr.io/hua0512/rust-srec-frontend:v0.4.0
+    image: ghcr.io/hua0512/rust-srec-frontend:dev
     labels:
       createdBy: Apps
     logging:
@@ -53,7 +53,7 @@ services:
       - -f
       - http://localhost:8080/api/health/live
       timeout: 10s
-    image: ghcr.io/hua0512/rust-srec:v0.4.0
+    image: ghcr.io/hua0512/rust-srec:dev
     logging:
       driver: json-file
       options:
