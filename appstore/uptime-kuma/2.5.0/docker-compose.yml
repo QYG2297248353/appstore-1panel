@@ -17,7 +17,7 @@ services:
     - UPTIME_KUMA_DB_NAME=${UPTIME_KUMA_DB_NAME:-uptime_kuma}
     - UPTIME_KUMA_DB_USERNAME=${UPTIME_KUMA_DB_USERNAME:-root}
     - UPTIME_KUMA_DB_PASSWORD=${UPTIME_KUMA_DB_PASSWORD:-}
-    image: louislam/uptime-kuma:2.4.0
+    image: louislam/uptime-kuma:2.5.0
     labels:
       createdBy: Apps
     networks:
