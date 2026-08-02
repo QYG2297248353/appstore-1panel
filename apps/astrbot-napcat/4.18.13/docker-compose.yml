@@ -24,7 +24,7 @@ services:
       - NAPCAT_UID=${NAPCAT_UID:-1000}
       - NAPCAT_GID=${NAPCAT_GID:-1000}
   astrbot:
-    image: soulter/astrbot:v4.26.8
+    image: soulter/astrbot:v4.27.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
