@@ -4,7 +4,7 @@ networks:
 
 services:
   rust-srec-backend:
-    image: ghcr.io/hua0512/rust-srec:v0.5.0
+    image: ghcr.io/hua0512/rust-srec:v0.5.1
     container_name: backend-${CONTAINER_NAME}
     restart: always
     networks:
