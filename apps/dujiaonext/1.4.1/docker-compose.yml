@@ -6,7 +6,7 @@ networks:
 
 services:
   dujiaonext-api:
-    image: dujiaonext/api:v1.4.1
+    image: dujiaonext/api:v1.4.2
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
