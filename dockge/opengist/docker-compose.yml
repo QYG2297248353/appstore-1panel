@@ -21,7 +21,7 @@ services:
       - CMD-SHELL
       - curl -f http://localhost:6157/healthcheck
       timeout: 10s
-    image: thomiceli/opengist:1.15.0
+    image: thomiceli/opengist:1.15.1
     labels:
       createdBy: Apps
     networks:
