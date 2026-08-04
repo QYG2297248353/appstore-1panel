@@ -47,7 +47,7 @@ services:
     depends_on:
       rust-srec-backend:
         condition: service_healthy
-    image: ghcr.io/hua0512/rust-srec-frontend:v0.5.0
+    image: ghcr.io/hua0512/rust-srec-frontend:v0.5.1
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
