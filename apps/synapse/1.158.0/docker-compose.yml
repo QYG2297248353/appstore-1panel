@@ -4,7 +4,7 @@ networks:
 
 services:
   synapse-init:
-    image: matrixdotorg/synapse:v1.157.2
+    image: matrixdotorg/synapse:v1.158.0
     container_name: init-${CONTAINER_NAME}
     entrypoint:
       - /start.py
@@ -22,7 +22,7 @@ services:
       - SYNAPSE_NO_TLS=true
       - SYNAPSE_HTTP_PORT=8008
   synapse:
-    image: matrixdotorg/synapse:v1.157.2
+    image: matrixdotorg/synapse:v1.158.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
