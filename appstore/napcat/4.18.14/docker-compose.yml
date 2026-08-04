@@ -11,7 +11,7 @@ services:
     - TZ=Asia/Shanghai
     - NAPCAT_UID=${NAPCAT_UID:-0}
     - NAPCAT_GID=${NAPCAT_GID:-0}
-    image: mlikiowa/napcat-docker:v4.18.13
+    image: mlikiowa/napcat-docker:v4.18.14
     labels:
       createdBy: Apps
     networks:
