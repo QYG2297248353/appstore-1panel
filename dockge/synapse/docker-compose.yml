@@ -9,7 +9,7 @@ services:
     env_file:
     - ./envs/global.env
     - .env
-    image: matrixdotorg/synapse:v1.157.2
+    image: matrixdotorg/synapse:v1.158.0
     labels:
       createdBy: Apps
     networks:
@@ -31,7 +31,7 @@ services:
     - SYNAPSE_REPORT_STATS=no
     - SYNAPSE_NO_TLS=true
     - SYNAPSE_HTTP_PORT=8008
-    image: matrixdotorg/synapse:v1.157.2
+    image: matrixdotorg/synapse:v1.158.0
     networks:
     - 1panel-network
     restart: false

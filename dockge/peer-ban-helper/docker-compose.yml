@@ -11,7 +11,7 @@ services:
     - PUID=0
     - PGID=0
     - TZ=Asia/Shanghai
-    image: ghostchu/peerbanhelper:v9.4.2
+    image: ghostchu/peerbanhelper:v9.4.3
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE:-host}
