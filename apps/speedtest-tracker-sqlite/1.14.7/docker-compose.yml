@@ -4,7 +4,7 @@ networks:
 
 services:
   speedtest-tracker:
-    image: linuxserver/speedtest-tracker:1.14.6
+    image: linuxserver/speedtest-tracker:1.14.7
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
@@ -22,3 +22,5 @@ services:
       - PGID=1000
       - TZ=Asia/Shanghai
       - DISPLAY_TIMEZONE=Asia/Shanghai
+      - DB_CONNECTION=sqlite
+      - MAIL_MAILER=sqlite
