@@ -14,7 +14,7 @@ services:
     - NEKO_WEBRTC_EPR=${PANEL_APP_PORT_WEBRTC_EPR}
     - NEKO_WEBRTC_ICELITE=1
     - NEKO_WEBRTC_IP_RETRIEVAL_URL=https://ifconfig.co/ip
-    image: ghcr.io/m1k1o/neko/microsoft-edge:3.1.4
+    image: ghcr.io/m1k1o/neko/microsoft-edge:3.1.5
     labels:
       createdBy: Apps
     networks:
