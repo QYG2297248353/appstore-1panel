@@ -3,7 +3,7 @@ networks:
     external: true
 services:
   speedtest-tracker:
-    container_name: speedtest-tracker-sqlite
+    container_name: speedtest-tracker
     env_file:
     - ./envs/global.env
     - .env
@@ -12,9 +12,7 @@ services:
     - PGID=1000
     - TZ=Asia/Shanghai
     - DISPLAY_TIMEZONE=Asia/Shanghai
-    - DB_CONNECTION=sqlite
-    - MAIL_MAILER=sqlite
-    image: linuxserver/speedtest-tracker:1.14.6
+    image: linuxserver/speedtest-tracker:1.14.7
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE}
