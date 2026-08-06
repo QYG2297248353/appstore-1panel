@@ -9,7 +9,7 @@ services:
     - .env
     environment:
     - TZ=Asia/Shanghai
-    image: sonatype/nexus3:3.94.1
+    image: sonatype/nexus3:3.95.0
     labels:
       createdBy: Apps
     networks:
