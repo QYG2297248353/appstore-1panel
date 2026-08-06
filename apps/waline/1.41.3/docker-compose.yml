@@ -4,7 +4,7 @@ networks:
 
 services:
   waline:
-    image: lizheming/waline:1.41.3
+    image: lizheming/waline:1.41.4
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
