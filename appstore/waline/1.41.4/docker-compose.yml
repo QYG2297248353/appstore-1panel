@@ -12,7 +12,7 @@ services:
     - SQLITE_PATH=/app/data
     - SQLITE_DB=waline
     - SQLITE_PREFIX=wl_
-    image: lizheming/waline:1.41.3
+    image: lizheming/waline:1.41.4
     labels:
       createdBy: Apps
     networks:
