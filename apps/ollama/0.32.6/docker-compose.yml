@@ -4,7 +4,7 @@ networks:
 
 services:
   ollama:
-    image: ollama/ollama:0.32.5
+    image: ollama/ollama:0.32.6
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
