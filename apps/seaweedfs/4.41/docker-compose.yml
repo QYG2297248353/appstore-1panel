@@ -5,7 +5,7 @@ networks:
 
 services:
   seaweedfs-master:
-    image: chrislusf/seaweedfs:4.40
+    image: chrislusf/seaweedfs:4.41
     container_name: ${CONTAINER_NAME}-master
     restart: always
     networks:
@@ -25,7 +25,7 @@ services:
     environment:
       - TZ=Asia/Shanghai
   seaweedfs-volume:
-    image: chrislusf/seaweedfs:4.40
+    image: chrislusf/seaweedfs:4.41
     depends_on:
       - seaweedfs-master
     container_name: ${CONTAINER_NAME}-volume
@@ -47,7 +47,7 @@ services:
     environment:
       - TZ=Asia/Shanghai
   seaweedfs-filer:
-    image: chrislusf/seaweedfs:4.40
+    image: chrislusf/seaweedfs:4.41
     depends_on:
       - seaweedfs-master
       - seaweedfs-volume
@@ -72,7 +72,7 @@ services:
     environment:
       - TZ=Asia/Shanghai
   seaweedfs-s3:
-    image: chrislusf/seaweedfs:4.40
+    image: chrislusf/seaweedfs:4.41
     depends_on:
       - seaweedfs-master
       - seaweedfs-volume
@@ -97,7 +97,7 @@ services:
     environment:
       - TZ=Asia/Shanghai
   seaweedfs-webdav:
-    image: chrislusf/seaweedfs:4.40
+    image: chrislusf/seaweedfs:4.41
     depends_on:
       - seaweedfs-master
       - seaweedfs-volume
