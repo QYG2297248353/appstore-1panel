@@ -14,7 +14,7 @@ services:
     - N8N_PROTOCOL=http
     - N8N_DIAGNOSTICS_ENABLED=false
     - N8N_SECURE_COOKIE=false
-    image: n8nio/n8n:2.34.2
+    image: n8nio/n8n:2.34.3
     labels:
       createdBy: Apps
     networks:
