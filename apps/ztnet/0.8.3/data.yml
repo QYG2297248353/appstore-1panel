@@ -1,0 +1,52 @@
+additionalProperties:
+  formFields:
+    - default: "/home/ztnet"
+      edit: true
+      envKey: ZTNET_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: NEXTAUTH_SECRET
+      labelZh: 加密密钥
+      labelEn: Encryption secret
+      required: true
+      type: password
+    - default: "http://127.0.0.1:9993"
+      edit: true
+      envKey: ZT_ADDR
+      labelZh: ZeroTier 地址
+      labelEn: ZeroTier address
+      required: true
+      type: text
+    - default: "authtoken.secret"
+      edit: true
+      envKey: ZT_SECRET
+      labelZh: ZeroTier 密钥
+      labelEn: ZeroTier secret
+      required: true
+      type: password
+    - default: "http://localhost:3000"
+      edit: true
+      envKey: NEXTAUTH_URL
+      labelZh: WebUI 访问地址
+      labelEn: WebUI access address
+      required: true
+      type: text
+    - default: 21600
+      edit: true
+      envKey: NEXTAUTH_SESSION_MAX_AGE
+      labelZh: 会话过期时间（秒）
+      labelEn: Session expiration age (seconds)
+      required: true
+      type: number

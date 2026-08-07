@@ -1,0 +1,45 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  ztnet-postgres:
+    image: postgres:15.2-alpine
+    container_name: postgres-${CONTAINER_NAME}
+    networks:
+      - 1panel-network
+    restart: always
+    expose:
+      - 5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ztnet
+    volumes:
+      - ${ZTNET_ROOT_PATH}/postgres:/var/lib/postgresql/data
+
+  ztnet:
+    links:
+      - ztnet-postgres
+    depends_on:
+      - ztnet-postgres
+    image: sinamics/ztnet:0.8.3
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3000
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    environment:
+      - TZ=Asia/Shanghai
+      - POSTGRES_HOST=ztnet-postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=ztnet
+      - NEXTAUTH_URL_INTERNAL=http://ztnet:3000
