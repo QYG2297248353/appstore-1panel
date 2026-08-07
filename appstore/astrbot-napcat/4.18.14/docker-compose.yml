@@ -36,7 +36,7 @@ services:
     - MODE=astrbot
     - NAPCAT_UID=${NAPCAT_UID:-1000}
     - NAPCAT_GID=${NAPCAT_GID:-1000}
-    image: mlikiowa/napcat-docker:v4.18.14
+    image: mlikiowa/napcat-docker:v4.18.15
     mac_address: ${NAPCAT_MAC_ADDRESS:-02:42:ac:11:00:02}
     networks:
     - 1panel-network
