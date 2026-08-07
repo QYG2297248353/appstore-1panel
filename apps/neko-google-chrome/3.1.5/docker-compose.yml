@@ -1,0 +1,28 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  neko:
+    image: ghcr.io/m1k1o/neko/google-chrome:3.1.5
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    cap_add:
+      - SYS_ADMIN
+    shm_size: "2gb"
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8080
+      - ${PANEL_APP_PORT_WEBRTC_EPR}:${PANEL_APP_PORT_WEBRTC_EPR}
+      - ${PANEL_APP_PORT_WEBRTC_EPR}:${PANEL_APP_PORT_WEBRTC_EPR}/udp
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    environment:
+      - TZ=Asia/Shanghai
+      - NEKO_WEBRTC_EPR=${PANEL_APP_PORT_WEBRTC_EPR}
+      - NEKO_WEBRTC_ICELITE=1
+      - NEKO_WEBRTC_IP_RETRIEVAL_URL=https://ifconfig.co/ip
