@@ -4,7 +4,7 @@ networks:
 
 services:
   s-ui:
-    image: alireza7/s-ui:v1.5.4
+    image: alireza7/s-ui:v1.5.5
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
