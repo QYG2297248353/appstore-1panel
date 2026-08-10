@@ -19,8 +19,6 @@ services:
       - ${ZTNET_ROOT_PATH}/postgres:/var/lib/postgresql/data
 
   ztnet:
-    links:
-      - ztnet-postgres
     depends_on:
       - ztnet-postgres
     image: sinamics/ztnet:0.8.3
