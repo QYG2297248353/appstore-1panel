@@ -4,7 +4,7 @@ networks:
 
 services:
   ztnet-postgres:
-    image: postgres:15.18-alpine
+    image: postgres:16.4
     container_name: postgres-${CONTAINER_NAME}
     networks:
       - 1panel-network
