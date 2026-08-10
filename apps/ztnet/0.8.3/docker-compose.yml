@@ -1,0 +1,21 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  ztnet:
+    image: sinamics/ztnet:0.8.3
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3000
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    environment:
+      - TZ=Asia/Shanghai
+      - NEXTAUTH_URL_INTERNAL=http://ztnet:3000

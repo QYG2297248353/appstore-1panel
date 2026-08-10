@@ -14,14 +14,11 @@ ZTNet是一个支持多用户和组织的ZeroTier Web UI。
 
 ### 首位用户
 
-> The first registered user automatically gains admin privileges. As an administrator, you possess unique capabilities
-> not available to regular > users. This includes the ability to view all registered accounts on the controller.
+> The first registered user automatically gains admin privileges. As an administrator, you possess unique capabilities not available to regular > users. This includes the ability to view all registered accounts on the controller.
 
 首位注册用户将自动获得管理员权限。作为管理员，您拥有普通用户所不具备的独特权限，包括查看控制器上所有已注册帐户的权限。
 
-> Please note that while admins have visibility over registered accounts, they cannot interact with or modify other
-> users' networks directly. > > Each network's configuration and data remain exclusive to the respective user account,
-> maintaining privacy and security for all users.
+> Please note that while admins have visibility over registered accounts, they cannot interact with or modify other users' networks directly. > > Each network's configuration and data remain exclusive to the respective user account, maintaining privacy and security for all users.
 
 请注意，管理员虽然可以查看已注册账户，但无法直接与其它用户的网络进行交互或修改。每个网络的配置和数据都仅限于相应的用户账户，从而保障所有用户的隐私和安全。
 
@@ -40,6 +37,7 @@ curl -s https://install.zerotier.com | sudo bash
 #### 在ZeroTier控制器上开启远程ZeroTier网络：
 
 编辑 `/var/lib/zerotier-one/local.conf` 文件以允许远程管理ZeroTier网络。
+
 
 ``` json
 {
@@ -63,10 +61,10 @@ NextAuth secret 推荐至少使用 32位 长度随机字符
 openssl rand -base64 32
 ```
 
+
 #### ZeroTier 地址（ZT_ADDR）
 
-ZeroTier 控制器的访问地址。ZTNet 运行在 Docker 容器中，容器内的 `127.0.0.1` 指向容器自身， **无法访问宿主机上的 ZeroTier
-服务**，因此必须填写宿主机的实际 IP 地址。
+ZeroTier 控制器的访问地址。ZTNet 运行在 Docker 容器中，容器内的 `127.0.0.1` 指向容器自身，**无法访问宿主机上的 ZeroTier 服务**，因此必须填写宿主机的实际 IP 地址。
 
 例如宿主机 IP 为 `192.168.1.100`，则填写：
 
@@ -78,7 +76,7 @@ http://192.168.1.100:9993
 
 #### ZeroTier 密钥（ZT_SECRET）
 
-ZeroTier 控制器的 API 密钥，即宿主机 `/var/lib/zerotier-one/authtoken.secret` 文件的 **内容**（而非文件名）。
+ZeroTier 控制器的 API 密钥，即宿主机 `/var/lib/zerotier-one/authtoken.secret` 文件的**内容**（而非文件名）。
 
 执行以下命令获取：
 
@@ -90,8 +88,7 @@ cat /var/lib/zerotier-one/authtoken.secret
 
 #### WebUI 访问地址（NEXTAUTH_URL）
 
-ZTNet（NextAuth）用于生成登录回调的地址， **必须与您实际访问 ZTNet 页面的地址完全一致**。模板无法得知您使用 IP
-还是域名访问，以及是否配置了反向代理，请按实际情况填写：
+ZTNet（NextAuth）用于生成登录回调的地址，**必须与您实际访问 ZTNet 页面的地址完全一致**。模板无法得知您使用 IP 还是域名访问，以及是否配置了反向代理，请按实际情况填写：
 
 - 直接通过 IP 访问：`http://192.168.1.100:3000`（端口为您填写的 WebUI 端口）
 - 通过域名 + 反向代理访问：`https://ztnet.example.com`
