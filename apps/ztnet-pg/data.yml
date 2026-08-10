@@ -1,6 +1,6 @@
 additionalProperties:
   key: ztnet-pg
-  name: ZTNet
+  name: ZTNet (内置Pg)
   tags:
     - WebSite
     - Local
