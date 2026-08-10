@@ -3,7 +3,7 @@ networks:
     external: true
 services:
   ztnet:
-    container_name: ztnet
+    container_name: ztnet-pg
     depends_on:
     - ztnet-postgres
     env_file:
@@ -20,22 +20,20 @@ services:
     image: sinamics/ztnet:0.8.3
     labels:
       createdBy: Apps
-    links:
-    - ztnet-postgres
     networks:
     - 1panel-network
     ports:
     - ${PANEL_APP_PORT_HTTP}:3000
     restart: always
   ztnet-postgres:
-    container_name: postgres-ztnet
+    container_name: postgres-ztnet-pg
     environment:
       POSTGRES_DB: ztnet
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
     expose:
     - 5432
-    image: postgres:15.18-alpine
+    image: postgres:16.14
     networks:
     - 1panel-network
     restart: always

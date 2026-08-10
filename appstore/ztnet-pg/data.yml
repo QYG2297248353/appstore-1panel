@@ -1,0 +1,17 @@
+additionalProperties:
+  key: ztnet-pg
+  name: ZTNet (内置Pg)
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 支持多用户和组织的私有控制器的ZeroTier Web UI。
+  shortDescEn: ZeroTier Web UI for Private Controllers with Multiuser and Organization Support.
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://ztnet.network/
+  github: https://github.com/sinamics/ztnet
+  document: https://ztnet.network/
+  architectures:
+    - amd64
+    - arm64

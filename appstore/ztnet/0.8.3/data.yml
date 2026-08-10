@@ -1,0 +1,105 @@
+additionalProperties:
+  formFields:
+    - child:
+        default: ""
+        envKey: PANEL_POSTGRES_SERVICE
+        required: true
+        type: service
+      default: postgresql
+      envKey: PANEL_POSTGRES_TYPE
+      labelZh: Postgres 服务 (前置检查)
+      labelEn: Postgres Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: PostgreSQL
+          value: postgresql
+    - default: "/home/ztnet"
+      edit: true
+      envKey: ZTNET_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: NEXTAUTH_SECRET
+      labelZh: 加密密钥
+      labelEn: Encryption secret
+      required: true
+      type: password
+    - default: "http://127.0.0.1:9993"
+      edit: true
+      envKey: ZT_ADDR
+      labelZh: ZeroTier 地址
+      labelEn: ZeroTier address
+      required: true
+      type: text
+    - default: "authtoken.secret"
+      edit: true
+      envKey: ZT_SECRET
+      labelZh: ZeroTier 密钥
+      labelEn: ZeroTier secret
+      required: true
+      type: password
+    - default: "http://localhost:3000"
+      edit: true
+      envKey: NEXTAUTH_URL
+      labelZh: WebUI 访问地址
+      labelEn: WebUI access address
+      required: true
+      type: text
+    - default: 21600
+      edit: true
+      envKey: NEXTAUTH_SESSION_MAX_AGE
+      labelZh: 会话过期时间（秒）
+      labelEn: Session expiration age (seconds)
+      required: true
+      type: number
+    - default: "127.0.0.1"
+      edit: true
+      envKey: POSTGRES_HOST
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: 5432
+      edit: true
+      envKey: POSTGRES_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "ztnet"
+      edit: true
+      envKey: POSTGRES_DB
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      rule: paramCommon
+      type: text
+    - default: "ztnet"
+      edit: true
+      envKey: POSTGRES_USER
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: POSTGRES_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
