@@ -21,7 +21,7 @@ services:
     - LOG_JSON=false
     - DHT_CRAWLER_SAVE_FILES_THRESHOLD=100
     - PROCESSOR_CONCURRENCY=1
-    image: ghcr.io/bitmagnet-io/bitmagnet:v0.10.0
+    image: ghcr.io/bitmagnet-io/bitmagnet:v0.10.1
     labels:
       createdBy: Apps
     networks:
