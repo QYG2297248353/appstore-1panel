@@ -3,12 +3,12 @@
 if [ -f .env ]; then
   source .env
 
-  # setup-1 add default values
   CURRENT_DIR=$(pwd)
+
   sed -i '/^ENV_FILE=/d' .env
   sed -i '/^GLOBAL_ENV_FILE=/d' .env
-  echo "ENV_FILE=${CURRENT_DIR}/.env" >> .env
-  echo "GLOBAL_ENV_FILE=${CURRENT_DIR}/envs/global.env" >> .env
+
+  printf "\nENV_FILE=%s/.env\nGLOBAL_ENV_FILE=%s/envs/global.env\n" "$CURRENT_DIR" "$CURRENT_DIR" >> .env
 
   if [ ! -d $PIXMAN_ROOT_PATH/m3u ]; then
     mkdir -p $PIXMAN_ROOT_PATH/m3u
