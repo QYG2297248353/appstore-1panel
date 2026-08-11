@@ -4,7 +4,7 @@ networks:
 
 services:
   openresty-manager:
-    image: uusec/openresty-manager:2.4.5
+    image: uusec/openresty-manager:2.4.6
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
