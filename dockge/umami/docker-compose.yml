@@ -12,7 +12,7 @@ services:
     - REMOVE_TRAILING_SLASH=1
     - DATABASE_TYPE=postgresql
     - DATABASE_URL=postgresql://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOSTNAME}:${DB_PORT}/${DB_DATABASE_NAME}
-    image: umamisoftware/umami:postgresql-v2.16.0
+    image: umamisoftware/umami:3.2.0
     labels:
       createdBy: Apps
     networks:
