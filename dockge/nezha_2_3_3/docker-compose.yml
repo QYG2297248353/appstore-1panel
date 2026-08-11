@@ -6,7 +6,7 @@ services:
     container_name: nezha
     environment:
     - TZ=Asia/Shanghai
-    image: ghcr.io/nezhahq/nezha:v2.3.2
+    image: ghcr.io/nezhahq/nezha:v2.3.3
     labels:
       createdBy: Apps
     networks:

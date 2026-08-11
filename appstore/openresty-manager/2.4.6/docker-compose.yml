@@ -9,7 +9,7 @@ services:
     - .env
     environment:
     - TZ=Asia/Shanghai
-    image: uusec/openresty-manager:2.4.5
+    image: uusec/openresty-manager:2.4.6
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE}
