@@ -4,7 +4,7 @@ networks:
 
 services:
   bitmagnet:
-    image: ghcr.io/bitmagnet-io/bitmagnet:v0.10.0
+    image: ghcr.io/bitmagnet-io/bitmagnet:v0.10.1
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
