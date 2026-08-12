@@ -3,19 +3,20 @@ networks:
     external: true
 services:
   music_tag_web:
+    command: /start
     container_name: music-tag-web
     env_file:
     - ./envs/global.env
     - .env
     environment:
     - TZ=Asia/Shanghai
-    image: xhongc/music_tag_web:2.7.6
+    image: xhongc/music_tag_web:latest
     labels:
       createdBy: Apps
     networks:
     - 1panel-network
     ports:
-    - ${PANEL_APP_PORT_HTTP}:8002
+    - ${PANEL_APP_PORT_HTTP}:8001
     restart: always
     volumes:
     - ${MUSIC_TAG_WEB_ROOT_PATH}/data:/app/data
