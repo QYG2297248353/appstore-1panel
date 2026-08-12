@@ -16,7 +16,7 @@ services:
     - -Dfeign.sentinel.enabled=${SENTINEL_DASHBOARD_FEIGN_ENABLED}
     - -jar
     - app.jar
-    image: bladex/sentinel-dashboard:1.8.9
+    image: bladex/sentinel-dashboard:1.8.10
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE}
