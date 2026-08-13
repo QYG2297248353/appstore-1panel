@@ -5,13 +5,14 @@ services:
   mysql:
     command:
     - --character-set-server=utf8mb4
-    - --collation-server=utf8mb4_unicode_ci
-    - --mysql-native-password=ON
+    - --lower_case_table_names=1
+    - --collation-server=utf8mb4_general_ci
+    - --explicit_defaults_for_timestamp=true
     container_name: mysql
     env_file:
     - ./envs/global.env
     - .env
-    image: mysql:8.4.11
+    image: mysql:5.7.44
     labels:
       createdBy: Apps
     networks:
@@ -21,8 +22,8 @@ services:
     restart: always
     user: 1000:1000
     volumes:
-    - ${MYSQL_ROOT_PATH}/data:/var/lib/mysql
-    - ${MYSQL_ROOT_PATH}/config/my.cnf:/etc/my.cnf
+    - ${MYSQL_ROOT_PATH}/data/:/var/lib/mysql
+    - ${MYSQL_ROOT_PATH}/config/my.cnf:/etc/mysql/my.cnf
     - ${MYSQL_ROOT_PATH}/log:/var/log/mysql
     - /etc/timezone:/etc/timezone:ro
     - /etc/localtime:/etc/localtime:ro

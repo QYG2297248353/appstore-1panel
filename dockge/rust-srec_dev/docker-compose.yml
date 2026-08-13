@@ -1,0 +1,72 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  rust-rec-frontend:
+    container_name: rust-srec
+    depends_on:
+      rust-srec-backend:
+        condition: service_healthy
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - BACKEND_URL=${BACKEND_URL:-http://rust-srec-backend:8080}
+    - COOKIE_SECURE=${COOKIE_SECURE:-}
+    image: ghcr.io/hua0512/rust-srec-frontend:dev
+    labels:
+      createdBy: Apps
+    logging:
+      driver: json-file
+      options:
+        max-file: '3'
+        max-size: 50m
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:80
+    restart: always
+  rust-srec-backend:
+    container_name: backend-rust-srec
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - RUST_LOG=${RUST_LOG:-info}
+    - DATABASE_URL=${DATABASE_URL:-sqlite:///app/data/rust-srec.db}
+    - API_PORT=8080
+    - API_BIND_ADDRESS=0.0.0.0
+    - ACCESS_TOKEN_EXPIRATION_SECS=${ACCESS_TOKEN_EXPIRATION_SECS:-3600}
+    - REFRESH_TOKEN_EXPIRATION_SECS=${REFRESH_TOKEN_EXPIRATION_SECS:-604800}
+    - MIN_PASSWORD_LENGTH=${MIN_PASSWORD_LENGTH:-8}
+    - HTTP_PROXY=${HTTP_PROXY:-}
+    - HTTPS_PROXY=${HTTP_PROXY:-}
+    healthcheck:
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      test:
+      - CMD
+      - curl
+      - -f
+      - http://localhost:8080/api/health/live
+      timeout: 10s
+    image: ghcr.io/hua0512/rust-srec:dev
+    logging:
+      driver: json-file
+      options:
+        max-file: '5'
+        max-size: 100m
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_API}:8080
+    restart: always
+    volumes:
+    - ${RUST_REC_DATA_ROOT_PATH}/data:/app/data
+    - ${RUST_REC_DATA_ROOT_PATH}/output:/app/output
+    - ${RUST_REC_ROOT_PATH}/config:/app/config
+    - ${RUST_REC_ROOT_PATH}/logs:/app/logs
+    - ${RUST_REC_ROOT_PATH}/tmp:/tmp
