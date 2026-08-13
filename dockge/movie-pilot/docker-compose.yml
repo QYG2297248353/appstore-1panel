@@ -14,7 +14,7 @@ services:
     - DEV=false
     - LOG_LEVEL=INFO
     - PASSKEY_ALLOW_REGISTER_WITHOUT_OTP=true
-    image: jxxghp/moviepilot:2.15.6
+    image: jxxghp/moviepilot-v3:3.0.0
     labels:
       createdBy: Apps
     logging:
