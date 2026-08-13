@@ -11,8 +11,6 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_USER: ${DB_USERNAME:-postgres}
     image: ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
-    labels:
-      createdBy: Apps
     networks:
     - 1panel-network
     ports:
@@ -21,7 +19,7 @@ services:
     volumes:
     - ${IMMICH_ROOT_PATH}/pg14/data:/var/lib/postgresql/data
   immich-server:
-    container_name: immich-server-immich-no-machine
+    container_name: immich-no-machine
     depends_on:
     - immich-pg14-vectors
     devices:
@@ -29,7 +27,7 @@ services:
     env_file:
     - ./envs/global.env
     - .env
-    image: ghcr.io/immich-app/immich-server:v1.144.1
+    image: ghcr.io/immich-app/immich-server:v3.1.0
     labels:
       createdBy: Apps
     networks:
@@ -39,4 +37,4 @@ services:
     restart: always
     volumes:
     - ${IMMICH_ROOT_PATH}/data/library:/data
-    - /etc/localtime:/etc/localtime
+    - /etc/localtime:/etc/localtime:ro
