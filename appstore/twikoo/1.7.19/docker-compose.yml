@@ -10,7 +10,7 @@ services:
     environment:
     - TZ=Asia/Shanghai
     - TWIKOO_PORT=8080
-    image: imaegoo/twikoo:1.7.18
+    image: imaegoo/twikoo:1.7.19
     labels:
       createdBy: Apps
     networks:
