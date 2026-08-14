@@ -12,7 +12,7 @@ services:
     - LD_DB_ENGINE=postgres
     - HTTP_PROXY=${ALL_PROXY}
     - HTTPS_PROXY=${ALL_PROXY}
-    image: sissbruecker/linkding:1.46.0-plus
+    image: sissbruecker/linkding:1.46.1-plus
     labels:
       createdBy: Apps
     networks:
