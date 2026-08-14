@@ -4,7 +4,7 @@ networks:
 
 services:
   halo:
-    image: halohub/halo:2.25.4
+    image: halohub/halo:2.26.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
