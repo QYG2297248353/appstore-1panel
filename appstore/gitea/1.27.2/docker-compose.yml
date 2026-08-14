@@ -28,7 +28,7 @@ services:
     - GITEA__webhook__PROXY_HOSTS=${PROXY_HOSTS}
     - GITEA__git.config__http.proxy=${PROXY_URL}
     - GITEA__git.config__https.proxy=${PROXY_URL}
-    image: gitea/gitea:1.27.1
+    image: gitea/gitea:1.27.2
     labels:
       createdBy: Apps
     networks:
