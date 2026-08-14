@@ -4,7 +4,7 @@ networks:
 
 services:
   napcat:
-    image: mlikiowa/napcat-docker:v4.18.18
+    image: mlikiowa/napcat-docker:v4.18.19
     container_name: napcat-${CONTAINER_NAME}
     restart: always
     networks:
