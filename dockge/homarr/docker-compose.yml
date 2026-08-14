@@ -7,7 +7,7 @@ services:
     env_file:
     - ./envs/global.env
     - .env
-    image: ghcr.io/ajnart/homarr:0.15.10
+    image: ghcr.io/homarr-labs/homarr:v1.74.0
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE}
@@ -16,6 +16,4 @@ services:
     restart: always
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
-    - ${HOMARR_ROOT_PATH}/configs:/app/data/configs
-    - ${HOMARR_ROOT_PATH}/icons:/app/public/icons
-    - ${HOMARR_ROOT_PATH}/data:/data
+    - ${HOMARR_ROOT_PATH}/appdata:/appdata
