@@ -4,7 +4,7 @@ networks:
 
 services:
   readeck:
-    image: codeberg.org/readeck/readeck:0.22.3
+    image: codeberg.org/readeck/readeck:0.23.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
