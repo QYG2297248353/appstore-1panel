@@ -3,7 +3,7 @@ networks:
     external: true
 services:
   readeck:
-    container_name: readeck
+    container_name: readeck-pg
     env_file:
     - ./envs/global.env
     - .env
@@ -12,6 +12,7 @@ services:
     - READECK_LOG_LEVEL=info
     - READECK_SERVER_HOST=0.0.0.0
     - READECK_SERVER_PORT=${PANEL_APP_PORT_HTTP}
+    - READECK_DATABASE_SOURCE=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_NAME}
     - HTTPS_PROXY=${HTTP_PROXY:-}
     healthcheck:
       interval: 30s
@@ -23,7 +24,7 @@ services:
       - -config
       - config.toml
       timeout: 2s
-    image: codeberg.org/readeck/readeck:0.22.3
+    image: codeberg.org/readeck/readeck:0.23.0
     labels:
       createdBy: Apps
     networks:

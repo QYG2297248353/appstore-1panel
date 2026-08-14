@@ -9,7 +9,7 @@ services:
     container_name: halo-h2
     environment:
     - JVM_OPTS=-Xmx256m -Xms256m
-    image: halohub/halo:2.25.4
+    image: halohub/halo:2.26.0
     labels:
       createdBy: Apps
     networks:
