@@ -11,7 +11,7 @@ services:
     - TZ=Asia/Shanghai
     - LOG_LEVEL=info
     - PORT=${PANEL_APP_PORT_HTTP:-45876}
-    image: henrygd/beszel-agent:0.18.7
+    image: henrygd/beszel-agent:0.18.8
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE:-host}
