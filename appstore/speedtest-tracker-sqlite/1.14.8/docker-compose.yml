@@ -14,7 +14,7 @@ services:
     - DISPLAY_TIMEZONE=Asia/Shanghai
     - DB_CONNECTION=sqlite
     - MAIL_MAILER=sqlite
-    image: linuxserver/speedtest-tracker:1.14.7
+    image: linuxserver/speedtest-tracker:1.14.8
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE}
