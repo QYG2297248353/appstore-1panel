@@ -4,7 +4,7 @@ networks:
 
 services:
   telegram_search:
-    image: ghcr.io/groupultra/telegram-search:1.2.8
+    image: ghcr.io/groupultra/telegram-search:1.3.1
     depends_on:
       telegram_search_pgvector:
         condition: service_healthy
