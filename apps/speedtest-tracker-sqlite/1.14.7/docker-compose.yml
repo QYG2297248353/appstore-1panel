@@ -4,7 +4,7 @@ networks:
 
 services:
   speedtest-tracker:
-    image: linuxserver/speedtest-tracker:1.14.7
+    image: linuxserver/speedtest-tracker:1.14.8
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
