@@ -14,7 +14,7 @@ services:
     - I18N_LOCALE="zh-CN"
     - SERVER_SHUTDOWNTIMEOUT="5s"
     - MONITORING_UI_CONTAINER_ELASTICSEARCH_ENABLED=true
-    image: kibana:9.5.1
+    image: kibana:8.19.20
     labels:
       createdBy: Apps
     networks:
