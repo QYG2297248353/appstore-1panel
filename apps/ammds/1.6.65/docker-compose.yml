@@ -4,7 +4,7 @@ networks:
 
 services:
   ammds:
-    image: qyg2297248353/ammds:v1.6.65
+    image: qyg2297248353/ammds:v1.6.66
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
