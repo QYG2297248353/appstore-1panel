@@ -9,7 +9,7 @@ services:
     - .env
     environment:
     - TZ=Asia/Shanghai
-    image: githubyumao/mcsmanager-daemon:v10.18.1
+    image: githubyumao/mcsmanager-daemon:v10.18.2
     labels:
       createdBy: Apps
     networks:
@@ -32,7 +32,7 @@ services:
     - .env
     environment:
     - TZ=Asia/Shanghai
-    image: githubyumao/mcsmanager-web:v10.18.1
+    image: githubyumao/mcsmanager-web:v10.18.2
     networks:
     - 1panel-network
     ports:
