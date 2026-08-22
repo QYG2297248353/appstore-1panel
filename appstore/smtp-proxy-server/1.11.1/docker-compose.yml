@@ -12,7 +12,7 @@ services:
     - proxy_url=${PROXY_URL}
     - port=${PANEL_APP_PORT_SMTP}
     - imap_port=${PANEL_APP_PORT_IMAP}
-    image: ghcr.io/dreamhunter2333/cloudflare_temp_email/smtp_proxy_server:v1.11.0
+    image: ghcr.io/dreamhunter2333/cloudflare_temp_email/smtp_proxy_server:v1.11.1
     labels:
       createdBy: Apps
     networks:
