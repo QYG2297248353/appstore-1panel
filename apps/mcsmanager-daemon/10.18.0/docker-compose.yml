@@ -4,7 +4,7 @@ networks:
 
 services:
   mcsmanager-daemon:
-    image: githubyumao/mcsmanager-daemon:v10.18.0
+    image: githubyumao/mcsmanager-daemon:v10.18.1
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
