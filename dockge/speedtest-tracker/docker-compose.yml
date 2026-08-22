@@ -12,7 +12,7 @@ services:
     - PGID=1000
     - TZ=Asia/Shanghai
     - DISPLAY_TIMEZONE=Asia/Shanghai
-    image: linuxserver/speedtest-tracker:1.14.8
+    image: linuxserver/speedtest-tracker:1.15.0
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE}
