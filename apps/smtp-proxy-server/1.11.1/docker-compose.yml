@@ -4,7 +4,7 @@ networks:
 
 services:
   smtp_proxy_server:
-    image: ghcr.io/dreamhunter2333/cloudflare_temp_email/smtp_proxy_server:v1.11.0
+    image: ghcr.io/dreamhunter2333/cloudflare_temp_email/smtp_proxy_server:v1.11.1
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
