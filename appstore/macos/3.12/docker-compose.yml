@@ -5,7 +5,7 @@ services:
   windows:
     cap_add:
     - NET_ADMIN
-    container_name: windows
+    container_name: macos
     devices:
     - /dev/kvm:/dev/kvm
     - /dev/dri:/dev/dri
@@ -13,21 +13,17 @@ services:
     - ./envs/global.env
     - .env
     environment:
-    - REGION=en-US
-    - KEYBOARD=en-US
     - VERSION=${VERSION}
-    image: dockurr/windows:6.04
+    image: dockurr/macos:3.12
     labels:
       createdBy: Apps
     networks:
     - 1panel-network
     ports:
     - ${PANEL_APP_PORT_HTTP}:8006
-    - ${PANEL_APP_PORT_REMOTE}:3389/tcp
-    - ${PANEL_APP_PORT_REMOTE}:3389/udp
+    - ${PANEL_APP_PORT_REMOTE}:5900/tcp
+    - ${PANEL_APP_PORT_REMOTE}:5900/udp
     restart: always
     stop_grace_period: 2m
     volumes:
-    - ${WINDOWS_STORAGE_ROOT_PATH}/storage:/storage
-    - ${WINDOWS_SHARE_ROOT_PATH}/share:/data
-    - ${WINDOWS_OEM_ROOT_PATH}/oem:/oem
+    - ${MACOS_STORAGE_ROOT_PATH}/storage:/storage
