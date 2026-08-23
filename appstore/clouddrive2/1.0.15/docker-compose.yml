@@ -14,7 +14,7 @@ services:
     environment:
     - TZ=Asia/Shanghai
     - CLOUDDRIVE_HOME=/Config
-    image: cloudnas/clouddrive2:1.0.14
+    image: cloudnas/clouddrive2:1.0.15
     labels:
       createdBy: Apps
     networks:
