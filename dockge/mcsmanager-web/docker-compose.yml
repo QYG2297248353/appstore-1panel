@@ -9,7 +9,7 @@ services:
     - .env
     environment:
     - TZ=Asia/Shanghai
-    image: githubyumao/mcsmanager-web:v10.18.2
+    image: githubyumao/mcsmanager-web:v10.18.3
     networks:
     - 1panel-network
     ports:

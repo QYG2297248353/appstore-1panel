@@ -12,7 +12,7 @@ services:
     - PUID=1000
     - PGID=1000
     - QUEUE_CONNECTION=database
-    image: linuxserver/bookstack:26.05.3
+    image: linuxserver/bookstack:26.05.4
     labels:
       createdBy: Apps
     networks:
