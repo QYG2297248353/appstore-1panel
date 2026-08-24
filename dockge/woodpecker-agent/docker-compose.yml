@@ -11,7 +11,7 @@ services:
     environment:
     - HTTPS_PROXY=${HTTP_PROXY}
     - NO_PROXY=127.0.0.1,localhost,.local,woodpecker-agent,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
-    image: woodpeckerci/woodpecker-agent:v3.17.0
+    image: woodpeckerci/woodpecker-agent:v3.18.0
     networks:
     - 1panel-network
     restart: always

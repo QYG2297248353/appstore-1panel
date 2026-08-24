@@ -12,7 +12,7 @@ services:
     - WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
     - HTTPS_PROXY=${HTTP_PROXY}
     - NO_PROXY=127.0.0.1,localhost,.local,woodpecker-server,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
-    image: woodpeckerci/woodpecker-server:v3.17.0
+    image: woodpeckerci/woodpecker-server:v3.18.0
     labels:
       createdBy: Apps
     networks:
