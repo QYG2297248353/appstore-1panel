@@ -4,7 +4,7 @@ networks:
 
 services:
   page-spy-web:
-    image: huolalatech/page-spy-web:v2.4.8
+    image: huolalatech/page-spy-web:v2.4.9
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
