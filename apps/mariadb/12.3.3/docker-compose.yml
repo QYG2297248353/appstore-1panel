@@ -4,7 +4,7 @@ networks:
 
 services:
   mariadb:
-    image: mariadb:12.3.2
+    image: mariadb:12.3.3
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
