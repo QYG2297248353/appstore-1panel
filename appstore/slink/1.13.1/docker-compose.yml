@@ -12,7 +12,7 @@ services:
     - USER_PASSWORD_REQUIREMENTS=15
     - IMAGE_MAX_SIZE=15M
     - STORAGE_PROVIDER=local
-    image: anirdev/slink:v1.13.0
+    image: anirdev/slink:v1.13.1
     labels:
       createdBy: Apps
     networks:

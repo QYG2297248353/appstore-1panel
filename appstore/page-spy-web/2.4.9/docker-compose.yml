@@ -2,19 +2,19 @@ networks:
   1panel-network:
     external: true
 services:
-  mariadb:
-    container_name: mariadb
+  page-spy-web:
+    container_name: page-spy-web
     env_file:
     - ./envs/global.env
     - .env
-    image: mariadb:12.3.2
+    image: huolalatech/page-spy-web:v2.4.9
     labels:
       createdBy: Apps
     networks:
     - 1panel-network
     ports:
-    - ${PANEL_APP_PORT_HTTP}:3306
+    - ${PANEL_APP_PORT_HTTP}:6752
     restart: always
     volumes:
-    - ${MARIADB_ROOT_PATH}/data:/var/lib/mysql
-    - ${MARIADB_ROOT_PATH}/config/my.cnf:/etc/mysql/my.cnf
+    - ${PAGE_SPY_WEB_ROOT_PATH}/log:/app/log
+    - ${PAGE_SPY_WEB_ROOT_PATH}/data:/app/data
