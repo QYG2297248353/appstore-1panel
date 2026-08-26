@@ -14,7 +14,7 @@ services:
     - database__client=mysql
     - mail__options__service=Email
     - mail__options__secure=true
-    image: ghost:6.59.0
+    image: ghost:6.60.0
     labels:
       createdBy: Apps
     networks:
