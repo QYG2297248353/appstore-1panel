@@ -4,7 +4,7 @@ networks:
 
 services:
   surveyking:
-    image: surveyking/surveyking:v1.12.0
+    image: surveyking/surveyking:v1.13.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
