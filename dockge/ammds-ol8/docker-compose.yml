@@ -11,7 +11,7 @@ services:
     - TZ=Asia/Shanghai
     - NGINX_PORT=${PANEL_APP_PORT_HTTP:-8080}
     - AMMDS_SERVER_PORT=${PANEL_APP_PORT_API:-9523}
-    image: qyg2297248353/ammds:v1.6.66-ol8
+    image: qyg2297248353/ammds:v1.6.68-ol8
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE:-host}
