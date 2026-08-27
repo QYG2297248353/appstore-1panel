@@ -10,7 +10,7 @@ services:
     environment:
     - PROFILE=mysql
     - DB_URL=jdbc:mysql://${DB_HOSTNAME}:${DB_PORT}/${DB_NAME}
-    image: surveyking/surveyking:v1.12.0
+    image: surveyking/surveyking:v1.13.0
     labels:
       createdBy: Apps
     networks:

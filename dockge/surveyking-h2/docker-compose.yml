@@ -7,7 +7,7 @@ services:
     env_file:
     - ./envs/global.env
     - .env
-    image: surveyking/surveyking:v1.12.0
+    image: surveyking/surveyking:v1.13.0
     labels:
       createdBy: Apps
     networks:

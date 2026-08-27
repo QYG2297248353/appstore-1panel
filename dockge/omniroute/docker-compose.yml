@@ -19,7 +19,7 @@ services:
     - API_PORT=20129
     - LIVE_WS_HOST=0.0.0.0
     - LIVE_WS_PORT=20132
-    image: diegosouzapw/omniroute:3.8.49
+    image: diegosouzapw/omniroute:3.8.50
     labels:
       createdBy: Apps
     networks:

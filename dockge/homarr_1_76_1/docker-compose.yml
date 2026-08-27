@@ -7,7 +7,7 @@ services:
     env_file:
     - ./envs/global.env
     - .env
-    image: ghcr.io/ajnart/homarr:0.16.1
+    image: ghcr.io/homarr-labs/homarr:v1.76.1
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE}
