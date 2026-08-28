@@ -4,7 +4,7 @@ networks:
 
 services:
   tissue:
-    image: chris2s/tissue:1.13.1
+    image: chris2s/tissue:1.13.2
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
