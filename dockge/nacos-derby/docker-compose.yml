@@ -12,7 +12,7 @@ services:
     - NACOS_CONSOLE_PORT=${PANEL_APP_PORT_HTTP:-8080}
     - NACOS_SERVER_PORT=${PANEL_APP_PORT_API:-8848}
     - NACOS_AUTH_ENABLE=true
-    image: nacos/nacos-server:v3.2.3
+    image: nacos/nacos-server:v3.2.4
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE}
