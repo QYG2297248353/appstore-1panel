@@ -4,7 +4,7 @@ networks:
 
 services:
   bonita:
-    image: suwmlee/bonita:0.28.0
+    image: suwmlee/bonita:0.30.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
