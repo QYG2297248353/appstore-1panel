@@ -11,7 +11,7 @@ services:
     - HTTPS_PROXY=${HTTP_PROXY}
     - HTTP_PROXY=${HTTP_PROXY:-}
     - NO_PROXY=${NO_PROXY:-}
-    image: envyafish/byte-muse:1.27.4
+    image: envyafish/byte-muse:1.28.1
     labels:
       createdBy: Apps
     networks:
