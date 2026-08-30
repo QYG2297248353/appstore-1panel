@@ -11,7 +11,7 @@ services:
     - ./envs/global.env
     environment:
     - RUN_IN_CONTAINER=true
-    image: b3log/siyuan:v3.8.1
+    image: b3log/siyuan:v3.8.2
     labels:
       createdBy: Apps
     networks:
