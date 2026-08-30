@@ -4,7 +4,7 @@ networks:
 
 services:
   opengist:
-    image: thomiceli/opengist:1.15.1
+    image: thomiceli/opengist:1.15.2
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
