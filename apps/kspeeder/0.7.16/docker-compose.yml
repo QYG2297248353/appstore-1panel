@@ -4,7 +4,7 @@ networks:
 
 services:
   kspeeder:
-    image: linkease/kspeeder:0.7.16
+    image: linkease/kspeeder:0.7.17
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
