@@ -24,7 +24,7 @@ services:
       - -config
       - config.toml
       timeout: 2s
-    image: codeberg.org/readeck/readeck:0.23.1
+    image: codeberg.org/readeck/readeck:0.23.2
     labels:
       createdBy: Apps
     networks:
