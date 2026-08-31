@@ -4,7 +4,7 @@ networks:
 
 services:
   super-productivity:
-    image: johannesjo/super-productivity:v18.21.1
+    image: johannesjo/super-productivity:v18.21.2
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
