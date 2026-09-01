@@ -4,7 +4,7 @@ networks:
 
 services:
   nexus3:
-    image: sonatype/nexus3:3.95.3
+    image: sonatype/nexus3:3.96.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
