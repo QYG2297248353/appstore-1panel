@@ -11,7 +11,7 @@ services:
     - TZ=Asia/Shanghai
     - SUI_LOG_LEVEL=info
     - SUI_DEBUG=false
-    image: alireza7/s-ui:v1.5.5
+    image: alireza7/s-ui:v1.6.0
     labels:
       createdBy: Apps
     networks:
