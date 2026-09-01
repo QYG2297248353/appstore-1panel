@@ -11,7 +11,7 @@ services:
     - --halo.external-url=${HALO_EXTERNAL_URL}
     - --halo.security.remember-me.token-validity=${HALO_REMEMBER_ME_TOKEN_VALIDITY}
     container_name: halo
-    image: halohub/halo:2.26.0
+    image: halohub/halo:2.26.1
     labels:
       createdBy: Apps
     networks:
