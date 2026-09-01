@@ -9,7 +9,7 @@ services:
     - .env
     environment:
     - TZ=Asia/Shanghai
-    image: ghcr.io/suwayomi/suwayomi-server:v2.3.2344
+    image: ghcr.io/suwayomi/suwayomi-server:v2.3.2356
     labels:
       createdBy: Apps
     networks:
