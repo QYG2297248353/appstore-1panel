@@ -9,11 +9,8 @@ services:
     - ./envs/outline.env
     - .env
     environment:
-    - HTTP_PROXY=${HTTP_PROXY}
-    - HTTPS_PROXY=${HTTP_PROXY}
-    - NO_PROXY=${NO_PROXY}
     - DATABASE_URL=postgres://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOSTNAME}:${DB_PORT}/${DB_DATABASE_NAME}
-    image: outlinewiki/outline:1.9.2
+    image: outlinewiki/outline:1.2.0
     labels:
       createdBy: Apps
     networks:
