@@ -9,7 +9,7 @@ services:
     - .env
     environment:
     - TZ=Asia/Shanghai
-    image: ghcr.io/nodebb/nodebb:4.15.1
+    image: ghcr.io/nodebb/nodebb:4.15.2
     labels:
       createdBy: Apps
     networks:
