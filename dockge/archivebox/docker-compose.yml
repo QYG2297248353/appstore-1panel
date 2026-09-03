@@ -4,6 +4,8 @@ networks:
 services:
   archivebox:
     container_name: archivebox
+    depends_on:
+    - archivebox-init
     env_file:
     - ./envs/global.env
     - .env
@@ -14,7 +16,7 @@ services:
     - SEARCH_BACKEND_ENGINE=sonic
     - SEARCH_BACKEND_HOST_NAME=archivebox-sonic
     - SEARCH_BACKEND_PASSWORD=${ADMIN_PASSWORD:-}
-    image: archivebox/archivebox:0.7.4
+    image: archivebox/archivebox:0.8.5rc9
     labels:
       createdBy: Apps
     networks:
@@ -22,6 +24,26 @@ services:
     ports:
     - ${PANEL_APP_PORT_HTTP}:8000
     restart: always
+    volumes:
+    - ${ARCHIVEBOX_ROOT_PATH}/data:/data
+  archivebox-init:
+    command: archivebox init
+    container_name: init-archivebox
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - ALLOWED_HOSTS=*
+    - CSRF_TRUSTED_ORIGINS=http://localhost:8000
+    - SEARCH_BACKEND_ENGINE=sonic
+    - SEARCH_BACKEND_HOST_NAME=archivebox-sonic
+    - SEARCH_BACKEND_PASSWORD=${ADMIN_PASSWORD:-}
+    image: archivebox/archivebox:0.8.5rc9
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
     volumes:
     - ${ARCHIVEBOX_ROOT_PATH}/data:/data
   archivebox-sonic:
