@@ -1,0 +1,22 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  umami:
+    container_name: umami
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - DISABLE_TELEMETRY=1
+    - REMOVE_TRAILING_SLASH=1
+    - DATABASE_TYPE=postgresql
+    - DATABASE_URL=postgresql://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOSTNAME}:${DB_PORT}/${DB_DATABASE_NAME}
+    image: umamisoftware/umami:3.3.1
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:3000
+    restart: always
