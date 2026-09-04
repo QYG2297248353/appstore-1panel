@@ -1,0 +1,80 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  bookorbit:
+    cap_add:
+    - CHOWN
+    - DAC_OVERRIDE
+    - FOWNER
+    - SETGID
+    - SETUID
+    cap_drop:
+    - ALL
+    container_name: bookorbit
+    depends_on:
+      bookorbit-postgres:
+        condition: service_healthy
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - NODE_ENV=production
+    - PORT=${PORT:-3000}
+    - DATABASE_URL=${DATABASE_URL:-}
+    - POSTGRES_HOST=${POSTGRES_HOST:-bookorbit-postgres}
+    - POSTGRES_PORT=${POSTGRES_PORT:-5432}
+    - POSTGRES_USER=${POSTGRES_USER:-bookorbit}
+    - POSTGRES_PASSWORD=${POSTGRES_PASSWORD?required}
+    - POSTGRES_DB=${POSTGRES_DB:-bookorbit}
+    - JWT_SECRET=${JWT_SECRET?required}
+    - SETUP_BOOTSTRAP_TOKEN=${SETUP_BOOTSTRAP_TOKEN?required}
+    - APP_URL=${APP_URL?required}
+    - CLIENT_URL=${CLIENT_URL:-${APP_URL?required}}
+    - TZ=${TZ:-UTC}
+    - PUID=${PUID:-1000}
+    - PGID=${PGID:-1000}
+    - NODE_MAX_OLD_SPACE_SIZE=${NODE_MAX_OLD_SPACE_SIZE:-auto}
+    - BOOK_DOCK_PATH=${BOOK_DOCK_PATH:-}
+    - LIBRARY_BROWSE_ROOT=${LIBRARY_BROWSE_ROOT:-}
+    - DISABLE_LOCAL_AUTH=${DISABLE_LOCAL_AUTH:-false}
+    image: ghcr.io/bookorbit/bookorbit:2.8.1
+    init: true
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:3000
+    read_only: true
+    restart: always
+    security_opt:
+    - no-new-privileges:true
+    stop_grace_period: 30s
+    tmpfs:
+    - /tmp
+    volumes:
+    - ${BOOKORBIT_ROOT_PATH}/data:/data
+    - ${BOOKORBIT_ROOT_PATH}/books:/books
+  bookorbit-postgres:
+    container_name: postgres-bookorbit
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_DB: ${POSTGRES_DB:-bookorbit}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD?required}
+      POSTGRES_USER: ${POSTGRES_USER:-bookorbit}
+    healthcheck:
+      interval: 10s
+      retries: 10
+      start_period: 20s
+      test:
+      - CMD-SHELL
+      - pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"
+      timeout: 5s
+    image: pgvector/pgvector:pg18
+    networks:
+    - 1panel-network
+    restart: always
+    volumes:
+    - ${BOOKORBIT_ROOT_PATH}/postgres:/var/lib/postgresql/data

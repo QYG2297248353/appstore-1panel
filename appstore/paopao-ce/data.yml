@@ -9,7 +9,7 @@
   type: website
   crossVersionUpdate: true
   limit: 0
-  website: https://www.paopao.info/
+  website: https://paopao-demo.vercel.app/
   github: https://github.com/rocboss/paopao-ce/
   document: https://github.com/rocboss/paopao-ce/
   architectures:
