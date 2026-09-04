@@ -63,6 +63,8 @@ services:
     image: pgvector/pgvector:pg18
     container_name: postgres-${CONTAINER_NAME}
     restart: always
+    networks:
+      - 1panel-network
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-bookorbit}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD?required}
