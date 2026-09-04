@@ -5,7 +5,7 @@ networks:
 services:
   bookorbit:
     depends_on:
-      postgres:
+      bookorbit-postgres:
         condition: service_healthy
     image: ghcr.io/bookorbit/bookorbit:2.8.1
     container_name: ${CONTAINER_NAME}
