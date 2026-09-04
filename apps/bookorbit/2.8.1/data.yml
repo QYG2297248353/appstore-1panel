@@ -1,0 +1,45 @@
+additionalProperties:
+  formFields:
+    - default: "/home/bookorbit"
+      edit: true
+      envKey: BOOKORBIT_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "http://127.0.0.1:3000"
+      edit: true
+      envKey: APP_URL
+      labelZh: 访问地址
+      labelEn: App Url
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: POSTGRES_PASSWORD
+      labelZh: 数据库密码
+      labelEn: PostgreSQL Password
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: JWT_SECRET
+      labelZh: 随机密钥
+      labelEn: Random Key
+      required: true
+      type: password
+    - default: ""
+      edit: true
+      envKey: SETUP_BOOTSTRAP_TOKEN
+      labelZh: 初始化密钥
+      labelEn: Initialization Key
+      required: true
+      type: password

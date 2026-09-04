@@ -1,0 +1,79 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  bookorbit:
+    depends_on:
+      postgres:
+        condition: service_healthy
+    image: ghcr.io/bookorbit/bookorbit:2.8.1
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    init: true
+    networks:
+      - 1panel-network
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - DAC_OVERRIDE
+      - FOWNER
+      - SETGID
+      - SETUID
+    security_opt:
+      - no-new-privileges:true
+    stop_grace_period: 30s
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:3000
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${BOOKORBIT_ROOT_PATH}/data:/data
+      - ${BOOKORBIT_ROOT_PATH}/books:/books
+    environment:
+      - TZ=Asia/Shanghai
+      - NODE_ENV=production
+      - PORT=${PORT:-3000}
+      - DATABASE_URL=${DATABASE_URL:-}
+      - POSTGRES_HOST=${POSTGRES_HOST:-bookorbit-postgres}
+      - POSTGRES_PORT=${POSTGRES_PORT:-5432}
+      - POSTGRES_USER=${POSTGRES_USER:-bookorbit}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD?required}
+      - POSTGRES_DB=${POSTGRES_DB:-bookorbit}
+      - JWT_SECRET=${JWT_SECRET?required}
+      - SETUP_BOOTSTRAP_TOKEN=${SETUP_BOOTSTRAP_TOKEN?required}
+      - APP_URL=${APP_URL?required}
+      - CLIENT_URL=${CLIENT_URL:-${APP_URL?required}}
+      - TZ=${TZ:-UTC}
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - NODE_MAX_OLD_SPACE_SIZE=${NODE_MAX_OLD_SPACE_SIZE:-auto}
+      - BOOK_DOCK_PATH=${BOOK_DOCK_PATH:-}
+      - LIBRARY_BROWSE_ROOT=${LIBRARY_BROWSE_ROOT:-}
+      - DISABLE_LOCAL_AUTH=${DISABLE_LOCAL_AUTH:-false
+
+  bookorbit-postgres:
+    image: pgvector/pgvector:pg18
+    container_name: postgres-${CONTAINER_NAME}
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-bookorbit}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD?required}
+      POSTGRES_DB: ${POSTGRES_DB:-bookorbit}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - ${BOOKORBIT_ROOT_PATH}/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        [ "CMD-SHELL", 'pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"' ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s

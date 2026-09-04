@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none">
+  <defs>
+    <linearGradient id="planet" x1="9" y1="7" x2="21" y2="23" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#93c5fd" />
+      <stop offset="1" stop-color="#1d4ed8" />
+    </linearGradient>
+    <linearGradient id="ring" x1="1" y1="15" x2="29" y2="15" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60a5fa" stop-opacity="0.3" />
+      <stop offset="0.5" stop-color="#93c5fd" />
+      <stop offset="1" stop-color="#60a5fa" stop-opacity="0.3" />
+    </linearGradient>
+  </defs>
+  <circle cx="15" cy="15" r="7.5" fill="url(#planet)" />
+  <ellipse cx="15" cy="15" rx="14" ry="5" stroke="url(#ring)" stroke-width="1.8" transform="rotate(-22 15 15)" />
+  <circle cx="15" cy="15" r="2.2" fill="white" fill-opacity="0.3" />
+</svg>
