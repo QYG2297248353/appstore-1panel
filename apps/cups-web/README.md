@@ -37,6 +37,27 @@ sudo firewall-cmd --zone=public --add-service=mdns --permanent
 sudo firewall-cmd --reload
 ```
 
+### 主机模式
+
+主机模式下，CUPS Web 会监听宿主机的网络接口，允许从其他设备访问。
+
+如果你需要 AirPrint 支持，则必须使用主机模式。
+
+### 631 端口占用
+
+如果宿主机的 631 端口已被其他服务占用，你需要先关闭该服务。
+
+```bash
+# 查看 631 端口占用情况
+sudo lsof -i :631
+
+#停用 cups 服务
+sudo systemctl disable --now cups.service
+sudo systemctl disable --now cups.socket
+sudo systemctl disable --now cups.path
+```
+
+
 ## 简介
 
 把家用 USB 打印机变成随时可访问的网络打印服务
