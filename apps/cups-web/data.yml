@@ -1,0 +1,17 @@
+additionalProperties:
+  key: cups-web
+  name: Cups Web
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 把家用 USB 打印机变成随时可访问的网络打印服务
+  shortDescEn: Cups Web is a free and open-source web-based printer service.
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://github.com/hanxi/cups-web
+  github: https://github.com/hanxi/cups-web
+  document: https://github.com/hanxi/cups-web
+  architectures:
+    - amd64
+    - arm64
