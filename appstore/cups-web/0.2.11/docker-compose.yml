@@ -1,0 +1,30 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  cups-web:
+    container_name: cups-web
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - LISTEN_ADDR=${LISTEN_ADDR:-0.0.0.0:${PANEL_APP_PORT_HTTP}}
+    - CUPS_HOST=${CUPS_HOST:-localhost:631}
+    - DB_PATH=${DB_PATH:-/data/cups-web.db}
+    - UPLOAD_DIR=${UPLOAD_DIR:-/uploads}
+    image: hanxi/cups-web:v0.2.11
+    labels:
+      createdBy: Apps
+    network_mode: ${NETWORK_MODE}
+    ports:
+    - ${PANEL_APP_PORT_CUPS}:631
+    - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
+    restart: always
+    user: root
+    volumes:
+    - ${CUPS_WEB_DATA_ROOT_PATH}/.etc:/etc/cups
+    - ${CUPS_WEB_DATA_ROOT_PATH}/data:/data
+    - ${CUPS_WEB_DATA_ROOT_PATH}/uploads:/uploads
+    - ${CUPS_WEB_DATA_ROOT_PATH}/drivers:/opt/cups-drivers/data
+    - /run/dbus/system_bus_socket:/run/dbus/system_bus_socket

@@ -39,7 +39,7 @@ services:
     - BOOK_DOCK_PATH=${BOOK_DOCK_PATH:-}
     - LIBRARY_BROWSE_ROOT=${LIBRARY_BROWSE_ROOT:-}
     - DISABLE_LOCAL_AUTH=${DISABLE_LOCAL_AUTH:-false}
-    image: ghcr.io/bookorbit/bookorbit:2.8.1
+    image: ghcr.io/bookorbit/bookorbit:2.9.0
     init: true
     labels:
       createdBy: Apps
