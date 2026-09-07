@@ -4,13 +4,13 @@ networks:
     external: true
 services:
   immich-machine-learning:
-    container_name: immich-machine-learning
+    container_name: immich-machine-learning-immich-machine-learning
     devices:
     - /dev/dri:/dev/dri
     env_file:
     - ./envs/global.env
     - .env
-    image: ghcr.io/immich-app/immich-machine-learning:v3.1.0
+    image: ghcr.io/immich-app/immich-machine-learning:v1.144.1
     labels:
       createdBy: Apps
     networks:

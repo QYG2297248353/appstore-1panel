@@ -1,0 +1,17 @@
+additionalProperties:
+  key: bookorbit
+  name: BookOrbit
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 您的阅读空间
+  shortDescEn: Your Reading Space
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://bookorbit.app
+  github: https://github.com/bookorbit/bookorbit
+  document: https://github.com/bookorbit/bookorbit
+  architectures:
+    - amd64
+    - arm64

@@ -7,7 +7,7 @@ services:
     env_file:
     - ./envs/global.env
     - .env
-    image: streamrec/stream-rec-front:main
+    image: streamrec/stream-rec-front:v0.7.2
     labels:
       createdBy: Apps
     networks:

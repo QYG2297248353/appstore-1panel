@@ -1,0 +1,77 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  mediacms:
+    container_name: mediacms
+    depends_on:
+    - mediacms-migrations
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - ENABLE_CELERY_BEAT=no
+    - ENABLE_CELERY_SHORT=no
+    - ENABLE_CELERY_LONG=no
+    - ENABLE_MIGRATIONS=no
+    image: qyg2297248353/mediacms:v4.1.0
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:80
+    restart: always
+    volumes:
+    - ${MEDIACMS_ROOT_PATH}/media_files/hls:/home/mediacms.io/mediacms/media_files/hls
+    - ${MEDIACMS_ROOT_PATH}/media_files/original:/home/mediacms.io/mediacms/media_files/original
+    - ${MEDIACMS_ROOT_PATH}/media_files/uploads:/home/mediacms.io/mediacms/media_files/uploads
+  mediacms-celery-beat:
+    container_name: celery-beat-mediacms
+    environment:
+    - ENABLE_UWSGI=no
+    - ENABLE_NGINX=no
+    - ENABLE_CELERY_SHORT=no
+    - ENABLE_CELERY_LONG=no
+    - ENABLE_MIGRATIONS=no
+    image: qyg2297248353/mediacms:v4.1.0
+    volumes:
+    - ${MEDIACMS_ROOT_PATH}/media_files/hls:/home/mediacms.io/mediacms/media_files/hls
+    - ${MEDIACMS_ROOT_PATH}/media_files/original:/home/mediacms.io/mediacms/media_files/original
+    - ${MEDIACMS_ROOT_PATH}/media_files/uploads:/home/mediacms.io/mediacms/media_files/uploads
+  mediacms-celery-worker:
+    container_name: celery-worker-mediacms
+    depends_on:
+    - mediacms-migrations
+    environment:
+    - ENABLE_UWSGI=no
+    - ENABLE_NGINX=no
+    - ENABLE_CELERY_BEAT=no
+    - ENABLE_MIGRATIONS=no
+    image: qyg2297248353/mediacms:v4.1.0
+    volumes:
+    - ${MEDIACMS_ROOT_PATH}/media_files/hls:/home/mediacms.io/mediacms/media_files/hls
+    - ${MEDIACMS_ROOT_PATH}/media_files/original:/home/mediacms.io/mediacms/media_files/original
+    - ${MEDIACMS_ROOT_PATH}/media_files/uploads:/home/mediacms.io/mediacms/media_files/uploads
+  mediacms-migrations:
+    command:
+    - ./deploy/docker/prestart.sh
+    container_name: migrations-mediacms
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - ENABLE_UWSGI=no
+    - ENABLE_NGINX=no
+    - ENABLE_CELERY_SHORT=no
+    - ENABLE_CELERY_LONG=no
+    - ENABLE_CELERY_BEAT=no
+    - ADMIN_USER=${ADMIN_USER}
+    - ADMIN_EMAIL=${ADMIN_EMAIL}
+    - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+    image: qyg2297248353/mediacms:v4.1.0
+    restart: on-failure
+    volumes:
+    - ${MEDIACMS_ROOT_PATH}/media_files/hls:/home/mediacms.io/mediacms/media_files/hls
+    - ${MEDIACMS_ROOT_PATH}/media_files/original:/home/mediacms.io/mediacms/media_files/original
+    - ${MEDIACMS_ROOT_PATH}/media_files/uploads:/home/mediacms.io/mediacms/media_files/uploads
