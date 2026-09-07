@@ -4,7 +4,7 @@ networks:
 
 services:
   dpanel:
-    image: dpanel/dpanel:1.10.7
+    image: dpanel/dpanel:1.10.8-lite
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
@@ -12,9 +12,7 @@ services:
     networks:
       - 1panel-network
     ports:
-      - ${PANEL_APP_PORT_ADMIN}:8080
-      - ${PANEL_APP_PORT_HTTP}:80
-      - ${PANEL_APP_PORT_HTTPS}:443
+      - ${PANEL_APP_PORT_HTTP}:8080
     env_file:
       - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
       - ${ENV_FILE:-/etc/1panel/envs/default.env}
