@@ -4,7 +4,7 @@ networks:
 
 services:
   twikoo:
-    image: imaegoo/twikoo:1.7.20
+    image: imaegoo/twikoo:1.7.22
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
