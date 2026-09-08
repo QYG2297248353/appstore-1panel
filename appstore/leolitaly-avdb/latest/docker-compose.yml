@@ -2,22 +2,23 @@ networks:
   1panel-network:
     external: true
 services:
-  kspeeder:
-    container_name: kspeeder
+  avdb:
+    container_name: leolitaly-avdb
     env_file:
     - ./envs/global.env
     - .env
     environment:
     - TZ=Asia/Shanghai
-    image: linkease/kspeeder:0.8.0
+    - PGID=${PGID:-1000}
+    - PUID=${PUID:-1000}
+    - DATABASE_URL=sqlite:////data/avdb.db
+    image: leolitaly/avdb:latest
     labels:
       createdBy: Apps
     networks:
     - 1panel-network
     ports:
-    - ${PANEL_APP_PORT_HTTP}:5003
-    - ${PANEL_APP_PORT_API}:5443
+    - ${PANEL_APP_PORT_HTTP}:8000
     restart: always
     volumes:
-    - ${KSPEEDER_ROOT_PATH}/data:/kspeeder-data
-    - ${KSPEEDER_ROOT_PATH}/config:/kspeeder-config
+    - ${AVDB_ROOT_PATH}/data:/data
