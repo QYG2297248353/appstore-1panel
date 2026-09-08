@@ -1,0 +1,17 @@
+additionalProperties:
+  key: leolitaly-avdb
+  name: AVDB
+  tags:
+    - WebSite
+    - Local
+  shortDescZh: 个人影视资源管理的全流程自动化系统
+  shortDescEn: AVDB is a personal video resource management system that automates the entire process of video management.
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://peifeng.li/
+  github: https://github.com/li-peifeng/AVdb-Only
+  document: https://peifeng.li/
+  architectures:
+    - amd64
+    - arm64
