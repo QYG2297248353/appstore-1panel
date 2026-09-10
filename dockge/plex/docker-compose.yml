@@ -14,7 +14,7 @@ services:
     - UMASK=022
     - TZ=Asia/Shanghai
     - VERSION=docker
-    image: linuxserver/plex:1.43.3
+    image: linuxserver/plex:1.43.4
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE}
