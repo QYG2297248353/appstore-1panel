@@ -2,11 +2,11 @@ networks:
   1panel-network:
     external: true
 
-name: immich-server
+name: immich-machine-learning
 
 services:
-  immich-server:
-    image: ghcr.io/immich-app/immich-server:v3.1.0
+  immich-machine-learning:
+    image: ghcr.io/immich-app/immich-machine-learning:v3.2.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
@@ -23,10 +23,9 @@ services:
       # - /dev/nvidia-uvm-tools:/dev/nvidia-uvm-tools
       # - /dev/video11:/dev/video11
     ports:
-      - ${PANEL_APP_PORT_HTTP}:2283
+      - ${PANEL_APP_PORT_HTTP}:3003
     env_file:
       - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
       - ${ENV_FILE:-/etc/1panel/envs/default.env}
     volumes:
-      - ${IMMICH_ROOT_PATH}/data/library:/data
-      - /etc/localtime:/etc/localtime
+      - ${IMMICH_ROOT_PATH}/data/cache:/cache

@@ -2,29 +2,11 @@ networks:
   1panel-network:
     external: true
 
-name: immich
+name: immich-server
 
 services:
-  immich-pg14-vectors:
-    image: ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
-    container_name: pg14-vectors-${CONTAINER_NAME}
-    restart: always
-    networks:
-      - 1panel-network
-    ports:
-      - ${PANEL_APP_PORT_DB:-5432}:5432
-    volumes:
-      - ${IMMICH_ROOT_PATH}/pg14/data:/var/lib/postgresql/data
-    environment:
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_USER: ${DB_USERNAME:-postgres}
-      POSTGRES_DB: ${DB_DATABASE_NAME:-immich}
-      POSTGRES_INITDB_ARGS: '--data-checksums'
-
   immich-server:
-    depends_on:
-      - immich-pg14-vectors
-    image: ghcr.io/immich-app/immich-server:v3.1.0
+    image: ghcr.io/immich-app/immich-server:v3.2.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
@@ -47,4 +29,4 @@ services:
       - ${ENV_FILE:-/etc/1panel/envs/default.env}
     volumes:
       - ${IMMICH_ROOT_PATH}/data/library:/data
-      - /etc/localtime:/etc/localtime:ro
+      - /etc/localtime:/etc/localtime
