@@ -10,7 +10,7 @@ services:
     environment:
     - APP_NAME=${CONTAINER_NAME}
     - HTTPS_PROXY=${HTTP_PROXY}
-    image: dpanel/dpanel:1.10.8
+    image: dpanel/dpanel:1.10.9
     labels:
       createdBy: Apps
     networks:

@@ -3,20 +3,22 @@ networks:
     external: true
 services:
   dpanel:
-    container_name: dpanel-lite
+    container_name: dpanel
     env_file:
     - ./envs/global.env
     - .env
     environment:
     - APP_NAME=${CONTAINER_NAME}
     - HTTPS_PROXY=${HTTP_PROXY}
-    image: dpanel/dpanel:1.10.8-lite
+    image: dpanel/dpanel:1.10.9
     labels:
       createdBy: Apps
     networks:
     - 1panel-network
     ports:
-    - ${PANEL_APP_PORT_HTTP}:8080
+    - ${PANEL_APP_PORT_ADMIN}:8080
+    - ${PANEL_APP_PORT_HTTP}:80
+    - ${PANEL_APP_PORT_HTTPS}:443
     restart: always
     volumes:
     - ${DPANEL_ROOT_PATH}/data:/dpanel
