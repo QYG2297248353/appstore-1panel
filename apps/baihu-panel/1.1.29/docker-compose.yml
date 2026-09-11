@@ -4,7 +4,7 @@ networks:
 
 services:
   baihu-panel:
-    image: ghcr.io/engigu/baihu:1.1.29
+    image: ghcr.io/engigu/baihu:1.1.30
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
