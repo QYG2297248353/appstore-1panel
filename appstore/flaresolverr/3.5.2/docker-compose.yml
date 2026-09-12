@@ -20,7 +20,7 @@ services:
     - HOST=0.0.0.0
     - PROMETHEUS_ENABLED=false
     - PROMETHEUS_PORT=8192
-    image: flaresolverr/flaresolverr:v3.5.0
+    image: flaresolverr/flaresolverr:v3.5.2
     labels:
       createdBy: Apps
     networks:
