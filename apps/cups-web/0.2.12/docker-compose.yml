@@ -4,7 +4,7 @@ networks:
 
 services:
   cups-web:
-    image: hanxi/cups-web:v0.2.11
+    image: hanxi/cups-web:v0.2.12
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
