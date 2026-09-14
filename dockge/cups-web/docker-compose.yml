@@ -13,7 +13,7 @@ services:
     - CUPS_HOST=${CUPS_HOST:-localhost:631}
     - DB_PATH=${DB_PATH:-/data/cups-web.db}
     - UPLOAD_DIR=${UPLOAD_DIR:-/uploads}
-    image: hanxi/cups-web:v0.2.11
+    image: hanxi/cups-web:v0.2.12
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE}

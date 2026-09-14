@@ -1,0 +1,33 @@
+debug: false
+httpport: 80
+language: zh-CN
+grpcport: nz_grpc_port
+oauth2:
+  type: "nz_oauth2_type"
+  admin: "nz_admin_logins"
+  clientid: "nz_github_oauth_client_id"
+  clientsecret: "nz_github_oauth_client_secret"
+  endpoint: ""
+site:
+  brand: "nz_site_title"
+  cookiename: "nezha-dashboard"
+  theme: "default"
+ddns:
+  enable: false
+  provider: "webhook"
+  accessid: ""
+  accesssecret: ""
+  webhookmethod: ""
+  webhookurl: ""
+  webhookrequestbody: ""
+  webhookheaders: ""
+  maxretries: 3
+  profiles:
+    example:
+      provider: ""
+      accessid: ""
+      accesssecret: ""
+      webhookmethod: ""
+      webhookurl: ""
+      webhookrequestbody: ""
+      webhookheaders: ""
