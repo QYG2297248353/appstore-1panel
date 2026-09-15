@@ -2,23 +2,21 @@ networks:
   1panel-network:
     external: true
 services:
-  jackett:
-    container_name: jackett
+  twikoo:
+    container_name: twikoo
     env_file:
     - ./envs/global.env
     - .env
     environment:
     - TZ=Asia/Shanghai
-    - PUID=1000
-    - PGID=1000
-    image: linuxserver/jackett:0.24.2586
+    - TWIKOO_PORT=8080
+    image: imaegoo/twikoo:1.7.24
     labels:
       createdBy: Apps
     networks:
     - 1panel-network
     ports:
-    - ${PANEL_APP_PORT_HTTP}:9117
+    - ${PANEL_APP_PORT_HTTP}:8080
     restart: always
     volumes:
-    - ${JACKETT_ROOT_PATH}/config:/config
-    - ${JACKETT_ROOT_PATH}/downloads:/downloads
+    - ${TWIKOO_ROOT_PATH}/data:/app/data
