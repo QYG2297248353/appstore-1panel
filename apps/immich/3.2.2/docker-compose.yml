@@ -50,7 +50,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
 
   immich-machine-learning:
-    image: ghcr.io/immich-app/immich-machine-learning:v3.2.1
+    image: ghcr.io/immich-app/immich-machine-learning:v3.2.2
     container_name: machine-learning-${CONTAINER_NAME}
     restart: always
     networks:
