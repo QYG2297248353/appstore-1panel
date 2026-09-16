@@ -12,7 +12,7 @@ services:
     - PGID=1000
     - UMASK=022
     - TZ=Asia/Shanghai
-    image: linuxserver/sonarr:4.0.19
+    image: linuxserver/sonarr:4.0.20
     labels:
       createdBy: Apps
     networks:
