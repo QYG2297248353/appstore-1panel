@@ -10,7 +10,7 @@ services:
     env_file:
     - ./envs/global.env
     - .env
-    image: ghcr.io/immich-app/immich-machine-learning:v3.2.1
+    image: ghcr.io/immich-app/immich-machine-learning:v3.2.2
     labels:
       createdBy: Apps
     networks:
