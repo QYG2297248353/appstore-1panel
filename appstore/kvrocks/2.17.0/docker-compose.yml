@@ -9,7 +9,7 @@ services:
     - .env
     environment:
     - TZ=Asia/Shanghai
-    image: apache/kvrocks:2.16.0
+    image: apache/kvrocks:2.17.0
     labels:
       createdBy: Apps
     networks:
