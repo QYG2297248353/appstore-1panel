@@ -18,7 +18,7 @@ services:
     - 53
     - 53/udp
     - ${PANEL_APP_PORT_HTTP}
-    image: pihole/pihole:2026.07.2
+    image: pihole/pihole:2026.09.0
     labels:
       createdBy: Apps
     network_mode: host
