@@ -4,17 +4,19 @@ networks:
 
 services:
   pihole:
-    image: pihole/pihole:2026.07.2
+    image: pihole/pihole:2026.09.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
     restart: always
-    networks:
-      - 1panel-network
-    ports:
-      - ${PANEL_APP_PORT_HTTP}:80
-      - ${PANEL_APP_PORT_DNS}:53
-      - ${PANEL_APP_PORT_DNS}:53/udp
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+    expose:
+      - 67/udp
+      - 53
+      - 53/udp
+      - ${PANEL_APP_PORT_HTTP}
     env_file:
       - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
       - ${ENV_FILE:-/etc/1panel/envs/default.env}
@@ -22,4 +24,6 @@ services:
       - ${PIHOLE_ROOT_PATH}/pihole:/etc/pihole
       - ${PIHOLE_ROOT_PATH}/dnsmasq.d:/etc/dnsmasq.d
     environment:
+      - WEB_PORT=${PANEL_APP_PORT_HTTP}
       - TZ=Asia/Shanghai
+      - DHCP_ACTIVE=true
