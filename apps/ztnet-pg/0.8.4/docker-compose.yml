@@ -21,7 +21,7 @@ services:
   ztnet:
     depends_on:
       - ztnet-postgres
-    image: sinamics/ztnet:0.8.3
+    image: sinamics/ztnet:0.8.4
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
