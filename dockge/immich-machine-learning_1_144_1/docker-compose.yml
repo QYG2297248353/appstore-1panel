@@ -1,0 +1,22 @@
+name: immich-machine-learning
+networks:
+  1panel-network:
+    external: true
+services:
+  immich-machine-learning:
+    container_name: immich-machine-learning-immich-machine-learning
+    devices:
+    - /dev/dri:/dev/dri
+    env_file:
+    - ./envs/global.env
+    - .env
+    image: ghcr.io/immich-app/immich-machine-learning:v1.144.1
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:3003
+    restart: always
+    volumes:
+    - ${IMMICH_ROOT_PATH}/data/cache:/cache

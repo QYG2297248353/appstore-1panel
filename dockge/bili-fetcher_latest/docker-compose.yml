@@ -1,0 +1,36 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  bili-fetcher-api:
+    container_name: api-bili-fetcher
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - DOCKER_ENV=true
+    image: qyg2297248353/bili-fetcher:latest
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_API}:8899
+    restart: always
+    volumes:
+    - ${BILI_FETCHER_ROOT_PATH}/config:/app/config
+    - ${BILI_FETCHER_ROOT_PATH}/output:/app/output
+  bili-fetcher-web:
+    container_name: bili-fetcher
+    depends_on:
+    - bili-fetcher-api
+    environment:
+    - BACKEND_URL=http://bili-fetcher-api:8899
+    - TZ=Asia/Shanghai
+    image: qyg2297248353/bili-fetcher-web:latest
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:80
+    restart: always
