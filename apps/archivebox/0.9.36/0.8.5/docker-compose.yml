@@ -4,7 +4,9 @@ networks:
 
 services:
   archivebox:
-    image: archivebox/archivebox:0.7.4
+    image: archivebox/archivebox:0.9.36
+    depends_on:
+      - archivebox-init
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
@@ -13,6 +15,27 @@ services:
       - 1panel-network
     ports:
       - ${PANEL_APP_PORT_HTTP}:8000
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${ARCHIVEBOX_ROOT_PATH}/data:/data
+    environment:
+      - TZ=Asia/Shanghai
+      - ALLOWED_HOSTS=*
+      - CSRF_TRUSTED_ORIGINS=http://localhost:8000
+      - SEARCH_BACKEND_ENGINE=sonic
+      - SEARCH_BACKEND_HOST_NAME=archivebox-sonic
+      - SEARCH_BACKEND_PASSWORD=${ADMIN_PASSWORD:-}
+
+  archivebox-init:
+    image: archivebox/archivebox:0.9.36
+    container_name: init-${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    networks:
+      - 1panel-network
+    command: archivebox init
     env_file:
       - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
       - ${ENV_FILE:-/etc/1panel/envs/default.env}
