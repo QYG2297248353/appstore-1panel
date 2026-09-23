@@ -14,7 +14,7 @@ services:
     - SEARCH_BACKEND_ENGINE=sonic
     - SEARCH_BACKEND_HOST_NAME=archivebox-sonic
     - SEARCH_BACKEND_PASSWORD=${ADMIN_PASSWORD:-}
-    image: archivebox/archivebox:0.9.36
+    image: archivebox/archivebox:0.9.50
     labels:
       createdBy: Apps
     networks:
