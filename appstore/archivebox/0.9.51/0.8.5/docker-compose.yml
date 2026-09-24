@@ -3,7 +3,7 @@ networks:
     external: true
 services:
   archivebox:
-    container_name: 0.9.50
+    container_name: 0.9.51
     depends_on:
     - archivebox-init
     env_file:
@@ -16,7 +16,7 @@ services:
     - SEARCH_BACKEND_ENGINE=sonic
     - SEARCH_BACKEND_HOST_NAME=archivebox-sonic
     - SEARCH_BACKEND_PASSWORD=${ADMIN_PASSWORD:-}
-    image: archivebox/archivebox:0.9.50
+    image: archivebox/archivebox:0.9.51
     labels:
       createdBy: Apps
     networks:
@@ -28,7 +28,7 @@ services:
     - ${ARCHIVEBOX_ROOT_PATH}/data:/data
   archivebox-init:
     command: archivebox init
-    container_name: init-0.9.50
+    container_name: init-0.9.51
     env_file:
     - ./envs/global.env
     - .env
@@ -39,7 +39,7 @@ services:
     - SEARCH_BACKEND_ENGINE=sonic
     - SEARCH_BACKEND_HOST_NAME=archivebox-sonic
     - SEARCH_BACKEND_PASSWORD=${ADMIN_PASSWORD:-}
-    image: archivebox/archivebox:0.9.50
+    image: archivebox/archivebox:0.9.51
     labels:
       createdBy: Apps
     networks:
@@ -47,7 +47,7 @@ services:
     volumes:
     - ${ARCHIVEBOX_ROOT_PATH}/data:/data
   archivebox-sonic:
-    container_name: sonic-0.9.50
+    container_name: sonic-0.9.51
     env_file:
     - ./envs/global.env
     - .env
