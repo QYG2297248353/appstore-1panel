@@ -22,7 +22,7 @@ services:
     - AFFINE_SERVER_PORT=3010
     - AFFINE_SERVER_HTTPS=false
     - AFFINE_SERVER_EXTERNAL_URL=http://127.0.0.1:3010
-    image: ghcr.io/toeverything/affine-graphql:stable-1623f5d
+    image: ghcr.io/toeverything/affine-graphql:stable-e98f035
     labels:
       createdBy: Apps
     networks:

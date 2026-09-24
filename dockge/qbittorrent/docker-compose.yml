@@ -12,7 +12,7 @@ services:
     - UMASK=022
     - WEBUI_PORT=${PANEL_APP_PORT_HTTP}
     - TORRENTING_PORT=${PANEL_APP_PORT_TORRENTING}
-    image: linuxserver/qbittorrent:5.2.3
+    image: linuxserver/qbittorrent:4.6.7
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE}
