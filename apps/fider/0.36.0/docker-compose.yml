@@ -4,7 +4,7 @@ networks:
 
 services:
   fider:
-    image: getfider/fider:v0.36.0
+    image: getfider/fider:v0.37.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
