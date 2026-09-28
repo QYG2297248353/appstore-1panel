@@ -2,22 +2,23 @@ networks:
   1panel-network:
     external: true
 services:
-  kspeeder:
-    container_name: kspeeder
+  waline:
+    container_name: waline
     env_file:
     - ./envs/global.env
     - .env
     environment:
     - TZ=Asia/Shanghai
-    image: linkease/kspeeder:0.8.1
+    - SQLITE_PATH=/app/data
+    - SQLITE_DB=waline
+    - SQLITE_PREFIX=wl_
+    image: lizheming/waline:1.43.3
     labels:
       createdBy: Apps
     networks:
     - 1panel-network
     ports:
-    - ${PANEL_APP_PORT_HTTP}:5003
-    - ${PANEL_APP_PORT_API}:5443
+    - ${PANEL_APP_PORT_HTTP}:8360
     restart: always
     volumes:
-    - ${KSPEEDER_ROOT_PATH}/data:/kspeeder-data
-    - ${KSPEEDER_ROOT_PATH}/config:/kspeeder-config
+    - ${WALINE_ROOT_PATH}/data:/app/data
