@@ -4,7 +4,7 @@ networks:
 
 services:
   element-web:
-    image: vectorim/element-web:v1.12.29
+    image: vectorim/element-web:v1.12.30
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
