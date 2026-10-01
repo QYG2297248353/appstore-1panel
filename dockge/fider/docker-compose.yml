@@ -9,7 +9,7 @@ services:
     - .env
     environment:
     - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_NAME}?sslmode=disable
-    image: getfider/fider:v0.38.0
+    image: getfider/fider:v0.38.1
     labels:
       createdBy: Apps
     networks:
