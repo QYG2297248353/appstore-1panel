@@ -17,7 +17,7 @@ services:
     - POSTGRES_PASSWORD=postgres
     - POSTGRES_DB=ztnet
     - NEXTAUTH_URL_INTERNAL=http://ztnet:3000
-    image: sinamics/ztnet:0.8.4
+    image: sinamics/ztnet:0.8.5
     labels:
       createdBy: Apps
     networks:
