@@ -4,7 +4,7 @@ networks:
 
 services:
   suwayomi-server:
-    image: ghcr.io/suwayomi/suwayomi-server:v2.4.2377
+    image: ghcr.io/suwayomi/suwayomi-server:v2.4.2378
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
