@@ -22,3 +22,15 @@ additionalProperties:
       labelEn: Hugging Face Endpoint
       required: false
       type: text
+    - default: "main"
+      edit: true
+      envKey: MACHINE_LEARNING_MODEL_REVISION
+      labelZh: 机器学习模型版本
+      labelEn: Machine Learning Model Revision
+      required: false
+      type: select
+      values:
+        - label: 原始导出版本
+          value: "main"
+        - label: 较新导出版本
+          value: "v2"
