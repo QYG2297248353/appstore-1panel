@@ -11,7 +11,7 @@ services:
     - TZ=Asia/Shanghai
     - NODE_ENV=production
     - DB_PATH=/app/data/stats.db
-    image: foru17/neko-master:1.4.0
+    image: foru17/neko-master:1.4.2
     labels:
       createdBy: Apps
     networks:
