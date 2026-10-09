@@ -12,7 +12,7 @@ services:
     - BARK_SERVER_URL_PREFIX=/
     - BARK_SERVER_DATA_DIR=/data
     - BARK_SERVER_SERVERLESS=false
-    image: finab/bark-server:v2.3.7
+    image: finab/bark-server:v2.3.8
     labels:
       createdBy: Apps
     networks:
