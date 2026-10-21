@@ -10,7 +10,7 @@ services:
     environment:
     - TZ=Asia/Shanghai
     - HTTPS_PROXY=${HTTP_PROXY}
-    image: sn0wl1n/ech0:v5.0.0
+    image: sn0wl1n/ech0:v3.1.4
     labels:
       createdBy: Apps
     networks:

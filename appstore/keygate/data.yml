@@ -1,0 +1,17 @@
+additionalProperties:
+  key: keygate
+  name: Keygate
+  tags:
+    - DevTool
+    - Local
+  shortDescZh: 开源软件许可证管理平台，可自托管的 Keygen 替代方案
+  shortDescEn: Open source software license management platform, self-hosted alternative to Keygen
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://keygate.app/
+  github: https://github.com/tabloy/keygate
+  document: https://keygate.app/docs
+  architectures:
+    - amd64
+    - arm64

@@ -1,0 +1,17 @@
+additionalProperties:
+  key: keygate-all-in-one
+  name: Keygate All-in-One
+  tags:
+    - DevTool
+    - Local
+  shortDescZh: 开源软件许可证管理平台（内置 PostgreSQL 与 Redis 一体化部署）
+  shortDescEn: Open source software license management platform, all-in-one with bundled PostgreSQL and Redis
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://keygate.app/
+  github: https://github.com/tabloy/keygate
+  document: https://keygate.app/docs
+  architectures:
+    - amd64
+    - arm64
