@@ -51,6 +51,58 @@ additionalProperties:
       type: password
     - default: ""
       edit: true
+      envKey: RELEASE_KEY_ENCRYPTION_KEY
+      labelZh: 发布密钥加密密钥 (推荐)
+      labelEn: Release Key Encryption Key (Recommended)
+      random: true
+      required: false
+      rule: paramComplexity
+      type: password
+    - default: ""
+      edit: true
+      envKey: STRIPE_SECRET_KEY
+      labelZh: Stripe 密钥 (可选)
+      labelEn: Stripe Secret Key (Optional)
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: SMTP_HOST
+      labelZh: SMTP 主机 (可选)
+      labelEn: SMTP Host (Optional)
+      required: false
+      type: text
+    - default: 587
+      edit: true
+      envKey: SMTP_PORT
+      labelZh: SMTP 端口
+      labelEn: SMTP Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: SMTP_USERNAME
+      labelZh: SMTP 用户名 (可选)
+      labelEn: SMTP Username (Optional)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: SMTP_PASSWORD
+      labelZh: SMTP 密码 (可选)
+      labelEn: SMTP Password (Optional)
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: SMTP_FROM
+      labelZh: SMTP 发件人 (可选)
+      labelEn: SMTP From (Optional)
+      required: false
+      type: text
+    - default: ""
+      edit: true
       envKey: ADMIN_EMAILS
       labelZh: 管理员邮箱 (逗号分隔)
       labelEn: Admin Emails (comma separated)

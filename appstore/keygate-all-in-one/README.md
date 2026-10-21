@@ -28,6 +28,46 @@ Keygate 是一个生产就绪的许可证服务器，部署在你自己的基础
 
 > 一个服务。一个数据库。完全掌控。永久免费。
 
+## 配置填写说明
+
+### 安全密钥 (Secrets)
+
+所有密钥都应使用 `openssl rand -hex 32` 生成，并妥善保管。
+
+```sh
+openssl rand -hex 32
+```
+
+| 变量 | 默认值 | 说明 |
+| --- | --- | --- |
+| `JWT_SECRET` | 必填 | 签名登录会话，至少 32 个字符 |
+| `LICENSE_SIGNING_KEY` | 必填 | 签名离线令牌（由你的应用校验）的 Ed25519 密钥，**必须恰好为 64 个十六进制字符** |
+| `RELEASE_KEY_ENCRYPTION_KEY` | 空 | 加密发布签名密钥、邮箱服务凭据与已存储的许可证密钥。启用发布存储（Release Storage），或在控制台保存 SMTP / Cloudflare 凭据时**必填** |
+
+> ⚠️ **密钥丢失影响**：`RELEASE_KEY_ENCRYPTION_KEY` 一旦丢失或变更，已加密的发布签名密钥将无法解密，发布会签名失败。请备份所有密钥。
+
+### 内置 Redis 说明
+
+本版本**已内置 Redis 7**，容器内连接地址为 `redis://redis:6379/0`（无密码，仅在内部网络 `keygate-network` 可见，不对外暴露），无需手动配置。
+
+> 若需改为外置 Redis（例如多实例共享限流），请使用 `Keygate` 标准版应用。
+
+### SMTP 邮件配置（可选）
+
+SMTP 用于发送登录 OTP 验证码、许可证密钥邮件、续费提醒等。**未配置时**，OTP 验证码将直接打印到容器日志中。
+
+| 变量 | 说明 |
+| --- | --- |
+| `SMTP_HOST` | SMTP 服务器地址，例如 `smtp.example.com` |
+| `SMTP_PORT` | SMTP 端口，默认 `587`（STARTTLS），SSL 通常为 `465` |
+| `SMTP_USERNAME` | SMTP 用户名 |
+| `SMTP_PASSWORD` | SMTP 密码 |
+| `SMTP_FROM` | 发件人。支持裸地址 `noreply@example.com` 或显示名格式 `Acme Licensing <noreply@example.com>` |
+
+### Stripe 支付配置（可选）
+
+`STRIPE_SECRET_KEY`：从 [Stripe Dashboard](https://dashboard.stripe.com/apikeys) 获取，仅需配置此项，Webhook 将自动配置，自动处理订阅、续费与退款。
+
 ---
 
 ![Ms Studio](https://file.lifebus.top/imgs/ms_blank_001.png)
