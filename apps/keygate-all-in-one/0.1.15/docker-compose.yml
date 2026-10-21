@@ -1,0 +1,80 @@
+networks:
+  1panel-network:
+    external: true
+  keygate-network:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres:18-alpine
+    container_name: ${CONTAINER_NAME}-postgres
+    restart: always
+    networks:
+      - keygate-network
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${KEYGATE_ROOT_PATH}/postgres:/var/lib/postgresql
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U keygate" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    environment:
+      POSTGRES_DB: keygate
+      POSTGRES_USER: keygate
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+  redis:
+    image: redis:7-alpine
+    container_name: ${CONTAINER_NAME}-redis
+    command: redis-server --appendonly yes
+    restart: always
+    networks:
+      - keygate-network
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${KEYGATE_ROOT_PATH}/redis:/data
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  keygate:
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    image: ghcr.io/tabloy/keygate:0.1.15
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+      - keygate-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:9000
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    environment:
+      - PORT=9000
+      - ENVIRONMENT=production
+      - BASE_URL=${BASE_URL}
+      - DATABASE_URL=postgres://keygate:${POSTGRES_PASSWORD}@postgres:5432/keygate?sslmode=disable
+      - REDIS_URL=redis://redis:6379/0
+      - JWT_SECRET=${JWT_SECRET}
+      - LICENSE_SIGNING_KEY=${LICENSE_SIGNING_KEY}
+      - ADMIN_EMAILS=${ADMIN_EMAILS}
+    healthcheck:
+      test: [ "CMD", "curl", "-sf", "http://localhost:9000/health" ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
