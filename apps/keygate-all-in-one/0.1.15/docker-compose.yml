@@ -71,6 +71,13 @@ services:
       - REDIS_URL=redis://redis:6379/0
       - JWT_SECRET=${JWT_SECRET}
       - LICENSE_SIGNING_KEY=${LICENSE_SIGNING_KEY}
+      - RELEASE_KEY_ENCRYPTION_KEY=${RELEASE_KEY_ENCRYPTION_KEY}
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USERNAME=${SMTP_USERNAME}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - SMTP_FROM=${SMTP_FROM}
       - ADMIN_EMAILS=${ADMIN_EMAILS}
     healthcheck:
       test: [ "CMD", "curl", "-sf", "http://localhost:9000/health" ]
