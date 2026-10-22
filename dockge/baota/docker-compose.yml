@@ -14,7 +14,7 @@ services:
     - 3306
     - 80
     - 443
-    image: btpanel/baota:10.0_lts
+    image: btpanel/baota:9.0_lts_latest
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE}
