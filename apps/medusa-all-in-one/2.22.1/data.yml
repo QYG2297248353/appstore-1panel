@@ -1,0 +1,91 @@
+additionalProperties:
+  formFields:
+    - default: "/home/medusa"
+      edit: true
+      envKey: MEDUSA_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 9000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: POSTGRES_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: ""
+      edit: true
+      envKey: JWT_SECRET
+      labelZh: JWT 密钥
+      labelEn: JWT Secret
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: ""
+      edit: true
+      envKey: COOKIE_SECRET
+      labelZh: Cookie 密钥
+      labelEn: Cookie Secret
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: "http://127.0.0.1:8000"
+      edit: true
+      envKey: STORE_CORS
+      labelZh: Store API 允许来源 (中英文逗号分隔)
+      labelEn: Store CORS Origins (comma separated)
+      required: true
+      type: text
+    - default: "http://127.0.0.1:9000"
+      edit: true
+      envKey: ADMIN_CORS
+      labelZh: Admin 允许来源 (中英文逗号分隔)
+      labelEn: Admin CORS Origins (comma separated)
+      required: true
+      type: text
+    - default: "http://127.0.0.1:9000"
+      edit: true
+      envKey: AUTH_CORS
+      labelZh: 认证接口允许来源 (中英文逗号分隔)
+      labelEn: Auth CORS Origins (comma separated)
+      required: true
+      type: text
+    - default: "false"
+      edit: true
+      envKey: COOKIE_SECURE
+      labelZh: Session Cookie 仅 HTTPS (纯 HTTP 访问请选择禁止)
+      labelEn: Session Cookie Secure (disable for plain HTTP)
+      required: true
+      type: select
+      values:
+        - label: 启用 (HTTPS)
+          value: "true"
+        - label: 禁止 (HTTP)
+          value: "false"
+    - default: "lax"
+      edit: true
+      envKey: COOKIE_SAME_SITE
+      labelZh: Session Cookie SameSite
+      labelEn: Session Cookie SameSite
+      required: true
+      type: select
+      values:
+        - label: lax (宽松)
+          value: "lax"
+        - label: strict (严格)
+          value: "strict"
+        - label: none (无)
+          value: "none"

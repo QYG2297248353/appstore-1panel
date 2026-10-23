@@ -1,0 +1,18 @@
+additionalProperties:
+  key: medusa
+  name: Medusa
+  tags:
+    - WebSite
+    - DevTool
+    - Local
+  shortDescZh: 开源无头电商平台，内置 Admin 管理后台
+  shortDescEn: Open-source headless commerce platform with built-in admin dashboard
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://medusajs.com/
+  github: https://github.com/medusajs/medusa
+  document: https://docs.medusajs.com/
+  architectures:
+    - amd64
+    - arm64
