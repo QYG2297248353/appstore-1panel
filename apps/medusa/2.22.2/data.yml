@@ -1,5 +1,12 @@
 additionalProperties:
   formFields:
+    - default: "/home/medusa"
+      edit: true
+      envKey: MEDUSA_ROOT_PATH
+      labelZh: 上传文件存储路径
+      labelEn: Uploaded files storage path
+      required: true
+      type: text
     - child:
         default: ""
         envKey: PANEL_POSTGRES_SERVICE
