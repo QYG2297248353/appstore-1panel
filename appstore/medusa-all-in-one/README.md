@@ -32,6 +32,7 @@ Medusa 是一个开源的无头电商平台，提供商品、订单、库存、�
 
 - 内置 **PostgreSQL 16**（数据持久化于数据目录 `postgres`，数据库 `medusa`，用户 `medusa`）
 - 内置 **Redis 7**（数据持久化于数据目录 `redis`，开启 AOF）
+- 上传文件（商品图片等）持久化于数据目录 `static`（默认 `/home/medusa/static`）
 - 安装时先运行一次性 `migrate` 服务执行数据库迁移与初始数据初始化，成功后再启动后端服务
 
 > 若需使用外置 PostgreSQL / Redis，请使用 `Medusa` 标准版应用。
@@ -78,6 +79,14 @@ Admin 后台与 API 的访问地址必须加入对应的 CORS 列表，多个地
 
 > 前端来源无限制：`STORE_CORS=/^https?:\/\/.+$/`
 
+### 后端地址 (BACKEND_URL)
+
+| 变量 | 默认值 | 说明 |
+| --- | --- | --- |
+| `BACKEND_URL` | `http://127.0.0.1:9000` | 后端对外访问地址（含协议、主机、端口，无尾斜杠），用于为上传文件生成绝对 URL |
+
+本地文件模块会以 `${BACKEND_URL}/static` 作为上传文件的公开前缀。必须填写用户实际访问后端的地址，否则商品图片等资源会指向 `127.0.0.1` 而无法加载；若修改了 WebUI 端口，这里也要同步带上端口。
+
 ### Session Cookie 配置
 
 | 变量 | 默认值 | 说明 |
@@ -86,6 +95,13 @@ Admin 后台与 API 的访问地址必须加入对应的 CORS 列表，多个地
 | `COOKIE_SAME_SITE` | `lax` | Cookie SameSite 属性，可选 `lax` / `strict` / `none` |
 
 > ⚠️ 通过 `http://IP:9000/app` 访问时，若 `COOKIE_SECURE=true`，浏览器会拒绝写入 Secure Cookie，表现为登录成功但持续跳回登录页。
+
+### 上传文件存储
+
+商品图片等上传文件由后端本地文件模块写入容器内 `/server/static`，并通过 `/static` 路径对外提供，已挂载到数据目录下的 `static` 子目录（默认 `/home/medusa/static`）。
+
+- 该目录由安装/升级脚本自动创建并授权给容器运行用户（UID `100` / GID `101`），容器重建不会丢失图片。
+- 仅适用于单实例部署；多副本或多机部署时各容器本地磁盘不共享，生产环境建议改用 S3 等对象存储。
 
 ## 创建管理员账号
 
@@ -105,6 +121,9 @@ docker logs -f <容器名>
 
 # 备份内置数据库
 docker exec <容器名>-postgres pg_dump -U medusa medusa > backup-$(date +%F).sql
+
+# 备份上传文件（商品图片等）
+tar czf static-backup-$(date +%F).tar.gz -C /home/medusa static
 ```
 
 > 升级前请先备份数据库。

@@ -19,6 +19,7 @@ services:
     - STORE_CORS=${STORE_CORS}
     - ADMIN_CORS=${ADMIN_CORS}
     - AUTH_CORS=${AUTH_CORS}
+    - BACKEND_URL=${BACKEND_URL}
     - COOKIE_SECURE=${COOKIE_SECURE}
     - COOKIE_SAME_SITE=${COOKIE_SAME_SITE}
     healthcheck:
@@ -29,7 +30,7 @@ services:
       - CMD-SHELL
       - wget -qO- http://127.0.0.1:9000/health || exit 1
       timeout: 5s
-    image: qyg2297248353/medusa:v2.22.1
+    image: qyg2297248353/medusa:v2.22.2
     labels:
       createdBy: Apps
     networks:
@@ -37,6 +38,8 @@ services:
     ports:
     - ${PANEL_APP_PORT_HTTP}:9000
     restart: always
+    volumes:
+    - ${MEDUSA_ROOT_PATH}/static:/server/static
   migrate:
     command:
     - ./node_modules/.bin/medusa
@@ -54,9 +57,10 @@ services:
     - STORE_CORS=${STORE_CORS}
     - ADMIN_CORS=${ADMIN_CORS}
     - AUTH_CORS=${AUTH_CORS}
+    - BACKEND_URL=${BACKEND_URL}
     - COOKIE_SECURE=${COOKIE_SECURE}
     - COOKIE_SAME_SITE=${COOKIE_SAME_SITE}
-    image: qyg2297248353/medusa:v2.22.1
+    image: qyg2297248353/medusa:v2.22.2
     labels:
       createdBy: Apps
     networks:

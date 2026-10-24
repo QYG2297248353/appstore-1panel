@@ -10,6 +10,11 @@ if [ -f .env ]; then
   echo "ENV_FILE=${CURRENT_DIR}/.env" >> .env
   echo "GLOBAL_ENV_FILE=${CURRENT_DIR}/envs/global.env" >> .env
 
+  # setup-2 prepare upload directory (container runs as uid 100:gid 101)
+  MEDUSA_ROOT_PATH=${MEDUSA_ROOT_PATH}
+  mkdir -p "$MEDUSA_ROOT_PATH/static"
+  chown -R 100:101 "$MEDUSA_ROOT_PATH/static"
+
   echo "Check Finish."
 
 else
