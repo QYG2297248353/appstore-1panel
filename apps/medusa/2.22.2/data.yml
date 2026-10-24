@@ -1,12 +1,33 @@
 additionalProperties:
   formFields:
-    - default: "/home/medusa"
-      edit: true
-      envKey: MEDUSA_ROOT_PATH
-      labelZh: 数据持久化路径
-      labelEn: Data persistence path
+    - child:
+        default: ""
+        envKey: PANEL_POSTGRES_SERVICE
+        required: true
+        type: service
+      default: postgresql
+      envKey: PANEL_POSTGRES_TYPE
+      labelZh: Postgres 服务 (前置检查)
+      labelEn: Postgres Service (Pre-check)
       required: true
-      type: text
+      type: apps
+      values:
+        - label: PostgreSQL
+          value: postgresql
+    - child:
+        default: ""
+        envKey: PANEL_REDIS_SERVICE
+        required: true
+        type: service
+      default: redis
+      envKey: PANEL_REDIS_TYPE
+      labelZh: Redis 服务 (前置检查)
+      labelEn: Redis Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: Redis
+          value: redis
     - default: 9000
       edit: true
       envKey: PANEL_APP_PORT_HTTP
@@ -15,6 +36,36 @@ additionalProperties:
       required: true
       rule: paramPort
       type: number
+    - default: "127.0.0.1"
+      edit: true
+      envKey: POSTGRES_HOST
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: 5432
+      edit: true
+      envKey: POSTGRES_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "medusa"
+      edit: true
+      envKey: POSTGRES_NAME
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      rule: paramCommon
+      type: text
+    - default: "medusa"
+      edit: true
+      envKey: POSTGRES_USER
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: true
+      type: text
     - default: ""
       edit: true
       envKey: POSTGRES_PASSWORD
@@ -24,6 +75,25 @@ additionalProperties:
       required: true
       rule: paramComplexity
       type: password
+    - default: "disable"
+      edit: true
+      envKey: POSTGRES_SSLMODE
+      labelZh: 数据库 SSL 模式
+      labelEn: Database SSL Mode
+      required: true
+      type: select
+      values:
+        - label: 关闭 (本地 PostgreSQL)
+          value: "disable"
+        - label: 开启 (云数据库 / 已启用 SSL)
+          value: "require"
+    - default: "redis://127.0.0.1:6379/0"
+      edit: true
+      envKey: REDIS_URL
+      labelZh: Redis 连接地址
+      labelEn: Redis URL
+      required: true
+      type: text
     - default: ""
       edit: true
       envKey: JWT_SECRET
@@ -61,6 +131,13 @@ additionalProperties:
       envKey: AUTH_CORS
       labelZh: 认证接口允许来源 (中英文逗号分隔)
       labelEn: Auth CORS Origins (comma separated)
+      required: true
+      type: text
+    - default: "http://127.0.0.1:9000"
+      edit: true
+      envKey: BACKEND_URL
+      labelZh: API 地址
+      labelEn: Backend API URL
       required: true
       type: text
     - default: "false"

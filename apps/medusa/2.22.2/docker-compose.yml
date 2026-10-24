@@ -4,7 +4,7 @@ networks:
 
 services:
   migrate:
-    image: qyg2297248353/medusa:v2.22.1
+    image: qyg2297248353/medusa:v2.22.2
     container_name: ${CONTAINER_NAME}-migrate
     labels:
       createdBy: "Apps"
@@ -24,6 +24,7 @@ services:
       - STORE_CORS=${STORE_CORS}
       - ADMIN_CORS=${ADMIN_CORS}
       - AUTH_CORS=${AUTH_CORS}
+      - BACKEND_URL=${BACKEND_URL}
       - COOKIE_SECURE=${COOKIE_SECURE}
       - COOKIE_SAME_SITE=${COOKIE_SAME_SITE}
 
@@ -31,7 +32,7 @@ services:
     depends_on:
       migrate:
         condition: service_completed_successfully
-    image: qyg2297248353/medusa:v2.22.1
+    image: qyg2297248353/medusa:v2.22.2
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
@@ -52,6 +53,7 @@ services:
       - STORE_CORS=${STORE_CORS}
       - ADMIN_CORS=${ADMIN_CORS}
       - AUTH_CORS=${AUTH_CORS}
+      - BACKEND_URL=${BACKEND_URL}
       - COOKIE_SECURE=${COOKIE_SECURE}
       - COOKIE_SAME_SITE=${COOKIE_SAME_SITE}
     healthcheck:
