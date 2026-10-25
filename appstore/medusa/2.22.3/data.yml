@@ -1,0 +1,231 @@
+additionalProperties:
+  formFields:
+    - default: "/home/medusa"
+      edit: true
+      envKey: MEDUSA_ROOT_PATH
+      labelZh: 上传文件存储路径
+      labelEn: Uploaded files storage path
+      required: true
+      type: text
+    - child:
+        default: ""
+        envKey: PANEL_POSTGRES_SERVICE
+        required: true
+        type: service
+      default: postgresql
+      envKey: PANEL_POSTGRES_TYPE
+      labelZh: Postgres 服务 (前置检查)
+      labelEn: Postgres Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: PostgreSQL
+          value: postgresql
+    - child:
+        default: ""
+        envKey: PANEL_REDIS_SERVICE
+        required: true
+        type: service
+      default: redis
+      envKey: PANEL_REDIS_TYPE
+      labelZh: Redis 服务 (前置检查)
+      labelEn: Redis Service (Pre-check)
+      required: true
+      type: apps
+      values:
+        - label: Redis
+          value: redis
+    - default: 9000
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "127.0.0.1"
+      edit: true
+      envKey: POSTGRES_HOST
+      labelZh: 数据库 主机地址
+      labelEn: Database Host
+      required: true
+      type: text
+    - default: 5432
+      edit: true
+      envKey: POSTGRES_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "medusa"
+      edit: true
+      envKey: POSTGRES_NAME
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: true
+      rule: paramCommon
+      type: text
+    - default: "medusa"
+      edit: true
+      envKey: POSTGRES_USER
+      labelZh: 数据库 用户名
+      labelEn: Database Username
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: POSTGRES_PASSWORD
+      labelZh: 数据库 密码
+      labelEn: Database Password
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: "disable"
+      edit: true
+      envKey: POSTGRES_SSLMODE
+      labelZh: 数据库 SSL 模式
+      labelEn: Database SSL Mode
+      required: true
+      type: select
+      values:
+        - label: 关闭 (本地 PostgreSQL)
+          value: "disable"
+        - label: 开启 (云数据库 / 已启用 SSL)
+          value: "require"
+    - default: "redis://127.0.0.1:6379/0"
+      edit: true
+      envKey: REDIS_URL
+      labelZh: Redis 连接地址
+      labelEn: Redis URL
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: JWT_SECRET
+      labelZh: JWT 密钥
+      labelEn: JWT Secret
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: ""
+      edit: true
+      envKey: COOKIE_SECRET
+      labelZh: Cookie 密钥
+      labelEn: Cookie Secret
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: "http://127.0.0.1:8000"
+      edit: true
+      envKey: STORE_CORS
+      labelZh: Store API 允许来源 (中英文逗号分隔)
+      labelEn: Store CORS Origins (comma separated)
+      required: true
+      type: text
+    - default: "http://127.0.0.1:9000"
+      edit: true
+      envKey: ADMIN_CORS
+      labelZh: Admin 允许来源 (中英文逗号分隔)
+      labelEn: Admin CORS Origins (comma separated)
+      required: true
+      type: text
+    - default: "http://127.0.0.1:9000"
+      edit: true
+      envKey: AUTH_CORS
+      labelZh: 认证接口允许来源 (中英文逗号分隔)
+      labelEn: Auth CORS Origins (comma separated)
+      required: true
+      type: text
+    - default: "http://127.0.0.1:9000"
+      edit: true
+      envKey: BACKEND_URL
+      labelZh: API 地址
+      labelEn: Backend API URL
+      required: true
+      type: text
+    - default: "false"
+      edit: true
+      envKey: COOKIE_SECURE
+      labelZh: Session Cookie 仅 HTTPS (纯 HTTP 访问请选择禁止)
+      labelEn: Session Cookie Secure (disable for plain HTTP)
+      required: true
+      type: select
+      values:
+        - label: 启用 (HTTPS)
+          value: "true"
+        - label: 禁止 (HTTP)
+          value: "false"
+    - default: "lax"
+      edit: true
+      envKey: COOKIE_SAME_SITE
+      labelZh: Session Cookie SameSite
+      labelEn: Session Cookie SameSite
+      required: true
+      type: select
+      values:
+        - label: lax (宽松)
+          value: "lax"
+        - label: strict (严格)
+          value: "strict"
+        - label: none (无)
+          value: "none"
+    - default: ""
+      edit: true
+      envKey: ALIPAY_APP_ID
+      labelZh: 支付宝 应用 ID (APPID，留空不启用)
+      labelEn: Alipay App ID (empty disables)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: ALIPAY_PRIVATE_KEY
+      labelZh: 支付宝 应用私钥 (单行粘贴，不含 BEGIN/END)
+      labelEn: Alipay Application Private Key (single line)
+      required: false
+      type: password
+    - default: ""
+      edit: true
+      envKey: ALIPAY_PUBLIC_KEY
+      labelZh: 支付宝 公钥 (非应用公钥，单行)
+      labelEn: Alipay Public Key (single line)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: ALIPAY_SELLER_ID
+      labelZh: 支付宝 商户 PID (留空不校验)
+      labelEn: Alipay Seller ID / PID (empty skips check)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: ALIPAY_GATEWAY
+      labelZh: 支付宝 网关 (留空为生产环境)
+      labelEn: Alipay Gateway (empty = production)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: ALIPAY_NOTIFY_URL
+      labelZh: 支付宝 异步通知地址 (留空为 API 地址+/webhooks/alipay)
+      labelEn: Alipay Notify URL (empty = BACKEND_URL + /webhooks/alipay)
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: ALIPAY_RETURN_URL
+      labelZh: 支付宝 同步回跳地址 (留空自动生成)
+      labelEn: Alipay Return URL (empty = auto)
+      required: false
+      type: text
+    - default: "Order"
+      edit: true
+      envKey: ALIPAY_SUBJECT_PREFIX
+      labelZh: 支付宝 订单标题前缀
+      labelEn: Alipay Order Subject Prefix
+      required: false
+      type: text
