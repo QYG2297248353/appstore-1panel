@@ -4,7 +4,7 @@ networks:
 
 services:
   chronoframe:
-    image: hoshinosuzumi/chronoframe:0.14.1
+    image: hoshinosuzumi/chronoframe:1.0.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
