@@ -135,7 +135,7 @@ Admin 后台与 API 的访问地址必须加入对应的 CORS 列表，多个地
 docker exec -it <容器名> ./node_modules/.bin/medusa exec ./src/scripts/enable-alipay.js
 ```
 
-> - 密钥请单行填写：`.env` 不支持多行值。系统也兼容带 PEM 头的单行写法（用字面量 `\n` 分隔）。
+> - 密钥可直接粘贴完整 PEM（含 `-----BEGIN/END-----` 行）、单行 base64 或字面量 `\n` 写法；安装/升级脚本会自动规范化为单行，勿在 `.env` 中手工写成多行（多行值会破坏 compose 解析）。
 > - 本应用只部署后端 API 与 Admin，不含 storefront。PC/H5 支付会跳转支付宝收银台；**扫码支付需要 storefront 展示二维码**，仅开 Admin 无法完成扫码付。
 > - 支付宝以人民币（CNY）为主。初始化 Region 为 EUR，使用非 CNY 币种需商户号已开通跨境收单。
 > - 退款通过 `alipay.trade.refund` 执行，以退款记录的 idempotency key 作为 `out_request_no`，重复调用不会重复退款。

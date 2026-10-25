@@ -1,6 +1,24 @@
 #!/bin/bash
 
 if [ -f .env ]; then
+  # setup-0 normalize Alipay keys (must run before `source .env`):
+  # pasted PEM may be glued to BEGIN/END headers, contain spaces or literal
+  # \n, which would break `source .env` and the .env parsing of docker compose.
+  for KEY_NAME in ALIPAY_PRIVATE_KEY ALIPAY_PUBLIC_KEY; do
+    LINE=$(grep -m1 "^${KEY_NAME}=" .env 2>/dev/null || true)
+    [ -z "$LINE" ] && continue
+    RAW=${LINE#*=}
+    CLEAN=$(printf '%s' "$RAW" \
+      | sed -e 's/\\n//g' \
+            -e 's/-----BEGIN[A-Za-z0-9 ]*-----//g' \
+            -e 's/-----END[A-Za-z0-9 ]*-----//g' \
+      | tr -dc 'A-Za-z0-9+/=')
+    if [ -n "$RAW" ] && [ "$RAW" != "$CLEAN" ]; then
+      awk -v k="$KEY_NAME" -v v="$CLEAN" 'index($0,k"=")==1{$0=k"="v}{print}' .env > .env.tmp \
+        && mv .env.tmp .env
+    fi
+  done
+
   source .env
 
   # setup-1 add default values
