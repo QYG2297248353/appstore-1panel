@@ -17,7 +17,7 @@ Medusa 是一个开源的无头电商平台，提供商品、订单、库存、�
 - **商品与库存**：商品目录、多变体、库存与价格管理
 - **订单与履约**：购物车、结算、订单、退货与履约流程
 - **多区域**：多国家/区域、多币种、自动区域匹配
-- **促销与支付**：促销码、支付提供商、Stripe 集成
+- **促销与支付**：促销码、支付提供商；内置Manual 支付，可选支付宝（PC / H5 / 扫码）
 - **客户账户**：注册登录、订单历史、地址管理
 - **Admin 后台**：内置管理控制台，与 API 同端口提供
 
@@ -102,6 +102,44 @@ Admin 后台与 API 的访问地址必须加入对应的 CORS 列表，多个地
 
 - 该目录由安装/升级脚本自动创建并授权给容器运行用户（UID `100` / GID `101`），容器重建不会丢失图片。
 - 仅适用于单实例部署；多副本或多机部署时各容器本地磁盘不共享，生产环境建议改用 S3 等对象存储。
+
+### 支付宝支付（可选）
+
+默认支付方式只有 Manual（`pp_system_default`）。填写 `ALIPAY_APP_ID`、`ALIPAY_PRIVATE_KEY`、`ALIPAY_PUBLIC_KEY` 三项后，后端会自动注册三个独立支付 Provider：
+
+| Provider ID | 商城显示名称 | 支付场景 |
+| --- | --- | --- |
+| `pp_alipay_pc` | Alipay (PC) | 电脑网站支付 |
+| `pp_alipay_h5` | Alipay (H5) | 手机网站支付 |
+| `pp_alipay_qr` | Alipay (QR) | 当面付（扫码预下单） |
+
+| 变量 | 默认值 | 说明 |
+| --- | --- | --- |
+| `ALIPAY_APP_ID` | 空 | 支付宝应用 APPID，三项凭证任一为空则不启用支付宝 |
+| `ALIPAY_PRIVATE_KEY` | 空 | 应用私钥，**单行粘贴**，去掉 `-----BEGIN/END-----` 行与换行 |
+| `ALIPAY_PUBLIC_KEY` | 空 | **支付宝公钥**（不是应用公钥），单行粘贴 |
+| `ALIPAY_SELLER_ID` | 空 | 商户 PID；填写后异步通知的 `seller_id` 必须一致，否则拒绝 |
+| `ALIPAY_GATEWAY` | 空 | 留空使用生产网关；沙箱填 `https://openapi-sandbox.dl.alipaydev.com/gateway.do` |
+| `ALIPAY_NOTIFY_URL` | 空 | 异步通知地址；留空为 `${BACKEND_URL}/webhooks/alipay`，**必须公网可达** |
+| `ALIPAY_RETURN_URL` | 空 | 同步回跳地址；留空由商城前端按购物车自动生成 |
+| `ALIPAY_SUBJECT_PREFIX` | `Order` | 支付宝订单标题前缀 |
+
+配置步骤：
+
+1. 在支付宝开放平台创建应用，按需开通「电脑网站支付」「手机网站支付」「当面付」，并配置 RSA2 密钥。
+2. 在上面的表单中填入 APPID、应用私钥、支付宝公钥；`BACKEND_URL` 必须是公网可访问的地址。
+3. 保存并重建应用后，到 **Admin → Settings → Regions → 编辑 Region → Payment providers** 勾选需要的支付宝方式。全新安装时 `migrate` 的初始化数据已自动勾选，可跳过此步。
+4. 若数据库已存在（安装后才填写凭证，或升级前就在使用），需执行一次幂等脚本：
+
+```sh
+docker exec -it <容器名> ./node_modules/.bin/medusa exec ./src/scripts/enable-alipay.js
+```
+
+> - 密钥请单行填写：`.env` 不支持多行值。系统也兼容带 PEM 头的单行写法（用字面量 `\n` 分隔）。
+> - 本应用只部署后端 API 与 Admin，不含 storefront。PC/H5 支付会跳转支付宝收银台；**扫码支付需要 storefront 展示二维码**，仅开 Admin 无法完成扫码付。
+> - 支付宝以人民币（CNY）为主。初始化 Region 为 EUR，使用非 CNY 币种需商户号已开通跨境收单。
+> - 退款通过 `alipay.trade.refund` 执行，以退款记录的 idempotency key 作为 `out_request_no`，重复调用不会重复退款。
+> - 本应用未注册 Stripe Provider，只接支付宝时无需 `STRIPE_API_KEY`。
 
 ## 创建管理员账号
 
