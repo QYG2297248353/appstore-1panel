@@ -4,7 +4,7 @@ networks:
 
 services:
   apprise:
-    image: caronc/apprise:v1.5.4
+    image: caronc/apprise:v2.0.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
