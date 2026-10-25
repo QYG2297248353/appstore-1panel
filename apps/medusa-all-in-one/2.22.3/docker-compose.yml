@@ -50,7 +50,7 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
-    image: qyg2297248353/medusa:v2.22.2
+    image: qyg2297248353/medusa:v2.22.3
     container_name: ${CONTAINER_NAME}-migrate
     labels:
       createdBy: "Apps"
@@ -73,6 +73,14 @@ services:
       - BACKEND_URL=${BACKEND_URL}
       - COOKIE_SECURE=${COOKIE_SECURE}
       - COOKIE_SAME_SITE=${COOKIE_SAME_SITE}
+      - ALIPAY_APP_ID=${ALIPAY_APP_ID:-}
+      - ALIPAY_PRIVATE_KEY=${ALIPAY_PRIVATE_KEY:-}
+      - ALIPAY_PUBLIC_KEY=${ALIPAY_PUBLIC_KEY:-}
+      - ALIPAY_GATEWAY=${ALIPAY_GATEWAY:-}
+      - ALIPAY_NOTIFY_URL=${ALIPAY_NOTIFY_URL:-}
+      - ALIPAY_RETURN_URL=${ALIPAY_RETURN_URL:-}
+      - ALIPAY_SELLER_ID=${ALIPAY_SELLER_ID:-}
+      - ALIPAY_SUBJECT_PREFIX=${ALIPAY_SUBJECT_PREFIX:-Order}
 
   medusa:
     depends_on:
@@ -82,7 +90,7 @@ services:
         condition: service_healthy
       migrate:
         condition: service_completed_successfully
-    image: qyg2297248353/medusa:v2.22.2
+    image: qyg2297248353/medusa:v2.22.3
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
@@ -109,6 +117,14 @@ services:
       - BACKEND_URL=${BACKEND_URL}
       - COOKIE_SECURE=${COOKIE_SECURE}
       - COOKIE_SAME_SITE=${COOKIE_SAME_SITE}
+      - ALIPAY_APP_ID=${ALIPAY_APP_ID:-}
+      - ALIPAY_PRIVATE_KEY=${ALIPAY_PRIVATE_KEY:-}
+      - ALIPAY_PUBLIC_KEY=${ALIPAY_PUBLIC_KEY:-}
+      - ALIPAY_GATEWAY=${ALIPAY_GATEWAY:-}
+      - ALIPAY_NOTIFY_URL=${ALIPAY_NOTIFY_URL:-}
+      - ALIPAY_RETURN_URL=${ALIPAY_RETURN_URL:-}
+      - ALIPAY_SELLER_ID=${ALIPAY_SELLER_ID:-}
+      - ALIPAY_SUBJECT_PREFIX=${ALIPAY_SUBJECT_PREFIX:-Order}
     healthcheck:
       test: [ "CMD-SHELL", "wget -qO- http://127.0.0.1:9000/health || exit 1" ]
       interval: 30s
