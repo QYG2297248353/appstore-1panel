@@ -183,15 +183,15 @@ additionalProperties:
     - default: ""
       edit: true
       envKey: ALIPAY_PRIVATE_KEY
-      labelZh: 支付宝 应用私钥 (单行粘贴，不含 BEGIN/END)
-      labelEn: Alipay Application Private Key (single line)
+      labelZh: 支付宝 应用私钥 (完整 PEM 或单行均可)
+      labelEn: Alipay Application Private Key (PEM or single line)
       required: false
       type: password
     - default: ""
       edit: true
       envKey: ALIPAY_PUBLIC_KEY
-      labelZh: 支付宝 公钥 (非应用公钥，单行)
-      labelEn: Alipay Public Key (single line)
+      labelZh: 支付宝 公钥 (非应用公钥，完整 PEM 或单行均可)
+      labelEn: Alipay Public Key (PEM or single line)
       required: false
       type: text
     - default: ""
