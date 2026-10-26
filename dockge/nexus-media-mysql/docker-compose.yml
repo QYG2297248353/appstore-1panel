@@ -1,0 +1,81 @@
+networks:
+  1panel-network:
+    external: true
+  nexus-media-network:
+    driver: bridge
+services:
+  backend:
+    container_name: nexus-media-mysql
+    depends_on:
+    - redis
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - PUID=${PUID:-0}
+    - PGID=${PGID:-0}
+    - UMASK=000
+    - NEXUS_PORT=3000
+    - NEXUS_MEDIA_DATA=/data
+    - DATABASE__TYPE=mysql
+    - DATABASE__HOST=${DB_HOSTNAME}
+    - DATABASE__PORT=${DB_PORT}
+    - DATABASE__USERNAME=${DB_USERNAME}
+    - DATABASE__PASSWORD=${DB_PASSWORD}
+    - DATABASE__DATABASE=${DB_DATABASE_NAME}
+    - REDIS__HOST=redis
+    - REDIS__PORT=6379
+    - REDIS__DB=0
+    healthcheck:
+      interval: 30s
+      retries: 3
+      start_period: 40s
+      test:
+      - CMD-SHELL
+      - wget -qO- http://localhost:8080/health || exit 1
+      timeout: 30s
+    hostname: nexus-media
+    image: linyuan0213/nexus-media:4.27.2
+    labels:
+      createdBy: Apps
+    networks:
+      1panel-network: null
+      nexus-media-network:
+        aliases:
+        - backend
+    ports:
+    - ${PANEL_APP_PORT_API}:8080
+    restart: always
+    volumes:
+    - ${NEXUS_MEDIA_ROOT_PATH}/data:/data
+    - ${NEXUS_MEDIA_MEDIA_PATH}:/media
+  frontend:
+    container_name: nexus-media-mysql-web
+    depends_on:
+    - backend
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - BACKEND_HOST=backend
+    - BACKEND_PORT=3000
+    image: linyuan0213/nexus-media-web:4.27.1
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    - nexus-media-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:8080
+    restart: always
+  redis:
+    command: redis-server --save "" --appendonly no --dir /data
+    container_name: nexus-media-mysql-redis
+    image: redis:7-alpine
+    networks:
+      nexus-media-network:
+        aliases:
+        - redis
+    restart: always
+    volumes:
+    - ${NEXUS_MEDIA_ROOT_PATH}/data/redis_data:/data
