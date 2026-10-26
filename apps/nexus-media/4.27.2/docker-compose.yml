@@ -1,0 +1,76 @@
+networks:
+  1panel-network:
+    external: true
+  nexus-media-network:
+    driver: bridge
+
+services:
+  frontend:
+    image: linyuan0213/nexus-media-web:4.27.1
+    container_name: ${CONTAINER_NAME}-web
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+      - nexus-media-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8080
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    environment:
+      - BACKEND_HOST=backend
+      - BACKEND_PORT=3000
+    depends_on:
+      - backend
+
+  backend:
+    image: linyuan0213/nexus-media:4.27.2
+    container_name: ${CONTAINER_NAME}
+    hostname: nexus-media
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      1panel-network:
+      nexus-media-network:
+        aliases:
+          - backend
+    ports:
+      - ${PANEL_APP_PORT_API}:8080
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${NEXUS_MEDIA_ROOT_PATH}/data:/data
+      - ${NEXUS_MEDIA_MEDIA_PATH}:/media
+    environment:
+      - PUID=${PUID:-0}
+      - PGID=${PGID:-0}
+      - UMASK=000
+      - NEXUS_PORT=3000
+      - NEXUS_MEDIA_DATA=/data
+      - REDIS__HOST=redis
+      - REDIS__PORT=6379
+      - REDIS__DB=0
+    depends_on:
+      - redis
+    healthcheck:
+      test: [ "CMD-SHELL", "wget -qO- http://localhost:8080/health || exit 1" ]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+      start_period: 40s
+
+  redis:
+    image: redis:7-alpine
+    container_name: ${CONTAINER_NAME}-redis
+    restart: always
+    networks:
+      nexus-media-network:
+        aliases:
+          - redis
+    command: redis-server --save "" --appendonly no --dir /data
+    volumes:
+      - ${NEXUS_MEDIA_ROOT_PATH}/data/redis_data:/data
