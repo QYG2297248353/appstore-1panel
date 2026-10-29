@@ -50,7 +50,7 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
-    image: ghcr.io/tabloy/keygate:0.1.15
+    image: ghcr.io/tabloy/keygate:0.1.19
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
