@@ -1,0 +1,84 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  medusa:
+    container_name: medusa
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - NODE_ENV=production
+    - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_NAME}?sslmode=${POSTGRES_SSLMODE}
+    - REDIS_URL=${REDIS_URL}
+    - JWT_SECRET=${JWT_SECRET}
+    - COOKIE_SECRET=${COOKIE_SECRET}
+    - STORE_CORS=${STORE_CORS}
+    - ADMIN_CORS=${ADMIN_CORS}
+    - AUTH_CORS=${AUTH_CORS}
+    - BACKEND_URL=${BACKEND_URL}
+    - COOKIE_SECURE=${COOKIE_SECURE}
+    - COOKIE_SAME_SITE=${COOKIE_SAME_SITE}
+    - ALIPAY_APP_ID=${ALIPAY_APP_ID:-}
+    - ALIPAY_PRIVATE_KEY=${ALIPAY_PRIVATE_KEY:-}
+    - ALIPAY_PUBLIC_KEY=${ALIPAY_PUBLIC_KEY:-}
+    - ALIPAY_GATEWAY=${ALIPAY_GATEWAY:-}
+    - ALIPAY_NOTIFY_URL=${ALIPAY_NOTIFY_URL:-}
+    - ALIPAY_RETURN_URL=${ALIPAY_RETURN_URL:-}
+    - ALIPAY_SELLER_ID=${ALIPAY_SELLER_ID:-}
+    - ALIPAY_SUBJECT_PREFIX=${ALIPAY_SUBJECT_PREFIX:-Order}
+    healthcheck:
+      interval: 30s
+      retries: 5
+      start_period: 30s
+      test:
+      - CMD-SHELL
+      - wget -qO- http://127.0.0.1:9000/health || exit 1
+      timeout: 5s
+    image: qyg2297248353/medusa:v2.22.3
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:9000
+    restart: always
+    volumes:
+    - ${MEDUSA_ROOT_PATH}/static:/server/static
+  migrate:
+    command:
+    - ./node_modules/.bin/medusa
+    - db:migrate
+    container_name: medusa-migrate
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - NODE_ENV=production
+    - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_NAME}?sslmode=${POSTGRES_SSLMODE}
+    - REDIS_URL=${REDIS_URL}
+    - JWT_SECRET=${JWT_SECRET}
+    - COOKIE_SECRET=${COOKIE_SECRET}
+    - STORE_CORS=${STORE_CORS}
+    - ADMIN_CORS=${ADMIN_CORS}
+    - AUTH_CORS=${AUTH_CORS}
+    - BACKEND_URL=${BACKEND_URL}
+    - COOKIE_SECURE=${COOKIE_SECURE}
+    - COOKIE_SAME_SITE=${COOKIE_SAME_SITE}
+    - ALIPAY_APP_ID=${ALIPAY_APP_ID:-}
+    - ALIPAY_PRIVATE_KEY=${ALIPAY_PRIVATE_KEY:-}
+    - ALIPAY_PUBLIC_KEY=${ALIPAY_PUBLIC_KEY:-}
+    - ALIPAY_GATEWAY=${ALIPAY_GATEWAY:-}
+    - ALIPAY_NOTIFY_URL=${ALIPAY_NOTIFY_URL:-}
+    - ALIPAY_RETURN_URL=${ALIPAY_RETURN_URL:-}
+    - ALIPAY_SELLER_ID=${ALIPAY_SELLER_ID:-}
+    - ALIPAY_SUBJECT_PREFIX=${ALIPAY_SUBJECT_PREFIX:-Order}
+    image: qyg2297248353/medusa:v2.22.3
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    restart: 'no'

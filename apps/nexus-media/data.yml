@@ -1,0 +1,17 @@
+additionalProperties:
+  key: nexus-media
+  name: Nexus Media
+  tags:
+    - Media
+    - Local
+  shortDescZh: PT 站点媒体库自动化管理工具（内置 SQLite + Redis）
+  shortDescEn: PT site media library automation tool (bundled SQLite + Redis)
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://linyuan0213.github.io/nexus-media/
+  github: https://github.com/linyuan0213/nexus-media
+  document: https://linyuan0213.github.io/nexus-media/installation/
+  architectures:
+    - amd64
+    - arm64

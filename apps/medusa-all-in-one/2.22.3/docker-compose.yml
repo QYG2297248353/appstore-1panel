@@ -1,0 +1,133 @@
+networks:
+  1panel-network:
+    external: true
+  medusa-network:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: ${CONTAINER_NAME}-postgres
+    restart: always
+    networks:
+      - medusa-network
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    environment:
+      POSTGRES_DB: medusa
+      POSTGRES_USER: medusa
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ${MEDUSA_ROOT_PATH}/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -h 127.0.0.1 -U medusa -d medusa" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: ${CONTAINER_NAME}-redis
+    command: redis-server --appendonly yes
+    restart: always
+    networks:
+      - medusa-network
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    volumes:
+      - ${MEDUSA_ROOT_PATH}/redis:/data
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  migrate:
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    image: qyg2297248353/medusa:v2.22.3
+    container_name: ${CONTAINER_NAME}-migrate
+    labels:
+      createdBy: "Apps"
+    restart: "no"
+    networks:
+      - medusa-network
+    command: [ "./node_modules/.bin/medusa", "db:migrate" ]
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgres://medusa:${POSTGRES_PASSWORD}@postgres:5432/medusa?sslmode=disable
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=${JWT_SECRET}
+      - COOKIE_SECRET=${COOKIE_SECRET}
+      - STORE_CORS=${STORE_CORS}
+      - ADMIN_CORS=${ADMIN_CORS}
+      - AUTH_CORS=${AUTH_CORS}
+      - BACKEND_URL=${BACKEND_URL}
+      - COOKIE_SECURE=${COOKIE_SECURE}
+      - COOKIE_SAME_SITE=${COOKIE_SAME_SITE}
+      - ALIPAY_APP_ID=${ALIPAY_APP_ID:-}
+      - ALIPAY_PRIVATE_KEY=${ALIPAY_PRIVATE_KEY:-}
+      - ALIPAY_PUBLIC_KEY=${ALIPAY_PUBLIC_KEY:-}
+      - ALIPAY_GATEWAY=${ALIPAY_GATEWAY:-}
+      - ALIPAY_NOTIFY_URL=${ALIPAY_NOTIFY_URL:-}
+      - ALIPAY_RETURN_URL=${ALIPAY_RETURN_URL:-}
+      - ALIPAY_SELLER_ID=${ALIPAY_SELLER_ID:-}
+      - ALIPAY_SUBJECT_PREFIX=${ALIPAY_SUBJECT_PREFIX:-Order}
+
+  medusa:
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    image: qyg2297248353/medusa:v2.22.3
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    restart: always
+    networks:
+      - 1panel-network
+      - medusa-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:9000
+    volumes:
+      - ${MEDUSA_ROOT_PATH}/static:/server/static
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgres://medusa:${POSTGRES_PASSWORD}@postgres:5432/medusa?sslmode=disable
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=${JWT_SECRET}
+      - COOKIE_SECRET=${COOKIE_SECRET}
+      - STORE_CORS=${STORE_CORS}
+      - ADMIN_CORS=${ADMIN_CORS}
+      - AUTH_CORS=${AUTH_CORS}
+      - BACKEND_URL=${BACKEND_URL}
+      - COOKIE_SECURE=${COOKIE_SECURE}
+      - COOKIE_SAME_SITE=${COOKIE_SAME_SITE}
+      - ALIPAY_APP_ID=${ALIPAY_APP_ID:-}
+      - ALIPAY_PRIVATE_KEY=${ALIPAY_PRIVATE_KEY:-}
+      - ALIPAY_PUBLIC_KEY=${ALIPAY_PUBLIC_KEY:-}
+      - ALIPAY_GATEWAY=${ALIPAY_GATEWAY:-}
+      - ALIPAY_NOTIFY_URL=${ALIPAY_NOTIFY_URL:-}
+      - ALIPAY_RETURN_URL=${ALIPAY_RETURN_URL:-}
+      - ALIPAY_SELLER_ID=${ALIPAY_SELLER_ID:-}
+      - ALIPAY_SUBJECT_PREFIX=${ALIPAY_SUBJECT_PREFIX:-Order}
+    healthcheck:
+      test: [ "CMD-SHELL", "wget -qO- http://127.0.0.1:9000/health || exit 1" ]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 30s

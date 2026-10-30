@@ -1,0 +1,138 @@
+networks:
+  1panel-network:
+    external: true
+  medusa-network:
+    driver: bridge
+services:
+  medusa:
+    container_name: medusa-all-in-one
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - NODE_ENV=production
+    - DATABASE_URL=postgres://medusa:${POSTGRES_PASSWORD}@postgres:5432/medusa?sslmode=disable
+    - REDIS_URL=redis://redis:6379
+    - JWT_SECRET=${JWT_SECRET}
+    - COOKIE_SECRET=${COOKIE_SECRET}
+    - STORE_CORS=${STORE_CORS}
+    - ADMIN_CORS=${ADMIN_CORS}
+    - AUTH_CORS=${AUTH_CORS}
+    - BACKEND_URL=${BACKEND_URL}
+    - COOKIE_SECURE=${COOKIE_SECURE}
+    - COOKIE_SAME_SITE=${COOKIE_SAME_SITE}
+    - ALIPAY_APP_ID=${ALIPAY_APP_ID:-}
+    - ALIPAY_PRIVATE_KEY=${ALIPAY_PRIVATE_KEY:-}
+    - ALIPAY_PUBLIC_KEY=${ALIPAY_PUBLIC_KEY:-}
+    - ALIPAY_GATEWAY=${ALIPAY_GATEWAY:-}
+    - ALIPAY_NOTIFY_URL=${ALIPAY_NOTIFY_URL:-}
+    - ALIPAY_RETURN_URL=${ALIPAY_RETURN_URL:-}
+    - ALIPAY_SELLER_ID=${ALIPAY_SELLER_ID:-}
+    - ALIPAY_SUBJECT_PREFIX=${ALIPAY_SUBJECT_PREFIX:-Order}
+    healthcheck:
+      interval: 30s
+      retries: 5
+      start_period: 30s
+      test:
+      - CMD-SHELL
+      - wget -qO- http://127.0.0.1:9000/health || exit 1
+      timeout: 5s
+    image: qyg2297248353/medusa:v2.22.3
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    - medusa-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:9000
+    restart: always
+    volumes:
+    - ${MEDUSA_ROOT_PATH}/static:/server/static
+  migrate:
+    command:
+    - ./node_modules/.bin/medusa
+    - db:migrate
+    container_name: medusa-all-in-one-migrate
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - NODE_ENV=production
+    - DATABASE_URL=postgres://medusa:${POSTGRES_PASSWORD}@postgres:5432/medusa?sslmode=disable
+    - REDIS_URL=redis://redis:6379
+    - JWT_SECRET=${JWT_SECRET}
+    - COOKIE_SECRET=${COOKIE_SECRET}
+    - STORE_CORS=${STORE_CORS}
+    - ADMIN_CORS=${ADMIN_CORS}
+    - AUTH_CORS=${AUTH_CORS}
+    - BACKEND_URL=${BACKEND_URL}
+    - COOKIE_SECURE=${COOKIE_SECURE}
+    - COOKIE_SAME_SITE=${COOKIE_SAME_SITE}
+    - ALIPAY_APP_ID=${ALIPAY_APP_ID:-}
+    - ALIPAY_PRIVATE_KEY=${ALIPAY_PRIVATE_KEY:-}
+    - ALIPAY_PUBLIC_KEY=${ALIPAY_PUBLIC_KEY:-}
+    - ALIPAY_GATEWAY=${ALIPAY_GATEWAY:-}
+    - ALIPAY_NOTIFY_URL=${ALIPAY_NOTIFY_URL:-}
+    - ALIPAY_RETURN_URL=${ALIPAY_RETURN_URL:-}
+    - ALIPAY_SELLER_ID=${ALIPAY_SELLER_ID:-}
+    - ALIPAY_SUBJECT_PREFIX=${ALIPAY_SUBJECT_PREFIX:-Order}
+    image: qyg2297248353/medusa:v2.22.3
+    labels:
+      createdBy: Apps
+    networks:
+    - medusa-network
+    restart: 'no'
+  postgres:
+    container_name: medusa-all-in-one-postgres
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+      POSTGRES_DB: medusa
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: medusa
+    healthcheck:
+      interval: 10s
+      retries: 10
+      test:
+      - CMD-SHELL
+      - pg_isready -h 127.0.0.1 -U medusa -d medusa
+      timeout: 5s
+    image: postgres:16-alpine
+    networks:
+    - medusa-network
+    restart: always
+    volumes:
+    - ${MEDUSA_ROOT_PATH}/postgres:/var/lib/postgresql/data
+  redis:
+    command: redis-server --appendonly yes
+    container_name: medusa-all-in-one-redis
+    env_file:
+    - ./envs/global.env
+    - .env
+    healthcheck:
+      interval: 10s
+      retries: 5
+      test:
+      - CMD
+      - redis-cli
+      - ping
+      timeout: 5s
+    image: redis:7-alpine
+    networks:
+    - medusa-network
+    restart: always
+    volumes:
+    - ${MEDUSA_ROOT_PATH}/redis:/data

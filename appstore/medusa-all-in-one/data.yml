@@ -1,0 +1,18 @@
+additionalProperties:
+  key: medusa-all-in-one
+  name: Medusa All-in-One
+  tags:
+    - WebSite
+    - DevTool
+    - Local
+  shortDescZh: 开源无头电商平台（内置 PostgreSQL 与 Redis 一体化部署）
+  shortDescEn: Open-source headless commerce platform, all-in-one with bundled PostgreSQL and Redis
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://medusajs.com/
+  github: https://github.com/QYG2297248353/dtc-starter
+  document: https://docs.medusajs.com/
+  architectures:
+    - amd64
+    - arm64
