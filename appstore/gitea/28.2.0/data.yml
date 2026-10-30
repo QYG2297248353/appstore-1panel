@@ -1,0 +1,181 @@
+additionalProperties:
+  formFields:
+    - default: "/home/gitea"
+      edit: true
+      envKey: GITEA_ROOT_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 3000
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: 22
+      envKey: PANEL_APP_PORT_SSH
+      labelZh: SSH 端口
+      labelEn: SSH Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "Gitea: Git with a cup of tea"
+      edit: true
+      envKey: APP_NAME
+      labelZh: 应用名称
+      labelEn: Application Name
+      required: true
+      type: text
+    - default: "http://localhost:3000/"
+      edit: true
+      envKey: ROOT_URL
+      labelZh: 公共 URL
+      labelEn: Public URL
+      required: false
+      rule: paramExtUrl
+      type: text
+    - default: 22
+      edit: true
+      envKey: SSH_PORT
+      labelZh: SSH 克隆端口
+      labelEn: SSH Clone Port
+      required: true
+      rule: paramPort
+      type: number
+    - default: "false"
+      edit: true
+      envKey: LFS_START_SERVER
+      labelZh: 启用 Git LFS 支持
+      labelEn: Enable Git LFS Support
+      required: true
+      type: select
+      values:
+        - label: 开启
+          value: "true"
+        - label: 关闭
+          value: "false"
+    - default: ""
+      edit: true
+      envKey: SECRET_KEY
+      labelZh: 全局加密密钥
+      labelEn: Global Secret Key
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: DISABLE_REGISTRATION
+      labelZh: 自主注册功能
+      labelEn: Self Registration Function
+      required: true
+      type: select
+      values:
+        - label: 禁用注册
+          value: "true"
+        - label: 允许注册
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: REQUIRE_SIGNIN_VIEW
+      labelZh: 公开探索仓库
+      labelEn: Public Explore Repository
+      required: true
+      type: select
+      values:
+        - label: 仅限认证用户
+          value: "true"
+        - label: 允许游客访问
+          value: "false"
+    - default: "false"
+      edit: true
+      envKey: INSTALL_LOCK
+      labelZh: 是否允许访问安装页面
+      labelEn: Allow Access to Install Page
+      required: true
+      type: select
+      values:
+        - label: 禁止访问
+          value: "true"
+        - label: 允许访问
+          value: "false"
+    - default: postgres
+      edit: true
+      envKey: DB_TYPE
+      labelZh: 数据库 类型
+      labelEn: Database Type
+      required: true
+      type: select
+      values:
+        - label: PostgreSQL
+          value: postgres
+        - label: MySQL
+          value: mysql
+        - label: SQL Server
+          value: mssql
+        - label: SQLite3
+          value: sqlite3
+    - default: "127.0.0.1"
+      edit: true
+      envKey: DB_HOSTNAME
+      labelZh: 数据库 地址
+      labelEn: Database Host
+      required: false
+      type: text
+    - default: 5432
+      edit: true
+      envKey: DB_PORT
+      labelZh: 数据库 端口
+      labelEn: Database Port
+      required: false
+      rule: paramPort
+      type: number
+    - default: "gitea"
+      edit: true
+      envKey: DB_USER
+      labelZh: 数据库 用户名
+      labelEn: Database User
+      required: false
+      type: text
+    - default: ""
+      edit: true
+      envKey: DB_PASSWD
+      labelEn: Database Password
+      labelZh: 数据库 密码
+      random: true
+      required: false
+      rule: paramComplexity
+      type: password
+    - default: "gitea"
+      edit: true
+      envKey: DB_NAME
+      labelZh: 数据库 名称
+      labelEn: Database Name
+      required: false
+      type: text
+    - default: "false"
+      edit: true
+      envKey: PROXY_ENABLED
+      labelZh: 启用代理 (全局 + Webhook)
+      labelEn: Enable Proxy (Global + Webhook)
+      required: true
+      type: select
+      values:
+        - label: 开启
+          value: "true"
+        - label: 关闭
+          value: "false"
+    - default: ""
+      edit: true
+      envKey: PROXY_URL
+      labelZh: 代理服务器地址 (全局 + Webhook)
+      labelEn: Proxy Server URL (Global + Webhook)
+      required: false
+      type: text
+    - default: "**"
+      edit: true
+      envKey: PROXY_HOSTS
+      labelZh: 代理网址 (全局 + Webhook)
+      labelEn: Proxy Hosts (Global + Webhook)
+      required: false
+      type: text

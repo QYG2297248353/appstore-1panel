@@ -1,0 +1,46 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  gitea:
+    container_name: gitea
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - USER_UID=1000
+    - USER_GID=1000
+    - HTTP_ADDR=0.0.0.0
+    - HTTP_PORT=3000
+    - SSH_LISTEN_HOST=0.0.0.0
+    - SSH_LISTEN_PORT=22
+    - RUN_MODE=prod
+    - DISABLE_SSH=false
+    - DOMAIN=localhost
+    - SSH_DOMAIN=localhost
+    - DB_HOST=${DB_HOSTNAME:-localhost}:${DB_PORT:-5432}
+    - GITEA__REPOSITORY__DEFAULT_BRANCH=master
+    - GITEA__INDEXER__REPO_INDEXER_ENABLED=true
+    - GITEA__ADMIN__DISABLE_REGULAR_ORG_CREATION=true
+    - GITEA__ADMIN__USER_DISABLED_FEATURES=deletion,change_username
+    - GITEA__SERVICE__DEFAULT_ALLOW_CREATE_ORGANIZATION=false
+    - GITEA__TIME__DEFAULT_UI_LOCATION=Asia/Shanghai
+    - GITEA__PROXY__PROXY_ENABLED=${PROXY_ENABLED:-false}
+    - GITEA__PROXY__PROXY_URL=${PROXY_URL:-}
+    - GITEA__PROXY__PROXY_HOSTS=${PROXY_HOSTS:-**}
+    - GITEA__OTHER__SHOW_FOOTER_VERSION=false
+    - GITEA__OTHER__SHOW_FOOTER_TEMPLATE_LOAD_TIME=false
+    - GITEA__OTHER__SHOW_FOOTER_POWERED_BY=false
+    image: gitea/gitea:28.2.0
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:3000
+    - ${PANEL_APP_PORT_SSH}:22
+    restart: always
+    volumes:
+    - ${GITEA_ROOT_PATH}/data:/data
+    - /etc/timezone:/etc/timezone:ro
+    - /etc/localtime:/etc/localtime:ro
