@@ -3,13 +3,13 @@ networks:
     external: true
 services:
   nodebb:
-    container_name: 4.16.3
+    container_name: 4.16.5
     env_file:
     - ./envs/global.env
     - .env
     environment:
     - TZ=Asia/Shanghai
-    image: ghcr.io/nodebb/nodebb:4.16.3
+    image: ghcr.io/nodebb/nodebb:4.16.5
     labels:
       createdBy: Apps
     networks:
