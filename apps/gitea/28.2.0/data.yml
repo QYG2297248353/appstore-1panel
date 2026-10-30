@@ -99,7 +99,7 @@ additionalProperties:
           value: "true"
         - label: 允许访问
           value: "false"
-    - default: postgresql
+    - default: postgres
       edit: true
       envKey: DB_TYPE
       labelZh: 数据库 类型
