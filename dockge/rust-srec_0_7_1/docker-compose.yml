@@ -53,7 +53,7 @@ services:
       - -f
       - http://localhost:8080/api/health/live
       timeout: 10s
-    image: ghcr.io/hua0512/rust-srec:v0.6.0
+    image: ghcr.io/hua0512/rust-srec:v0.7.1
     logging:
       driver: json-file
       options:
