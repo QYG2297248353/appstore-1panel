@@ -4,7 +4,7 @@ networks:
 
 services:
   traccar:
-    image: traccar/traccar:6.16
+    image: traccar/traccar:6.17
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
