@@ -3,7 +3,7 @@ networks:
     external: true
 services:
   nacos:
-    container_name: nacos-derby
+    container_name: nacos
     env_file:
     - ./envs/global.env
     - .env
@@ -12,7 +12,8 @@ services:
     - NACOS_CONSOLE_PORT=${PANEL_APP_PORT_HTTP:-8080}
     - NACOS_SERVER_PORT=${PANEL_APP_PORT_API:-8848}
     - NACOS_AUTH_ENABLE=true
-    image: nacos/nacos-server:v3.2.4
+    - SPRING_DATASOURCE_PLATFORM=mysql
+    image: nacos/nacos-server:v3.3.0
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE}
