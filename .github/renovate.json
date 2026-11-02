@@ -237,6 +237,12 @@
     },
     {
       "matchFileNames": [
+        "apps/gitea/1.*.*/*.yml"
+      ],
+      "allowedVersions": "<2.0"
+    },
+    {
+      "matchFileNames": [
         "apps/nacos/2.5.*/*.yml"
       ],
       "allowedVersions": "<3.0"
