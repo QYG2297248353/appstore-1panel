@@ -9,7 +9,7 @@ services:
     - .env
     environment:
     - TZ=Asia/Shanghai
-    image: hoshinosuzumi/chronoframe:0.14.1
+    image: hoshinosuzumi/chronoframe:1.0.0
     labels:
       createdBy: Apps
     networks:
