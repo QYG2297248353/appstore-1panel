@@ -117,18 +117,6 @@
     },
     {
       "matchFileNames": [
-        "apps/movie-pilot/2.7.3/*.yml"
-      ],
-      "allowedVersions": "/^2.7.3/"
-    },
-    {
-      "matchFileNames": [
-        "apps/movie-pilot/2.7.9/*.yml"
-      ],
-      "allowedVersions": "/^2.7.9/"
-    },
-    {
-      "matchFileNames": [
         "apps/qbittorrent/4.*.*/*.yml"
       ],
       "allowedVersions": "/^4.*.*/"
@@ -240,6 +228,12 @@
         "apps/gitea/1.*.*/*.yml"
       ],
       "allowedVersions": "<2.0"
+    },
+    {
+      "matchFileNames": [
+        "apps/movie-pilot/2.*.*/*.yml"
+      ],
+      "allowedVersions": "<3.0"
     },
     {
       "matchFileNames": [
