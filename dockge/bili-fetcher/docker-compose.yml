@@ -10,7 +10,7 @@ services:
     environment:
     - TZ=Asia/Shanghai
     - DOCKER_ENV=true
-    image: qyg2297248353/bili-fetcher:v1.6.9
+    image: qyg2297248353/bili-fetcher:latest
     networks:
     - 1panel-network
     ports:
@@ -26,7 +26,7 @@ services:
     environment:
     - BACKEND_URL=http://bili-fetcher-api:8899
     - TZ=Asia/Shanghai
-    image: qyg2297248353/bili-fetcher-web:v1.6.9
+    image: qyg2297248353/bili-fetcher-web:latest
     labels:
       createdBy: Apps
     networks:

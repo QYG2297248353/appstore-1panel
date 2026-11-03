@@ -38,7 +38,7 @@ services:
       - CMD-SHELL
       - wget -qO- http://127.0.0.1:9000/health || exit 1
       timeout: 5s
-    image: qyg2297248353/medusa:v2.22.3
+    image: qyg2297248353/medusa:v2.22.4
     labels:
       createdBy: Apps
     networks:
@@ -76,7 +76,7 @@ services:
     - ALIPAY_RETURN_URL=${ALIPAY_RETURN_URL:-}
     - ALIPAY_SELLER_ID=${ALIPAY_SELLER_ID:-}
     - ALIPAY_SUBJECT_PREFIX=${ALIPAY_SUBJECT_PREFIX:-Order}
-    image: qyg2297248353/medusa:v2.22.3
+    image: qyg2297248353/medusa:v2.22.4
     labels:
       createdBy: Apps
     networks:

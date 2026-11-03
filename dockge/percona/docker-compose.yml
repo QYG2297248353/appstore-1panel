@@ -9,7 +9,7 @@ services:
     env_file:
     - ./envs/global.env
     - .env
-    image: percona:8.0
+    image: percona:9.7
     labels:
       createdBy: Apps
     networks:

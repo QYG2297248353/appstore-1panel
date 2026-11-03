@@ -14,7 +14,7 @@ services:
     - ATK_PORT=23366
     - ATK_IP_REGION_ENABLED=true
     - ATK_DB_TABLE_PREFIX=atk_
-    image: artalk/artalk-go:2.10.0
+    image: artalk/artalk-go:2.10.1
     labels:
       createdBy: Apps
     networks:

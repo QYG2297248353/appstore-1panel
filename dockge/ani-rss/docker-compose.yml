@@ -8,10 +8,13 @@ services:
     - ./envs/global.env
     - .env
     environment:
+    - PUID=0
+    - PGID=0
+    - UMASK=022
     - PORT=7789
     - CONFIG=/config
     - TZ=Asia/Shanghai
-    image: wushuo894/ani-rss:v1.2.82
+    image: wushuo894/ani-rss:v3.0.14
     labels:
       createdBy: Apps
     networks:
