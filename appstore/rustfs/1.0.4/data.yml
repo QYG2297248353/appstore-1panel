@@ -44,11 +44,42 @@ additionalProperties:
       labelEn: Domains
       required: false
       type: text
+    - default: "us-east-1"
+      edit: true
+      envKey: RUSTFS_REGION
+      labelZh: 区域
+      labelEn: Region
+      required: true
+      type: text
     - default: "true"
       edit: true
       envKey: RUSTFS_CONSOLE_ENABLE
       labelZh: 启用控制台
       labelEn: Enable Console
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"
+    - default: "true"
+      edit: true
+      envKey: RUSTFS_NOTIFY_ENABLE
+      labelZh: 启用存储桶事件通知
+      labelEn: Enable Bucket Event Notification
+      required: true
+      type: select
+      values:
+        - label: 启用
+          value: "true"
+        - label: 禁用
+          value: "false"
+    - default: "true"
+      edit: true
+      envKey: RUSTFS_AUDIT_ENABLE
+      labelZh: 启用审计日志
+      labelEn: Enable Audit Logs
       required: true
       type: select
       values:
