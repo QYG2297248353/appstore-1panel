@@ -17,7 +17,7 @@ services:
     - HTTPS_PROXY=${HTTP_PROXY}
     - HTTP_PROXY=${HTTP_PROXY:-}
     - NO_PROXY=${NO_PROXY:-}
-    image: stashapp/stash:v0.31.1
+    image: stashapp/stash:v0.32.0
     labels:
       createdBy: Apps
     logging:
