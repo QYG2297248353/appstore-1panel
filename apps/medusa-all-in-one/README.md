@@ -33,7 +33,7 @@ Medusa 是一个开源的无头电商平台，提供商品、订单、库存、�
 - 内置 **PostgreSQL 16**（数据持久化于数据目录 `postgres`，数据库 `medusa`，用户 `medusa`）
 - 内置 **Redis 7**（数据持久化于数据目录 `redis`，开启 AOF）
 - 上传文件（商品图片等）持久化于数据目录 `static`（默认 `/home/medusa/static`）
-- 安装时先运行一次性 `migrate` 服务执行数据库迁移与初始数据初始化，成功后再启动后端服务
+- 启动时由容器入口脚本自动执行数据库迁移与初始数据初始化（幂等），成功后才启动后端服务；首次启动需先完成迁移，期间服务不可访问（健康检查已设置 120s 启动宽限期）
 
 > 若需使用外置 PostgreSQL / Redis，请使用 `Medusa` 标准版应用。
 
@@ -128,7 +128,7 @@ Admin 后台与 API 的访问地址必须加入对应的 CORS 列表，多个地
 
 1. 在支付宝开放平台创建应用，按需开通「电脑网站支付」「手机网站支付」「当面付」，并配置 RSA2 密钥。
 2. 在上面的表单中填入 APPID、应用私钥、支付宝公钥；`BACKEND_URL` 必须是公网可访问的地址。
-3. 保存并重建应用后，到 **Admin → Settings → Regions → 编辑 Region → Payment providers** 勾选需要的支付宝方式。全新安装时 `migrate` 的初始化数据已自动勾选，可跳过此步。
+3. 保存并重建应用后，到 **Admin → Settings → Regions → 编辑 Region → Payment providers** 勾选需要的支付宝方式。全新安装时启动阶段的初始化数据已自动勾选，可跳过此步。
 4. 若数据库已存在（安装后才填写凭证，或升级前就在使用），需执行一次幂等脚本：
 
 ```sh
@@ -150,6 +150,11 @@ docker exec -it <容器名> ./node_modules/.bin/medusa user -e admin@example.com
 ```
 
 其中 `<容器名>` 为应用安装时显示的容器名称。
+
+## 故障排查
+
+- 面板显示「不健康」、日志停在 `[entrypoint] Running database migrations` 并每分钟出现 `Pg connection failed to connect to the database. Retrying...`：表示数据库连不上。镜像入口脚本没有超时退出，会持续重试。内置库场景通常是 `POSTGRES_PASSWORD` 与已有 `postgres` 数据目录中的密码不一致（PostgreSQL 只在首次初始化时设置密码）。
+- 迁移因 SQL 错误失败时，容器会以非零码退出并被重启策略重新拉起，日志中会先出现具体报错。
 
 ## 常用运维命令
 
