@@ -4,7 +4,7 @@ networks:
 
 services:
   rustfs:
-    image: rustfs/rustfs:latest
+    image: rustfs/rustfs:1.0.4
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
@@ -20,19 +20,18 @@ services:
       - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
       - ${ENV_FILE:-/etc/1panel/envs/default.env}
     volumes:
-      - ${RUSTFS_ROOT_PATH}/logs:/app/logs
+      - ${RUSTFS_ROOT_PATH}/logs:/logs
       - ${RUSTFS_ROOT_PATH}/data:/data
     environment:
       - TZ=Asia/Shanghai
-      - RUSTFS_ADDRESS=0.0.0.0:9000
-      - RUSTFS_CONSOLE_ADDRESS=0.0.0.0:9001
+      - RUSTFS_ADDRESS=:9000
+      - RUSTFS_CONSOLE_ADDRESS=:9001
       - RUSTFS_CONSOLE_ENABLE=true
+      - RUSTFS_OBS_LOGGER_LEVEL=info
+      - RUSTFS_VOLUMES=/data
       - RUSTFS_CORS_ALLOWED_ORIGINS=*
       - RUSTFS_CONSOLE_CORS_ALLOWED_ORIGINS=*
-      - RUSTFS_OBS_LOGGER_LEVEL=info
-      - RUSTFS_TLS_PATH=/opt/tls
-      - RUSTFS_OBJECT_CACHE_ENABLE=true
-      - RUSTFS_OBJECT_CACHE_TTL_SECS=300
+      - RUSTFS_CHECK_UPDATE=false
     healthcheck:
       test:
         [

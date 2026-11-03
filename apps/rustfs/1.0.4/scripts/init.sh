@@ -10,6 +10,10 @@ if [ -f .env ]; then
 
   printf "\nENV_FILE=%s/.env\nGLOBAL_ENV_FILE=%s/envs/global.env\n" "$CURRENT_DIR" "$CURRENT_DIR" >> .env
 
+  mkdir -p "$RUSTFS_ROOT_PATH"
+  mkdir -p "$RUSTFS_ROOT_PATH/logs"
+  mkdir -p "$RUSTFS_ROOT_PATH/data"
+
   chown -R 10001:10001 "$RUSTFS_ROOT_PATH"
 
   echo "Check Finish."
