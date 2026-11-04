@@ -14,7 +14,7 @@ services:
     - initial_email=${INITIAL_EMAIL}
     - initial_server_url=${INITIAL_SERVER_URL}
     - initial_ssh_root_url=${INITIAL_SSH_ROOT_URL}
-    image: 1dev/server:17.0.2
+    image: 1dev/server:17.1.0
     labels:
       createdBy: Apps
     networks:
