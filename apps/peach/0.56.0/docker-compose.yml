@@ -1,0 +1,27 @@
+networks:
+  1panel-network:
+    external: true
+
+services:
+  peach:
+    image: longmeidao/peach:0.56.0
+    container_name: ${CONTAINER_NAME}
+    labels:
+      createdBy: "Apps"
+    init: true
+    restart: always
+    stop_grace_period: 75s
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8900
+    env_file:
+      - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
+      - ${ENV_FILE:-/etc/1panel/envs/default.env}
+    environment:
+      - TZ=Asia/Shanghai
+      - PEACH_IMAGE_TAG=0.56.0
+      - PEACH_ACCESS_PASSWORD=${PEACH_ACCESS_PASSWORD:-}
+    volumes:
+      - ${PEACH_DATA_PATH}/data:/data
+      - ${PEACH_MEDIA_PATH}:/media

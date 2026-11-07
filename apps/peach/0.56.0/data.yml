@@ -1,0 +1,31 @@
+additionalProperties:
+  formFields:
+    - default: "/home/peach"
+      edit: true
+      envKey: PEACH_DATA_PATH
+      labelZh: 数据持久化路径
+      labelEn: Data persistence path
+      required: true
+      type: text
+    - default: 8900
+      edit: true
+      envKey: PANEL_APP_PORT_HTTP
+      labelZh: WebUI 端口
+      labelEn: WebUI port
+      required: true
+      rule: paramPort
+      type: number
+    - default: ""
+      edit: true
+      envKey: PEACH_ACCESS_PASSWORD
+      labelZh: 访问密码
+      labelEn: Access password
+      required: false
+      type: password
+    - default: "/home/peach/media"
+      edit: true
+      envKey: PEACH_MEDIA_PATH
+      labelZh: 媒体目录
+      labelEn: Media directory
+      required: true
+      type: text

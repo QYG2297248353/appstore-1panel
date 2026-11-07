@@ -1,0 +1,16 @@
+additionalProperties:
+  key: peach
+  name: Peach
+  tags:
+    - Media
+    - Local
+  shortDescZh: 本地优先的视频元数据刮削与媒体管理工具
+  shortDescEn: Local-first video metadata scraper and media manager
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  website: https://peach.video
+  github: https://github.com/peach-mitao/peach
+  document: https://peach.video
+  architectures:
+    - amd64
