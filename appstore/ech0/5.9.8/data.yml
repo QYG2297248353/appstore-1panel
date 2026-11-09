@@ -15,14 +15,6 @@ additionalProperties:
       required: true
       rule: paramPort
       type: number
-    - default: 6278
-      edit: true
-      envKey: PANEL_APP_PORT_API
-      labelZh: API 端口
-      labelEn: API port
-      required: true
-      rule: paramPort
-      type: number
     - default: ""
       edit: true
       envKey: JWT_SECRET
