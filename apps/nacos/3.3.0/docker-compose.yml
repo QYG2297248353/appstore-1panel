@@ -12,8 +12,8 @@ services:
     network_mode: ${NETWORK_MODE}
     ports:
       - ${PANEL_APP_PORT_HTTP:-8080}:${PANEL_APP_PORT_HTTP:-8080}
-      - ${PANEL_APP_PORT_API:-8848}:${PANEL_APP_PORT_API:-8080}
-      - ${PANEL_APP_PORT_GRPC}:9848
+      - ${PANEL_APP_PORT_API:-8848}:${PANEL_APP_PORT_API:-8848}
+      - ${PANEL_APP_PORT_GRPC:-9848}:${PANEL_APP_PORT_GRPC:-9848}
     env_file:
       - ${GLOBAL_ENV_FILE:-/etc/1panel/envs/global.env}
       - ${ENV_FILE:-/etc/1panel/envs/default.env}
