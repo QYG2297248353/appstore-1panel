@@ -391,12 +391,6 @@
     },
     {
       "matchFileNames": [
-        "apps/ech0/3.*.*/*.yml"
-      ],
-      "allowedVersions": "<4.0.0"
-    },
-    {
-      "matchFileNames": [
         "apps/omnibox/1.*.*/*.yml"
       ],
       "allowedVersions": "<2.0.0"
