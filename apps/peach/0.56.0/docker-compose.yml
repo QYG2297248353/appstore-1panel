@@ -4,7 +4,7 @@ networks:
 
 services:
   peach:
-    image: longmeidao/peach:0.56.0
+    image: longmeidao/peach:0.57.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
