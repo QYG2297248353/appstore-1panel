@@ -2,20 +2,14 @@ networks:
   1panel-network:
     external: true
 services:
-  open-webui:
-    container_name: open-webui
-    devices:
-    - /dev/dri:/dev/dri
+  glance:
+    container_name: glance
     env_file:
     - ./envs/global.env
     - .env
     environment:
     - TZ=Asia/Shanghai
-    - PORT=8080
-    - ENABLE_OLLAMA_API=True
-    - ENABLE_OPENAI_API=False
-    - https_proxy=${http_proxy}
-    image: ghcr.io/open-webui/open-webui:v0.13.0
+    image: glanceapp/glance:v0.8.8
     labels:
       createdBy: Apps
     networks:
@@ -24,4 +18,7 @@ services:
     - ${PANEL_APP_PORT_HTTP}:8080
     restart: always
     volumes:
-    - ${OPEN_WEBUI_ROOT_PATH}/data:/app/backend/data
+    - ${GLANCE_ROOT_PATH}/app/glance.yml:/app/glance.yml
+    - ${GLANCE_ROOT_PATH}/app/assets:/app/assets
+    - /etc/timezone:/etc/timezone:ro
+    - /etc/localtime:/etc/localtime:ro
