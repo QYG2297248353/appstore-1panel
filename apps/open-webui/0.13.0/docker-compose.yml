@@ -4,7 +4,7 @@ networks:
 
 services:
   open-webui:
-    image: ghcr.io/open-webui/open-webui:v0.13.0
+    image: ghcr.io/open-webui/open-webui:v0.13.3
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
