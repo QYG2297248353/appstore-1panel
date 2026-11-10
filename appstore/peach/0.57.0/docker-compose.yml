@@ -11,7 +11,7 @@ services:
     - TZ=Asia/Shanghai
     - PEACH_IMAGE_TAG=0.56.0
     - PEACH_ACCESS_PASSWORD=${PEACH_ACCESS_PASSWORD:-}
-    image: longmeidao/peach:0.56.0
+    image: longmeidao/peach:0.57.0
     init: true
     labels:
       createdBy: Apps

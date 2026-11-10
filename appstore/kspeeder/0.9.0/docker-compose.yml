@@ -9,7 +9,7 @@ services:
     - .env
     environment:
     - TZ=Asia/Shanghai
-    image: linkease/kspeeder:0.8.9
+    image: linkease/kspeeder:0.9.0
     labels:
       createdBy: Apps
     networks:
