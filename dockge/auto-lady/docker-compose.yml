@@ -7,11 +7,7 @@ services:
     env_file:
     - ./envs/global.env
     - .env
-    environment:
-    - HTTPS_PROXY=${HTTP_PROXY}
-    - HTTP_PROXY=${HTTP_PROXY:-}
-    - NO_PROXY=${NO_PROXY:-}
-    image: envyafish/byte-muse:1.5.3
+    image: orekiiiiiiiiiiiii/auto-lady:1.4.5
     labels:
       createdBy: Apps
     networks:

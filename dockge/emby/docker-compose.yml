@@ -13,7 +13,7 @@ services:
     - HTTP_PROXY=${HTTP_PROXY:-}
     - HTTPS_PROXY=${HTTP_PROXY:-}
     - NO_PROXY=localhost,127.0.0.1,::1
-    image: emby/embyserver:4.8.11.0
+    image: emby/embyserver:4.9.5.0
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE}

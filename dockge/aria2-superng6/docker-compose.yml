@@ -22,7 +22,7 @@ services:
     - SMD=true
     - CRA2B=2h
     - QUIET=true
-    image: superng6/aria2:a2b-stable-24-11-01
+    image: superng6/aria2:25-08-29
     labels:
       createdBy: Apps
     network_mode: ${NETWORK_MODE}

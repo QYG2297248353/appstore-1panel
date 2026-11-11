@@ -9,7 +9,7 @@ services:
     - .env
     environment:
     - TZ=Asia/Shanghai
-    image: bestzwei/libretv:latest
+    image: bestzwei/libretv:202508060117
     labels:
       createdBy: Apps
     networks:

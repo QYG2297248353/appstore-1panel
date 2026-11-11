@@ -1,0 +1,27 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  openlist:
+    container_name: alist
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - PUID=0
+    - PGID=0
+    - UMASK=022
+    - FORCE=false
+    image: openlistteam/openlist:v4.0.2
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:5244
+    restart: always
+    volumes:
+    - ${OPENLIST_ROOT_PATH}/data:/opt/openlist/data
+    - ${CUSTOM_MOUNT_DIRECTORY_1:-./default_mount_1}:${CUSTOM_MOUNT_DIRECTORY_1:-/default_mount_1}
+    - ${CUSTOM_MOUNT_DIRECTORY_2:-./default_mount_2}:${CUSTOM_MOUNT_DIRECTORY_2:-/default_mount_2}
+    - ${CUSTOM_MOUNT_DIRECTORY_3:-./default_mount_3}:${CUSTOM_MOUNT_DIRECTORY_3:-/default_mount_3}
