@@ -26,7 +26,7 @@ services:
       test: ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1
       timeout: 3s
     hostname: ${HOSTNAME_FQDN}
-    image: mailserver/docker-mailserver:16.0.0
+    image: mailserver/docker-mailserver:17.0.0
     labels:
       createdBy: Apps
     networks:

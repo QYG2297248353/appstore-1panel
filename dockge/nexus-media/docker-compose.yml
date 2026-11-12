@@ -29,7 +29,7 @@ services:
       - wget -qO- http://localhost:8080/health || exit 1
       timeout: 30s
     hostname: nexus-media
-    image: linyuan0213/nexus-media:4.27.2
+    image: linyuan0213/nexus-media:5.6.0
     labels:
       createdBy: Apps
     networks:
@@ -53,7 +53,7 @@ services:
     environment:
     - BACKEND_HOST=backend
     - BACKEND_PORT=3000
-    image: linyuan0213/nexus-media-web:4.27.1
+    image: linyuan0213/nexus-media-web:5.10.0
     labels:
       createdBy: Apps
     networks:
