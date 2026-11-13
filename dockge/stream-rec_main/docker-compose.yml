@@ -1,0 +1,47 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  stream-rec-backend:
+    container_name: stream-rec-backend
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - HTTPS_PROXY=${HTTP_PROXY}
+    - LOG_LEVEL=INFO
+    - DB_PATH=/opt/records
+    - DOWNLOAD_PATH=/download
+    - PGID=1000
+    - PUID=1000
+    image: streamrec/stream-rec:main
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_API}:12555
+    restart: always
+    volumes:
+    - ${STREAM_REC_ROOT_PATH}/records:/opt/records
+    - ${STREAM_REC_ROOT_PATH}/rclone:/root/.config/rclone
+    - ${STREAM_REC_ROOT_PATH}/download:/download
+  stream-rec-frontend:
+    container_name: stream-rec
+    depends_on:
+    - stream-rec-backend
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    - API_URL=http://stream-rec-backend:12555/api
+    image: streamrec/stream-rec-front:main
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:15275
+    restart: always

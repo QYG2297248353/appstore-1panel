@@ -4,7 +4,7 @@ networks:
 services:
   iyuuplus:
     container_name: iyuu-plus
-    image: iyuucn/iyuuplus-nodb:latest
+    image: iyuucn/iyuuplus:latest
     labels:
       createdBy: Apps
     networks:

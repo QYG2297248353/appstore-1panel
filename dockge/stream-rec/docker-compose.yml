@@ -15,7 +15,7 @@ services:
     - DOWNLOAD_PATH=/download
     - PGID=1000
     - PUID=1000
-    image: streamrec/stream-rec:main
+    image: streamrec/stream-rec:dev
     labels:
       createdBy: Apps
     networks:
@@ -37,7 +37,7 @@ services:
     environment:
     - TZ=Asia/Shanghai
     - API_URL=http://stream-rec-backend:12555/api
-    image: streamrec/stream-rec-front:main
+    image: streamrec/stream-rec-front:dev
     labels:
       createdBy: Apps
     networks:

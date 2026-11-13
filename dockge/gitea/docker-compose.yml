@@ -6,32 +6,29 @@ services:
     container_name: gitea
     env_file:
     - ./envs/global.env
+    - ./envs/gitea.env
     - .env
     environment:
     - USER_UID=1000
     - USER_GID=1000
-    - HTTP_ADDR=0.0.0.0
-    - HTTP_PORT=3000
-    - SSH_LISTEN_HOST=0.0.0.0
-    - SSH_LISTEN_PORT=22
-    - RUN_MODE=prod
     - DISABLE_SSH=false
-    - DOMAIN=localhost
-    - SSH_DOMAIN=localhost
-    - DB_HOST=${DB_HOSTNAME:-localhost}:${DB_PORT:-5432}
-    - GITEA__REPOSITORY__DEFAULT_BRANCH=master
-    - GITEA__INDEXER__REPO_INDEXER_ENABLED=true
-    - GITEA__ADMIN__DISABLE_REGULAR_ORG_CREATION=true
-    - GITEA__ADMIN__USER_DISABLED_FEATURES=deletion,change_username
-    - GITEA__SERVICE__DEFAULT_ALLOW_CREATE_ORGANIZATION=false
-    - GITEA__TIME__DEFAULT_UI_LOCATION=Asia/Shanghai
-    - GITEA__PROXY__PROXY_ENABLED=${PROXY_ENABLED:-false}
-    - GITEA__PROXY__PROXY_URL=${PROXY_URL:-}
-    - GITEA__PROXY__PROXY_HOSTS=${PROXY_HOSTS:-**}
-    - GITEA__OTHER__SHOW_FOOTER_VERSION=false
-    - GITEA__OTHER__SHOW_FOOTER_TEMPLATE_LOAD_TIME=false
-    - GITEA__OTHER__SHOW_FOOTER_POWERED_BY=false
-    image: gitea/gitea:28.3.0
+    - GITEA__api__ENABLE_SWAGGER=false
+    - DB_HOST=${DB_HOSTNAME}:${DB_PORT}
+    - GITEA__mailer__ENABLED=${MAILER_ENABLED}
+    - GITEA__mailer__SMTP_ADDR=${MAILER_SMTP_ADDR}
+    - GITEA__mailer__SMTP_PORT=${MAILER_SMTP_PORT}
+    - GITEA__mailer__USER=${MAILER_USER}
+    - GITEA__mailer__PASSWD=${MAILER_PASSWD}
+    - GITEA__mailer__FROM=${MAILER_FROM}
+    - GITEA__mailer__SUBJECT_PREFIX=${MAILER_SUBJECT_PREFIX}
+    - GITEA__proxy__PROXY_ENABLED=${PROXY_ENABLED}
+    - GITEA__proxy__PROXY_URL=${PROXY_URL}
+    - GITEA__proxy__PROXY_HOSTS=${PROXY_HOSTS}
+    - GITEA__webhook__PROXY_URL=${PROXY_URL}
+    - GITEA__webhook__PROXY_HOSTS=${PROXY_HOSTS}
+    - GITEA__git.config__http.proxy=${PROXY_URL}
+    - GITEA__git.config__https.proxy=${PROXY_URL}
+    image: gitea/gitea:1.27.3
     labels:
       createdBy: Apps
     networks:
