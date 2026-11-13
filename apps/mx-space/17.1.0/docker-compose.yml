@@ -4,10 +4,7 @@ networks:
 
 services:
   mx-server:
-    image: innei/mx-server:17.0.5
-    depends_on:
-      - mx-mongo
-      - mx-redis
+    image: innei/mx-server:17.1.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
@@ -27,23 +24,3 @@ services:
       - DEMO=false
       - NODE_ENV=production
       - ENCRYPT_ENABLE=false
-      - DB_HOST=mx-mongo
-      - REDIS_HOST=mx-redis
-
-  mx-mongo:
-    image: mongo
-    container_name: mongo-${CONTAINER_NAME}
-    volumes:
-      - ${MX_SERVER_ROOT_PATH}/db:/data/db
-    networks:
-      - 1panel-network
-    restart: always
-
-  mx-redis:
-    image: redis:alpine
-    container_name: redis-${CONTAINER_NAME}
-    volumes:
-      - ${MX_SERVER_ROOT_PATH}/redis:/data
-    networks:
-      - 1panel-network
-    restart: always
