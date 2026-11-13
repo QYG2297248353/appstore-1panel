@@ -15,7 +15,7 @@ services:
     - HTTP_PROXY=${HTTP_PROXY:-}
     - HTTPS_PROXY=${HTTP_PROXY:-}
     - NO_PROXY=localhost,127.0.0.1,::1
-    image: sn0wl1n/ech0:v5.9.8
+    image: sn0wl1n/ech0:v5.9.9
     labels:
       createdBy: Apps
     networks:

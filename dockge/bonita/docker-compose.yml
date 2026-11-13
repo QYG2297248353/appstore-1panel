@@ -11,7 +11,7 @@ services:
     - PUID=0
     - PGID=0
     - TZ=Asia/Shanghai
-    image: suwmlee/bonita:1.0.1
+    image: suwmlee/bonita:1.22.1
     labels:
       createdBy: Apps
     networks:

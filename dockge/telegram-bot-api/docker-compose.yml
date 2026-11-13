@@ -14,7 +14,7 @@ services:
     - TELEGRAM_MAX_WEBHOOK_CONNECTIONS=100000
     - TELEGRAM_LOG_FILE=/var/log/telegram-bot-api/telegram-bot-api.log
     - TELEGRAM_MAX_CONNECTIONS=1024
-    image: aiogram/telegram-bot-api:10.0
+    image: aiogram/telegram-bot-api:10.4
     labels:
       createdBy: Apps
     networks:

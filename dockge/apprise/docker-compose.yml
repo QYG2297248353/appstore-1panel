@@ -12,7 +12,7 @@ services:
     - APPRISE_STATEFUL_MODE=simple
     - APPRISE_WORKER_COUNT=1
     - APPRISE_ADMIN=y
-    image: caronc/apprise:v2.0.0
+    image: caronc/apprise:2.1.0
     labels:
       createdBy: Apps
     networks:

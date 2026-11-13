@@ -27,7 +27,7 @@ services:
       - -c
       - curl -f http://127.0.0.1:9000/health && curl -f http://127.0.0.1:9001/rustfs/console/health
       timeout: 10s
-    image: rustfs/rustfs:1.0.4
+    image: rustfs/rustfs:1.0.5
     labels:
       createdBy: Apps
     networks:
