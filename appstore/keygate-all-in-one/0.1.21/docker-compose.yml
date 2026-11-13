@@ -40,7 +40,7 @@ services:
       - -sf
       - http://localhost:9000/health
       timeout: 5s
-    image: ghcr.io/tabloy/keygate:0.1.20
+    image: ghcr.io/tabloy/keygate:0.1.21
     labels:
       createdBy: Apps
     networks:
