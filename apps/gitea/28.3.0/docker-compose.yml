@@ -4,7 +4,7 @@ networks:
 
 services:
   gitea:
-    image: gitea/gitea:28.2.0
+    image: gitea/gitea:28.3.0
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
