@@ -15,7 +15,7 @@ services:
     - HERMES_WEBUI_PORT=${PANEL_APP_PORT_HTTP:-8787}
     - HERMES_WEBUI_STATE_DIR=/home/hermeswebui/.hermes/webui
     - HERMES_WEBUI_DEFAULT_WORKSPACE=/workspace
-    image: ghcr.io/nesquena/hermes-webui:0.52.682
+    image: ghcr.io/nesquena/hermes-webui:0.52.688
     labels:
       createdBy: Apps
     networks:

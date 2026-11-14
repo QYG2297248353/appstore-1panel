@@ -57,7 +57,7 @@ services:
       - -f
       - http://localhost:1200/healthz?key=${ACCESS_KEY}
       timeout: 10s
-    image: diygod/rsshub:2026-11-13
+    image: diygod/rsshub:2026-11-14
     labels:
       createdBy: Apps
     networks:
