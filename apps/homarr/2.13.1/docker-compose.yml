@@ -4,7 +4,7 @@ networks:
 
 services:
   homarr:
-    image: ghcr.io/homarr-labs/homarr:v2.13.0
+    image: ghcr.io/homarr-labs/homarr:v2.13.1
     container_name: ${CONTAINER_NAME}
     labels:
       createdBy: "Apps"
