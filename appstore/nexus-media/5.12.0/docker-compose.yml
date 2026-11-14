@@ -5,7 +5,7 @@ networks:
     driver: bridge
 services:
   backend:
-    container_name: nexus-media-postgresql
+    container_name: nexus-media
     depends_on:
     - redis
     env_file:
@@ -17,12 +17,6 @@ services:
     - UMASK=000
     - NEXUS_PORT=3000
     - NEXUS_MEDIA_DATA=/data
-    - DATABASE__TYPE=postgresql
-    - DATABASE__HOST=${DB_HOSTNAME}
-    - DATABASE__PORT=${DB_PORT}
-    - DATABASE__USERNAME=${DB_USERNAME}
-    - DATABASE__PASSWORD=${DB_PASSWORD}
-    - DATABASE__DATABASE=${DB_DATABASE_NAME}
     - REDIS__HOST=redis
     - REDIS__PORT=6379
     - REDIS__DB=0
@@ -35,7 +29,7 @@ services:
       - wget -qO- http://localhost:8080/health || exit 1
       timeout: 30s
     hostname: nexus-media
-    image: linyuan0213/nexus-media:5.11.2
+    image: linyuan0213/nexus-media:5.12.0
     labels:
       createdBy: Apps
     networks:
@@ -50,7 +44,7 @@ services:
     - ${NEXUS_MEDIA_ROOT_PATH}/data:/data
     - ${NEXUS_MEDIA_MEDIA_PATH}:/media
   frontend:
-    container_name: nexus-media-postgresql-web
+    container_name: nexus-media-web
     depends_on:
     - backend
     env_file:
@@ -59,7 +53,7 @@ services:
     environment:
     - BACKEND_HOST=backend
     - BACKEND_PORT=3000
-    image: linyuan0213/nexus-media-web:5.11.2
+    image: linyuan0213/nexus-media-web:5.12.0
     labels:
       createdBy: Apps
     networks:
@@ -70,7 +64,7 @@ services:
     restart: always
   redis:
     command: redis-server --save "" --appendonly no --dir /data
-    container_name: nexus-media-postgresql-redis
+    container_name: nexus-media-redis
     image: redis:7-alpine
     networks:
       nexus-media-network:
