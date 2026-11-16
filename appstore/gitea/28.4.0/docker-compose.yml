@@ -31,7 +31,7 @@ services:
     - GITEA__OTHER__SHOW_FOOTER_VERSION=false
     - GITEA__OTHER__SHOW_FOOTER_TEMPLATE_LOAD_TIME=false
     - GITEA__OTHER__SHOW_FOOTER_POWERED_BY=false
-    image: gitea/gitea:28.3.0
+    image: gitea/gitea:28.4.0
     labels:
       createdBy: Apps
     networks:
