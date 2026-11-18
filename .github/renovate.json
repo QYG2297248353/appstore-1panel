@@ -81,6 +81,12 @@
     },
     {
       "matchFileNames": [
+        "apps/postgresql/18.*/*.yml"
+      ],
+      "allowedVersions": "/^18.*/"
+    },
+    {
+      "matchFileNames": [
         "apps/redis/6.*/*.yml"
       ],
       "allowedVersions": "/^6.*/"
