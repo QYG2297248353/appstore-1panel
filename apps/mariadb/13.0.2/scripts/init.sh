@@ -16,7 +16,7 @@ if [ -f .env ]; then
 
   cp ./config/my.cnf "$MARIADB_ROOT_PATH/config/my.cnf"
 
-  chown -R 1000:1000 "$MYSQL_ROOT_PATH"
+  chown -R 1000:1000 "$MARIADB_ROOT_PATH"
 
   echo "Check Finish."
 
