@@ -8,19 +8,15 @@ services:
     - ./envs/global.env
     - .env
     environment:
+    - TZ=Asia/Shanghai
     - NGINX_PORT=${PANEL_APP_PORT_HTTP}
     - PORT=${PANEL_APP_PORT_API}
-    - DEBUG=false
-    - DEV=false
-    - LOG_LEVEL=INFO
-    - PASSKEY_ALLOW_REGISTER_WITHOUT_OTP=true
+    - PUID=0
+    - PGID=0
+    - UMASK=000
     image: jxxghp/moviepilot-v3:3.2.8
     labels:
       createdBy: Apps
-    logging:
-      driver: json-file
-      options:
-        max-size: 5m
     network_mode: ${NETWORK_MODE}
     ports:
     - ${PANEL_APP_PORT_HTTP}:${PANEL_APP_PORT_HTTP}
@@ -29,10 +25,8 @@ services:
     stdin_open: true
     tty: true
     volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
     - ${MOVIEPILOT_ROOT_PATH}/config:/config
-    - ${MOVIEPILOT_ROOT_PATH}/moviepilot:/moviepilot
-    - ${MOVIEPILOT_ROOT_PATH}/download:/download
+    - ${MOVIEPILOT_ROOT_PATH}/cloakbrowser:/moviepilot/.cloakbrowser
     - ${CUSTOM_MOUNT_DIRECTORY_1:-./default_mount_1}:${CUSTOM_MOUNT_DIRECTORY_1:-/default_mount_1}
     - ${CUSTOM_MOUNT_DIRECTORY_2:-./default_mount_2}:${CUSTOM_MOUNT_DIRECTORY_2:-/default_mount_2}
     - ${CUSTOM_MOUNT_DIRECTORY_3:-./default_mount_3}:${CUSTOM_MOUNT_DIRECTORY_3:-/default_mount_3}
