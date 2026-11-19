@@ -1,0 +1,21 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  apifox-runner:
+    container_name: apifox-runner-team
+    env_file:
+    - ./envs/global.env
+    - .env
+    environment:
+    - TZ=Asia/Shanghai
+    image: registry.cn-hangzhou.aliyuncs.com/apifox/self-hosted-general-runner:slim
+    labels:
+      createdBy: Apps
+    networks:
+    - 1panel-network
+    ports:
+    - ${PANEL_APP_PORT_HTTP}:4524
+    restart: always
+    volumes:
+    - ${APIFOX_RUNNER_ROOT_PATH}/runner:/opt/runner

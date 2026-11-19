@@ -11,7 +11,7 @@ services:
     - LOG_LEVEL=INFO
     - DB_PATH=/opt/records
     - DOWNLOAD_PATH=/download
-    image: streamrec/stream-rec:v0.7.2
+    image: streamrec/stream-rec:main
     labels:
       createdBy: Apps
     networks:
